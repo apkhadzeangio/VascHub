@@ -558,6 +558,16 @@
   margin-top: 24px;
   font-size: 11px;
 }
+.vh-footer-side nav > button:hover {
+  background: var(--feature);
+  color: #fff;
+}
+.vh-footer-brand > a:focus-visible,
+.vh-footer-side nav > a:focus-visible,
+.vh-footer-side nav > button:focus-visible,
+.vh-academy a:focus-visible {
+  outline-color: var(--on-navy);
+}
 .vh-dialog {
   margin: auto;
   padding: 24px;

@@ -138,6 +138,40 @@ test.describe.serial('VascHub homepage', () => {
     await expect(page).toHaveURL('http://localhost:3000/')
     await page.keyboard.press('Escape')
   })
+  test('keeps footer actions legible on hover and keyboard focus', async ({ page }) => {
+    await page.goto('/')
+    const contact = page
+      .locator('.vh-footer')
+      .getByRole('button', { name: 'კონტაქტი', exact: true })
+    await contact.hover()
+    const colors = await contact.evaluate((e) => ({
+      color: getComputedStyle(e).color,
+      background: getComputedStyle(e).backgroundColor,
+    }))
+    const luminance = (rgb: string) => {
+      const values = rgb
+        .match(/[0-9.]+/g)!
+        .slice(0, 3)
+        .map(Number)
+        .map((n) => n / 255)
+        .map((n) => (n <= 0.04045 ? n / 12.92 : ((n + 0.055) / 1.055) ** 2.4))
+      return values[0] * 0.2126 + values[1] * 0.7152 + values[2] * 0.0722
+    }
+    const ratio = (a: string, b: string) => {
+      const values = [luminance(a), luminance(b)].sort((x, y) => x - y)
+      return (values[1] + 0.05) / (values[0] + 0.05)
+    }
+    expect(ratio(colors.color, colors.background)).toBeGreaterThanOrEqual(4.5)
+    await page.keyboard.press('Tab')
+    await contact.focus()
+    const focus = await contact.evaluate((e) => ({
+      outline: getComputedStyle(e).outlineColor,
+      width: parseFloat(getComputedStyle(e).outlineWidth),
+      background: getComputedStyle(e.closest('footer')!).backgroundColor,
+    }))
+    expect(focus.width).toBeGreaterThanOrEqual(2)
+    expect(ratio(focus.outline, focus.background)).toBeGreaterThanOrEqual(3)
+  })
   test('publishes a CMS edit through the real admin UI and reflects it publicly', async ({
     page,
     browser,
