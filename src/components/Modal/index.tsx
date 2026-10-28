@@ -50,6 +50,29 @@ export function Modal({
       aria-labelledby={id}
       onClose={onClose}
       className={`vh-theme vh-dialog ${className}`}
+      onKeyDown={(event) => {
+        if (event.key !== 'Tab') return
+        if (
+          event.target instanceof HTMLElement &&
+          event.target.closest('dialog') !== event.currentTarget
+        )
+          return
+        const focusable = Array.from(
+          event.currentTarget.querySelectorAll<HTMLElement>(
+            'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+          ),
+        ).filter((element) => element.tabIndex >= 0 && element.getClientRects().length > 0)
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (!first) return
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault()
+          last.focus()
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault()
+          first.focus()
+        }
+      }}
       onClick={(event) => {
         if (event.target !== event.currentTarget) return
         const r = event.currentTarget.getBoundingClientRect()

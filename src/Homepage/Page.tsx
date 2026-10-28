@@ -8,6 +8,7 @@ import { Search } from '@/search/Component'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { draftMode } from 'next/headers'
 import { homepageDefaults, publicHref } from './defaults'
+import { upcomingEvents } from './events'
 import { getHomepageData, getHomepagePage } from './data'
 import { dateLabel, postURL, ResourceCard } from './ResourceCard'
 
@@ -55,15 +56,7 @@ export async function HomePage() {
   const { home, resources, news, academyPost } = await getHomepageData()
   const { isEnabled: draft } = await draftMode()
   const topics = home?.topics?.length ? home.topics : homepageDefaults.topics
-  const today = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Asia/Tbilisi',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).format(new Date())
-  const events = (home?.events ?? [])
-    .filter((event) => !event.date || event.date.slice(0, 10) >= today)
-    .sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999'))
+  const events = upcomingEvents(home?.events ?? [])
   return (
     <main className="vh-theme vh-home" tabIndex={-1}>
       {draft && <LivePreviewListener />}

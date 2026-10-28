@@ -1,6 +1,7 @@
 import { getPayload, type Payload } from 'payload'
 import config from '@/payload.config'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
+import { upcomingEvents } from '@/Homepage/events'
 import { queryPublishedPosts } from '@/search/queryPublishedPosts'
 import { assertTestDatabase, demoContent, fixtureContext } from '../helpers/homepageFixture'
 
@@ -111,5 +112,20 @@ describe('Public homepage search and CMS fields', () => {
         },
       }),
     ).rejects.toMatchObject({ status: 403 })
+  })
+})
+
+describe('Georgian event dates', () => {
+  it('keeps today near UTC midnight, excludes prior local dates and places undated notices last', () => {
+    const events = [
+      { id: 'undated', date: null },
+      { id: 'prior-local-day', date: '2026-10-28T19:00:00Z' },
+      { id: 'today-in-georgia', date: '2026-10-28T21:00:00Z' },
+    ]
+    expect(upcomingEvents(events, new Date('2026-10-28T20:30:00Z')).map((e) => e.id)).toEqual([
+      'today-in-georgia',
+      'undated',
+    ])
+    expect(events[0].id).toBe('undated')
   })
 })

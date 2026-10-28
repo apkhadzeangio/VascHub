@@ -29,7 +29,7 @@ export function ResourceCard({ post }: { post: ResourcePost }) {
           <FileText size={20} aria-hidden="true" />
         </span>
         <p className="vh-resource-kind">
-          {typeof category === 'object' ? category.title : 'გამოქვეყნებული მასალა'}
+          {category && typeof category === 'object' ? category.title : 'გამოქვეყნებული მასალა'}
         </p>
         <h3 id={`resource-${post.id}`}>{post.title}</h3>
         <p className="vh-resource-description">
