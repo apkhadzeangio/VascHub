@@ -1,0 +1,56 @@
+{
+  "version": "local-design-v1",
+  "date": "2026-10-28",
+  "figmaExport": false,
+  "figmaCanvasStatus": "empty: Starter MCP quota blocked canvas operations",
+  "files": [
+    {
+      "file": "contrast-qa.json",
+      "sha256": "a3f44c3119726de929b1d38826df5041059f4e8e0c32a17aed74ad19c284e355"
+    },
+    {
+      "file": "homepage-desktop.png",
+      "sha256": "c99bbfbc5c52af97bb36d368a5e0a09330c5997cb2a6006404aa65beabc6b3ef"
+    },
+    {
+      "file": "homepage-desktop.svg",
+      "sha256": "c34d8841ca73ed30b40c1d01238cd1c0151aa685aaa40e5393f35da966c2f1ed"
+    },
+    {
+      "file": "homepage-mobile.png",
+      "sha256": "18b61e9b0a1afec720fea5c848bfdb3bf959766c1359084b8172a2f804e0a722"
+    },
+    {
+      "file": "homepage-mobile.svg",
+      "sha256": "b00858c7669437670ca69cdf76742e25a385eff602ab05bf151170da9c3d8ba6"
+    },
+    {
+      "file": "homepage-overview.png",
+      "sha256": "0814fed7f70edad498fd92d36332cc55c05c020a9114e2cb9c190643d6e06208"
+    },
+    {
+      "file": "homepage-states.png",
+      "sha256": "7442803b2338050ca2e44a4bb28abd4107c0749e2e51ddf2c7445878d6a5432d"
+    },
+    {
+      "file": "homepage-states.svg",
+      "sha256": "6f306ee817c0df466dd2239852adb57d7bf6a9d7a0aaf34a0e377e7f07bb4f9e"
+    },
+    {
+      "file": "homepage-wireframe.png",
+      "sha256": "4ecc2370deb44b8547374d1126567bbb6db26e1e78ed5fc40c008418f9a4d084"
+    },
+    {
+      "file": "homepage-wireframe.svg",
+      "sha256": "a8ec7b7f680ca062b00410a02ef93bcb854fc81ae65770c63af729a85742b542"
+    },
+    {
+      "file": "layout-qa.json",
+      "sha256": "de4fd9ee08cd655b0346077b3df5e446e6ad4088048917c8e3fb3490ab08c3ce"
+    },
+    {
+      "file": "tokens.json",
+      "sha256": "dc9a9a8d5093bd8654b0bbd70a11cac143f1854513a9018b6709248bd48558bc"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "file": "homepage-desktop.svg",
+    "width": 1440,
+    "height": 1894,
+    "editableTextLines": 78,
+    "overflow": []
+  },
+  {
+    "file": "homepage-mobile.svg",
+    "width": 390,
+    "height": 3153,
+    "editableTextLines": 74,
+    "overflow": []
+  },
+  {
+    "file": "homepage-wireframe.svg",
+    "width": 1440,
+    "height": 1380,
+    "editableTextLines": 15,
+    "overflow": []
+  },
+  {
+    "file": "homepage-states.svg",
+    "width": 1440,
+    "height": 1010,
+    "editableTextLines": 34,
+    "overflow": []
+  }
+]
