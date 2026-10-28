@@ -1,0 +1,26 @@
+// Final native Figma v1.1 corrections. Runs after figma-native-homepage.js.
+// Uses actual returned IDs in assets/figma-native-state.json; never guess IDs.
+const page=await figma.getNodeByIdAsync('0:1');
+await figma.setCurrentPageAsync(page);
+await Promise.all(['Regular','Medium','SemiBold','Bold'].map(style=>figma.loadFontAsync({family:'Noto Sans Georgian',style})));
+const createdNodeIds=[],mutatedNodeIds=[],removedNodeIds=[];
+const cases=[
+ {rootId:'4:331',name:'H1',parent:'01 / Knowledge search & clinical topics',lines:['ცოდნა ყოველდღიური','პრაქტიკისთვის.']},
+ {rootId:'4:119',name:'Heading',parent:'Academy introduction',lines:['ისწავლე მოკლე,','პრაქტიკული მოდულებით.']},
+ {rootId:'4:331',name:'Heading',parent:'Academy introduction',lines:['ისწავლე მოკლე,','პრაქტიკული','მოდულებით.']}
+];
+for(const c of cases){
+ const root=await figma.getNodeByIdAsync(c.rootId);
+ const old=root.findAllWithCriteria({types:['TEXT']}).find(n=>n.name===c.name&&n.parent.name===c.parent);
+ if(!old)continue; // already polished; do not duplicate the line group
+ const parent=old.parent,index=parent.children.indexOf(old),style=await figma.getStyleByIdAsync(old.textStyleId),width=old.width,lineHeight=style.lineHeight.value;
+ const group=figma.createAutoLayout('VERTICAL');parent.insertChild(index,group);group.name=c.name+' / Georgian lines';group.fills=[];group.resize(width,lineHeight);group.layoutSizingHorizontal='FIXED';group.layoutSizingVertical='HUG';group.itemSpacing=0;createdNodeIds.push(group.id);
+ for(const [i,line]of c.lines.entries()){
+  const t=figma.createText();t.name=c.name+' / line '+(i+1);t.fontName=style.fontName;await t.setTextStyleIdAsync(style.id);t.characters=line;t.fills=old.fills;group.appendChild(t);t.resize(width,lineHeight);t.textAutoResize='HEIGHT';t.layoutSizingHorizontal='FIXED';t.layoutSizingVertical='HUG';createdNodeIds.push(t.id);
+ }
+ removedNodeIds.push(old.id);old.remove();mutatedNodeIds.push(parent.id,root.id);
+}
+for(const id of ['4:5','4:12','4:59','4:67']){
+ const c=await figma.getNodeByIdAsync(id),q=c.findAllWithCriteria({types:['TEXT']}).find(t=>t.name==='Query');q.layoutSizingHorizontal='FILL';mutatedNodeIds.push(q.id,c.id);
+}
+return {createdNodeIds,mutatedNodeIds,removedNodeIds};

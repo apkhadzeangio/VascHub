@@ -1,0 +1,80 @@
+// VascHub native Figma source, snapshot v1.1. Run only via Figma use_figma.
+// Adapted from figma-generate-library createVariableCollection.js and
+// createComponentWithVariants.js. No application code is changed.
+const page = await figma.getNodeByIdAsync('0:1');
+await figma.setCurrentPageAsync(page);
+page.name = 'VascHub / Homepage v1.1';
+const fontFamily = 'Noto Sans Georgian';
+await Promise.all(['Regular', 'Medium', 'SemiBold', 'Bold'].map(style => figma.loadFontAsync({family:fontFamily, style})));
+if (page.children.some(n => n.name === 'VascHub / Foundations & components')) throw new Error('Foundations already exist; resume from returned IDs.');
+const createdNodeIds = [], variables = {}, textStyles = {}, components = {}, properties = {};
+const rgb = h => ({r:parseInt(h.slice(1,3),16)/255,g:parseInt(h.slice(3,5),16)/255,b:parseInt(h.slice(5,7),16)/255});
+async function createVariableCollection(name, modeNames) {
+  const existing=(await figma.variables.getLocalVariableCollectionsAsync()).find(c=>c.name===name);
+  const collection=existing||figma.variables.createVariableCollection(name);
+  collection.renameMode(collection.modes[0].modeId,modeNames[0]);
+  return {collection,modeIds:{[modeNames[0]]:collection.modes[0].modeId}};
+}
+const {collection,modeIds}=await createVariableCollection('VascHub / Homepage', ['Light']);
+const existingVars=await figma.variables.getLocalVariablesAsync();
+function token(name,type,value,scopes,css){
+  let v=existingVars.find(v=>v.variableCollectionId===collection.id&&v.name===name);
+  if(!v) v=figma.variables.createVariable(name,collection,type);
+  v.scopes=scopes;v.setValueForMode(modeIds.Light,value);v.setVariableCodeSyntax('WEB',`var(${css})`);variables[name]=v;return v;
+}
+const colors={background:'#F6F8F7',foreground:'#182F3B',card:'#FFFFFF',primary:'#096B61','primary-foreground':'#FFFFFF','muted-foreground':'#566C76',accent:'#E9F4EF',border:'#DCE5E2',ring:'#096B61',navy:'#122F40',feature:'#1C4051','on-navy':'#C1D6D6',hover:'#084E48',disabled:'#DCE5E2','disabled-foreground':'#405B56'};
+for(const [name,hex] of Object.entries(colors)){
+  const primitive=token('primitive/'+name,'COLOR',rgb(hex),[],'--vaschub-primitive-'+name);
+  token('color/'+name,'COLOR',{type:'VARIABLE_ALIAS',id:primitive.id},['FRAME_FILL','SHAPE_FILL','TEXT_FILL','STROKE_COLOR'],name==='navy'?'--brand-navy':'--'+name);
+}
+for(const value of [0,4,8,12,16,20,24,28,32,40,44,48,52,64,120]) token('spacing/'+value,'FLOAT',value,['GAP'],'--space-'+value);
+for(const value of [0,5,8,10,12,16])token('radius/'+value,'FLOAT',value,['CORNER_RADIUS'],'--radius-'+value);
+token('border/width','FLOAT',1,['STROKE_FLOAT'],'--border-width');
+const styleSpecs={hero:[40,56,'SemiBold'],mobileHero:[29,43,'SemiBold'],section:[24,36,'SemiBold'],mobileSection:[22,33,'SemiBold'],feature:[27,40,'SemiBold'],card:[19,28,'SemiBold'],mobileCard:[17,26,'SemiBold'],body:[16,26,'Regular'],small:[14,24,'Regular'],label:[13,21,'Medium'],caption:[11,18,'Regular'],wordmark:[27,38,'Bold']};
+const priorStyles=await figma.getLocalTextStylesAsync();
+for(const [name,[size,line,style]] of Object.entries(styleSpecs)){
+  const ts=priorStyles.find(s=>s.name==='VascHub/'+name)||figma.createTextStyle();
+  ts.name='VascHub/'+name;ts.fontName={family:fontFamily,style};ts.fontSize=size;ts.lineHeight={unit:'PIXELS',value:line};textStyles[name]=ts;
+}
+function track(n){createdNodeIds.push(n.id);return n;}
+function paint(name){return figma.variables.setBoundVariableForPaint({type:'SOLID',color:{r:0,g:0,b:0}},'color',variables['color/'+name]);}
+function fill(n,name){n.fills=name?[paint(name)]:[];}
+function stroke(n,name='border'){n.strokes=[paint(name)];n.strokeWeight=1;n.setBoundVariable('strokeWeight',variables['border/width']);}
+function radius(n,r){for(const p of ['topLeftRadius','topRightRadius','bottomLeftRadius','bottomRightRadius'])n.setBoundVariable(p,variables['radius/'+r]);}
+function gap(n,s){n.setBoundVariable('itemSpacing',variables['spacing/'+s]);}
+function pad(n,x,y=x){for(const p of ['paddingLeft','paddingRight'])n.setBoundVariable(p,variables['spacing/'+x]);for(const p of ['paddingTop','paddingBottom'])n.setBoundVariable(p,variables['spacing/'+y]);}
+function frame(parent,name,direction='VERTICAL',width=350,bg=null){const n=track(figma.createAutoLayout(direction));n.name=name;parent.appendChild(n);n.resize(width,10);n.layoutSizingHorizontal='FIXED';n.layoutSizingVertical='HUG';fill(n,bg);return n;}
+async function text(parent,name,value,style='body',color='foreground',width){const t=track(figma.createText());t.name=name;t.fontName={family:fontFamily,style:styleSpecs[style][2]};await t.setTextStyleIdAsync(textStyles[style].id);t.characters=value;fill(t,color);parent.appendChild(t);if(width){t.textAutoResize='HEIGHT';t.resize(width,styleSpecs[style][1]);t.layoutSizingHorizontal='FIXED';}else{t.textAutoResize='WIDTH_AND_HEIGHT';}return t;}
+function component(name,width,height,direction='HORIZONTAL',bg='card',border=false,r=8){const n=track(figma.createComponent());n.name=name;n.layoutMode=direction;n.primaryAxisSizingMode='FIXED';n.counterAxisSizingMode='FIXED';n.resize(width,height);n.counterAxisAlignItems='CENTER';fill(n,bg);if(border)stroke(n);radius(n,r);n.description='VascHub homepage v1.1. Editable UI; demo content only.';components[name]=n;return n;}
+function prop(c,t,name){const key=c.addComponentProperty(name,'TEXT',t.characters);t.componentPropertyReferences={characters:key};(properties[c.name]??={})[name]=key;return key;}
+function icon(parent,name,size=22,color='primary'){
+  const source=ICONS[name];if(!source)throw new Error('Missing source SVG '+name);
+  const n=track(figma.createNodeFromSvg(source.replaceAll('currentColor',colors[color])));n.name='Icon/'+name;n.resize(size,size);parent.appendChild(n);
+  for(const child of n.findAllWithCriteria({types:['VECTOR']})){createdNodeIds.push(child.id);if(name!=='vaschub'&&Array.isArray(child.strokes)&&child.strokes.length)child.strokes=child.strokes.map(p=>p.type==='SOLID'?paint(color):p);}
+  return n;
+}
+const board=frame(page,'VascHub / Foundations & components','VERTICAL',1440,'card');board.x=100;board.y=3900;pad(board,40);gap(board,24);
+await text(board,'Title','VascHub / Foundations & components','section','navy');
+await text(board,'Status','Native Figma • v1.1 • Noto Sans Georgian • აპის CSS უცვლელია','small','muted-foreground',1360);
+const swatches=frame(board,'Semantic colors','HORIZONTAL',1360);gap(swatches,16);
+for(const name of ['navy','primary','background','foreground','accent','muted-foreground']){const s=frame(swatches,'Swatch/'+name,'VERTICAL',210);gap(s,8);const box=frame(s,'Color','VERTICAL',210,name);box.resize(210,56);box.layoutSizingVertical='FIXED';radius(box,8);await text(s,'Name',name,'caption');await text(s,'Hex',colors[name],'caption','muted-foreground');}
+await text(board,'Type specimen','ცოდნა ყოველდღიური პრაქტიკისთვის.','hero','navy',1360);
+await text(board,'Type body','ქართული ტექსტი: გაიდლაინები, სასწავლო მასალები და პროფესიული შესაძლებლობები.','body','foreground',1360);
+await text(board,'Mapping','Button → ui/button.tsx • Search → ui/input.tsx + Button • Resource → ui/card.tsx • Icons → lucide-react','small','muted-foreground',1360);
+await text(board,'Accessibility','44 px touch targets • 2 px focus stroke • search/menu transitions are demonstrations • no backend','small','muted-foreground',1360);
+// Button variants are combined in the next use_figma phase, following the helper workflow.
+const buttonVariants=[];
+for(const style of ['Primary','Outline','Ghost'])for(const state of ['Default','Hover','Focus','Disabled']){
+ const name=`Style=${style}, State=${state}`;const c=component(name,220,44,'HORIZONTAL',state==='Disabled'?'disabled':style==='Primary'?(state==='Hover'?'hover':'primary'):'card',style==='Outline',8);
+ pad(c,16,8);gap(c,8);c.primaryAxisAlignItems='CENTER';
+ if(state==='Focus'){stroke(c,'ring');c.strokeWeight=2;}
+ const label=await text(c,'Label','რესურსის ნახვა','label',state==='Disabled'?'disabled-foreground':style==='Primary'?'primary-foreground':'primary');prop(c,label,'Label');
+ c.x=100+(['Default','Hover','Focus','Disabled'].indexOf(state))*260;c.y=5400+['Primary','Outline','Ghost'].indexOf(style)*100;
+ buttonVariants.push(c.id);
+}
+const badge=component('Badge',66,26,'HORIZONTAL','accent',false,5);badge.x=1400;badge.y=5400;pad(badge,8,4);badge.primaryAxisAlignItems='CENTER';const badgeText=await text(badge,'Label','დემო','caption','primary');prop(badge,badgeText,'Label');
+// Logo is a native text + vector component; the mark is authored SVG.
+const logo=component('Logo',183,40,'HORIZONTAL',null,false,0);logo.x=1400;logo.y=5500;gap(logo,12);icon(logo,'vaschub',34,'primary');await text(logo,'Wordmark','VascHub','wordmark','navy');
+// Exact icon vectors are from the repository's installed Lucide package.
+const iconButton=component('IconButton',44,44,'HORIZONTAL','card',true,8);iconButton.x=1400;iconButton.y=5600;iconButton.primaryAxisAlignItems='CENTER';icon(iconButton,'menu',22);
+return {createdNodeIds,mutatedNodeIds:[page.id],pageId:page.id,boardId:board.id,buttonVariants,components:Object.fromEntries(Object.entries(components).map(([k,v])=>[k,v.id])),properties,variables:Object.fromEntries(Object.entries(variables).map(([k,v])=>[k,v.id])),textStyles:Object.fromEntries(Object.entries(textStyles).map(([k,v])=>[k,v.id])),collectionId:collection.id,modeId:modeIds.Light,checks:{buttonCount:buttonVariants.length,variableCount:Object.keys(variables).length,textStyleCount:Object.keys(textStyles).length,fontsLoaded:['Regular','Medium','SemiBold','Bold']}};

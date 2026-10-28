@@ -5,7 +5,7 @@ test('should load the Georgian VascHub homepage', async ({ page }) => {
   page.on('pageerror', (error) => errors.push(error.message))
   await page.goto('/')
   await expect(page).toHaveTitle(/VascHub/)
-  await expect(page.locator('h1').first()).toHaveText('VascHub')
+  await expect(page.locator('h1').first()).toHaveText('ცოდნა ყოველდღიური პრაქტიკისთვის.')
   await expect(page.locator('html')).toHaveAttribute('lang', 'ka')
   expect(errors).toEqual([])
 })

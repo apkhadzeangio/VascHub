@@ -1,5 +1,1 @@
-import PageTemplate, { generateMetadata } from './[slug]/page'
-
-export default PageTemplate
-
-export { generateMetadata }
+export { HomePage as default, generateHomepageMetadata as generateMetadata } from '@/Homepage/Page'

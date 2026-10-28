@@ -158,6 +158,46 @@ export interface UserAuthOperations {
 export interface Page {
   id: number;
   title: string;
+  /**
+   * მთავარი გვერდი იყენებს home slug-ს. ცვლილებების გამოსაჩენად გამოაქვეყნეთ გვერდი.
+   */
+  homepage?: {
+    eyebrow?: string | null;
+    heading?: string | null;
+    intro?: string | null;
+    topics?:
+      | {
+          label: string;
+          searchTerm: string;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * ცარიელი არჩევანისას გამოჩნდება სამი ბოლო განახლებული გამოქვეყნებული სტატია.
+     */
+    resources?: (number | Post)[] | null;
+    academy?: {
+      heading?: string | null;
+      description?: string | null;
+      post?: (number | null) | Post;
+    };
+    /**
+     * დაამატეთ მხოლოდ დადასტურებული ინფორმაცია. ეს მთავარი გვერდის ცნობებია და არა რეგისტრაციის მოდული.
+     */
+    events?:
+      | {
+          title: string;
+          date?: string | null;
+          location?: string | null;
+          url: string;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * აირჩიეთ მაქსიმუმ ორი გამოქვეყნებული სტატია.
+     */
+    newsPosts?: (number | Post)[] | null;
+  };
   hero: {
     type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
     richText?: {
@@ -1051,6 +1091,38 @@ export interface PayloadMigration {
  */
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
+  homepage?:
+    | T
+    | {
+        eyebrow?: T;
+        heading?: T;
+        intro?: T;
+        topics?:
+          | T
+          | {
+              label?: T;
+              searchTerm?: T;
+              id?: T;
+            };
+        resources?: T;
+        academy?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              post?: T;
+            };
+        events?:
+          | T
+          | {
+              title?: T;
+              date?: T;
+              location?: T;
+              url?: T;
+              id?: T;
+            };
+        newsPosts?: T;
+      };
   hero?:
     | T
     | {

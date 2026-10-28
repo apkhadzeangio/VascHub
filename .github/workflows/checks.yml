@@ -12,7 +12,7 @@ jobs:
           POSTGRES_USER: vaschub
           POSTGRES_PASSWORD: ci-only-password
           POSTGRES_DB: vaschub_test
-        ports: ["5432:5432"]
+        ports: ['5432:5432']
         options: >-
           --health-cmd "pg_isready -U vaschub -d vaschub_test"
           --health-interval 5s --health-timeout 5s --health-retries 20
@@ -39,6 +39,12 @@ jobs:
       - run: pnpm test:e2e
         env:
           E2E_SERVER_COMMAND: pnpm start
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: homepage-browser-previews
+          path: test-results/homepage/
+          if-no-files-found: warn
       - name: Verify Docker build and startup
         env:
           ADMIN_EMAIL: docker-admin@vaschub.test

@@ -1,0 +1,132 @@
+// Native Figma homepage composition v1.1. Inject STATE from the previous phase
+// and ICONS from assets/figma-icons.json. All interactions below are UI demos.
+const page=await figma.getNodeByIdAsync(STATE.pageId);
+await figma.setCurrentPageAsync(page);
+await Promise.all(['Regular','Medium','SemiBold','Bold'].map(style=>figma.loadFontAsync({family:'Noto Sans Georgian',style})));
+if(page.children.some(n=>n.name==='VascHub / Desktop / 1440 / v1.1'))throw new Error('Homepage exists; inspect and update its IDs instead of duplicating.');
+const createdNodeIds=[],mutatedNodeIds=[],components={},properties={};
+const variables=Object.fromEntries(await Promise.all(Object.entries(STATE.variables).map(async([k,id])=>[k,await figma.variables.getVariableByIdAsync(id)])));
+const styles=Object.fromEntries(await Promise.all(Object.entries(STATE.textStyles).map(async([k,id])=>[k,await figma.getStyleByIdAsync(id)])));
+const board=await figma.getNodeByIdAsync(STATE.boardId);
+const bases=Object.fromEntries(await Promise.all(Object.entries(STATE.components).map(async([k,id])=>[k,await figma.getNodeByIdAsync(id)])));
+const track=n=>(createdNodeIds.push(n.id),n);
+function paint(k){return figma.variables.setBoundVariableForPaint({type:'SOLID',color:{r:0,g:0,b:0}},'color',variables['color/'+k]);}
+function fill(n,k){n.fills=k?[paint(k)]:[];}
+function stroke(n,k='border'){n.strokes=[paint(k)];n.setBoundVariable('strokeWeight',variables['border/width']);}
+function radius(n,r){for(const k of ['topLeftRadius','topRightRadius','bottomLeftRadius','bottomRightRadius'])n.setBoundVariable(k,variables['radius/'+r]);}
+function gap(n,s){n.setBoundVariable('itemSpacing',variables['spacing/'+s]);}
+function pad(n,x,y=x){for(const k of ['paddingLeft','paddingRight'])n.setBoundVariable(k,variables['spacing/'+x]);for(const k of ['paddingTop','paddingBottom'])n.setBoundVariable(k,variables['spacing/'+y]);}
+function frame(p,name,dir='VERTICAL',w=350,bg=null){const n=track(figma.createAutoLayout(dir));n.name=name;p.appendChild(n);n.resize(w,10);n.layoutSizingHorizontal='FIXED';n.layoutSizingVertical='HUG';fill(n,bg);return n;}
+async function text(p,name,value,style='body',color='foreground',w){const t=track(figma.createText());t.name=name;t.fontName=styles[style].fontName;await t.setTextStyleIdAsync(styles[style].id);t.characters=value;fill(t,color);p.appendChild(t);if(w){t.textAutoResize='HEIGHT';t.resize(w,styles[style].lineHeight.value);t.layoutSizingHorizontal='FIXED';}else t.textAutoResize='WIDTH_AND_HEIGHT';return t;}
+function prop(c,t,name){const key=c.addComponentProperty(name,'TEXT',t.characters);t.componentPropertyReferences={characters:key};(properties[c.name]??={})[name]=key;return key;}
+function component(p,name,w,h,dir='VERTICAL',bg='card',border=true,r=12){const n=track(figma.createComponent());p.appendChild(n);n.name=name;n.layoutMode=dir;n.resize(w,h);n.primaryAxisSizingMode='AUTO';n.counterAxisSizingMode='FIXED';fill(n,bg);if(border)stroke(n);radius(n,r);n.description='VascHub v1.1; editable UI. All sample content is demonstrative.';components[name]=n;return n;}
+function instance(c,p,overrides={},w){const i=track(c.createInstance());p.appendChild(i);if(w)i.resize(w,i.height);for(const [name,value] of Object.entries(overrides)){const def=(properties[c.name]||STATE.properties[c.name]||{})[name];if(!def)throw new Error('Missing property '+c.name+'/'+name);i.setProperties({[def]:value});}return i;}
+function icon(p,name,size=22,color='primary'){
+ const c=variables['primitive/'+color].valuesByMode[STATE.modeId];const hex='#'+[c.r,c.g,c.b].map(x=>Math.round(x*255).toString(16).padStart(2,'0')).join('');
+ const n=track(figma.createNodeFromSvg(ICONS[name].replaceAll('currentColor',hex)));n.name='Icon/'+name;n.resize(size,size);p.appendChild(n);
+ for(const v of n.findAllWithCriteria({types:['VECTOR']})){createdNodeIds.push(v.id);if(name!=='vaschub'&&Array.isArray(v.strokes)&&v.strokes.length)v.strokes=v.strokes.map(s=>s.type==='SOLID'?paint(color):s);}return n;
+}
+// Adapted from createComponentWithVariants.js: combine after all variants exist,
+// then position every child explicitly so variants do not stack at the origin.
+const variantNodes=await Promise.all(STATE.buttonVariants.map(id=>figma.getNodeByIdAsync(id)));
+const buttonSet=track(figma.combineAsVariants(variantNodes,page));buttonSet.name='VascHub/Button';buttonSet.description='shadcn/ui button: Primary / Outline / Ghost × Default / Hover / Focus / Disabled. 44px minimum.';
+buttonSet.x=1740;buttonSet.y=4000;buttonSet.resize(1040,260);fill(buttonSet,'card');radius(buttonSet,12);
+variantNodes.forEach((n,i)=>{n.x=32+(i%4)*244;n.y=32+Math.floor(i/4)*68;mutatedNodeIds.push(n.id);});
+for(const [j,key] of ['Badge','Logo','IconButton'].entries()){bases[key].x=1740;bases[key].y=4340+j*100;mutatedNodeIds.push(bases[key].id);}
+function button(p,label,style='Primary',w=220,state='Default'){const c=variantNodes.find(n=>n.name===`Style=${style}, State=${state}`);const i=track(c.createInstance());p.appendChild(i);i.name=`Button/${style}/${state}/${label}`;const t=i.findAllWithCriteria({types:['TEXT']}).find(n=>n.name==='Label');const key=t.componentPropertyReferences.characters;i.setProperties({[key]:label});i.resize(w,44);return i;}
+function badge(p,label='დემო'){return instance(bases.Badge,p,{Label:label});}
+function divider(p,w){const d=frame(p,'Divider','HORIZONTAL',w,'border');d.resize(w,1);d.layoutSizingVertical='FIXED';return d;}
+const NAV=['კლინიკური ბიბლიოთეკა','აკადემია','ღონისძიებები','პროფესიული ქსელი','სტატიები და სიახლეები','ჩვენ შესახებ / წევრობა'];
+const TOPICS=['აორტა','კაროტიდი','პერიფერიული არტერიები','ვენური დაავადებები','დიალიზის მიდგომა','დიაგნოსტიკა'];
+const RES=[{Type:'გაიდლაინების კატალოგი',Title:'კაროტიდული დაავადებების მართვა',Description:'ორიგინალი წყარო და ქართული მიმოხილვა ერთ გვერდზე.'},{Type:'თემატური მიმოხილვა',Title:'ქვედა კიდურის არტერიული დაავადება',Description:'კლინიკური თემის მიხედვით დალაგებული მასალები.'},{Type:'სასწავლო რესურსი',Title:'დიალიზის სისხლძარღვოვანი მიდგომა',Description:'სასწავლო მასალებისა და ვიდეოების განლაგების მაგალითი.'}];
+const EVENTS=['ულტრაბგერის პრაქტიკული ვორკშოპი','კლინიკური შემთხვევების განხილვა'];
+const NEWS=['VascHub-ის სასწავლო სივრცე','საჭირო რესურსი — რამდენიმე ნაბიჯში'];
+const inventory=frame(board,'Homepage UI masters','VERTICAL',1360);gap(inventory,24);
+await text(inventory,'Components heading','ძირითადი კომპონენტები / Desktop & Mobile','section','navy',1360);
+const searchMasters={},topicMasters={},resourceMasters={},eventMasters={};
+for(const mobile of [false,true]){
+ const vp=mobile?'Mobile':'Desktop',w=mobile?350:1200;
+ for(const state of ['Default','Focus']){
+  const c=component(inventory,`Search / ${vp} / ${state}`,w,60,'HORIZONTAL','card',true,10);pad(c,8);gap(c,12);c.primaryAxisSizingMode='FIXED';c.counterAxisAlignItems='CENTER';
+  if(state==='Focus'){stroke(c,'ring');c.strokeWeight=2;}
+  icon(c,'search',22);const label=await text(c,'Query',mobile?'მოძებნე რესურსი…':'მოძებნე გაიდლაინი, თემა ან კურსი','body','muted-foreground',mobile?240:1000);prop(c,label,'Query');
+  if(mobile)icon(c,'arrow',20);else button(c,'ძიება','Primary',112);
+  searchMasters[vp+'/'+state]=c;
+ }
+ const topic=component(inventory,`TopicShortcut / ${vp}`,mobile?169:190,mobile?86:104,mobile?'HORIZONTAL':'VERTICAL','card',true,10);pad(topic,12);gap(topic,8);topic.primaryAxisSizingMode='FIXED';topic.counterAxisAlignItems=mobile?'CENTER':'MIN';
+ icon(topic,'branch',24);const label=await text(topic,'Label','პერიფერიული არტერიები','label','foreground',mobile?113:166);prop(topic,label,'Label');topicMasters[vp]=topic;
+ const card=component(inventory,`ResourceCard / ${vp}`,mobile?350:384,278);pad(card,20);gap(card,12);
+ const top=frame(card,'Card/top','HORIZONTAL',mobile?310:344);top.primaryAxisAlignItems='SPACE_BETWEEN';const ico=frame(top,'Resource type icon','HORIZONTAL',40,'accent');ico.resize(40,40);ico.layoutSizingVertical='FIXED';ico.primaryAxisAlignItems='CENTER';ico.counterAxisAlignItems='CENTER';radius(ico,8);icon(ico,'file',20);badge(top);
+ const type=await text(card,'Type',RES[0].Type,'caption','primary',mobile?310:344);prop(card,type,'Type');
+ const title=await text(card,'Title',RES[0].Title,mobile?'mobileCard':'card','foreground',mobile?310:344);prop(card,title,'Title');
+ const desc=await text(card,'Description',RES[0].Description,'small','muted-foreground',mobile?310:344);prop(card,desc,'Description');
+ divider(card,mobile?310:344);button(card,'რესურსის ნახვა','Ghost',mobile?310:344);resourceMasters[vp]=card;
+ const event=component(inventory,`EventRow / ${vp}`,mobile?350:780,mobile?150:110,'HORIZONTAL');pad(event,16);gap(event,16);event.counterAxisAlignItems='CENTER';
+ icon(event,'calendar',28);const body=frame(event,'Event/body','VERTICAL',mobile?270:688);gap(body,8);const eventTitle=await text(body,'Title',EVENTS[0],'body','foreground',mobile?270:688);prop(event,eventTitle,'Title');await text(body,'Meta','თარიღი დასაზუსტებელია • დემო','caption','muted-foreground',mobile?270:688);eventMasters[vp]=event;
+}
+const news=component(inventory,'NewsRow',350,116,'VERTICAL','card',false,0);gap(news,8);await text(news,'Meta','პროფესიული სივრცე • დემო','caption','primary',350);const nt=await text(news,'Title',NEWS[0],'mobileCard','foreground',350);prop(news,nt,'Title');divider(news,350);
+function root(name,w,x,y,bg='background'){const r=frame(page,name,'VERTICAL',w,bg);r.x=x;r.y=y;r.clipsContent=true;r.exportSettings=[{format:'PNG',suffix:'',constraint:{type:'SCALE',value:1}}];return r;}
+async function sectionHeading(p,title,mobile,link=true){const w=mobile?350:1200;const row=frame(p,'Section header','HORIZONTAL',w);row.primaryAxisAlignItems='SPACE_BETWEEN';row.counterAxisAlignItems='CENTER';await text(row,'Heading',title,mobile?'mobileSection':'section','foreground',mobile?224:920);if(link)button(row,'ყველას ნახვა','Ghost',mobile?126:180);}
+const menuTriggers=[],searchTriggers=[],loginActions=[];
+async function header(p,mobile){const w=mobile?390:1440,g=mobile?20:120;const strip=frame(p,'Utility bar','HORIZONTAL',w,'navy');pad(strip,g,4);await text(strip,'Demo notice',mobile?'VascHub • სადემონსტრაციო დიზაინი':'პროფესიული ცოდნა • საქართველო                                      სადემონსტრაციო დიზაინი','caption','primary-foreground',w-g*2);
+ const h=frame(p,'Header','VERTICAL',w,'card');pad(h,g,mobile?16:20);gap(h,16);const row=frame(h,'Brand / account actions','HORIZONTAL',w-g*2);row.primaryAxisAlignItems='SPACE_BETWEEN';row.counterAxisAlignItems='CENTER';instance(bases.Logo,row);
+ const a=frame(row,'Account actions','HORIZONTAL',mobile?96:290);gap(a,8);a.counterAxisAlignItems='CENTER';if(mobile){const u=frame(a,'Account / 44px','HORIZONTAL',44,'card');u.resize(44,44);u.layoutSizingVertical='FIXED';u.primaryAxisAlignItems='CENTER';u.counterAxisAlignItems='CENTER';stroke(u);radius(u,8);icon(u,'user',22);loginActions.push(u.id);const m=instance(bases.IconButton,a);menuTriggers.push(m.id);}else{loginActions.push(button(a,'შესვლა','Ghost',96).id);loginActions.push(button(a,'პირადი კაბინეტი','Outline',186).id);}
+ if(!mobile){divider(h,1200);const n=frame(h,'Primary navigation','HORIZONTAL',1200);gap(n,28);for(const [i,label]of NAV.entries()){const t=await text(n,'Nav/'+i,label,'label','muted-foreground');t.resize(t.width,44);t.textAutoResize='NONE';t.textAlignVertical='CENTER';}}
+}
+async function footer(p,mobile){const w=mobile?390:1440,g=mobile?20:120;const f=frame(p,'Footer',mobile?'VERTICAL':'HORIZONTAL',w,'navy');pad(f,g,32);gap(f,32);f.primaryAxisAlignItems='SPACE_BETWEEN';const col=frame(f,'Footer/brand','VERTICAL',mobile?350:600);gap(col,16);const logo=instance(bases.Logo,col);const word=logo.findAllWithCriteria({types:['TEXT']})[0];fill(word,'primary-foreground');await text(col,'Description','საქართველოს სისხლძარღვთა ქირურგიის პროფესიული პლატფორმა.','small','on-navy',mobile?350:520);const links=frame(f,'Footer/links','VERTICAL',mobile?350:490);gap(links,16);await text(links,'Links','ჩვენ შესახებ   •   კონტაქტი   •   კონფიდენციალურობა','label','primary-foreground',mobile?350:490);await text(links,'Copyright','© VascHub • დიზაინის კონცეფცია v1.1','caption','on-navy',mobile?350:490);}
+const roots={};
+for(const mobile of [false,true]){
+ const vp=mobile?'Mobile':'Desktop',w=mobile?390:1440,g=mobile?20:120,cw=w-g*2;
+ const r=root(`VascHub / ${vp} / ${w} / v1.1`,w,mobile?1720:100,100);roots[vp]=r;
+ await header(r,mobile);
+ const main=frame(r,'Main content','VERTICAL',w);pad(main,g,mobile?28:40);gap(main,mobile?40:48);
+ const intro=frame(main,'01 / Knowledge search & clinical topics','VERTICAL',cw);gap(intro,mobile?20:24);
+ await text(intro,'Eyebrow','კლინიკური ცოდნა • პროფესიული ერთობა','caption','primary',cw);
+ await text(intro,'H1',mobile?'ცოდნა ყოველდღიური\nპრაქტიკისთვის.':'ცოდნა ყოველდღიური პრაქტიკისთვის.',mobile?'mobileHero':'hero','navy',cw);
+ await text(intro,'Introduction',mobile?'გაიდლაინები, სწავლა და პროფესიული შესაძლებლობები ერთ სივრცეში.':'გაიდლაინები, სასწავლო მასალები და პროფესიული შესაძლებლობები — ერთ სივრცეში.',mobile?'small':'body','muted-foreground',cw);
+ const search=instance(searchMasters[vp+'/Default'],intro);searchTriggers.push({id:search.id,viewport:vp});
+ if(mobile)await text(intro,'Search helper','გაიდლაინები, თემები და კურსები','caption','muted-foreground',350);
+ await text(intro,'Topic heading','სწრაფი გადასვლა თემაზე','label','foreground',cw);
+ const topics=frame(intro,'Clinical topics',mobile?'VERTICAL':'HORIZONTAL',cw);gap(topics,12);
+ for(let i=0;i<TOPICS.length;i++){let row=topics;if(mobile){if(i%2===0){row=frame(topics,'Topic row/'+Math.floor(i/2),'HORIZONTAL',cw);gap(row,12);}else row=topics.children[topics.children.length-1];}instance(topicMasters[vp],row,{Label:TOPICS[i]});}
+ const resources=frame(main,'02 / Recently added resources','VERTICAL',cw);gap(resources,16);await sectionHeading(resources,mobile?'ახალი რესურსები':'ბოლო დამატებული რესურსები',mobile);await text(resources,'Demo disclaimer','სადემონსტრაციო ჩანაწერები','caption','muted-foreground',cw);
+ const cards=frame(resources,'Resource list',mobile?'VERTICAL':'HORIZONTAL',cw);gap(cards,mobile?16:24);for(const res of RES)instance(resourceMasters[vp],cards,res);
+ const academy=frame(main,'03 / Featured academy',mobile?'VERTICAL':'HORIZONTAL',cw,'navy');pad(academy,mobile?20:28);gap(academy,mobile?24:40);radius(academy,16);academy.counterAxisAlignItems=mobile?'MIN':'CENTER';
+ const left=frame(academy,'Academy introduction','VERTICAL',mobile?310:650);gap(left,16);badge(left,'აკადემია • დემო').resize(134,26);await text(left,'Heading','ისწავლე მოკლე,\nპრაქტიკული მოდულებით.',mobile?'mobileSection':'feature','primary-foreground',mobile?310:650);await text(left,'Description','ვიდეო, საკითხავი მასალა და თვითშეფასება.','small','on-navy',mobile?310:650);button(left,'აკადემიის დათვალიერება','Primary',mobile?310:280);
+ const course=frame(academy,'Featured course','VERTICAL',mobile?310:454,'feature');pad(course,20);gap(course,16);radius(course,12);icon(course,'play',32,'on-navy');await text(course,'Label','გამორჩეული სასწავლო მოდული • დემო','caption','on-navy',mobile?270:414);await text(course,'Course title','სისხლძარღვთა ულტრაბგერითი დიაგნოსტიკა','card','primary-foreground',mobile?270:414);
+ const lower=frame(main,'04 / Professional updates',mobile?'VERTICAL':'HORIZONTAL',cw);gap(lower,mobile?40:48);
+ const events=frame(lower,'Upcoming events','VERTICAL',mobile?350:780);gap(events,16);await text(events,'Heading',mobile?'ღონისძიებები':'უახლოესი ღონისძიებები',mobile?'mobileSection':'section','foreground',mobile?350:780);await text(events,'Demo notice','სადემონსტრაციო ღონისძიებები','caption','muted-foreground',mobile?350:780);for(const title of EVENTS)instance(eventMasters[vp],events,{Title:title});
+ const newsCol=frame(lower,'Professional news','VERTICAL',mobile?350:372);gap(newsCol,16);await text(newsCol,'Heading',mobile?'პროფესიული სიახლეები':'სიახლეები',mobile?'mobileSection':'section','foreground',mobile?350:372);for(const title of NEWS)instance(news,newsCol,{Title:title});
+ await footer(r,mobile);
+}
+// Compact wireframe: each block states the user's need before visual detail.
+const wire=root('VascHub / Wireframe / priorities',1000,2300,100);pad(wire,32);gap(wire,16);await text(wire,'Title','მთავარი გვერდი / სექციების პრიორიტეტები','section','navy',936);
+for(const [title,need]of [['01 / ნავიგაცია','მიმართულებები, შესვლა და პირადი კაბინეტი'],['02 / წარდგენა და ძიება','საჭირო გაიდლაინის, თემის ან კურსის პოვნა'],['03 / კლინიკური თემები','ნაცნობ მიმართულებაზე ერთი შეხებით გადასვლა'],['04 / ახალი რესურსები','ტიპის, სათაურისა და დანიშნულების სწრაფი შეფასება'],['05 / აკადემია','ერთი გამოკვეთილი სასწავლო შესაძლებლობა'],['06 / ღონისძიებები და სიახლეები','პროფესიული აქტივობის აღმოჩენა'],['07 / Footer','საორგანიზაციო და საინფორმაციო ბმულები']]){const block=frame(wire,title,'VERTICAL',936,'card');pad(block,24);gap(block,12);stroke(block);radius(block,8);await text(block,'Title',title,'card','foreground',888);await text(block,'User need',need,'small','muted-foreground',888);}
+roots.Wireframe=wire;
+// Search states have fixed example queries and fixed results. They do not type,
+// run search requests, authenticate users, or navigate to real medical content.
+const states={},demoButtons={};
+for(const [name,query,results]of [['Focus','მოძებნე გაიდლაინი, თემა ან კურსი',null],['Results','კაროტიდი',[RES[0]]],['Empty','საძიებო მაგალითი',[]]]){
+ const s=root(`VascHub / Search / ${name}`,1000,3460,name==='Focus'?100:name==='Results'?720:1440);pad(s,32);gap(s,24);await text(s,'Title',`ძიება / ${name} / დემო`,'section','navy',936);await text(s,'Notice','პროტოტიპი • შედეგები წინასწარ არის განსაზღვრული • backend არ არის დაკავშირებული','small','muted-foreground',936);
+ const field=instance(searchMasters['Desktop/Focus'],s,{Query:query},936);const queryText=field.findAllWithCriteria({types:['TEXT']}).find(t=>t.name==='Query');queryText.resize(736,26);
+ demoButtons[name]={};
+ if(results===null)demoButtons[name].next=button(s,'სცადე „კაროტიდი“','Outline',300);else if(results.length){instance(resourceMasters.Desktop,s,results[0]);demoButtons[name].next=button(s,'ცარიელი შედეგის მაგალითი','Outline',300);}else await text(s,'Empty message','ამ დემოში შესაბამისი რესურსი ვერ მოიძებნა. სცადე სხვა სიტყვა.','body','foreground',936);
+ demoButtons[name].close=button(s,'დახურვა / მთავარზე დაბრუნება','Ghost',340);states[name]=s;
+}
+const menu=root('VascHub / Mobile menu / Open',390,4650,100,'card');pad(menu,20,24);gap(menu,24);const menuTop=frame(menu,'Menu header','HORIZONTAL',350);menuTop.primaryAxisAlignItems='SPACE_BETWEEN';menuTop.counterAxisAlignItems='CENTER';instance(bases.Logo,menuTop);const close=frame(menuTop,'Close menu / 44px','HORIZONTAL',44,'card');close.resize(44,44);close.layoutSizingVertical='FIXED';close.primaryAxisAlignItems='CENTER';close.counterAxisAlignItems='CENTER';stroke(close);radius(close,8);icon(close,'close');
+const menuItems=[];for(const label of NAV){const row=frame(menu,'Menu link/'+label,'HORIZONTAL',350);row.counterAxisAlignItems='CENTER';row.primaryAxisAlignItems='SPACE_BETWEEN';const t=await text(row,'Label',label,'body','foreground',310);row.resize(350,56);row.layoutSizingVertical='FIXED';icon(row,'chevron',20);menuItems.push(row.id);divider(menu,350);}
+button(menu,'შესვლა','Primary',350);button(menu,'პირადი კაბინეტი','Outline',350);await text(menu,'Notice','საჩვენებელი მენიუ • ყველა ბმული დემოა','caption','muted-foreground',350);roots.Menu=menu;
+const mobileSearch=root('VascHub / Mobile search / Results',390,5140,100);pad(mobileSearch,20,24);gap(mobileSearch,24);await text(mobileSearch,'Heading','ძიება / დემო','mobileSection','navy',350);instance(searchMasters['Mobile/Focus'],mobileSearch,{Query:'კაროტიდი'});await text(mobileSearch,'Notice','წინასწარ განსაზღვრული შედეგი • დემო','caption','muted-foreground',350);instance(resourceMasters.Mobile,mobileSearch,RES[0]);const mobileClose=button(mobileSearch,'მთავარზე დაბრუნება','Outline',350);roots.MobileSearch=mobileSearch;
+// Native Figma click navigation, deliberately deterministic rather than a backend.
+const interactions=[];
+async function navigate(from,to){await from.setReactionsAsync([{trigger:{type:'ON_CLICK'},actions:[{type:'NODE',destinationId:to.id,navigation:'NAVIGATE',transition:null,preserveScrollPosition:false}]}]);interactions.push({from:from.id,to:to.id});mutatedNodeIds.push(from.id);}
+for(const item of searchTriggers)await navigate(await figma.getNodeByIdAsync(item.id),item.viewport==='Mobile'?mobileSearch:states.Focus);
+for(const id of menuTriggers)await navigate(await figma.getNodeByIdAsync(id),menu);
+await navigate(close,roots.Mobile);await navigate(mobileClose,roots.Mobile);
+for(const id of menuItems)await navigate(await figma.getNodeByIdAsync(id),roots.Mobile);
+await navigate(demoButtons.Focus.next,states.Results);await navigate(demoButtons.Focus.close,roots.Desktop);await navigate(demoButtons.Results.next,states.Empty);await navigate(demoButtons.Results.close,roots.Desktop);await navigate(demoButtons.Empty.close,roots.Desktop);
+roots.SearchFocus=states.Focus;roots.SearchResults=states.Results;roots.SearchEmpty=states.Empty;
+// Read-back evidence: native node types, text family and bounds, no UI raster.
+const audit={};for(const [key,r]of Object.entries(roots)){const nodes=r.findAll(()=>true);const counts={};for(const n of nodes)counts[n.type]=(counts[n.type]||0)+1;const texts=nodes.filter(n=>n.type==='TEXT');audit[key]={id:r.id,width:r.width,height:r.height,descendants:nodes.length,counts,imageFilledNodes:nodes.filter(n=>'fills'in n&&Array.isArray(n.fills)&&n.fills.some(p=>p.type==='IMAGE')).map(n=>({id:n.id,name:n.name,type:n.type,width:n.width,height:n.height})),fontFamilies:[...new Set(texts.map(t=>typeof t.fontName==='object'?t.fontName.family:'mixed'))],styledTextCount:texts.filter(t=>typeof t.textStyleId==='string'&&t.textStyleId).length,textCount:texts.length};}
+const allNew=page.findAll(()=>true).filter(n=>!STATE.createdNodeIds.includes(n.id));
+return {createdNodeIds:[...new Set([...createdNodeIds,...allNew.map(n=>n.id)])],mutatedNodeIds:[...new Set(mutatedNodeIds)],roots:Object.fromEntries(Object.entries(roots).map(([k,v])=>[k,v.id])),components:Object.fromEntries(Object.entries(components).map(([k,v])=>[k,v.id])),properties,buttonSetId:buttonSet.id,interactions,audit,checks:{nativeEditable:true,imageFilledCount:Object.values(audit).reduce((s,a)=>s+a.imageFilledNodes.length,0),allGeorgianFont:Object.values(audit).every(a=>a.fontFamilies.every(f=>f==='Noto Sans Georgian'))}};

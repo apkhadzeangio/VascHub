@@ -1,0 +1,122 @@
+{
+  "version": "native-figma-v1.1",
+  "date": "2026-10-28",
+  "fileKey": "Zmcc2z7YCZAdq5ipRDuMlq",
+  "fileUrl": "https://www.figma.com/design/Zmcc2z7YCZAdq5ipRDuMlq",
+  "synchronizedAutomatically": false,
+  "files": [
+    {
+      "file": "figma-components-v1.1.png",
+      "width": 1440,
+      "height": 2211,
+      "sha256": "24994ca640d6a7b7a11623e1f1273813e5699021de241a7ddfb4d1fb36888f7d",
+      "source": "Figma get_screenshot inline PNG; post-polish snapshot"
+    },
+    {
+      "file": "figma-desktop-v1.1.png",
+      "width": 1440,
+      "height": 1963,
+      "sha256": "bed02021f69ce48e9404c969bb85b7fc870f31ba8435b462a5cb876da4bbff4a",
+      "source": "Figma get_screenshot inline PNG; post-polish snapshot"
+    },
+    {
+      "file": "figma-menu-v1.1.png",
+      "width": 390,
+      "height": 900,
+      "sha256": "d1944147612e6439820686ce192b7d2ab9c51fd3b7342ddede3b432262da36b9",
+      "source": "Figma get_screenshot inline PNG; post-polish snapshot"
+    },
+    {
+      "file": "figma-search-empty-v1.1.png",
+      "width": 1000,
+      "height": 350,
+      "sha256": "5a4380dbc483ad8acc35b975579579dffc0bb2bf431cce915631717a4632adca",
+      "source": "Figma get_screenshot inline PNG; post-polish snapshot"
+    },
+    {
+      "file": "figma-search-focus-v1.1.png",
+      "width": 1000,
+      "height": 368,
+      "sha256": "5f3fa589086a28ae24bdc90c6f8121175993dead1d053029c6bf460784bd5f55",
+      "source": "Figma get_screenshot inline PNG; post-polish snapshot"
+    },
+    {
+      "file": "figma-search-results-v1.1.png",
+      "width": 1000,
+      "height": 701,
+      "sha256": "230bc0534fcea875d7d06c8be5a68911500556fbfbba874c7f6137f730f37fbf",
+      "source": "Figma get_screenshot inline PNG; post-polish snapshot"
+    },
+    {
+      "file": "figma-wireframe-v1.1.png",
+      "width": 1000,
+      "height": 1010,
+      "sha256": "212e284f20217211b6580a2b7b08e9e63074a51b6f4db37b819e16d1ab11196a",
+      "source": "Figma get_screenshot inline PNG; post-polish snapshot"
+    },
+    {
+      "file": "tokens.json",
+      "sha256": "1965510d3e4fdb7bd8a3ad5e69d373316588fe15dc1dcf527cc30b88072e15ab"
+    },
+    {
+      "file": "figma-native-state.json",
+      "sha256": "cc27be23826f34eb57c537266217e2e10e617f3f74a6fc8260f1b01acc7ae404"
+    },
+    {
+      "file": "figma-icons.json",
+      "sha256": "eaad4ea89c9a74ef78b69cf4afeb3fffc59f72b99a9ed0e30c9411429c6233fd"
+    },
+    {
+      "file": "LICENSE-lucide.txt",
+      "sha256": "668dcc52803480e0a026b31140a4cae668772663cd764e5991d252eef03f98db"
+    },
+    {
+      "file": "figma-contrast-qa.json",
+      "sha256": "2e4a3a05f33ac80caa9603675ef483bcb4adfcc86312e3343f2bd9d11e3bd0ba"
+    },
+    {
+      "file": "user-exports/menu-v1.1.png",
+      "sha256": "211fb03115fbce88b8e15802e33c78aace30f7609d72cbdd3edc98b6cdea0206",
+      "source": "user-provided export; unchanged attachment bytes"
+    },
+    {
+      "file": "user-exports/mobile-v1.1-preview.png",
+      "sha256": "6eeb51839bf67553dd62599349dcbc617567133fdf57194cee1b074600c084c9",
+      "source": "user-provided export; unchanged attachment bytes"
+    },
+    {
+      "file": "user-exports/review-manifest.json",
+      "sha256": "afc5e9031ee47f17e790df83fb8a2e9ac622235467c060da71a83de9d533c08b",
+      "source": "user-provided export; unchanged attachment bytes"
+    },
+    {
+      "file": "user-exports/search-empty-v1.1.png",
+      "sha256": "54af0745cfccf29d49c258bf481339196089c58d30693004da0ae530bb54b42b",
+      "source": "user-provided export; unchanged attachment bytes"
+    },
+    {
+      "file": "user-exports/search-focus-v1.1.png",
+      "sha256": "2e2178bb33ddfd703ea74c04abc64948788558f3673bb5f17113fadecad05955",
+      "source": "user-provided export; unchanged attachment bytes"
+    },
+    {
+      "file": "user-exports/search-results-v1.1.png",
+      "sha256": "a2bafdad5b8c1201d718368996bda059a1433d34b47df2bf2b2136e9543a3bdd",
+      "source": "user-provided export; unchanged attachment bytes"
+    },
+    {
+      "file": "user-exports/wireframe-v1.1.png",
+      "sha256": "3b26268dfd18f7e6d63f4d03a297558315c595cf6cc90f4fc1f2592368a945b7",
+      "source": "user-provided export; unchanged attachment bytes"
+    }
+  ],
+  "pending": [
+    "Original 390px-wide Mobile 1x PNG and full-size visual inspection",
+    "Separate Button set 4:2 export",
+    "Manual Figma Present click-through and later browser accessibility checks"
+  ],
+  "notExports": [
+    "homepage-*.svg/png and homepage-prototype.html are earlier local v1 concepts"
+  ],
+  "note": "A reduced 234x2048 user-provided Mobile preview is included under user-exports/. The original 390px 1x Mobile export and full-size readability check remain pending. Automatic synchronization is not configured."
+}

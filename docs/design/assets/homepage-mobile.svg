@@ -1,0 +1,266 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="390" height="3153" viewBox="0 0 390 3153" role="img" aria-labelledby="title desc"><title id="title">VascHub / Mobile / 390 / v1</title><desc id="desc">VascHub homepage design v1. Local editable SVG; not an export from the empty Figma destination. All content is demonstrative.</desc>
+<defs><symbol id="search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol><symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol><symbol id="chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol><symbol id="menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol><symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol><symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></symbol><symbol id="bookmark" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></symbol><symbol id="file" viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6zM14 2v5h4M9 12h6M9 16h6"/></symbol><symbol id="book" viewBox="0 0 24 24"><path d="M12 5v16M3 4c4-1 6-1 9 1 3-2 5-2 9-1v15c-4-1-6-1-9 1-3-2-5-2-9-1z"/></symbol><symbol id="play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4z"/></symbol><symbol id="calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 10h18M7 14h3m4 0h3"/></symbol><symbol id="aorta" viewBox="0 0 24 24"><path d="M10 22V9a5 5 0 0 1 10 0v4M6 2v5m4-6v4m4-4v3M10 17l-6 5m6-5 6 5"/></symbol><symbol id="branch" viewBox="0 0 24 24"><path d="M12 22V12m0 1L5 6V2m7 10 7-6V2M5 6H2m17 0h3"/></symbol><symbol id="artery" viewBox="0 0 24 24"><path d="M9 2v9L5 22M15 2v9l4 11M9 8l-5 4m11-4 5 4"/></symbol><symbol id="vein" viewBox="0 0 24 24"><path d="M8 2v20M16 2v20M8 7l4 4 4-4M8 14l4 4 4-4"/></symbol><symbol id="access" viewBox="0 0 24 24"><path d="M7 2v20M17 2v20M7 9c8-8 10 1 10 4M7 15c6 4 8-4 10-6"/></symbol><symbol id="scan" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8m-4-4v4M5 11h3l2-4 3 7 2-3h4"/></symbol></defs>
+<rect x="0" y="0" width="390" height="3153" rx="0" fill="#F6F8F7"/>
+<rect x="0" y="0" width="390" height="26" rx="0" fill="#122F40"/>
+<g data-role="editable-text" aria-label="VascHub • სადემონსტრაციო დიზაინი">
+<text x="20" y="15.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="10" font-weight="400" fill="#FFFFFF">VascHub • სადემონსტრაციო დიზაინი</text>
+</g>
+<rect x="0" y="26" width="390" height="72" rx="0" fill="#FFFFFF"/>
+<rect x="20" y="45" width="34" height="34" rx="8" fill="#096B61"/>
+<path d="M29 54l8 18 8-18M37 72v-9" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+<g data-role="editable-text" aria-label="VascHub">
+<text x="66" y="70.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="27" font-weight="700" fill="#122F40">VascHub</text>
+</g>
+<rect x="274" y="40" width="44" height="44" rx="8" fill="#FFFFFF" stroke="#DCE5E2" stroke-width="1"/>
+<use xlink:href="#user" x="286" y="51" width="20" height="20" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="326" y="40" width="44" height="44" rx="8" fill="#FFFFFF" stroke="#DCE5E2" stroke-width="1"/>
+<use xlink:href="#menu" x="337" y="51" width="22" height="22" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<g data-role="editable-text" aria-label="კლინიკური ცოდნა • პროფესიული ერთობა">
+<text x="20" y="139.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="11" font-weight="600" fill="#096B61">კლინიკური ცოდნა • პროფესიული ერთობა</text>
+</g>
+<g data-role="editable-text" aria-label="ცოდნა ყოველდღიური
+პრაქტიკისთვის.">
+<text x="20" y="187" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="29" font-weight="600" fill="#122F40">ცოდნა ყოველდღიური</text>
+<text x="20" y="230" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="29" font-weight="600" fill="#122F40">პრაქტიკისთვის.</text>
+</g>
+<g data-role="editable-text" aria-label="გაიდლაინები, სწავლა და პროფესიული
+შესაძლებლობები ერთ სივრცეში.">
+<text x="20" y="276" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#566C76">გაიდლაინები, სწავლა და პროფესიული</text>
+<text x="20" y="299" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#566C76">შესაძლებლობები ერთ სივრცეში.</text>
+</g>
+<g data-component="SearchInput" data-state="default">
+<rect x="20" y="336" width="350" height="58" rx="10" fill="#FFFFFF" stroke="#DCE5E2" stroke-width="1.4"/>
+<use xlink:href="#search" x="38" y="354" width="22" height="22" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<g data-role="editable-text" aria-label="მოძებნე რესურსი...">
+<text x="72" y="370.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="16" font-weight="400" fill="#566C76">მოძებნე რესურსი...</text>
+</g>
+<use xlink:href="#arrow" x="338" y="354" width="20" height="20" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g data-role="editable-text" aria-label="გაიდლაინები, თემები და კურსები">
+<text x="20" y="412.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="11" font-weight="400" fill="#566C76">გაიდლაინები, თემები და კურსები</text>
+</g>
+<g data-role="editable-text" aria-label="სწრაფი გადასვლა თემაზე">
+<text x="20" y="450.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="15" font-weight="600" fill="#182F3B">სწრაფი გადასვლა თემაზე</text>
+</g>
+<rect x="20" y="465" width="169" height="74" rx="10" fill="#FFFFFF" stroke="#DCE5E2" stroke-width="1"/>
+<use xlink:href="#aorta" x="32" y="477" width="22" height="22" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<g data-role="editable-text" aria-label="აორტა">
+<text x="64" y="495" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="500" fill="#182F3B">აორტა</text>
+</g>
+<rect x="201" y="465" width="169" height="74" rx="10" fill="#FFFFFF" stroke="#DCE5E2" stroke-width="1"/>
+<use xlink:href="#branch" x="213" y="477" width="22" height="22" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<g data-role="editable-text" aria-label="კაროტიდი">
+<text x="245" y="495" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="500" fill="#182F3B">კაროტიდი</text>
+</g>
+<rect x="20" y="549" width="169" height="74" rx="10" fill="#FFFFFF" stroke="#DCE5E2" stroke-width="1"/>
+<use xlink:href="#artery" x="32" y="561" width="22" height="22" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<g data-role="editable-text" aria-label="პერიფერიული არტერიები">
+<text x="64" y="579" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="500" fill="#182F3B">პერიფერიული</text>
+<text x="64" y="598" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="500" fill="#182F3B">არტერიები</text>
+</g>
+<rect x="201" y="549" width="169" height="74" rx="10" fill="#FFFFFF" stroke="#DCE5E2" stroke-width="1"/>
+<use xlink:href="#vein" x="213" y="561" width="22" height="22" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<g data-role="editable-text" aria-label="ვენური დაავადებები">
+<text x="245" y="579" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="500" fill="#182F3B">ვენური</text>
+<text x="245" y="598" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="500" fill="#182F3B">დაავადებები</text>
+</g>
+<rect x="20" y="633" width="169" height="74" rx="10" fill="#FFFFFF" stroke="#DCE5E2" stroke-width="1"/>
+<use xlink:href="#access" x="32" y="645" width="22" height="22" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<g data-role="editable-text" aria-label="დიალიზის მიდგომა">
+<text x="64" y="663" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="500" fill="#182F3B">დიალიზის</text>
+<text x="64" y="682" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="500" fill="#182F3B">მიდგომა</text>
+</g>
+<rect x="201" y="633" width="169" height="74" rx="10" fill="#FFFFFF" stroke="#DCE5E2" stroke-width="1"/>
+<use xlink:href="#scan" x="213" y="645" width="22" height="22" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<g data-role="editable-text" aria-label="დიაგნოსტიკა">
+<text x="245" y="663" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="500" fill="#182F3B">დიაგნოსტიკა</text>
+</g>
+<g data-role="editable-text" aria-label="ახალი რესურსები">
+<text x="20" y="775.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="22" font-weight="600" fill="#182F3B">ახალი რესურსები</text>
+</g>
+<g data-role="editable-text" aria-label="ყველას ნახვა">
+<text x="253.35546875" y="775.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="13" font-weight="600" fill="#096B61">ყველას ნახვა</text>
+</g>
+<use xlink:href="#arrow" x="353" y="763" width="17" height="17" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<g data-role="editable-text" aria-label="სადემონსტრაციო ჩანაწერები">
+<text x="20" y="801.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="11" font-weight="400" fill="#566C76">სადემონსტრაციო ჩანაწერები</text>
+</g>
+<g data-component="ResourceCard">
+<rect x="20" y="823" width="350" height="260" rx="12" fill="#FFFFFF" stroke="#DCE5E2" stroke-width="1"/>
+<rect x="40" y="843" width="38" height="38" rx="8" fill="#E9F4EF"/>
+<use xlink:href="#file" x="49" y="852" width="20" height="20" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="307" y="846" width="48.67578125" height="25" rx="5" fill="#EDF1F0"/>
+<g data-role="editable-text" aria-label="დემო">
+<text x="317" y="860.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="10" font-weight="500" fill="#566C76">დემო</text>
+</g>
+<g data-role="editable-text" aria-label="გაიდლაინების კატალოგი">
+<text x="40" y="910.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="11" font-weight="600" fill="#096B61">გაიდლაინების კატალოგი</text>
+</g>
+<g data-role="editable-text" aria-label="კაროტიდული დაავადებების მართვა">
+<text x="40" y="941" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="17" font-weight="600" fill="#182F3B">კაროტიდული დაავადებების</text>
+<text x="40" y="968" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="17" font-weight="600" fill="#182F3B">მართვა</text>
+</g>
+<g data-role="editable-text" aria-label="ორიგინალი წყარო და ქართული მიმოხილვა ერთ გვერდზე.">
+<text x="40" y="997" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#566C76">ორიგინალი წყარო და ქართული მიმოხილვა</text>
+<text x="40" y="1016" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#566C76">ერთ გვერდზე.</text>
+</g>
+<path d="M40 1038h310" stroke="#DCE5E2"/>
+<g data-role="editable-text" aria-label="რესურსის ნახვა">
+<text x="40" y="1063.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="600" fill="#096B61">რესურსის ნახვა</text>
+</g>
+<use xlink:href="#arrow" x="330" y="1052" width="17" height="17" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g data-component="ResourceCard">
+<rect x="20" y="1099" width="350" height="260" rx="12" fill="#FFFFFF" stroke="#DCE5E2" stroke-width="1"/>
+<rect x="40" y="1119" width="38" height="38" rx="8" fill="#E9F4EF"/>
+<use xlink:href="#book" x="49" y="1128" width="20" height="20" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="307" y="1122" width="48.67578125" height="25" rx="5" fill="#EDF1F0"/>
+<g data-role="editable-text" aria-label="დემო">
+<text x="317" y="1136.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="10" font-weight="500" fill="#566C76">დემო</text>
+</g>
+<g data-role="editable-text" aria-label="თემატური მიმოხილვა">
+<text x="40" y="1186.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="11" font-weight="600" fill="#096B61">თემატური მიმოხილვა</text>
+</g>
+<g data-role="editable-text" aria-label="ქვედა კიდურის არტერიული დაავადება">
+<text x="40" y="1217" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="17" font-weight="600" fill="#182F3B">ქვედა კიდურის არტერიული</text>
+<text x="40" y="1244" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="17" font-weight="600" fill="#182F3B">დაავადება</text>
+</g>
+<g data-role="editable-text" aria-label="კლინიკური თემის მიხედვით დალაგებული მასალები.">
+<text x="40" y="1273" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#566C76">კლინიკური თემის მიხედვით დალაგებული</text>
+<text x="40" y="1292" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#566C76">მასალები.</text>
+</g>
+<path d="M40 1314h310" stroke="#DCE5E2"/>
+<g data-role="editable-text" aria-label="რესურსის ნახვა">
+<text x="40" y="1339.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="600" fill="#096B61">რესურსის ნახვა</text>
+</g>
+<use xlink:href="#arrow" x="330" y="1328" width="17" height="17" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g data-component="ResourceCard">
+<rect x="20" y="1375" width="350" height="260" rx="12" fill="#FFFFFF" stroke="#DCE5E2" stroke-width="1"/>
+<rect x="40" y="1395" width="38" height="38" rx="8" fill="#E9F4EF"/>
+<use xlink:href="#play" x="49" y="1404" width="20" height="20" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="307" y="1398" width="48.67578125" height="25" rx="5" fill="#EDF1F0"/>
+<g data-role="editable-text" aria-label="დემო">
+<text x="317" y="1412.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="10" font-weight="500" fill="#566C76">დემო</text>
+</g>
+<g data-role="editable-text" aria-label="სასწავლო რესურსი">
+<text x="40" y="1462.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="11" font-weight="600" fill="#096B61">სასწავლო რესურსი</text>
+</g>
+<g data-role="editable-text" aria-label="დიალიზის სისხლძარღვოვანი მიდგომა">
+<text x="40" y="1493" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="17" font-weight="600" fill="#182F3B">დიალიზის სისხლძარღვოვანი</text>
+<text x="40" y="1520" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="17" font-weight="600" fill="#182F3B">მიდგომა</text>
+</g>
+<g data-role="editable-text" aria-label="სასწავლო მასალებისა და ვიდეოების განლაგების მაგალითი.">
+<text x="40" y="1549" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#566C76">სასწავლო მასალებისა და ვიდეოების</text>
+<text x="40" y="1568" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#566C76">განლაგების მაგალითი.</text>
+</g>
+<path d="M40 1590h310" stroke="#DCE5E2"/>
+<g data-role="editable-text" aria-label="რესურსის ნახვა">
+<text x="40" y="1615.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="600" fill="#096B61">რესურსის ნახვა</text>
+</g>
+<use xlink:href="#arrow" x="330" y="1604" width="17" height="17" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<rect x="20" y="1687" width="350" height="390" rx="14" fill="#122F40"/>
+<rect x="42" y="1710" width="114.76953125" height="25" rx="5" fill="#E9F4EF"/>
+<g data-role="editable-text" aria-label="აკადემია • დემო">
+<text x="52" y="1725.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="11" font-weight="500" fill="#096B61">აკადემია • დემო</text>
+</g>
+<g data-role="editable-text" aria-label="ისწავლე მოკლე,
+პრაქტიკული მოდულებით.">
+<text x="42" y="1782" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="23" font-weight="600" fill="#FFFFFF">ისწავლე მოკლე,</text>
+<text x="42" y="1817" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="23" font-weight="600" fill="#FFFFFF">პრაქტიკული</text>
+<text x="42" y="1852" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="23" font-weight="600" fill="#FFFFFF">მოდულებით.</text>
+</g>
+<g data-role="editable-text" aria-label="ვიდეო, საკითხავი მასალა
+და თვითშეფასება.">
+<text x="42" y="1896" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#C1D6D6">ვიდეო, საკითხავი მასალა</text>
+<text x="42" y="1920" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#C1D6D6">და თვითშეფასება.</text>
+</g>
+<use xlink:href="#play" x="42" y="1958" width="24" height="24" fill="none" stroke="#B9DFCF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<g data-role="editable-text" aria-label="ულტრაბგერითი დიაგნოსტიკა">
+<text x="78" y="1971" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="13" font-weight="500" fill="#FFFFFF">ულტრაბგერითი დიაგნოსტიკა</text>
+</g>
+<g data-component="Button" data-state="default">
+<rect x="42" y="2012" width="306" height="44" rx="8" fill="#096B61"/>
+<g data-role="editable-text" aria-label="აკადემიის დათვალიერება">
+<text x="90.46875" y="2036.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">აკადემიის დათვალიერება</text>
+</g>
+<use xlink:href="#arrow" x="281.53125" y="2025.0" width="18" height="18" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g data-role="editable-text" aria-label="ღონისძიებები">
+<text x="20" y="2155.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="22" font-weight="600" fill="#182F3B">ღონისძიებები</text>
+</g>
+<g data-role="editable-text" aria-label="ყველას ნახვა">
+<text x="253.35546875" y="2155.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="13" font-weight="600" fill="#096B61">ყველას ნახვა</text>
+</g>
+<use xlink:href="#arrow" x="353" y="2143" width="17" height="17" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<g data-role="editable-text" aria-label="სადემონსტრაციო ჩანაწერები">
+<text x="20" y="2181.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="11" font-weight="400" fill="#566C76">სადემონსტრაციო ჩანაწერები</text>
+</g>
+<rect x="20" y="2205" width="350" height="130" rx="10" fill="#FFFFFF" stroke="#DCE5E2" stroke-width="1"/>
+<use xlink:href="#calendar" x="36" y="2224" width="24" height="24" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<g data-role="editable-text" aria-label="ულტრაბგერის პრაქტიკული ვორკშოპი">
+<text x="76" y="2236" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="15" font-weight="600" fill="#182F3B">ულტრაბგერის პრაქტიკული</text>
+<text x="76" y="2261" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="15" font-weight="600" fill="#182F3B">ვორკშოპი</text>
+</g>
+<g data-role="editable-text" aria-label="თარიღი დასაზუსტებელია">
+<text x="76" y="2297.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="11" font-weight="400" fill="#566C76">თარიღი დასაზუსტებელია</text>
+</g>
+<rect x="290" y="2299" width="48.67578125" height="25" rx="5" fill="#EDF1F0"/>
+<g data-role="editable-text" aria-label="დემო">
+<text x="300" y="2313.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="10" font-weight="500" fill="#566C76">დემო</text>
+</g>
+<rect x="20" y="2350" width="350" height="130" rx="10" fill="#FFFFFF" stroke="#DCE5E2" stroke-width="1"/>
+<use xlink:href="#calendar" x="36" y="2369" width="24" height="24" fill="none" stroke="#096B61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<g data-role="editable-text" aria-label="კლინიკური შემთხვევების განხილვა">
+<text x="76" y="2381" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="15" font-weight="600" fill="#182F3B">კლინიკური შემთხვევების</text>
+<text x="76" y="2406" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="15" font-weight="600" fill="#182F3B">განხილვა</text>
+</g>
+<g data-role="editable-text" aria-label="თარიღი დასაზუსტებელია">
+<text x="76" y="2442.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="11" font-weight="400" fill="#566C76">თარიღი დასაზუსტებელია</text>
+</g>
+<rect x="290" y="2444" width="48.67578125" height="25" rx="5" fill="#EDF1F0"/>
+<g data-role="editable-text" aria-label="დემო">
+<text x="300" y="2458.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="10" font-weight="500" fill="#566C76">დემო</text>
+</g>
+<g data-role="editable-text" aria-label="პროფესიული სიახლეები">
+<text x="20" y="2568.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="22" font-weight="600" fill="#182F3B">პროფესიული სიახლეები</text>
+</g>
+<g data-role="editable-text" aria-label="სადემონსტრაციო ჩანაწერები">
+<text x="20" y="2594.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="11" font-weight="400" fill="#566C76">სადემონსტრაციო ჩანაწერები</text>
+</g>
+<g data-role="editable-text" aria-label="პროფესიული სივრცე • დემო">
+<text x="20" y="2630.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="10" font-weight="600" fill="#096B61">პროფესიული სივრცე • დემო</text>
+</g>
+<g data-role="editable-text" aria-label="VascHub-ის სასწავლო სივრცე">
+<text x="20" y="2662" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="16" font-weight="600" fill="#182F3B">VascHub-ის სასწავლო სივრცე</text>
+</g>
+<path d="M20 2706h350" stroke="#DCE5E2"/>
+<g data-role="editable-text" aria-label="პროფესიული სივრცე • დემო">
+<text x="20" y="2733.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="10" font-weight="600" fill="#096B61">პროფესიული სივრცე • დემო</text>
+</g>
+<g data-role="editable-text" aria-label="საჭირო რესურსი — რამდენიმე ნაბიჯში">
+<text x="20" y="2765" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="16" font-weight="600" fill="#182F3B">საჭირო რესურსი — რამდენიმე ნაბიჯში</text>
+</g>
+<path d="M20 2809h350" stroke="#DCE5E2"/>
+<rect x="0" y="2885" width="390" height="268" rx="0" fill="#122F40"/>
+<rect x="20" y="2909" width="34" height="34" rx="8" fill="#E9F4EF"/>
+<path d="M29 2918l8 18 8-18M37 2936v-9" fill="none" stroke="#096B61" stroke-width="2.2" stroke-linecap="round"/>
+<g data-role="editable-text" aria-label="VascHub">
+<text x="66" y="2934.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="27" font-weight="700" fill="#FFFFFF">VascHub</text>
+</g>
+<g data-role="editable-text" aria-label="საქართველოს სისხლძარღვთა ქირურგიის
+პროფესიული პლატფორმა.">
+<text x="20" y="2981" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#C1D6D6">საქართველოს სისხლძარღვთა ქირურგიის</text>
+<text x="20" y="3003" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#C1D6D6">პროფესიული პლატფორმა.</text>
+</g>
+<g data-role="editable-text" aria-label="ჩვენ შესახებ     კონტაქტი">
+<text x="20" y="3056.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#FFFFFF">ჩვენ შესახებ     კონტაქტი</text>
+</g>
+<g data-role="editable-text" aria-label="კონფიდენციალურობა">
+<text x="20" y="3088.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#FFFFFF">კონფიდენციალურობა</text>
+</g>
+<g data-role="editable-text" aria-label="© VascHub • დიზაინის კონცეფცია v1">
+<text x="20" y="3125.0" font-family="Noto Sans Georgian, DejaVu Sans, sans-serif" font-size="10" font-weight="400" fill="#C1D6D6">© VascHub • დიზაინის კონცეფცია v1</text>
+</g>
+</svg>

@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-28",
+  "figmaFileKey": "Zmcc2z7YCZAdq5ipRDuMlq",
+  "source": "Files provided by the user after exporting from Figma; attachments copied unchanged",
+  "duplicates": [
+    {
+      "uploadedName": "v1.1(1).png",
+      "sameAs": "v1.1.png",
+      "storedOnceAs": "mobile-v1.1-preview.png"
+    }
+  ],
+  "files": [
+    {
+      "file": "mobile-v1.1-preview.png",
+      "uploadedName": "v1.1.png",
+      "nodeId": "4:331",
+      "width": 234,
+      "height": 2048,
+      "sha256": "6eeb51839bf67553dd62599349dcbc617567133fdf57194cee1b074600c084c9",
+      "role": "reduced mobile review preview; not a 390px 1x export"
+    },
+    {
+      "file": "wireframe-v1.1.png",
+      "uploadedName": "priorities.png",
+      "nodeId": "4:545",
+      "width": 1000,
+      "height": 1010,
+      "sha256": "3b26268dfd18f7e6d63f4d03a297558315c595cf6cc90f4fc1f2592368a945b7",
+      "role": "user-provided static Figma export"
+    },
+    {
+      "file": "search-empty-v1.1.png",
+      "uploadedName": "Empty.png",
+      "nodeId": "4:613",
+      "width": 1000,
+      "height": 350,
+      "sha256": "54af0745cfccf29d49c258bf481339196089c58d30693004da0ae530bb54b42b",
+      "role": "user-provided static Figma export"
+    },
+    {
+      "file": "search-focus-v1.1.png",
+      "uploadedName": "Focus.png",
+      "nodeId": "4:568",
+      "width": 1000,
+      "height": 368,
+      "sha256": "2e2178bb33ddfd703ea74c04abc64948788558f3673bb5f17113fadecad05955",
+      "role": "user-provided static Figma export"
+    },
+    {
+      "file": "menu-v1.1.png",
+      "uploadedName": "Open.png",
+      "nodeId": "4:626",
+      "width": 390,
+      "height": 900,
+      "sha256": "211fb03115fbce88b8e15802e33c78aace30f7609d72cbdd3edc98b6cdea0206",
+      "role": "user-provided static Figma export"
+    },
+    {
+      "file": "search-results-v1.1.png",
+      "uploadedName": "Results.png",
+      "nodeId": "4:582",
+      "width": 1000,
+      "height": 701,
+      "sha256": "a2bafdad5b8c1201d718368996bda059a1433d34b47df2bf2b2136e9543a3bdd",
+      "role": "user-provided static Figma export"
+    }
+  ],
+  "visualReview": {
+    "method": "Manual inspection of supplied PNGs, alongside existing native Figma structure audit; no new Figma API reads",
+    "mobile": {
+      "scope": "coarse section layout and previously overlapping headings in the supplied 234x2048 preview",
+      "result": "no visible heading overlap or clipped cards found",
+      "confirmed": [
+        "Main title is separated from the introduction",
+        "Academy heading is separated from its description and CTA",
+        "Resource titles and descriptions do not visibly overlap",
+        "Sections and footer remain within the visible page width"
+      ],
+      "limits": [
+        "Received image is 234px wide, not the original 390px frame",
+        "Full-size small-text readability and pixel-level 390px QA not established",
+        "Tap target geometry relies on prior native audit, not this scaled PNG"
+      ]
+    },
+    "otherScreens": "Wireframe, menu and search focus/results/empty states visually inspected; static states do not prove working interactions"
+  },
+  "pending": [
+    "Original 390px-wide Mobile 1x PNG and full-size visual inspection",
+    "Separate Button set 4:2 export",
+    "Manual Figma Present click-through and later browser accessibility checks"
+  ]
+}
