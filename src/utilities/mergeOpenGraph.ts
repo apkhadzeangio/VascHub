@@ -1,0 +1,16 @@
+import type { Metadata } from 'next'
+
+const defaultOpenGraph: Metadata['openGraph'] = {
+  type: 'website',
+  description: 'საქართველოს სისხლძარღვთა ქირურგიის პროფესიული პლატფორმა.',
+  siteName: 'VascHub',
+  title: 'VascHub',
+}
+
+export const mergeOpenGraph = (og?: Metadata['openGraph']): Metadata['openGraph'] => {
+  return {
+    ...defaultOpenGraph,
+    ...og,
+    images: og?.images ? og.images : defaultOpenGraph.images,
+  }
+}
