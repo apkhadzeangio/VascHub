@@ -168,6 +168,7 @@ docker compose up -d app
 
 სტარტერის წარმომავლობა: [docs/UPSTREAM.md](docs/UPSTREAM.md).
 მთავარი გვერდის მართვა და შემოწმება: [docs/HOMEPAGE.md](docs/HOMEPAGE.md).
-შესრულებული შემოწმებები: [docs/VALIDATION.md](docs/VALIDATION.md).
+მთავარი გვერდის შედეგები და screenshots: [docs/HOMEPAGE-VALIDATION.md](docs/HOMEPAGE-VALIDATION.md).
+ტექნიკური საფუძვლის საწყისი შემოწმებები: [docs/VALIDATION.md](docs/VALIDATION.md).
 ორიგინალი ინსტრუქცია: [docs/UPSTREAM-README.md](docs/UPSTREAM-README.md).
 ლიცენზია: [MIT](LICENSE.md).

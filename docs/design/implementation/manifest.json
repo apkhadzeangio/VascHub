@@ -1,0 +1,45 @@
+{
+  "kind": "production-build Chromium browser screenshots, not Figma exports",
+  "repository": "apkhadzeangio/VascHub",
+  "sourceCommit": "ae558013afc27bc8af8e69546445ef9e1b113bb6",
+  "workflowRun": "https://github.com/apkhadzeangio/VascHub/actions/runs/40766636330",
+  "artifactId": 12849734447,
+  "artifactName": "homepage-browser-previews",
+  "designSource": "../homepage-brief.md",
+  "targetWidths": [
+    390,
+    768,
+    1440
+  ],
+  "automaticSync": false,
+  "screenshots": [
+    {
+      "file": "homepage-1440.png",
+      "width": 1440,
+      "height": 2114,
+      "sha256": "36540d61772d5d41560ac111e4ba2065922e6032c81cf691414a6ee75f163e37",
+      "content": "explicitly labelled test fixtures only"
+    },
+    {
+      "file": "homepage-390.png",
+      "width": 390,
+      "height": 3723,
+      "sha256": "4a6b491e3d04d9e45f83d0e621338a43ca0c4a26afc019d49db51613363c1dd2",
+      "content": "explicitly labelled test fixtures only"
+    },
+    {
+      "file": "homepage-768.png",
+      "width": 768,
+      "height": 3134,
+      "sha256": "faffde062bb2040f3743a99473335b8983f4283c79cd4653598723772055a7ad",
+      "content": "explicitly labelled test fixtures only"
+    },
+    {
+      "file": "empty-mobile-390.png",
+      "width": 390,
+      "height": 2346,
+      "sha256": "b4450e1bc7914ffc7e433e1e22f668c52e6477acf2f49521d099c1d9a795fcce",
+      "content": "empty CMS"
+    }
+  ]
+}
