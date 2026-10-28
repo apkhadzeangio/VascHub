@@ -22,6 +22,7 @@ jobs:
       PREVIEW_SECRET: ci-only-preview-placeholder
       NEXT_PUBLIC_SERVER_URL: http://localhost:3000
       NEXT_TELEMETRY_DISABLED: 1
+      POSTGRES_PASSWORD: ci-only-password
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -38,8 +39,24 @@ jobs:
       - run: pnpm test:e2e
         env:
           E2E_SERVER_COMMAND: pnpm start
-      - name: Verify Docker build
-        run: docker compose build app
+      - name: Verify Docker build and startup
+        env:
+          ADMIN_EMAIL: docker-admin@vaschub.test
+          ADMIN_PASSWORD: ci-only-docker-bootstrap-password-123
+        run: |
+          cp .env.example .env
+          docker compose build app
+          docker compose up -d
+          curl --retry 30 --retry-delay 2 --retry-all-errors --fail http://127.0.0.1:3000/ -o /dev/null
+          docker compose exec -T -e ADMIN_EMAIL -e ADMIN_PASSWORD app pnpm admin:create
+          docker compose exec -T -e ADMIN_EMAIL -e ADMIN_PASSWORD app node tests/http/smoke.mjs
+          docker compose restart app
+          curl --retry 30 --retry-delay 2 --retry-all-errors --fail http://127.0.0.1:3000/ -o /dev/null
+          docker compose exec -T -e ADMIN_EMAIL -e ADMIN_PASSWORD app node tests/http/smoke.mjs
+      - name: Stop Compose services
+        if: always()
+        run: |
+          if [ -f .env ]; then docker compose down -v; fi
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
