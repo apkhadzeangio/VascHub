@@ -1,0 +1,5 @@
+# Optional database port for running the Next.js app outside Docker.
+services:
+  db:
+    ports:
+      - "127.0.0.1:5432:5432"
