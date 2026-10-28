@@ -1,0 +1,72 @@
+{
+  "version": "native-figma-v1.1",
+  "method": "WCAG relative luminance; listed intended text/background pairs only",
+  "pairs": [
+    {
+      "foreground": "#182F3B",
+      "background": "#FFFFFF",
+      "ratio": 13.92,
+      "passesNormalTextAA": true
+    },
+    {
+      "foreground": "#182F3B",
+      "background": "#F6F8F7",
+      "ratio": 13.05,
+      "passesNormalTextAA": true
+    },
+    {
+      "foreground": "#566C76",
+      "background": "#FFFFFF",
+      "ratio": 5.52,
+      "passesNormalTextAA": true
+    },
+    {
+      "foreground": "#566C76",
+      "background": "#F6F8F7",
+      "ratio": 5.18,
+      "passesNormalTextAA": true
+    },
+    {
+      "foreground": "#096B61",
+      "background": "#FFFFFF",
+      "ratio": 6.39,
+      "passesNormalTextAA": true
+    },
+    {
+      "foreground": "#FFFFFF",
+      "background": "#096B61",
+      "ratio": 6.39,
+      "passesNormalTextAA": true
+    },
+    {
+      "foreground": "#FFFFFF",
+      "background": "#122F40",
+      "ratio": 13.94,
+      "passesNormalTextAA": true
+    },
+    {
+      "foreground": "#C1D6D6",
+      "background": "#122F40",
+      "ratio": 9.2,
+      "passesNormalTextAA": true
+    },
+    {
+      "foreground": "#FFFFFF",
+      "background": "#1C4051",
+      "ratio": 11.04,
+      "passesNormalTextAA": true
+    },
+    {
+      "foreground": "#C1D6D6",
+      "background": "#1C4051",
+      "ratio": 7.29,
+      "passesNormalTextAA": true
+    },
+    {
+      "foreground": "#405B56",
+      "background": "#DCE5E2",
+      "ratio": 5.74,
+      "passesNormalTextAA": true
+    }
+  ]
+}

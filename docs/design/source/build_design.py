@@ -37,7 +37,7 @@ def lines(s,size,w):
 class SVG:
     def __init__(self,w,h,name):
         self.w,self.h,self.name=w,h,name;self.p=[];self.textboxes=[]
-        self.p.append(f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-labelledby="title desc"><title id="title">{escape(name)}</title><desc id="desc">VascHub homepage design v1. Local editable SVG; not an export from the empty Figma destination. All content is demonstrative.</desc>')
+        self.p.append(f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-labelledby="title desc"><title id="title">{escape(name)}</title><desc id="desc">VascHub homepage design v1. Original local v1 concept; not a Figma export. Native Figma v1.1 is separate. All content is demonstrative.</desc>')
         self.p.append('<defs>'+''.join(f'<symbol id="{k}" viewBox="0 0 24 24">{v}</symbol>' for k,v in ICONS.items())+'</defs>')
     def rect(self,x,y,w,h,fill='white',r=0,stroke=None,sw=1):
         fill=C.get(fill,fill);st=f' stroke="{C.get(stroke,stroke)}" stroke-width="{sw}"' if stroke else ''

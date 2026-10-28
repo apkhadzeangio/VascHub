@@ -49,8 +49,10 @@
       "sha256": "de4fd9ee08cd655b0346077b3df5e446e6ad4088048917c8e3fb3490ab08c3ce"
     },
     {
-      "file": "tokens.json",
+      "file": "tokens-local-v1.json",
       "sha256": "dc9a9a8d5093bd8654b0bbd70a11cac143f1854513a9018b6709248bd48558bc"
     }
-  ]
+  ],
+  "historicalSnapshot": true,
+  "note": "Original local v1 concept; superseded by native Figma v1.1, see figma-snapshot-manifest.json"
 }

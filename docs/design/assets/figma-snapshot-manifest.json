@@ -1,0 +1,86 @@
+{
+  "version": "native-figma-v1.1",
+  "date": "2026-10-28",
+  "fileKey": "Zmcc2z7YCZAdq5ipRDuMlq",
+  "fileUrl": "https://www.figma.com/design/Zmcc2z7YCZAdq5ipRDuMlq",
+  "synchronizedAutomatically": false,
+  "files": [
+    {
+      "file": "figma-components-v1.1.png",
+      "width": 1440,
+      "height": 2211,
+      "sha256": "24994ca640d6a7b7a11623e1f1273813e5699021de241a7ddfb4d1fb36888f7d",
+      "source": "Figma get_screenshot inline PNG; post-polish snapshot"
+    },
+    {
+      "file": "figma-desktop-v1.1.png",
+      "width": 1440,
+      "height": 1963,
+      "sha256": "bed02021f69ce48e9404c969bb85b7fc870f31ba8435b462a5cb876da4bbff4a",
+      "source": "Figma get_screenshot inline PNG; post-polish snapshot"
+    },
+    {
+      "file": "figma-menu-v1.1.png",
+      "width": 390,
+      "height": 900,
+      "sha256": "d1944147612e6439820686ce192b7d2ab9c51fd3b7342ddede3b432262da36b9",
+      "source": "Figma get_screenshot inline PNG; post-polish snapshot"
+    },
+    {
+      "file": "figma-search-empty-v1.1.png",
+      "width": 1000,
+      "height": 350,
+      "sha256": "5a4380dbc483ad8acc35b975579579dffc0bb2bf431cce915631717a4632adca",
+      "source": "Figma get_screenshot inline PNG; post-polish snapshot"
+    },
+    {
+      "file": "figma-search-focus-v1.1.png",
+      "width": 1000,
+      "height": 368,
+      "sha256": "5f3fa589086a28ae24bdc90c6f8121175993dead1d053029c6bf460784bd5f55",
+      "source": "Figma get_screenshot inline PNG; post-polish snapshot"
+    },
+    {
+      "file": "figma-search-results-v1.1.png",
+      "width": 1000,
+      "height": 701,
+      "sha256": "230bc0534fcea875d7d06c8be5a68911500556fbfbba874c7f6137f730f37fbf",
+      "source": "Figma get_screenshot inline PNG; post-polish snapshot"
+    },
+    {
+      "file": "figma-wireframe-v1.1.png",
+      "width": 1000,
+      "height": 1010,
+      "sha256": "212e284f20217211b6580a2b7b08e9e63074a51b6f4db37b819e16d1ab11196a",
+      "source": "Figma get_screenshot inline PNG; post-polish snapshot"
+    },
+    {
+      "file": "tokens.json",
+      "sha256": "1965510d3e4fdb7bd8a3ad5e69d373316588fe15dc1dcf527cc30b88072e15ab"
+    },
+    {
+      "file": "figma-native-state.json",
+      "sha256": "92632283de3726e6a979809130e1a106d4f2fca6261cc6bf6e54ddea6ecd1f88"
+    },
+    {
+      "file": "figma-icons.json",
+      "sha256": "eaad4ea89c9a74ef78b69cf4afeb3fffc59f72b99a9ed0e30c9411429c6233fd"
+    },
+    {
+      "file": "LICENSE-lucide.txt",
+      "sha256": "668dcc52803480e0a026b31140a4cae668772663cd764e5991d252eef03f98db"
+    },
+    {
+      "file": "figma-contrast-qa.json",
+      "sha256": "2e4a3a05f33ac80caa9603675ef483bcb4adfcc86312e3343f2bd9d11e3bd0ba"
+    }
+  ],
+  "pending": [
+    "Final PNG export and visual inspection for Mobile 4:331",
+    "Separate Button set 4:2 PNG export"
+  ],
+  "notExports": [
+    "homepage-*.svg/png and homepage-prototype.html are earlier local v1 concepts"
+  ],
+  "note": "No final Mobile PNG is included. Never substitute a pre-polish or local concept render as a final Figma export."
+}

@@ -1,15 +1,26 @@
-# VascHub — მთავარი გვერდის დიზაინი v1
+# VascHub — მთავარი გვერდის დიზაინი v1.1
 
-**სტატუსი:** დიზაინის კონცეფცია, რედაქტირებადი SVG-ები, PNG ხედები და დამოუკიდებელი
-HTML პროტოტიპი მზადაა. **Figma-ის native ფენები, Auto Layout, კომპონენტების instances
-და ცვლადები ჯერ არ არის შექმნილი.** Figma MCP-ის Starter ლიმიტმა canvas-ზე მუშაობა
-პირველივე read/write მცდელობაზე დაბლოკა.
+**სტატუსი:** Figma-ში შექმნილია რედაქტირებადი Desktop და Mobile ეკრანები,
+wireframe, Auto Layout, ადგილობრივი კომპონენტები/instances, 52 ცვლადი,
+12 ტიპოგრაფიული სტილი და ძიების/მობილური მენიუს დემო გადასვლები.
+საბოლოო Desktop, wireframe, კომპონენტების დაფა, მენიუ და ძიების მდგომარეობები
+ექსპორტირებულია. **შესწორებული Mobile ეკრანის ბოლო PNG და Button set-ის ცალკე
+ექსპორტი Starter-ის MCP ლიმიტმა დაბლოკა.** მობილურის საბოლოო მდგომარეობა
+Figma-ში შენახულია და სტრუქტურულად შემოწმებულია; შესწორების შემდგომი ვიზუალური
+შემოწმება ჯერ დარჩენილია.
 
 - დიზაინის თარიღი: 2026-10-28.
 - კოდის შემოწმებული საფუძველი: `d8a7538e7f4a4ba49e9ed2f4d0e5bcb72702cb3e`.
-- Figma დანიშნულების ფაილი: https://www.figma.com/design/QC9hwA5hF3JN2rBnt4TSuL
-- Figma ფაილი **ცარიელია**. ეკრანების node ID-ები არ არსებობს და ბმულები არ არის გამოგონილი.
-- მოცემული ფაილები **ადგილობრივი დიზაინის v1 ასლებია და არა Figma-დან მიღებული ექსპორტები**.
+- Figma-ის მოქმედი ფაილი: https://www.figma.com/design/Zmcc2z7YCZAdq5ipRDuMlq
+- [Desktop — 1440 × 1963](https://www.figma.com/design/Zmcc2z7YCZAdq5ipRDuMlq?node-id=4-119).
+- [Mobile — 390 × 3403](https://www.figma.com/design/Zmcc2z7YCZAdq5ipRDuMlq?node-id=4-331).
+- [Wireframe](https://www.figma.com/design/Zmcc2z7YCZAdq5ipRDuMlq?node-id=4-545).
+- [კომპონენტები და ტოკენები](https://www.figma.com/design/Zmcc2z7YCZAdq5ipRDuMlq?node-id=2-67), [Button set](https://www.figma.com/design/Zmcc2z7YCZAdq5ipRDuMlq?node-id=4-2).
+- [ძიება: focus](https://www.figma.com/design/Zmcc2z7YCZAdq5ipRDuMlq?node-id=4-568), [შედეგი](https://www.figma.com/design/Zmcc2z7YCZAdq5ipRDuMlq?node-id=4-582), [ცარიელი შედეგი](https://www.figma.com/design/Zmcc2z7YCZAdq5ipRDuMlq?node-id=4-613).
+- [მობილური მენიუ](https://www.figma.com/design/Zmcc2z7YCZAdq5ipRDuMlq?node-id=4-626), [მობილური ძიება](https://www.figma.com/design/Zmcc2z7YCZAdq5ipRDuMlq?node-id=4-672).
+- `figma-*-v1.1.png` ფაილები Figma-ის კონკრეტული მდგომარეობის ნამდვილი რენდერებია.
+  `homepage-*.svg/png` და HTML ინახავს ადრინდელ ადგილობრივ **v1 კონცეფციას**;
+  ისინი v1.1-ის ზუსტი ექსპორტები არ არის. სინქრონიზაცია ავტომატური არ არის.
 - აპის კოდი, მონაცემთა ბაზა და ჰოსტინგი არ შეცვლილა.
 
 ## დიზაინის გადაწყვეტილებები
@@ -79,17 +90,26 @@ Relume, Mobbin და v0 ამ სესიის დაკავშირე�
 
 `tokens.json` ადამიანისთვის წასაკითხი handoff JSON-ია, არა სერტიფიცირებული
 DTCG პაკეტი. იგი ინახავს CSS შესაბამისობებს, ტიპოგრაფიას, დაშორებებსა და მდგომარეობებს.
-SVG-ის `data-component` ჯგუფები სემანტიკური ნიშნებია და **არა Figma component instances**.
-ბრაუზერის CSS flex/grid ანალოგიურად აღწერს მომავალ Auto Layout განზრახვას,
-მაგრამ Figma-ში ჯერ არ არის აღდგენილი.
+ადრინდელი SVG-ის `data-component` ჯგუფები სემანტიკური ნიშნებია. ახალ Figma ფაილში
+კი Button, Badge, Logo, Search, TopicShortcut, ResourceCard, EventRow და NewsRow
+ადგილობრივი კომპონენტებია და მთავარ ეკრანებზე instances-ით გამოიყენება.
+რეპოზიტორიაში Code Connect ფაილები არ იყო; ახალი ანგარიშის team library-ში
+Button/Input/Card/color/typography ძიებამ შესაბამისი აქტივები ვერ იპოვა.
+შეიქმნა არსებული shadcn/ui კომპონენტების სტრუქტურასთან თავსებადი მცირე ლოკალური ნაკრები.
+ეს დოკუმენტირებული შესაბამისობაა; ავტომატური Code Connect სინქრონიზაცია არ გამართულა.
 
 ## ფაილები და პროტოტიპის გახსნა
 
-- [Desktop — 1440 × 1894](assets/homepage-desktop.svg), [PNG](assets/homepage-desktop.png).
-- [Mobile — 390 × 3153](assets/homepage-mobile.svg), [PNG](assets/homepage-mobile.png).
-- [Wireframe](assets/homepage-wireframe.svg), [PNG](assets/homepage-wireframe.png).
-- [კომპონენტების მდგომარეობები](assets/homepage-states.svg), [PNG](assets/homepage-states.png).
+- [Figma Desktop — 1440 × 1963](assets/figma-desktop-v1.1.png).
+- [Figma wireframe](assets/figma-wireframe-v1.1.png), [კომპონენტები](assets/figma-components-v1.1.png).
+- [Figma მენიუ](assets/figma-menu-v1.1.png), [ძიების focus](assets/figma-search-focus-v1.1.png),
+  [შედეგი](assets/figma-search-results-v1.1.png), [ცარიელი მდგომარეობა](assets/figma-search-empty-v1.1.png).
+- საბოლოო Mobile PNG ამ snapshot-ში არ არის; ზემოთ მოცემულ Figma ეკრანზე იხილეთ.
+- ადრინდელი ადგილობრივი კონცეფცია: [Desktop SVG](assets/homepage-desktop.svg),
+  [Mobile SVG](assets/homepage-mobile.svg), [Mobile PNG](assets/homepage-mobile.png).
 - [დიზაინის ტოკენები](assets/tokens.json).
+- [Figma-ის node-ები და სტრუქტურული შემოწმება](assets/figma-native-state.json).
+- [Figma v1.1 snapshot manifest](assets/figma-snapshot-manifest.json).
 - [HTML პროტოტიპი](homepage-prototype.html).
 
 პროტოტიპის გახსნა შეიძლება ფაილიდან ან ცალკე ლოკალური HTTP სერვერით:
@@ -106,20 +126,39 @@ python -m http.server 4173 --directory docs/design
 დემოს დიალოგს. რეალურ backend-ზე მოთხოვნები არ იგზავნება.
 ყველა რესურსი, კურსი, ღონისძიება და სიახლე მონიშნულია როგორც სადემონსტრაციო.
 
+Figma პროტოტიპში Desktop-ის საძიებო ველზე დაჭერა ხსნის focus მდგომარეობას;
+„სცადე კაროტიდი“ გადადის წინასწარ განსაზღვრულ შედეგზე და შემდეგ შესაძლებელია
+ცარიელი შედეგის ნახვა ან მთავარზე დაბრუნება. მობილურის ძიება ხსნის წინასწარ
+განსაზღვრულ მობილურ შედეგს; მენიუს ღილაკი ხსნის მენიუს, დახურვა აბრუნებს მთავარზე.
+მენიუს ბმულებიც დემოს დასახურად მთავარზე გადადის; რეალური მარშრუტები არ შექმნილა.
+Figma-ში ტექსტის თავისუფალი აკრეფით ძიება, ავტორიზაცია და backend არ მუშაობს.
+
 ## შემოწმება და დარჩენილი შეზღუდვები
 
-- SVG-ები შეიცავს რედაქტირებად `<text>` და ვექტორულ ელემენტებს; screenshot fill არ გამოიყენება.
-- Desktop-ისა და Mobile-ის ქართული ტექსტები ვიზუალურად გადაიხედა PNG რენდერებზე.
-- გადაფარვა, რომელიც პირველ მობილურ ვერსიაში გრძელ სათაურს ჰქონდა, გასწორდა.
-- ტექსტის გაზომვის შემოწმებამ გარე საზღვრებში გადაცდენა ვერ აღმოაჩინა: `assets/layout-qa.json`.
-- ძირითადი foreground/background წყვილების კონტრასტი მინიმუმ 4.5:1-ია: `assets/contrast-qa.json`.
+- Figma Desktop: 213 შთამომავალი ფენა, მათ შორის 62 ტექსტი და 28 instance.
+- Figma Mobile: 218 შთამომავალი ფენა, მათ შორის 56 ტექსტი და 26 instance.
+- ორივე ეკრანის ყველა ტექსტს Noto Sans Georgian და საერთო ტიპოგრაფიული სტილი აქვს.
+- არც ერთ მთავარ ეკრანში IMAGE fill არ არის: UI ტექსტით, ვექტორებითა და კომპონენტებითაა აწყობილი.
+- საბოლოო audit-ში შემოწმებულ 10 root-ში ტექსტის მშობელი კონტეინერიდან გადაცდენა არ დაფიქსირდა.
+  ეს ავტომატური შემოწმება ფენებს შორის ყველა შესაძლო ვიზუალური გადაფარვის მტკიცებულება არ არის.
+- პირველ Figma რენდერზე აღმოჩენილი სამი მრავალსტრიქონიანი სათაურის გადაფარვა გასწორდა
+  ცალკეული ტექსტური ხაზების Auto Layout ჯგუფებით. Search-ის Query გახდა FILL,
+  რომ 936 px მდგომარეობაში კონტეინერს გაჰყვეს.
+- საბოლოო Desktop, კომპონენტები, მენიუ და ძიების მდგომარეობები ვიზუალურად შემოწმდა.
+  Mobile-ის შესწორების შემდგომი screenshot/ვიზუალური შემოწმება ლიმიტის გამო დარჩა.
+- შემოწმდა პროტოტიპის ძირითადი გადასვლების რეალური reaction/destination ჩანაწერები.
+  Figma Present-ში ხელით click-through და კლავიატურის ნავიგაცია ამ გარემოში არ ჩატარებულა.
+- ძირითადი ფერთა წყვილების კონტრასტის შემოწმება შენახულია `assets/contrast-qa.json`-ში;
+  ძირითადი palette v1-დან უცვლელია. 44 px კონტროლები და focus მდგომარეობები დიზაინშია.
 - HTML-ის DOM smoke check ამოწმებს ქართულ ძიებას, ცარიელ მდგომარეობას, Escape-ს,
   სამი რესურსის/ექვსი თემის არსებობასა და ძირითად labels/landmarks-ს.
 - native dialog-ის focus trap და ბრაუზერის რეალური responsive განლაგება ამ გარემოში
   არ შემოწმებულა. DOM შემოწმება ბრაუზერულ ტესტად არ არის წარმოდგენილი.
-- Figma-ის ცარიელ ფაილში გადასატანია wireframe, ორი ეკრანი, კომპონენტების მდგომარეობები,
-  Auto Layout, native components/instances, shared styles/tokens და prototype connections.
-  ამისთვის ჯერ Figma MCP-ის წვდომა უნდა აღდგეს.
+- დარჩენილია Figma Mobile `4:331`-ის საბოლოო PNG ექსპორტი/ვიზუალური შემოწმება
+  და Button set `4:2`-ის ცალკე ექსპორტი; ძირითადი ფენები უკვე შენახულია.
+  წვდომის აღდგენის შემდეგ უნდა გაგრძელდეს **ამავე ფაილში**, არა ახალი დიზაინით.
+- PNG ჩამოტვირთვის URL-ები გარემოს ქსელმა დაბლოკა; ხელმისაწვდომი რენდერები
+  ოფიციალური Figma ინსტრუმენტის inline PNG პასუხებიდან შეინახა.
 
 ## ასლების აღდგენა
 
@@ -127,6 +166,13 @@ python -m http.server 4173 --directory docs/design
 საჭირო Python პაკეტები: `docs/design/source/requirements.txt`.
 PNG-ის ერთნაირი შედეგისთვის ჯერ დააყენეთ თანდართული Noto Sans Georgian ფონტი.
 DOM შემოწმება: `node docs/design/source/check-prototype.mjs` — გამოიყენება უკვე არსებული jsdom dependency.
-ექსპორტები კონკრეტული **local design v1** მდგომარეობის ასლებია; Figma-თან ავტომატური
-სინქრონიზაცია არ არსებობს. SVG-ის Figma-ში შემოტანის შემთხვევაშიც Auto Layout,
-საერთო ტოკენები და component instances დამატებით უნდა შეიქმნას.
+`build_design.py` მხოლოდ ძველ **local design v1** SVG/PNG კონცეფციას აღადგენს.
+Figma v1.1-ის native აწყობის წყაროებია `figma-native-components.plugin.js.txt`,
+`figma-native-homepage.plugin.js.txt` და `figma-native-polish.plugin.js.txt`. ისინი Figma Plugin API-ის
+სკრიპტებია, არა Node CLI ბრძანებები: პირველი ფაზის დაბრუნებული STATE და
+`figma-icons.json` გამოიყენება შემდეგ ფაზაში. ID-ები მოცემული ფაილის snapshot-ს
+ეკუთვნის; სხვა ფაილში ისინი ხელახლა უნდა განისაზღვროს.
+ფონტის Semibold შეესაბამება 600 წონას (ადრინდელი კონცეფციის 650-ის ნაცვლად).
+Lucide-ის ვექტორები არსებული `lucide-react` 0.563.0 პაკეტიდანაა; ISC ლიცენზია თან ერთვის.
+ნამდვილი Figma ექსპორტები ხელახლა უნდა მიიღოთ კონკრეტული frame-ებიდან;
+რეპოზიტორიასთან ავტომატური სინქრონიზაცია არ გამართულა.
