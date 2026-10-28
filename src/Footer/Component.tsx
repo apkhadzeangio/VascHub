@@ -1,30 +1,46 @@
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import Link from 'next/link'
 import React from 'react'
-
-import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { CMSLink } from '@/components/Link'
 import { Logo } from '@/components/Logo/Logo'
-
+import { AvailabilityButton } from '@/components/Modal'
 export async function Footer() {
-  const footerData = await getCachedGlobal('footer', 1)()
-
-  const navItems = footerData?.navItems || []
-
+  const data = await getCachedGlobal('footer', 1)()
   return (
-    <footer className="mt-auto border-t border-border bg-black dark:bg-card text-white">
-      <div className="container py-8 gap-8 flex flex-col md:flex-row md:justify-between">
-        <Link className="flex items-center" href="/">
-          <Logo />
-        </Link>
-
-        <div className="flex flex-col-reverse items-start md:flex-row gap-4 md:items-center">
-          <ThemeSelector />
-          <nav className="flex flex-col md:flex-row gap-4">
-            {navItems.map(({ link }, i) => {
-              return <CMSLink className="text-white" key={i} {...link} />
-            })}
+    <footer className="vh-theme vh-footer" id="about">
+      <div className="vh-container vh-footer-content">
+        <div className="vh-footer-brand">
+          <Link href="/" aria-label="VascHub — მთავარი გვერდი">
+            <Logo inverse />
+          </Link>
+          <p>საქართველოს სისხლძარღვთა ქირურგიის პროფესიული პლატფორმა.</p>
+          <p className="vh-footer-membership">წევრობა მოგვიანებით დაემატება.</p>
+        </div>
+        <div className="vh-footer-side">
+          <nav aria-label="დამატებითი ინფორმაცია">
+            {data.navItems?.length ? (
+              data.navItems.map(({ link }, i) => (
+                <CMSLink key={i} {...link} className="vh-footer-link" />
+              ))
+            ) : (
+              <>
+                <Link href="/#about">ჩვენ შესახებ</Link>
+                <AvailabilityButton
+                  title="კონტაქტი"
+                  message="საკონტაქტო ინფორმაცია მოგვიანებით გამოქვეყნდება."
+                >
+                  კონტაქტი
+                </AvailabilityButton>
+                <AvailabilityButton
+                  title="კონფიდენციალურობა"
+                  message="კონფიდენციალურობის შესახებ ინფორმაცია მოგვიანებით გამოქვეყნდება."
+                >
+                  კონფიდენციალურობა
+                </AvailabilityButton>
+              </>
+            )}
           </nav>
+          <small>© {new Date().getFullYear()} VascHub</small>
         </div>
       </div>
     </footer>

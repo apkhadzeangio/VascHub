@@ -12,6 +12,7 @@ import { beforeSyncWithSearch } from '@/search/beforeSync'
 
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
+import { authenticated } from '@/access/authenticated'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | VascHub` : 'VascHub'
@@ -84,6 +85,8 @@ export const plugins: Plugin[] = [
     collections: ['posts'],
     beforeSync: beforeSyncWithSearch,
     searchOverrides: {
+      // Public /search uses Posts with guest access checks. Index copies stay private.
+      access: { read: authenticated },
       fields: ({ defaultFields }) => {
         return [...defaultFields, ...searchFields]
       },

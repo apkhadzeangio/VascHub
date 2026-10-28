@@ -12,6 +12,7 @@ import { slugField } from 'payload'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
+import { homepageFields } from '@/Homepage/config'
 
 import {
   MetaDescriptionField,
@@ -63,6 +64,7 @@ export const Pages: CollectionConfig<'pages'> = {
     {
       type: 'tabs',
       tabs: [
+        { label: 'მთავარი გვერდი', fields: [homepageFields] },
         {
           fields: [hero],
           label: 'Hero',
