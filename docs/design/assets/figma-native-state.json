@@ -1792,12 +1792,14 @@
   },
   "verification": {
     "desktopVisual": "passed after final polish",
-    "mobileVisual": "pre-polish screenshot inspected; post-polish structural audit passed; post-polish visual export blocked by Starter MCP quota",
+    "mobileVisual": "Previously overlapping headings and coarse layout reviewed on user-provided 234x2048 preview; no visible overlap found. Full-size 390px readability still unverified.",
     "otherVisual": "wireframe, components, menu and desktop search states inspected",
-    "prototype": "16 reactions authored; 10 key source/destination pairs read back; Figma Present manual click-through not performed"
+    "prototype": "16 reactions authored; 10 key source/destination pairs read back; Figma Present manual click-through not performed",
+    "userExportReview": "user-exports/review-manifest.json"
   },
   "pending": [
-    "Final PNG export and visual inspection for Mobile 4:331",
-    "Separate Button set 4:2 PNG export"
+    "Original 390px-wide Mobile 1x PNG and full-size visual inspection",
+    "Separate Button set 4:2 export",
+    "Manual Figma Present click-through and later browser accessibility checks"
   ]
 }

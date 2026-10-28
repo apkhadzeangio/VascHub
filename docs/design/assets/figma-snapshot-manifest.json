@@ -60,7 +60,7 @@
     },
     {
       "file": "figma-native-state.json",
-      "sha256": "92632283de3726e6a979809130e1a106d4f2fca6261cc6bf6e54ddea6ecd1f88"
+      "sha256": "cc27be23826f34eb57c537266217e2e10e617f3f74a6fc8260f1b01acc7ae404"
     },
     {
       "file": "figma-icons.json",
@@ -73,14 +73,50 @@
     {
       "file": "figma-contrast-qa.json",
       "sha256": "2e4a3a05f33ac80caa9603675ef483bcb4adfcc86312e3343f2bd9d11e3bd0ba"
+    },
+    {
+      "file": "user-exports/menu-v1.1.png",
+      "sha256": "211fb03115fbce88b8e15802e33c78aace30f7609d72cbdd3edc98b6cdea0206",
+      "source": "user-provided export; unchanged attachment bytes"
+    },
+    {
+      "file": "user-exports/mobile-v1.1-preview.png",
+      "sha256": "6eeb51839bf67553dd62599349dcbc617567133fdf57194cee1b074600c084c9",
+      "source": "user-provided export; unchanged attachment bytes"
+    },
+    {
+      "file": "user-exports/review-manifest.json",
+      "sha256": "afc5e9031ee47f17e790df83fb8a2e9ac622235467c060da71a83de9d533c08b",
+      "source": "user-provided export; unchanged attachment bytes"
+    },
+    {
+      "file": "user-exports/search-empty-v1.1.png",
+      "sha256": "54af0745cfccf29d49c258bf481339196089c58d30693004da0ae530bb54b42b",
+      "source": "user-provided export; unchanged attachment bytes"
+    },
+    {
+      "file": "user-exports/search-focus-v1.1.png",
+      "sha256": "2e2178bb33ddfd703ea74c04abc64948788558f3673bb5f17113fadecad05955",
+      "source": "user-provided export; unchanged attachment bytes"
+    },
+    {
+      "file": "user-exports/search-results-v1.1.png",
+      "sha256": "a2bafdad5b8c1201d718368996bda059a1433d34b47df2bf2b2136e9543a3bdd",
+      "source": "user-provided export; unchanged attachment bytes"
+    },
+    {
+      "file": "user-exports/wireframe-v1.1.png",
+      "sha256": "3b26268dfd18f7e6d63f4d03a297558315c595cf6cc90f4fc1f2592368a945b7",
+      "source": "user-provided export; unchanged attachment bytes"
     }
   ],
   "pending": [
-    "Final PNG export and visual inspection for Mobile 4:331",
-    "Separate Button set 4:2 PNG export"
+    "Original 390px-wide Mobile 1x PNG and full-size visual inspection",
+    "Separate Button set 4:2 export",
+    "Manual Figma Present click-through and later browser accessibility checks"
   ],
   "notExports": [
     "homepage-*.svg/png and homepage-prototype.html are earlier local v1 concepts"
   ],
-  "note": "No final Mobile PNG is included. Never substitute a pre-polish or local concept render as a final Figma export."
+  "note": "A reduced 234x2048 user-provided Mobile preview is included under user-exports/. The original 390px 1x Mobile export and full-size readability check remain pending. Automatic synchronization is not configured."
 }
