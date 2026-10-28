@@ -89,6 +89,12 @@
 .vh-logo-inverse {
   color: #fff;
 }
+.vh-brand-row > a,
+.vh-footer-brand > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
 .vh-desktop-actions {
   display: flex;
   align-items: center;

@@ -68,10 +68,22 @@ test.describe.serial('VascHub homepage', () => {
             (e as HTMLImageElement).naturalWidth > 0 &&
             Math.round(e.getBoundingClientRect().width) === 34,
         ),
+        smallTargets: Array.from(
+          document.querySelectorAll(
+            '.vh-header a, .vh-header button, main a, main button, main input, .vh-footer a, .vh-footer button',
+          ),
+        )
+          .filter((e) => e.getClientRects().length > 0)
+          .filter(
+            (e) =>
+              e.getBoundingClientRect().height < 43.5 || e.getBoundingClientRect().width < 43.5,
+          )
+          .map((e) => e.getAttribute('aria-label') || e.textContent),
       }))
       expect(overflow.page).toBe(false)
       expect(overflow.text).toEqual([])
       expect(overflow.logo).toBe(true)
+      expect(overflow.smallTargets).toEqual([])
       expect(errors).toEqual([])
       await page.screenshot({ path: `${captures}/homepage-${width}.png`, fullPage: true })
     })
