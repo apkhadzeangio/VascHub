@@ -5,6 +5,7 @@ node_modules
 .env.*
 !.env.example
 public/media
+private
 playwright-report
 test-results
 backups

@@ -16,6 +16,7 @@ import { draftMode } from 'next/headers'
 
 import './globals.css'
 import '@/Homepage/styles.css'
+import '@/Library/styles.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
 const notoGeorgian = localFont({

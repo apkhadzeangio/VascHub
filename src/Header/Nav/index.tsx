@@ -6,7 +6,7 @@ import type { Header } from '@/payload-types'
 import { AvailabilityButton } from '@/components/Modal'
 import { publicHref } from '@/Homepage/defaults'
 const defaults = [
-  { label: 'კლინიკური ბიბლიოთეკა', href: '/#resources' },
+  { label: 'კლინიკური ბიბლიოთეკა', href: '/library' },
   { label: 'აკადემია', href: '/#academy' },
   { label: 'ღონისძიებები', href: '/#events' },
   { label: 'პროფესიული ქსელი', href: undefined },
@@ -15,7 +15,7 @@ const defaults = [
 ]
 export function navigationItems(data: Header) {
   if (!data.navItems?.length) return defaults
-  return data.navItems.map(({ link }) => {
+  const items = data.navItems.map(({ link }) => {
     const reference = link.reference?.value
     const slug = reference && typeof reference === 'object' ? reference.slug : undefined
     const href =
@@ -26,10 +26,13 @@ export function navigationItems(data: Header) {
             ? '/'
             : `/${encodeURIComponent(slug)}`
         : link.type === 'custom'
-          ? publicHref(link.url)
+          ? publicHref(link.url === '/#resources' ? '/library' : link.url)
           : undefined
     return { label: link.label, href, newTab: link.newTab }
   })
+  return items.some((item) => item.href === '/library')
+    ? items
+    : [{ label: 'კლინიკური ბიბლიოთეკა', href: '/library' }, ...items]
 }
 export function HeaderNav({
   data,

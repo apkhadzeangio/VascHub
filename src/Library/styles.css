@@ -1,0 +1,223 @@
+.vh-library {
+  background: var(--background);
+  padding-block: 24px 64px;
+  min-height: 65vh;
+}
+.vh-library-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+.vh-library-breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--primary);
+}
+.vh-library-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.vh-library-intro h1 {
+  font-size: 36px;
+  line-height: 1.5;
+  color: var(--brand-navy);
+  max-width: 1000px;
+}
+.vh-library-intro > p:last-child {
+  color: var(--muted-foreground);
+  max-width: 880px;
+}
+.vh-library-filters {
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.vh-library-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.vh-library-filter-grid > div {
+  min-width: 0;
+}
+.vh-library-filter-grid label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.vh-library-filter-grid select,
+.vh-library-filter-grid input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: var(--card);
+  color: var(--foreground);
+  font-size: 13px;
+}
+.vh-library-filter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.vh-library-filter-actions a,
+.vh-library-reset {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--primary);
+  font-size: 13px;
+}
+.vh-library-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-block: 24px 32px;
+}
+.vh-library-topics a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  padding: 8px 12px;
+  font-size: 12px;
+}
+.vh-library-topics a:hover,
+.vh-library-topics a[aria-current] {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--accent);
+}
+.vh-library-count,
+.vh-library-author {
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+.vh-library-summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.vh-library-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.vh-library-tags span {
+  color: var(--primary);
+  background: var(--accent);
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 11px;
+}
+.vh-library-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.vh-library-body {
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: none;
+}
+.vh-library-body h2 {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.vh-library-body > h2:not(:first-child) {
+  margin-top: 32px;
+}
+.vh-library-description {
+  white-space: pre-wrap;
+  line-height: 1.9;
+}
+.vh-library-metadata {
+  display: grid;
+  gap: 16px;
+}
+.vh-library-metadata dt {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  margin-bottom: 4px;
+}
+.vh-library-metadata dd {
+  font-size: 14px;
+}
+.vh-library-metadata a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--primary);
+  text-decoration: underline;
+}
+.vh-library-source-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+.vh-library-source-actions a {
+  white-space: normal;
+  height: auto;
+  padding-block: 12px;
+  text-align: center;
+}
+@media (max-width: 1023px) {
+  .vh-library-filter-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .vh-library-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 639px) {
+  .vh-library {
+    padding-block: 12px 40px;
+  }
+  .vh-library-intro h1 {
+    font-size: 27px;
+  }
+  .vh-library-filters,
+  .vh-library-body {
+    padding: 16px;
+  }
+  .vh-library-filter-grid {
+    grid-template-columns: 1fr;
+  }
+  .vh-library-intro {
+    margin-bottom: 24px;
+  }
+  .vh-search-pagination {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+.vh-library {
+  overflow-wrap: anywhere;
+}
+.vh-library :focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+.vh-library-loading {
+  min-height: 40vh;
+  padding: 48px;
+}

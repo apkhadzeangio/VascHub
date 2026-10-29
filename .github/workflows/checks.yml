@@ -34,6 +34,7 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm lint
       - run: pnpm test:int
+      - run: pnpm payload run scripts/check-library-migration.ts
       - run: pnpm build
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e
@@ -42,11 +43,14 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: homepage-browser-previews
-          path: test-results/homepage/
+          name: browser-previews
+          path: |
+            test-results/homepage/
+            test-results/library/
           if-no-files-found: warn
       - name: Verify Docker build and startup
         env:
+          POSTGRES_DB: vaschub_docker_test
           ADMIN_EMAIL: docker-admin@vaschub.test
           ADMIN_PASSWORD: ci-only-docker-bootstrap-password-123
         run: |
@@ -56,9 +60,11 @@ jobs:
           curl --retry 30 --retry-delay 2 --retry-all-errors --fail http://127.0.0.1:3000/ -o /dev/null
           docker compose exec -T -e ADMIN_EMAIL -e ADMIN_PASSWORD app pnpm admin:create
           docker compose exec -T -e ADMIN_EMAIL -e ADMIN_PASSWORD app node tests/http/smoke.mjs
+          docker compose exec -T -e ADMIN_EMAIL -e ADMIN_PASSWORD app node tests/http/library-persistence.mjs prepare
           docker compose restart app
           curl --retry 30 --retry-delay 2 --retry-all-errors --fail http://127.0.0.1:3000/ -o /dev/null
           docker compose exec -T -e ADMIN_EMAIL -e ADMIN_PASSWORD app node tests/http/smoke.mjs
+          docker compose exec -T -e ADMIN_EMAIL -e ADMIN_PASSWORD app node tests/http/library-persistence.mjs verify
       - name: Stop Compose services
         if: always()
         run: |

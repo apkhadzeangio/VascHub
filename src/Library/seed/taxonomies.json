@@ -1,0 +1,110 @@
+{
+  "topics": [
+    {
+      "slug": "aorto-iliac",
+      "title": "აორტის და თეძოს არტერიების დაავადებები"
+    },
+    {
+      "slug": "pad-clti",
+      "title": "პერიფერიული არტერიული დაავადება (PAD / CLTI)"
+    },
+    {
+      "slug": "carotid-vertebral",
+      "title": "საძილე და ხერხემლის არტერიების დაავადებები"
+    },
+    {
+      "slug": "venous-thrombosis",
+      "title": "ვენური დაავადებები და თრომბოზი"
+    },
+    {
+      "slug": "vascular-trauma",
+      "title": "სისხლძარღვოვანი ტრავმა"
+    },
+    {
+      "slug": "vgei",
+      "title": "სისხლძარღვოვანი პროთეზებისა და ენდოგრაფტების ინფექცია (VGEI)"
+    },
+    {
+      "slug": "mesenteric-renal",
+      "title": "მეზენტერიული და თირკმლის სისხლძარღვები"
+    },
+    {
+      "slug": "haemodialysis-access",
+      "title": "ჰემოდიალიზის სისხლძარღვოვანი წვდომა"
+    },
+    {
+      "slug": "endovascular",
+      "title": "ენდოვასკულური ტექნოლოგიები"
+    },
+    {
+      "slug": "other-vascular",
+      "title": "სხვა სისხლძარღვოვანი პათოლოგიები"
+    }
+  ],
+  "documentTypes": [
+    {
+      "slug": "guideline",
+      "title": "Clinical Practice Guideline"
+    },
+    {
+      "slug": "consensus",
+      "title": "Consensus Document"
+    },
+    {
+      "slug": "article",
+      "title": "Scientific Article"
+    },
+    {
+      "slug": "systematic-review",
+      "title": "Systematic Review / Meta-analysis"
+    },
+    {
+      "slug": "education",
+      "title": "Educational Material"
+    },
+    {
+      "slug": "algorithm",
+      "title": "Clinical Algorithm"
+    },
+    {
+      "slug": "georgian-translation",
+      "title": "Georgian Translation"
+    },
+    {
+      "slug": "other",
+      "title": "Other"
+    }
+  ],
+  "organizations": [
+    {
+      "slug": "esvs",
+      "title": "European Society for Vascular Surgery",
+      "abbreviation": "ESVS"
+    },
+    {
+      "slug": "svs",
+      "title": "Society for Vascular Surgery",
+      "abbreviation": "SVS"
+    },
+    {
+      "slug": "eacts",
+      "title": "European Association for Cardio-Thoracic Surgery",
+      "abbreviation": "EACTS"
+    },
+    {
+      "slug": "esc",
+      "title": "European Society of Cardiology",
+      "abbreviation": "ESC"
+    },
+    {
+      "slug": "esvs-svs",
+      "title": "ESVS/SVS Joint Publication",
+      "abbreviation": "ESVS/SVS"
+    },
+    {
+      "slug": "other",
+      "title": "Other",
+      "abbreviation": ""
+    }
+  ]
+}
