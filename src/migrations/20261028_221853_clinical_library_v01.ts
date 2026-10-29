@@ -17,158 +17,158 @@ export async function up({ db }: MigrateUpArgs): Promise<void> {
   CREATE TYPE "public"."enum__library_resources_v_version_visibility" AS ENUM('public', 'internal');
   CREATE TYPE "public"."enum__library_resources_v_version_status" AS ENUM('draft', 'published');
   CREATE TABLE "library_topics" (
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"title" varchar NOT NULL,
-  	"abbreviation" varchar,
-  	"official_url" varchar,
-  	"generate_slug" boolean DEFAULT true,
-  	"slug" varchar NOT NULL,
-  	"updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
-  	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL
+    "id" serial PRIMARY KEY NOT NULL,
+    "title" varchar NOT NULL,
+    "abbreviation" varchar,
+    "official_url" varchar,
+    "generate_slug" boolean DEFAULT true,
+    "slug" varchar NOT NULL,
+    "updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
+    "created_at" timestamp(3) with time zone DEFAULT now() NOT NULL
   );
-  
+
   CREATE TABLE "library_document_types" (
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"title" varchar NOT NULL,
-  	"abbreviation" varchar,
-  	"official_url" varchar,
-  	"generate_slug" boolean DEFAULT true,
-  	"slug" varchar NOT NULL,
-  	"updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
-  	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL
+    "id" serial PRIMARY KEY NOT NULL,
+    "title" varchar NOT NULL,
+    "abbreviation" varchar,
+    "official_url" varchar,
+    "generate_slug" boolean DEFAULT true,
+    "slug" varchar NOT NULL,
+    "updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
+    "created_at" timestamp(3) with time zone DEFAULT now() NOT NULL
   );
-  
+
   CREATE TABLE "library_organizations" (
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"title" varchar NOT NULL,
-  	"abbreviation" varchar,
-  	"official_url" varchar,
-  	"generate_slug" boolean DEFAULT true,
-  	"slug" varchar NOT NULL,
-  	"updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
-  	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL
+    "id" serial PRIMARY KEY NOT NULL,
+    "title" varchar NOT NULL,
+    "abbreviation" varchar,
+    "official_url" varchar,
+    "generate_slug" boolean DEFAULT true,
+    "slug" varchar NOT NULL,
+    "updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
+    "created_at" timestamp(3) with time zone DEFAULT now() NOT NULL
   );
-  
+
   CREATE TABLE "library_files" (
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"title" varchar NOT NULL,
-  	"rights_confirmed" boolean DEFAULT false NOT NULL,
-  	"rights_note" varchar NOT NULL,
-  	"updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
-  	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
-  	"url" varchar,
-  	"thumbnail_u_r_l" varchar,
-  	"filename" varchar,
-  	"mime_type" varchar,
-  	"filesize" numeric,
-  	"width" numeric,
-  	"height" numeric
+    "id" serial PRIMARY KEY NOT NULL,
+    "title" varchar NOT NULL,
+    "rights_confirmed" boolean DEFAULT false NOT NULL,
+    "rights_note" varchar NOT NULL,
+    "updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
+    "created_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
+    "url" varchar,
+    "thumbnail_u_r_l" varchar,
+    "filename" varchar,
+    "mime_type" varchar,
+    "filesize" numeric,
+    "width" numeric,
+    "height" numeric
   );
-  
+
   CREATE TABLE "library_resources" (
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"title" varchar,
-  	"original_title" varchar,
-  	"summary" varchar,
-  	"description" varchar,
-  	"document_type_id" integer,
-  	"publisher_organization_id" integer,
-  	"language" "enum_library_resources_language" DEFAULT 'en',
-  	"publication_year" numeric,
-  	"publication_date" timestamp(3) with time zone,
-  	"official_source_url" varchar,
-  	"doi" varchar,
-  	"pmid" varchar,
-  	"authors" varchar,
-  	"journal" varchar,
-  	"citation_text" varchar,
-  	"version_label" varchar,
-  	"edition_status" "enum_library_resources_edition_status" DEFAULT 'not-assessed',
-  	"superseded_by_id" integer,
-  	"update_evidence_url" varchar,
-  	"last_reviewed_at" timestamp(3) with time zone,
-  	"attachment_id" integer,
-  	"attachment_type" "enum_library_resources_attachment_type" DEFAULT 'none',
-  	"access_type" "enum_library_resources_access_type" DEFAULT 'external',
-  	"license_status" "enum_library_resources_license_status" DEFAULT 'external-only',
-  	"rights_evidence" varchar,
-  	"copyright_notice" varchar,
-  	"visibility" "enum_library_resources_visibility" DEFAULT 'public',
-  	"featured" boolean DEFAULT false,
-  	"search_keywords" varchar,
-  	"import_key" varchar,
-  	"meta_title" varchar,
-  	"meta_description" varchar,
-  	"generate_slug" boolean DEFAULT true,
-  	"slug" varchar,
-  	"updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
-  	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
-  	"_status" "enum_library_resources_status" DEFAULT 'draft'
+    "id" serial PRIMARY KEY NOT NULL,
+    "title" varchar,
+    "original_title" varchar,
+    "summary" varchar,
+    "description" varchar,
+    "document_type_id" integer,
+    "publisher_organization_id" integer,
+    "language" "enum_library_resources_language" DEFAULT 'en',
+    "publication_year" numeric,
+    "publication_date" timestamp(3) with time zone,
+    "official_source_url" varchar,
+    "doi" varchar,
+    "pmid" varchar,
+    "authors" varchar,
+    "journal" varchar,
+    "citation_text" varchar,
+    "version_label" varchar,
+    "edition_status" "enum_library_resources_edition_status" DEFAULT 'not-assessed',
+    "superseded_by_id" integer,
+    "update_evidence_url" varchar,
+    "last_reviewed_at" timestamp(3) with time zone,
+    "attachment_id" integer,
+    "attachment_type" "enum_library_resources_attachment_type" DEFAULT 'none',
+    "access_type" "enum_library_resources_access_type" DEFAULT 'external',
+    "license_status" "enum_library_resources_license_status" DEFAULT 'external-only',
+    "rights_evidence" varchar,
+    "copyright_notice" varchar,
+    "visibility" "enum_library_resources_visibility" DEFAULT 'public',
+    "featured" boolean DEFAULT false,
+    "search_keywords" varchar,
+    "import_key" varchar,
+    "meta_title" varchar,
+    "meta_description" varchar,
+    "generate_slug" boolean DEFAULT true,
+    "slug" varchar,
+    "updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
+    "created_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
+    "_status" "enum_library_resources_status" DEFAULT 'draft'
   );
-  
+
   CREATE TABLE "library_resources_rels" (
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"order" integer,
-  	"parent_id" integer NOT NULL,
-  	"path" varchar NOT NULL,
-  	"library_topics_id" integer,
-  	"library_resources_id" integer
+    "id" serial PRIMARY KEY NOT NULL,
+    "order" integer,
+    "parent_id" integer NOT NULL,
+    "path" varchar NOT NULL,
+    "library_topics_id" integer,
+    "library_resources_id" integer
   );
-  
+
   CREATE TABLE "_library_resources_v" (
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"parent_id" integer,
-  	"version_title" varchar,
-  	"version_original_title" varchar,
-  	"version_summary" varchar,
-  	"version_description" varchar,
-  	"version_document_type_id" integer,
-  	"version_publisher_organization_id" integer,
-  	"version_language" "enum__library_resources_v_version_language" DEFAULT 'en',
-  	"version_publication_year" numeric,
-  	"version_publication_date" timestamp(3) with time zone,
-  	"version_official_source_url" varchar,
-  	"version_doi" varchar,
-  	"version_pmid" varchar,
-  	"version_authors" varchar,
-  	"version_journal" varchar,
-  	"version_citation_text" varchar,
-  	"version_version_label" varchar,
-  	"version_edition_status" "enum__library_resources_v_version_edition_status" DEFAULT 'not-assessed',
-  	"version_superseded_by_id" integer,
-  	"version_update_evidence_url" varchar,
-  	"version_last_reviewed_at" timestamp(3) with time zone,
-  	"version_attachment_id" integer,
-  	"version_attachment_type" "enum__library_resources_v_version_attachment_type" DEFAULT 'none',
-  	"version_access_type" "enum__library_resources_v_version_access_type" DEFAULT 'external',
-  	"version_license_status" "enum__library_resources_v_version_license_status" DEFAULT 'external-only',
-  	"version_rights_evidence" varchar,
-  	"version_copyright_notice" varchar,
-  	"version_visibility" "enum__library_resources_v_version_visibility" DEFAULT 'public',
-  	"version_featured" boolean DEFAULT false,
-  	"version_search_keywords" varchar,
-  	"version_import_key" varchar,
-  	"version_meta_title" varchar,
-  	"version_meta_description" varchar,
-  	"version_generate_slug" boolean DEFAULT true,
-  	"version_slug" varchar,
-  	"version_updated_at" timestamp(3) with time zone,
-  	"version_created_at" timestamp(3) with time zone,
-  	"version__status" "enum__library_resources_v_version_status" DEFAULT 'draft',
-  	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
-  	"updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
-  	"latest" boolean
+    "id" serial PRIMARY KEY NOT NULL,
+    "parent_id" integer,
+    "version_title" varchar,
+    "version_original_title" varchar,
+    "version_summary" varchar,
+    "version_description" varchar,
+    "version_document_type_id" integer,
+    "version_publisher_organization_id" integer,
+    "version_language" "enum__library_resources_v_version_language" DEFAULT 'en',
+    "version_publication_year" numeric,
+    "version_publication_date" timestamp(3) with time zone,
+    "version_official_source_url" varchar,
+    "version_doi" varchar,
+    "version_pmid" varchar,
+    "version_authors" varchar,
+    "version_journal" varchar,
+    "version_citation_text" varchar,
+    "version_version_label" varchar,
+    "version_edition_status" "enum__library_resources_v_version_edition_status" DEFAULT 'not-assessed',
+    "version_superseded_by_id" integer,
+    "version_update_evidence_url" varchar,
+    "version_last_reviewed_at" timestamp(3) with time zone,
+    "version_attachment_id" integer,
+    "version_attachment_type" "enum__library_resources_v_version_attachment_type" DEFAULT 'none',
+    "version_access_type" "enum__library_resources_v_version_access_type" DEFAULT 'external',
+    "version_license_status" "enum__library_resources_v_version_license_status" DEFAULT 'external-only',
+    "version_rights_evidence" varchar,
+    "version_copyright_notice" varchar,
+    "version_visibility" "enum__library_resources_v_version_visibility" DEFAULT 'public',
+    "version_featured" boolean DEFAULT false,
+    "version_search_keywords" varchar,
+    "version_import_key" varchar,
+    "version_meta_title" varchar,
+    "version_meta_description" varchar,
+    "version_generate_slug" boolean DEFAULT true,
+    "version_slug" varchar,
+    "version_updated_at" timestamp(3) with time zone,
+    "version_created_at" timestamp(3) with time zone,
+    "version__status" "enum__library_resources_v_version_status" DEFAULT 'draft',
+    "created_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
+    "updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
+    "latest" boolean
   );
-  
+
   CREATE TABLE "_library_resources_v_rels" (
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"order" integer,
-  	"parent_id" integer NOT NULL,
-  	"path" varchar NOT NULL,
-  	"library_topics_id" integer,
-  	"library_resources_id" integer
+    "id" serial PRIMARY KEY NOT NULL,
+    "order" integer,
+    "parent_id" integer NOT NULL,
+    "path" varchar NOT NULL,
+    "library_topics_id" integer,
+    "library_resources_id" integer
   );
-  
+
   ALTER TABLE "payload_locked_documents_rels" ADD COLUMN "library_topics_id" integer;
   ALTER TABLE "payload_locked_documents_rels" ADD COLUMN "library_document_types_id" integer;
   ALTER TABLE "payload_locked_documents_rels" ADD COLUMN "library_organizations_id" integer;
@@ -279,15 +279,15 @@ export async function down({ db }: MigrateDownArgs): Promise<void> {
   DROP TABLE "_library_resources_v" CASCADE;
   DROP TABLE "_library_resources_v_rels" CASCADE;
   ALTER TABLE "payload_locked_documents_rels" DROP CONSTRAINT IF EXISTS "payload_locked_documents_rels_library_topics_fk";
-  
+
   ALTER TABLE "payload_locked_documents_rels" DROP CONSTRAINT IF EXISTS "payload_locked_documents_rels_library_document_types_fk";
-  
+
   ALTER TABLE "payload_locked_documents_rels" DROP CONSTRAINT IF EXISTS "payload_locked_documents_rels_library_organizations_fk";
-  
+
   ALTER TABLE "payload_locked_documents_rels" DROP CONSTRAINT IF EXISTS "payload_locked_documents_rels_library_files_fk";
-  
+
   ALTER TABLE "payload_locked_documents_rels" DROP CONSTRAINT IF EXISTS "payload_locked_documents_rels_library_resources_fk";
-  
+
   DROP INDEX "payload_locked_documents_rels_library_topics_id_idx";
   DROP INDEX "payload_locked_documents_rels_library_document_types_id_idx";
   DROP INDEX "payload_locked_documents_rels_library_organizations_id_idx";

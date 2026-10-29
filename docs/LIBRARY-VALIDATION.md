@@ -1,76 +1,122 @@
-# კლინიკური ბიბლიოთეკის შემოწმება — 2026-10-29
+# Clinical Library v0.1 — შემოწმების ანგარიში
 
-საწყისი წერტილი: `main` → `8030f63` (გაერთიანებული PR #3).
-სამუშაო Branch: `feat/clinical-library`.
-შესწავლილია ბოლო PR-ები #1–#3, არსებული Collections, მთავარი გვერდის დიზაინის
-ექსპორტები და tokens, ძიება, წვდომის კონტროლი, Docker და CI.
+თარიღი: 2026-10-29 (Asia/Tbilisi).
+ბაზა: `main` / `8030f63`. სამუშაო ბრენჩი: `feat/clinical-library-v0.1`.
+განხორციელება და კონტენტის წყაროები: [CLINICAL-LIBRARY.md](CLINICAL-LIBRARY.md).
 
-## შესრულებული შემოწმებები
+## რეალური შედეგები
 
-გარემო: Node 24.22.1, pnpm 11.25.0, Payload 3.92.1, Next.js 16.3.3,
-დროებითი PostgreSQL 16.15, გამოყოფილი `vaschub_test` ბაზა.
+გარემო: Node 24.22.1, pnpm 11.25.0, Next.js 16.3.3, Payload 3.92.1,
+PostgreSQL 16.15, ცალკე UTF-8 `vaschub_library_v01_test` ბაზა.
 
 | შემოწმება | შედეგი |
 | --- | --- |
-| `pnpm install --frozen-lockfile` | წარმატებული; ახალი დამოკიდებულებები არ დამატებულა |
-| `pnpm generate:types` / `pnpm generate:importmap` | წარმატებული; ტიპები განახლებულია, ახალი admin კომპონენტი არ დასჭირდა |
-| `pnpm typecheck` | წარმატებული |
-| `pnpm lint` | წარმატებული, გაფრთხილებების გარეშე |
-| `pnpm test:int` | **19/19**; მათგან ბიბლიოთეკის 10 ტესტი |
-| `pnpm build` | წარმატებული production build |
-| `pnpm db:migrate` | ყველა ვერსია შესრულდა; ხელახალი გაშვება დამატებით ცვლილებას არ აკეთებს |
-| `pnpm payload run scripts/check-library-migration.ts` | rollback/reapply წარმატებულია; საკონტროლო სტატია და კავშირები უცვლელია, კატეგორიები არ დუბლირდება |
-| `pnpm payload migrate:create --skip-empty` | დამატებითი სქემის სხვაობა არ გამოვლენილა |
-| Playwright HTTP, production server | ბიბლიოთეკის **5/5** ტესტი წარმატებულია |
-| სრული Playwright suite | **6 passed, 4 failed, 15 did not run**; ოთხივე მარცხი Chrome-ის გაშვების გარემოს შეზღუდვაა |
+| `pnpm generate:types` | წარმატებულია; საბოლოო მოდელის ტიპები რეგენერირებულია |
+| `pnpm generate:importmap` | წარმატებულია; ახალი admin კომპონენტი არ დასჭირდა |
+| `pnpm typecheck` | წარმატებულია |
+| `pnpm lint` | წარმატებულია, 0 errors / 0 warnings |
+| `pnpm test:int` | **24/24**; 15 ბიბლიოთეკის, 6 homepage-ის, 3 არსებული API-ის |
+| მიგრაციები ცარიელ test ბაზაზე | initial + homepage + clinical_library_v01 წარმატებულია |
+| მიგრაციების ხელახლა გაშვება | წარმატებულია, ხელმეორე ცვლილების გარეშე |
+| `scripts/check-library-migration.ts` | rollback/reapply წარმატებულია; სტატია და Categories კავშირი უცვლელია |
+| `payload migrate:create --skip-empty` | დამატებითი მიგრაცია არ შექმნილა |
+| `pnpm build` | საბოლოო production build წარმატებულია |
+| Playwright-ის ბიბლიოთეკის HTTP ნაწილი production server-ზე | **6/6** წარმატებულია |
+| სრული Playwright | **7 passed / 4 failed / 15 not run**; ოთხივე failure — browser launch-ის გარემოს შეზღუდვა |
+| Docker build/startup | ადგილობრივად ვერ შესრულდა — Docker executable/daemon არ არის |
+| GitHub CI | არ გაშვებულა: branch-ის ატვირთვის write უფლება არ არის |
 
-Integration ტესტები ამოწმებს არსებული ადმინისტრატორის მიერ შექმნას,
-გამოქვეყნებას, ცვლილებასა და გამოქვეყნების გაუქმებას; ქართული სათაურიდან
-URL-ის ავტომატურ გენერაციას; ქართული ტექსტით, ავტორითა და კატეგორიით ძიებას;
-ტიპის/ენის/წლის/კატეგორიის ერთობლივ ფილტრაციასა და Pagination-ს;
-მონახაზის წაკითხვისა და ვერსიების ისტორიის აკრძალვას; უკვე გამოქვეყნებული
-რესურსის ახალი მონახაზის დაფარვას; სახიფათო URL-ების, არასწორი DOI-ის,
-ყალბი PDF-ის, დიდი ფაილისა და ნებართვის გარეშე ატვირთვის უარყოფას.
+## დაფარული ქცევა
 
-ბიბლიოთეკის Playwright HTTP ტესტები მუშაობს რეალურ production სერვერზე:
-რეალური შედეგები და ფილტრები; draft გვერდისა და ფაილის 404; დაცული API-ების
-403; sitemap-ში მონახაზის არყოფნა; PDF-ის ბაიტები და უსაფრთხო სათაურები;
-ნებართვის გაუქმებისთანავე ჩამოტვირთვის აკრძალვა და ბმულის გაქრობა;
-არსებული CMS REST API-ით შექმნა, გამოქვეყნება, რედაქტირება და წაშლა.
+Integration ამოწმებს ადმინისტრატორის create/update/publish/unpublish მოქმედებებს;
+არაავტორიზებული create/update/delete-ის აკრძალვას; ქართული slug-ის გენერაციას;
+ქართული ტექსტით, მთავრული ქართული query-ით, ინგლისური CLTI აბრევიატურით,
+ორგანიზაციის აბრევიატურითა და თემის სათაურით ძიებას; ორგანიზაცია/ტიპი/თემა/წელი/ენა
+ფილტრების კომბინაციას; სტაბილურ 12-ჩანაწერიან pagination-ს; draft, ახალი draft
+revision და internal რესურსების დაფარვას; version history და rightsEvidence-ის ACL-ს;
+არავალიდური URL/DOI-ის, ყალბი/არასწორი გაფართოების/დიდი/ნებართვის გარეშე PDF-ის
+უარყოფას; უფლებებისა და განახლების მტკიცებულების მოთხოვნას; ტაქსონომიის კავშირების
+შენარჩუნებას; რვა რესურსის draft იმპორტს, editor revision-ის შენარჩუნებას, მეორე
+გაშვებისას დუბლირების/უნებართვო გამოქვეყნების არქონას და explicit publish რეჟიმს.
 
-## გარემოს შეზღუდვები
+Playwright HTTP სცენარები იყენებს რეალურ `pnpm start` production server-ს:
 
-სტანდარტული Playwright Chromium-ის ჩამოტვირთვა დაზიანებული ZIP-ით დასრულდა.
-დამატებით გამოყენებულმა Google Chrome 156-მა browser launch-ზე დააბრუნა
-`socket() failed: Operation not permitted` (AF_UNIX შეზღუდვა).
-ტესტები არ გამორთულა. ბრაუზერის UI ქცევა, 390/768/1440 px ვიზუალური შემოწმება,
-admin UI-ის publish მოქმედება და screenshots ამ გარემოში **დადასტურებული არ არის**.
-დამატებულია შესაბამისი E2E სცენარები და CI-ის არტეფაქტების გზები.
+1. შედეგები და კომბინირებული ფილტრები; HTML-ის next-page href-ში query/topic/page
+   შენარჩუნება; მეორე გვერდი და ცარიელი შედეგი.
+2. Draft slug/API/PDF და არარსებული slug-ის HTTP **404**; versions/files-ის 403;
+   საერთო Media endpoint-იდან კერძო PDF-ის მიღების აკრძალვა; საჯარო sitemap.
+3. ნებადართული PDF-ის ბაიტები, Content-Type და უსაფრთხო download headers.
+4. უფლებების გაუქმებისთანავე 404 და detail გვერდიდან PDF ბმულის გაქრობა.
+5. არსებული CMS REST ავტორიზაცია, შექმნა, გამოქვეყნება, რედაქტირება და წაშლა.
+6. ჩვეულებრივი რეგისტრირებული საჯარო Media-ის ჩამოტვირთვა ისევ მუშაობს.
 
-Docker executable/daemon ხელმისაწვდომი არ არის; ახალი PDF volume-ისა და Docker
-გაშვების რეალური შემოწმება დარჩენილია არსებულ CI workflow-ში. Docker build-ის
-წარმატება ადგილობრივად არ ივარაუდება. PostgreSQL გაეშვა ჩამოტვირთული native
-Ubuntu ბინარებით, მხოლოდ TCP-ზე; ამ root გარემოსთვის საჭირო დროებითი
-სატესტო UID shim პროექტსა და კონტეინერში არ შედის.
+## აღმოჩენილი და გამოსწორებული ხარვეზი
 
-ერთ-ერთ განმეორებით build-ზე Turbopack-ის cache-ის გახსნის შეცდომა დაფიქსირდა.
-`.next`-ის გასუფთავების შემდეგ სრული production build წარმატებით დასრულდა.
+დეტალურ გვერდზე საერთო loading boundary იწვევდა soft 404-ს (დამალული კონტენტი,
+HTTP 200). Loading გადავიდა მხოლოდ `(catalog)` route group-ში. გამოსწორების
+შემდეგ სრული suite-ის HTTP ტესტი და მისი ცალკე განმეორება რეალურ 404-ს ადასტურებს.
 
-რეალური production მონაცემთა ბაზა ხელმისაწვდომი არ ყოფილა. მიგრაციის შენარჩუნების
-შემოწმება ჩატარდა დროებით ბაზაში არსებული სქემითა და საკონტროლო ჩანაწერით.
-ამ შედეგს production backup/restore-ის გამოცდის მნიშვნელობა არ აქვს.
-არ დამატებულა სამეცნიერო seed, ყალბი DOI ან მესამე პირის PDF; სატესტო დოკუმენტი
-პროგრამულად შექმნილი ცარიელი PDF-ია და მხოლოდ ტესტებში გამოიყენება.
+## დაუდასტურებელი ნაწილები
 
-## GitHub
+Chrome 156 ვერ გაეშვა: `socket() failed: Operation not permitted` (AF_UNIX).
+შესაბამისად keyboard UI, admin UI-ის publish, 390/768/1440px screenshots და
+ვიზუალური WCAG/mobile QA ამ გარემოში არ არის დადასტურებული. ტესტები არ გამორთულა;
+ისინი CI-ში გაშვებისთვის რჩება. HTTP ტესტები browser-rendered QA-ს არ ანაცვლებს.
 
-დაკავშირებული GitHub ანგარიშის login არის `ramchik`; რეპოზიტორიაზე
-`push: false` აქვს. Branch-ის შექმნა GitHub API-მ უარყო `403 Resource not
-accessible by integration` პასუხით. Git push-საც მოქმედი write ავტორიზაცია არ ჰქონდა.
-ამიტომ კოდი მომზადებულია ადგილობრივ Feature Branch-ში, მაგრამ **დისტანციური
-Branch და Pull Request არ შექმნილა**, CI ამ ცვლილებებზე არ გაშვებულა.
-`main` არ შეცვლილა და merge არ შესრულებულა.
+Docker-ისა და Railway volume-ზე PDF-ის restart-ის შემდეგ შენარჩუნების რეალური
+შემოწმება დარჩენილია deployment review-ზე. Railway-ის start command და volume
+mount შემოწმებულია read-only connector-ით; გარემოს ცვლადების მნიშვნელობები OAuth-მა
+დამალა. Production DB-ზე არც seed, არც schema push და არც დამანგრეველი ტესტი არ შესრულებულა.
 
-ატვირთვისთვის საჭიროა GitHub-ის შესაბამის ანგარიშზე (`apkhadzeangio`) გადართვა
-ან დაკავშირებული ანგარიშისათვის ამ რეპოზიტორიაზე write წვდომის მინიჭება.
-PR-ის სათაური და აღწერა მომზადებულია [LIBRARY-PR.md](LIBRARY-PR.md)-ში.
+ლოკალური native PostgreSQL-ისთვის გამოყენებული runtime-ის დროებითი UID shim
+პროექტის/კონტეინერის ნაწილი არ არის. ინსტალირებული დამოკიდებულებები არსებული
+lockfile-იდანაა; ახალი dependency არ დამატებულა. Cloud გარემოში Turbopack-ის
+ძველი cache ერთხელ ვერ გაიხსნა; `.next`-ის გასუფთავების შემდეგ საბოლოო build გავიდა.
+Next-ის local server-ს ამ გარემოში explicit `--hostname 127.0.0.1` სჭირდება;
+Railway-ის არსებული command უკვე explicit hostname-ს იყენებს.
+
+## ხელახლა გაშვება
+
+ცალკე `_test` ბაზაზე, შესაბამისი `.env`-ით:
+
+```sh
+pnpm install --frozen-lockfile
+pnpm db:migrate
+pnpm generate:types
+pnpm generate:importmap
+pnpm typecheck
+pnpm lint
+pnpm test:int
+pnpm payload run scripts/check-library-migration.ts
+pnpm build
+pnpm exec playwright install --with-deps chromium
+E2E_SERVER_COMMAND='pnpm start --hostname 127.0.0.1' pnpm test:e2e --workers=1
+```
+
+მხოლოდ HTTP სცენარების გამეორება:
+
+```sh
+E2E_SERVER_COMMAND='pnpm start --hostname 127.0.0.1' pnpm test:e2e tests/e2e/library.e2e.spec.ts --workers=1 --grep 'serves real|denies anonymous|downloads only|revokes PDF|creates, publishes|continues serving'
+```
+
+საბოლოო CI, browser QA და reviewer-ის შემოწმება უნდა დასრულდეს merge-მდე.
+
+## GitHub-ის საბოლოო სტატუსი
+
+დაკავშირებული ანგარიშია `ramchik`, repository permissions: `pull:true`, `push:false`.
+საბოლოო branch-ის შექმნის რეალურმა მცდელობამ დააბრუნა **403 Resource not accessible
+by integration**. Git push-ს shell-ში write ავტორიზაცია არ ჰქონდა (`could not read
+Username`). ამიტომ დისტანციური branch, Pull Request და ამ ცვლილების GitHub CI
+არ შექმნილა/არ გაშვებულა. საჭირო მოქმედებაა write წვდომის მქონე ანგარიშის
+დაკავშირება ან repository write უფლების მინიჭება; main/production არ შეცვლილა.
+
+გადასატანი git bundle-იდან, არსებულ clone-ში:
+
+```sh
+git fetch /path/to/VascHub-clinical-library-v0.1.bundle feat/clinical-library-v0.1:feat/clinical-library-v0.1
+git switch feat/clinical-library-v0.1
+git push -u origin feat/clinical-library-v0.1
+```
+
+PR-ის სათაური/აღწერა არის [LIBRARY-PR.md](LIBRARY-PR.md)-ში. გახსენით draft PR,
+გაიარეთ CI/browser/Docker შემოწმებები და განხილვა merge-მდე.

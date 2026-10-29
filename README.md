@@ -131,8 +131,8 @@ GitHub Actions-ის სამუშაო პროცესი აღწე�
 
 - კოდი, სქემები, მიგრაციები და ინსტრუქციები — GitHub-ში.
 - PostgreSQL — `postgres_data` named volume, `/var/lib/postgresql/data`.
-- ატვირთული ფაილები — `media_data` named volume, `/app/public/media`.
-- ბიბლიოთეკის დაცული PDF-ები — `library_files` volume, `/app/private/library-files`.
+- ატვირთული ფაილები — `media_data` named volume, `/app/media-data`.
+- ბიბლიოთეკის დაცული PDF-ები — `media_data` volume, `/app/media-data/library-private`.
 - ლოკალური ატვირთვები — `public/media/`, ან `MEDIA_DIR`-ით მითითებული დირექტორია.
 - `docker compose down` მონაცემებს ინარჩუნებს; `down -v` წაშლის მათ.
 
@@ -141,8 +141,7 @@ GitHub Actions-ის სამუშაო პროცესი აღწე�
 ```bash
 mkdir -p backups
 docker compose exec -T db sh -c 'pg_dump -U "$POSTGRES_USER" -d "$POSTGRES_DB" -Fc' > backups/database.dump
-docker compose exec -T app tar -C /app/public/media -czf - . > backups/media.tar.gz
-docker compose exec -T app tar -C /app/private/library-files -czf - . > backups/library-files.tar.gz
+docker compose exec -T app tar -C /app/media-data -czf - . > backups/media.tar.gz
 ```
 
 აღდგენა შეასრულეთ ცარიელ ბაზაში, შეჩერებული აპით, შესაბამისი კოდის ვერსიით:
@@ -150,8 +149,7 @@ docker compose exec -T app tar -C /app/private/library-files -czf - . > backups/
 ```bash
 docker compose stop app
 docker compose exec -T db sh -c 'pg_restore -U "$POSTGRES_USER" -d "$POSTGRES_DB" --no-owner' < backups/database.dump
-docker compose run --rm --no-deps -T app tar -C /app/public/media -xzf - < backups/media.tar.gz
-docker compose run --rm --no-deps -T app tar -C /app/private/library-files -xzf - < backups/library-files.tar.gz
+docker compose run --rm --no-deps -T app tar -C /app/media-data -xzf - < backups/media.tar.gz
 docker compose up -d app
 ```
 
