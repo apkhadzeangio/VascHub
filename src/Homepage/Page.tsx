@@ -36,7 +36,7 @@ function SectionHeading({
       </h2>
       {href && (
         <Button variant="ghost" size="lg" asChild>
-          <Link href={href}>
+          <Link href={href} aria-label={`${title} — ყველას ნახვა`}>
             ყველას ნახვა
             <ArrowRight size={18} aria-hidden="true" />
           </Link>

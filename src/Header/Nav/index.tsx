@@ -3,8 +3,8 @@ import React from 'react'
 import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 import type { Header } from '@/payload-types'
-import { AvailabilityButton } from '@/components/Modal'
-import { publicHref } from '@/Homepage/defaults'
+import { SiteAvailabilityButton as AvailabilityButton } from '@/components/site-ui/Dialog'
+import { navigationHref } from '@/components/site-ui/NavigationLink'
 const defaults = [
   { label: 'კლინიკური ბიბლიოთეკა', href: '/library' },
   { label: 'აკადემია', href: '/#academy' },
@@ -16,18 +16,7 @@ const defaults = [
 export function navigationItems(data: Header) {
   if (!data.navItems?.length) return defaults
   const items = data.navItems.map(({ link }) => {
-    const reference = link.reference?.value
-    const slug = reference && typeof reference === 'object' ? reference.slug : undefined
-    const href =
-      link.type === 'reference' && slug
-        ? link.reference?.relationTo === 'posts'
-          ? `/posts/${encodeURIComponent(slug)}`
-          : slug === 'home'
-            ? '/'
-            : `/${encodeURIComponent(slug)}`
-        : link.type === 'custom'
-          ? publicHref(link.url === '/#resources' ? '/library' : link.url)
-          : undefined
+    const href = navigationHref(link)
     return { label: link.label, href, newTab: link.newTab }
   })
   return items.some((item) => item.href === '/library')

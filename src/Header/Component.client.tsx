@@ -1,11 +1,16 @@
 'use client'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { Menu, UserRound } from 'lucide-react'
 import type { Header } from '@/payload-types'
 import { Logo } from '@/components/Logo/Logo'
 import { Button } from '@/components/ui/button'
-import { AvailabilityButton, Modal, useDialog } from '@/components/Modal'
+import { Modal } from '@/components/Modal'
+import {
+  SiteAvailabilityButton as AvailabilityButton,
+  useSiteDialog,
+} from '@/components/site-ui/Dialog'
 import { HeaderNav } from './Nav'
 const memberMessage =
   'წევრობა და პირადი სივრცე მოგვიანებით დაემატება. ამ ეტაპზე გამოქვეყნებული მასალების წაკითხვა თავისუფლად შეგიძლიათ.'
@@ -20,11 +25,33 @@ function MemberAction({ account = false, icon = false }: { account?: boolean; ic
       }
     >
       {icon ? <UserRound size={22} aria-hidden="true" /> : account ? 'პირადი კაბინეტი' : 'შესვლა'}
+      {!icon && <span className="vh-soon">მალე</span>}
     </AvailabilityButton>
   )
 }
 export function HeaderClient({ data }: { data: Header }) {
-  const { ref: menuRef, open: openMenu, close: closeMenu, onClose: menuClosed } = useDialog()
+  const {
+    ref: menuRef,
+    open: openMenu,
+    close: closeMenu,
+    onClose: menuClosed,
+    isOpen,
+  } = useSiteDialog()
+  const pathname = usePathname()
+  useEffect(() => closeMenu(), [pathname, closeMenu])
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 1024px)')
+    const closeOnDesktop = () => {
+      if (!desktop.matches) return
+      // Close child notices before their parent menu is hidden.
+      menuRef.current
+        ?.querySelectorAll<HTMLDialogElement>('dialog[open]')
+        .forEach((dialog) => dialog.close())
+      closeMenu()
+    }
+    desktop.addEventListener('change', closeOnDesktop)
+    return () => desktop.removeEventListener('change', closeOnDesktop)
+  }, [closeMenu, menuRef])
   return (
     <header className="vh-theme vh-header">
       <a href="#main-content" className="vh-skip-link">
@@ -55,6 +82,7 @@ export function HeaderClient({ data }: { data: Header }) {
               onClick={openMenu}
               aria-label="მენიუს გახსნა"
               aria-haspopup="dialog"
+              aria-expanded={isOpen}
             >
               <Menu size={22} aria-hidden="true" />
             </Button>
