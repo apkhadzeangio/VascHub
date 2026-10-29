@@ -1,0 +1,48 @@
+{
+  "kind": "editorial_plan_only_not_a_payload_request_body",
+  "apply_automatically": false,
+  "scope": "Pages record with slug home; homepage.newsPosts and homepage.events only",
+  "news_selection": [
+    {
+      "record_id": "N02",
+      "slug": "crest-2-asymptomatic-carotid-stenosis",
+      "post_id": null,
+      "required_cms_status_for_homepage_selection": "published"
+    },
+    {
+      "record_id": "N01",
+      "slug": "esvs-vgei-guidelines-2026",
+      "post_id": null,
+      "required_cms_status_for_homepage_selection": "published"
+    }
+  ],
+  "event_selection": [
+    {
+      "record_id": "E13",
+      "title": "CLTI ონლაინ Masterclass — 10 ნოემბერი, 20:00",
+      "calendar_start_date": "2026-11-10",
+      "location": "ონლაინ; თბილისის დროით",
+      "url": "https://esvs.org/event/esvs-8th-masterclss-episode-3-updates-and-trends-in-the-treatment-of-critical-limb-threatening-ischaemia/"
+    },
+    {
+      "record_id": "E01",
+      "title": "LINC 2027 — 26–28 იანვარი",
+      "calendar_start_date": "2027-01-26",
+      "location": "ლაიფციგი, გერმანია",
+      "url": "https://www.hmpglobalevents.com/linc/rates"
+    }
+  ],
+  "existing_cms_event_fields": [
+    "title",
+    "date",
+    "location",
+    "url"
+  ],
+  "date_mapping": "calendar_start_date is planning metadata; select its calendar date in the existing date field; no official start time is inferred",
+  "maximum_news_rows": 2,
+  "maximum_event_rows": 2,
+  "source_page_id": null,
+  "source_page_version": null,
+  "must_read_latest_page_before_any_future_change": true,
+  "production_writes": 0
+}

@@ -1,0 +1,506 @@
+{
+  "title": "რთული AAA: F/BEVAR-ისა და ღია ოპერაციის შედარების ახალი მეტაანალიზი",
+  "slug": "complex-aaa-fbevar-open-design-stratified-2026",
+  "_status": "draft",
+  "categories": [],
+  "content": {
+    "root": {
+      "children": [
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "რთული AAA-ის მეტაანალიზმა ფენესტრირებული და განშტოებული ენდოვასკულური რეკონსტრუქცია ღია ოპერაციას შეადარა. ადრეული შედეგები და გრძელვადიანი გამძლეობა ცალ-ცალკე შეფასდა. სარედაქციო მიმოხილვა განასხვავებს დაკვირვებით კავშირს მიზეზობრივ ეფექტისგან და ხსნის, რატომ სჭირდება დაბალი სანდოობის მტკიცებულებას ფრთხილი ინტერპრეტაცია, განსაკუთრებით მკურნალობის არჩევანისა და პაციენტისთვის შედეგების ახსნისას მაღალი რისკის კლინიკურ სიტუაციებში.",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1,
+          "textFormat": 0,
+          "textStyle": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "პუბლიკაცია",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "heading",
+          "version": 1,
+          "tag": "h2"
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "Fenestrated and Branched Endovascular vs. Open Repair for Complex Abdominal Aortic Aneurysms: A Design Stratified Meta-analysis",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1,
+          "textFormat": 0,
+          "textStyle": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "Constantine N Antonopoulos; Christos F Pitros; Filippos-Paschalis Rorris; George Geroulakos. European Journal of Vascular and Endovascular Surgery. Online ahead of print; S1078-5884(26)00677-5. ონლაინ: 2026-07-07.",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1,
+          "textFormat": 0,
+          "textStyle": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "DOI: 10.1016/j.ejvs.2026.07.002; PMID: 42409215. ვერსია: PubMed: online ahead of print; გამომცემლის ნაპოვნი ჩანაწერი: Journal Pre-proof; საბოლოო ნომერი ვერ დადასტურდა",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1,
+          "textFormat": 0,
+          "textStyle": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "კვლევის მიზანი",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "heading",
+          "version": 1,
+          "tag": "h2"
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "მეტაანალიზის მიზანია რთული მუცლის აორტის ანევრიზმებისას F/BEVAR-ისა და ღია რეკონსტრუქციის ადრეული და ხანგრძლივი შედეგების შედარება. განსაკუთრებული აქცენტია კვლევის დიზაინზე: შესწორებული და შეუსწორებელი დაკვირვებითი შედარებები ერთიან, თანაბრად სანდო მტკიცებულებად არ უნდა განიხილებოდეს.",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1,
+          "textFormat": 0,
+          "textStyle": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "მეთოდოლოგია",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "heading",
+          "version": 1,
+          "tag": "h2"
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "MEDLINE, Scopus და Cochrane მოიძიეს 2025 წლის ივნისამდე. ჩართულია 18 კვლევა და 11 298 პაციენტი. ცხრა კვლევა იყენებდა მიდრეკილების ქულის მიხედვით შეწყვილებას, ცხრა — შეუსწორებელ შეფასებებს. მტკიცებულების სანდოობა შეფასდა GRADE-ით.",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1,
+          "textFormat": 0,
+          "textStyle": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "ძირითადი შედეგები",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "heading",
+          "version": 1,
+          "tag": "h2"
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "შეწყვილებულ კვლევებში F/BEVAR ასოცირდებოდა დაბალ 30-დღიან სიკვდილიანობასთან: OR 0.72, 95% CI 0.56–0.92. თირკმლის მწვავე დაზიანებისთვის OR იყო 0.54, 95% CI 0.38–0.76. ეს შეფასებები დაკვირვებით მონაცემებს ეფუძნება და შემთხვევითი განაწილების ეფექტს არ ასახავს.",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1,
+          "textFormat": 0,
+          "textStyle": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "გრძელვადიანი მონაცემები",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "heading",
+          "version": 1,
+          "tag": "h2"
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "PubMed-ის ინდექსირებულ აბსტრაქტში რეკონსტრუირებული დროით ანალიზით F/BEVAR ასოცირდება უფრო მაღალ ყველა მიზეზით სიკვდილიანობასთან: HR 1.50, 95% CI 1.24–1.83, და განმეორებით ჩარევასთან: HR 3.94, 95% CI 3.30–4.70. თავად ეს ანალიზები საძიებო ხასიათისაა.",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1,
+          "textFormat": 0,
+          "textStyle": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "ავტორების დასკვნა",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "heading",
+          "version": 1,
+          "tag": "h2"
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "ინდექსირებული ვერსიის ავტორთა დასკვნაა ინდივიდუალური არჩევანი ადრეული რისკისა და გამძლეობის გათვალისწინებით. შეწყვილებული ანალიზების სანდოობა დაბალია, შეუსწორებელი შეფასებებისა — ძალიან დაბალი. ამიტომ შედეგები არც ერთი მიდგომის უნივერსალურ უპირატესობას არ ადგენს.",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1,
+          "textFormat": 0,
+          "textStyle": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "კლინიკური მნიშვნელობა — რედაქტორის განმარტება",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "heading",
+          "version": 1,
+          "tag": "h2"
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "პაციენტთან განხილვისას შეიძლება ცალკე განიმარტოს ოპერაციის ადრეული ტოლერანტობა და შემდგომი განმეორებითი ჩარევის პერსპექტივა. თუმცა ჯგუფებს შორის საწყისი რისკისა და ანატომიის განსხვავება სრულად ვერ ქრება სტატისტიკური შეწყვილებით. ასოციაცია არ უნდა გამოცხადდეს ჩარევით გამოწვეულ ეფექტად.",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1,
+          "textFormat": 0,
+          "textStyle": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "შეზღუდვები და მთავარი დასკვნა",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "heading",
+          "version": 1,
+          "tag": "h2"
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "გამომცემლის წინასაბოლოო და PubMed-ის დასკვნის ფორმულირებებს შორის შეუსაბამობა დაფიქსირდა; ჩანაწერს გამოცემამდე დამატებითი ვერსიული შემოწმება სჭირდება. მიმოხილვა მზად არის რედაქტორის განხილვისთვის, მაგრამ გამოქვეყნების კალენდარში არ არის შეტანილი. წარმოდგენილი კვლევა ოფიციალური გაიდლაინის რეკომენდაცია არ არის.",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1,
+          "textFormat": 0,
+          "textStyle": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "წყაროს ხელმისაწვდომობა",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "heading",
+          "version": 1,
+          "tag": "h2"
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "გადამოწმებულია PubMed-ის და გამომცემლის აბსტრაქტები. სრული საბოლოო ტექსტი არ შეფასებულა. გრძელვადიანი დასკვნის ფორმულირება ორ ჩანაწერში არ ემთხვევა.",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1,
+          "textFormat": 0,
+          "textStyle": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "შემოწმება: 29.10.2026.",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1,
+          "textFormat": 0,
+          "textStyle": ""
+        },
+        {
+          "children": [
+            {
+              "detail": 0,
+              "format": 0,
+              "mode": "normal",
+              "style": "",
+              "text": "ოფიციალური ბმულები",
+              "type": "text",
+              "version": 1
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "heading",
+          "version": 1,
+          "tag": "h2"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "https://pubmed.ncbi.nlm.nih.gov/42409215/",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": null,
+              "fields": {
+                "doc": null,
+                "linkType": "custom",
+                "newTab": true,
+                "url": "https://pubmed.ncbi.nlm.nih.gov/42409215/"
+              },
+              "format": "",
+              "indent": 0,
+              "type": "link",
+              "version": 2
+            }
+          ],
+          "direction": null,
+          "format": "",
+          "indent": 0,
+          "type": "paragraph",
+          "version": 1,
+          "textFormat": 0,
+          "textStyle": ""
+        }
+      ],
+      "direction": null,
+      "format": "",
+      "indent": 0,
+      "type": "root",
+      "version": 1
+    }
+  },
+  "meta": {
+    "title": "რთული AAA: F/BEVAR-ისა და ღია ოპერაციის შედარების ახალი მეტაანალიზი | VascHub",
+    "description": "რთული AAA-ისას F/BEVAR და ღია ოპერაცია: ადრეული შედეგების მეტაანალიზი, დაბალი მტკიცებულების სანდოობა და პუბლიკაციის ვერსიის სარედაქციო შემოწმება."
+  }
+}

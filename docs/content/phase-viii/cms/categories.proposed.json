@@ -1,0 +1,54 @@
+[
+  {
+    "slug": "scientific-news",
+    "title": "სამეცნიერო სიახლეები"
+  },
+  {
+    "slug": "international-events",
+    "title": "საერთაშორისო ღონისძიებები"
+  },
+  {
+    "slug": "professional-development",
+    "title": "პროფესიული განვითარება"
+  },
+  {
+    "slug": "pad-clti",
+    "title": "პერიფერიული არტერიული დაავადება და CLTI"
+  },
+  {
+    "slug": "acute-limb-ischaemia",
+    "title": "კიდურის მწვავე იშემია"
+  },
+  {
+    "slug": "carotid-cerebrovascular",
+    "title": "კაროტიდული და ცერებროვასკულური დაავადებები"
+  },
+  {
+    "slug": "aortic-disease",
+    "title": "აორტის დაავადებები"
+  },
+  {
+    "slug": "vascular-infection",
+    "title": "სისხლძარღვოვანი გრაფტისა და ენდოგრაფტის ინფექცია"
+  },
+  {
+    "slug": "venous-disease",
+    "title": "ვენური დაავადებები"
+  },
+  {
+    "slug": "haemodialysis-access",
+    "title": "ჰემოდიალიზის სისხლძარღვოვანი მიდგომა"
+  },
+  {
+    "slug": "vascular-trauma",
+    "title": "სისხლძარღვოვანი ტრავმა"
+  },
+  {
+    "slug": "mesenteric-renal",
+    "title": "მეზენტერიული და თირკმლის სისხლძარღვები"
+  },
+  {
+    "slug": "guidelines-consensus",
+    "title": "გაიდლაინები და კონსენსუსი"
+  }
+]

@@ -1,0 +1,304 @@
+{
+  "release_version": "1.3",
+  "verified_on": "2026-10-29",
+  "timezone": "Asia/Tbilisi",
+  "status": "six_production_drafts_created_and_preview_verified",
+  "authorization": "User explicitly authorized first administrator setup, required Categories, and six new Production Posts as Drafts after the original preparation-only restriction.",
+  "administrator": "Created by the user with the existing admin:create command; authenticated Payload Admin access observed. No credentials recorded.",
+  "method": "Existing Payload Admin UI; HTML pasted through the supported editor; autosave; authenticated REST read-back with draft=true through browser navigation.",
+  "content_source_commit": "427883ba89d0cbaa582043b19d5031aa18ed97be",
+  "application_commit_checked": "01bf7cd20d9352fc2d665bcf46feb224cac140c7",
+  "created_posts": 6,
+  "created_categories": 7,
+  "published_posts": 0,
+  "posts": [
+    {
+      "id": 2,
+      "title": "VGEI 2026: განახლებული ევროპული გაიდლაინი",
+      "slug": "esvs-vgei-guidelines-2026",
+      "status": "draft",
+      "publishedAt": null,
+      "category_ids": [
+        4,
+        5,
+        1
+      ],
+      "category_slugs": [
+        "vascular-infection",
+        "guidelines-consensus",
+        "scientific-news"
+      ],
+      "blocks": 25,
+      "checks": {
+        "title": true,
+        "slug": true,
+        "status": true,
+        "unpublished": true,
+        "seo_title": true,
+        "seo_description": true,
+        "categories": true,
+        "all_text_blocks": true
+      },
+      "passed": true,
+      "updatedAt": "2026-10-29T14:12:01.465Z",
+      "admin_url": "https://vasc.lithos.ge/admin/collections/posts/2",
+      "record_id": "N01"
+    },
+    {
+      "id": 3,
+      "title": "CREST-2: რევასკულარიზაცია უსიმპტომო კაროტიდული სტენოზისას",
+      "slug": "crest-2-asymptomatic-carotid-stenosis",
+      "status": "draft",
+      "publishedAt": null,
+      "category_ids": [
+        6,
+        1
+      ],
+      "category_slugs": [
+        "carotid-cerebrovascular",
+        "scientific-news"
+      ],
+      "blocks": 25,
+      "checks": {
+        "title": true,
+        "slug": true,
+        "status": true,
+        "unpublished": true,
+        "seo_title": true,
+        "seo_description": true,
+        "categories": true,
+        "all_text_blocks": true
+      },
+      "passed": true,
+      "updatedAt": "2026-10-29T14:18:27.645Z",
+      "admin_url": "https://vasc.lithos.ge/admin/collections/posts/3",
+      "record_id": "N02"
+    },
+    {
+      "id": 4,
+      "title": "BASIL-3: რომელი ენდოვასკულური სტრატეგია CLTI-ისას?",
+      "slug": "basil-3-endovascular-strategies-clti",
+      "status": "draft",
+      "publishedAt": null,
+      "category_ids": [
+        7,
+        1
+      ],
+      "category_slugs": [
+        "pad-clti",
+        "scientific-news"
+      ],
+      "blocks": 25,
+      "checks": {
+        "title": true,
+        "slug": true,
+        "status": true,
+        "unpublished": true,
+        "seo_title": true,
+        "seo_description": true,
+        "categories": true,
+        "all_text_blocks": true
+      },
+      "passed": true,
+      "updatedAt": "2026-10-29T14:19:10.218Z",
+      "admin_url": "https://vasc.lithos.ge/admin/collections/posts/4",
+      "record_id": "N05"
+    },
+    {
+      "id": 5,
+      "title": "LINC 2027: ენდოვასკულური პრაქტიკა და ცოცხალი შემთხვევები",
+      "slug": "linc-2027-leipzig",
+      "status": "draft",
+      "publishedAt": null,
+      "category_ids": [
+        2
+      ],
+      "category_slugs": [
+        "international-events"
+      ],
+      "blocks": 18,
+      "checks": {
+        "title": true,
+        "slug": true,
+        "status": true,
+        "unpublished": true,
+        "seo_title": true,
+        "seo_description": true,
+        "categories": true,
+        "all_text_blocks": true
+      },
+      "passed": true,
+      "updatedAt": "2026-10-29T14:19:51.911Z",
+      "admin_url": "https://vasc.lithos.ge/admin/collections/posts/5",
+      "record_id": "E01"
+    },
+    {
+      "id": 6,
+      "title": "CLTI-ის ონლაინ Masterclass — 10 ნოემბერი",
+      "slug": "esvs-clti-masterclass-november-2026",
+      "status": "draft",
+      "publishedAt": null,
+      "category_ids": [
+        2
+      ],
+      "category_slugs": [
+        "international-events"
+      ],
+      "blocks": 14,
+      "checks": {
+        "title": true,
+        "slug": true,
+        "status": true,
+        "unpublished": true,
+        "seo_title": true,
+        "seo_description": true,
+        "categories": true,
+        "all_text_blocks": true
+      },
+      "passed": true,
+      "updatedAt": "2026-10-29T14:20:35.327Z",
+      "admin_url": "https://vasc.lithos.ge/admin/collections/posts/6",
+      "record_id": "E13"
+    },
+    {
+      "id": 7,
+      "title": "ESVS Educational Travel Grant — 2026 წლის მიღება",
+      "slug": "esvs-educational-travel-grant-2026",
+      "status": "draft",
+      "publishedAt": null,
+      "category_ids": [
+        3
+      ],
+      "category_slugs": [
+        "professional-development"
+      ],
+      "blocks": 20,
+      "checks": {
+        "title": true,
+        "slug": true,
+        "status": true,
+        "unpublished": true,
+        "seo_title": true,
+        "seo_description": true,
+        "categories": true,
+        "all_text_blocks": true
+      },
+      "passed": true,
+      "updatedAt": "2026-10-29T14:21:03.982Z",
+      "admin_url": "https://vasc.lithos.ge/admin/collections/posts/7",
+      "record_id": "F01"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "სამეცნიერო სიახლეები",
+      "slug": "scientific-news"
+    },
+    {
+      "id": 2,
+      "title": "საერთაშორისო ღონისძიებები",
+      "slug": "international-events"
+    },
+    {
+      "title": "პროფესიული განვითარება",
+      "slug": "professional-development",
+      "id": 3
+    },
+    {
+      "title": "სისხლძარღვოვანი გრაფტისა და ენდოგრაფტის ინფექცია",
+      "slug": "vascular-infection",
+      "id": 4
+    },
+    {
+      "title": "გაიდლაინები და კონსენსუსი",
+      "slug": "guidelines-consensus",
+      "id": 5
+    },
+    {
+      "title": "კაროტიდული და ცერებროვასკულური დაავადებები",
+      "slug": "carotid-cerebrovascular",
+      "id": 6
+    },
+    {
+      "title": "პერიფერიული არტერიული დაავადება და CLTI",
+      "slug": "pad-clti",
+      "id": 7
+    }
+  ],
+  "preview_checks": [
+    {
+      "slug": "esvs-vgei-guidelines-2026",
+      "url": "https://vasc.lithos.ge/posts/esvs-vgei-guidelines-2026",
+      "heading_visible": true,
+      "expected_blocks": 25,
+      "rendered_blocks": 25,
+      "all_text_preserved": true,
+      "preview_mode_visible": true
+    },
+    {
+      "slug": "crest-2-asymptomatic-carotid-stenosis",
+      "url": "https://vasc.lithos.ge/posts/crest-2-asymptomatic-carotid-stenosis",
+      "heading_visible": true,
+      "expected_blocks": 25,
+      "rendered_blocks": 25,
+      "all_text_preserved": true,
+      "preview_mode_visible": true
+    },
+    {
+      "slug": "basil-3-endovascular-strategies-clti",
+      "url": "https://vasc.lithos.ge/posts/basil-3-endovascular-strategies-clti",
+      "heading_visible": true,
+      "expected_blocks": 25,
+      "rendered_blocks": 25,
+      "all_text_preserved": true,
+      "preview_mode_visible": true
+    },
+    {
+      "slug": "linc-2027-leipzig",
+      "url": "https://vasc.lithos.ge/posts/linc-2027-leipzig",
+      "heading_visible": true,
+      "expected_blocks": 18,
+      "rendered_blocks": 18,
+      "all_text_preserved": true,
+      "preview_mode_visible": true
+    },
+    {
+      "slug": "esvs-clti-masterclass-november-2026",
+      "url": "https://vasc.lithos.ge/posts/esvs-clti-masterclass-november-2026",
+      "heading_visible": true,
+      "expected_blocks": 14,
+      "rendered_blocks": 14,
+      "all_text_preserved": true,
+      "preview_mode_visible": true
+    },
+    {
+      "slug": "esvs-educational-travel-grant-2026",
+      "url": "https://vasc.lithos.ge/posts/esvs-educational-travel-grant-2026",
+      "heading_visible": true,
+      "expected_blocks": 20,
+      "rendered_blocks": 20,
+      "all_text_preserved": true,
+      "preview_mode_visible": true
+    }
+  ],
+  "preview_mode_exited": true,
+  "unpublished_route_check": {
+    "record_id": "F01",
+    "slug": "esvs-educational-travel-grant-2026",
+    "after_exiting_preview": "404; no article content rendered"
+  },
+  "existing_posts_preserved": [
+    1
+  ],
+  "existing_post_1": "Already present with no title/slug before import; not opened for editing, overwritten, or deleted.",
+  "authors": "Optional authors field left empty; research authors remain in the bibliography. Medical/editorial approval is not implied by import.",
+  "application_code_changed": false,
+  "main_changed_by_this_work": false,
+  "clinical_library_records_changed_by_this_work": false,
+  "homepage_changed": false,
+  "railway_environment_variables_changed": false,
+  "infrastructure_resources_created": 0,
+  "pr_merged": false,
+  "next_step": "Responsible medical/editorial review and a separate publication decision; recheck time-sensitive deadlines before release."
+}

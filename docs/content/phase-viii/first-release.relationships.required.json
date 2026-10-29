@@ -1,0 +1,97 @@
+[
+  {
+    "record_id": "N01",
+    "slug": "esvs-vgei-guidelines-2026",
+    "category_slugs": [
+      "vascular-infection",
+      "guidelines-consensus",
+      "scientific-news"
+    ],
+    "author_user_ids": [],
+    "release_hold": false,
+    "category_ids": [
+      4,
+      5,
+      1
+    ],
+    "category_id_resolution": "verified_in_payload_admin",
+    "cms_post_id": 2,
+    "production_status": "draft"
+  },
+  {
+    "record_id": "N02",
+    "slug": "crest-2-asymptomatic-carotid-stenosis",
+    "category_slugs": [
+      "carotid-cerebrovascular",
+      "scientific-news"
+    ],
+    "author_user_ids": [],
+    "release_hold": false,
+    "category_ids": [
+      6,
+      1
+    ],
+    "category_id_resolution": "verified_in_payload_admin",
+    "cms_post_id": 3,
+    "production_status": "draft"
+  },
+  {
+    "record_id": "N05",
+    "slug": "basil-3-endovascular-strategies-clti",
+    "category_slugs": [
+      "pad-clti",
+      "scientific-news"
+    ],
+    "author_user_ids": [],
+    "release_hold": false,
+    "category_ids": [
+      7,
+      1
+    ],
+    "category_id_resolution": "verified_in_payload_admin",
+    "cms_post_id": 4,
+    "production_status": "draft"
+  },
+  {
+    "record_id": "E01",
+    "slug": "linc-2027-leipzig",
+    "category_slugs": [
+      "international-events"
+    ],
+    "author_user_ids": [],
+    "category_ids": [
+      2
+    ],
+    "category_id_resolution": "verified_in_payload_admin",
+    "cms_post_id": 5,
+    "production_status": "draft"
+  },
+  {
+    "record_id": "E13",
+    "slug": "esvs-clti-masterclass-november-2026",
+    "category_slugs": [
+      "international-events"
+    ],
+    "author_user_ids": [],
+    "category_ids": [
+      2
+    ],
+    "category_id_resolution": "verified_in_payload_admin",
+    "cms_post_id": 6,
+    "production_status": "draft"
+  },
+  {
+    "record_id": "F01",
+    "slug": "esvs-educational-travel-grant-2026",
+    "category_slugs": [
+      "professional-development"
+    ],
+    "author_user_ids": [],
+    "category_ids": [
+      3
+    ],
+    "category_id_resolution": "verified_in_payload_admin",
+    "cms_post_id": 7,
+    "production_status": "draft"
+  }
+]

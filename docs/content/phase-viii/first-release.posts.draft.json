@@ -1,0 +1,2799 @@
+[
+  {
+    "title": "VGEI 2026: განახლებული ევროპული გაიდლაინი",
+    "slug": "esvs-vgei-guidelines-2026",
+    "_status": "draft",
+    "categories": [],
+    "content": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ESVS-ის განახლებული დოკუმენტი გრაფტისა და ენდოგრაფტის ინფექციის შეფასებასა და მართვას აერთიანებს. მიმოხილვა აცნობს მკითხველს დოკუმენტის მოცულობას და განმარტავს, როგორ უნდა გაიმიჯნოს ოფიციალური რეკომენდაცია ადგილობრივი სარედაქციო ინტერპრეტაციისგან. პრაქტიკული გამოყენებისთვის აუცილებელია კონკრეტული რეკომენდაციის სრული ტექსტის, კლასისა და მტკიცებულების დონის ერთად წაკითხვა და პაციენტის გარემოებებთან შეჯერება.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "პუბლიკაცია",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "Editor's Choice - European Society for Vascular Surgery (ESVS) 2026 Clinical Practice Guidelines on the Management of Vascular Graft and Endograft Infections",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "Anne Lejay; Ben R Saleem; Tara D Barwick; et al.. European Journal of Vascular and Endovascular Surgery. 2026;72(2):227–293. ონლაინ: 2026-07-14.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "DOI: 10.1016/j.ejvs.2026.05.035; PMID: 42448560. ვერსია: 2026 წლის გამოცემა; ანაცვლებს 2020 წლის ვერსიას; EJVES 72(2)",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "მიზანი და კონტექსტი",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ESVS-ის 2026 წლის გაიდლაინი სისხლძარღვოვანი გრაფტისა და ენდოგრაფტის ინფექციის მართვის 2020 წლის ვერსიას განაახლებს. დოკუმენტის მიზანია ექიმისა და პაციენტის დახმარება მართვის სტრატეგიის შერჩევაში. ეს არის პროფესიული საზოგადოების კლინიკური პრაქტიკის დოკუმენტი და არა ერთი ჩარევის ეფექტის შემფასებელი ახალი კვლევა.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "მეთოდოლოგია და პოპულაცია",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "რეკომენდაციები ეფუძნება სამეცნიერო მტკიცებულებისა და ექსპერტთა მოსაზრებების სინთეზს. სამიზნე ჯგუფია გრაფტის ან ენდოგრაფტის ინფექციის მქონე პაციენტები; ერთიანი მონაწილეთა რაოდენობა არ გამოიყენება. რეკომენდაციის სიძლიერე კლასით, ხოლო მტკიცებულების ხარისხი დონით აღინიშნება; მათი ერთმანეთისგან გამიჯვნა აუცილებელია.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ძირითადი შედეგი",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "გამოცემულია 81 რეკომენდაცია. დოკუმენტის თემებია განსაზღვრებები, დიაგნოსტიკა, მულტიდისციპლინური მართვა, ანტიმიკრობული მკურნალობა, ღრუში და ღრუს გარეთ მდებარე გრაფტების ინფექცია და მეთვალყურეობა. ცალკე განიხილება პაციენტთან გადაწყვეტილების გაზიარება, პაციენტისთვის განკუთვნილი ინფორმაცია და დაუზუსტებელი საკითხები.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ოფიციალური დოკუმენტის დასკვნა",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ავტორთა ჯგუფი დოკუმენტს VGEI-ის მართვის განახლებულ გზამკვლევად წარმოადგენს. ამ ცნობაში კონკრეტული ოპერაციის, მასალის ან ანტიბიოტიკის სასარგებლოდ ოფიციალური რეკომენდაცია არ არის ციტირებული: ხელმისაწვდომი აბსტრაქტი ასეთი დონის დეტალიზაციას არ იძლევა.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "რედაქტორის განმარტება",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "საქართველოს კლინიკებისთვის მიმოხილვის პრაქტიკული ღირებულება შეიძლება იყოს საერთო სამუშაო ენის ჩამოყალიბება: ინფექციის აღწერა, გადაწყვეტილებაში მონაწილე სპეციალისტები, ნიმუშის აღების დოკუმენტაცია და მეთვალყურეობის პასუხისმგებლობა წინასწარ უნდა განისაზღვროს. ეს არის სარედაქციო წინადადება ადგილობრივი განხილვისთვის და არა ამ გაიდლაინიდან სიტყვასიტყვით გადმოტანილი მოთხოვნა.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "შეზღუდვები",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "მიმოხილვა შემოსაზღვრულია გადამოწმებული აბსტრაქტითა და საზოგადოების განცხადებით. ამიტომ არ არის წარმოდგენილი გამოსახულებითი კვლევის სპეციფიკური ალგორითმი, მკურნალობის ხანგრძლივობა ან რეკონსტრუქციის მასალების უპირატესობის რიცხვითი შეფასება. განსაკუთრებით არ უნდა მივაწეროთ მთელ დოკუმენტს ერთიანი მტკიცებულების დონე.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "მთავარი დასკვნა ქირურგისთვის",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "VGEI-ის კონკრეტულ საკითხზე პასუხის ძიებისას გამოიყენეთ 2026 წლის სრული დოკუმენტი და შეამოწმეთ შესაბამისი რეკომენდაციის კონტექსტი. ამ სიახლის დანიშნულებაა განახლებული წყაროს აღმოჩენა; კლინიკური გადაწყვეტილების სრული არგუმენტაცია შესაბამისი თავის წაკითხვასა და პაციენტის ინდივიდუალურ შეფასებას საჭიროებს.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "წყაროს ხელმისაწვდომობა",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "გადამოწმებულია PubMed-ის აბსტრაქტი, გამომცემლის ჩანაწერი და ESVS-ის ოფიციალური განცხადება. სრული რეკომენდაციების ტექსტი ამ მიმოხილვისთვის არ შეფასებულა.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "შემოწმება: 29.10.2026.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ოფიციალური ბმულები",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "detail": 0,
+                    "format": 0,
+                    "mode": "normal",
+                    "style": "",
+                    "text": "https://esvs.org/esvs-vgei-guidelines/",
+                    "type": "text",
+                    "version": 1
+                  }
+                ],
+                "direction": null,
+                "fields": {
+                  "doc": null,
+                  "linkType": "custom",
+                  "newTab": true,
+                  "url": "https://esvs.org/esvs-vgei-guidelines/"
+                },
+                "format": "",
+                "indent": 0,
+                "type": "link",
+                "version": 2
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "detail": 0,
+                    "format": 0,
+                    "mode": "normal",
+                    "style": "",
+                    "text": "https://pubmed.ncbi.nlm.nih.gov/42448560/",
+                    "type": "text",
+                    "version": 1
+                  }
+                ],
+                "direction": null,
+                "fields": {
+                  "doc": null,
+                  "linkType": "custom",
+                  "newTab": true,
+                  "url": "https://pubmed.ncbi.nlm.nih.gov/42448560/"
+                },
+                "format": "",
+                "indent": 0,
+                "type": "link",
+                "version": 2
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          }
+        ],
+        "direction": null,
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "meta": {
+      "title": "VGEI 2026: განახლებული ევროპული გაიდლაინი | VascHub",
+      "description": "ESVS-ის 2026 წლის VGEI გაიდლაინის მიმოხილვა: 81 რეკომენდაცია, დიაგნოსტიკა, გუნდური მართვა, ანტიმიკრობული მკურნალობა და მეთვალყურეობა."
+    }
+  },
+  {
+    "title": "CREST-2: რევასკულარიზაცია უსიმპტომო კაროტიდული სტენოზისას",
+    "slug": "crest-2-asymptomatic-carotid-stenosis",
+    "_status": "draft",
+    "categories": [],
+    "content": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "CREST-2-მა უსიმპტომო მძიმე კაროტიდული სტენოზისას ინტენსიურ მედიკამენტურ მართვაზე რევასკულარიზაციის დამატება შეაფასა. ორი პარალელური კვლევის შედეგები განსხვავდება, თუმცა მათი ერთმანეთთან პირდაპირი შედარება დაუშვებელია. ქართული მიმოხილვა ხსნის ძირითადი გამოსავლის მნიშვნელობას, პროცედურულ რისკს და მიზეზს, რის გამოც შედეგები TCAR-ის ეფექტის პირდაპირ მტკიცებულებად ვერ ჩაითვლება და ინდივიდუალურ გადაწყვეტილებას საჭიროებს.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "პუბლიკაცია",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "Medical Management and Revascularization for Asymptomatic Carotid Stenosis",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "Thomas G Brott; George Howard; Brajesh K Lal; Jenifer H Voeks; et al.. New England Journal of Medicine. 2026;394(3):219–231. ონლაინ: 2025-11-21.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "DOI: 10.1056/NEJMoa2508800; PMID: 41269206. ვერსია: გამოქვეყნდა 21.11.2025; NEJM მიუთითებს განახლებას 22.12.2025; ჟურნალის ნომერი 15.01.2026",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "მიზანი",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "CREST-2-ის მიზანი იყო დაედგინა, აუმჯობესებს თუ არა რევასკულარიზაციის დამატება ინტენსიური მედიკამენტური მართვის შედეგებს მაღალი ხარისხის უსიმპტომო კაროტიდული სტენოზისას. საკითხი განსაკუთრებით მნიშვნელოვანია მაშინ, როცა პაციენტს ჩარევის შესაძლო სარგებელსა და უშუალო პროცედურულ რისკს ვუხსნით.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "მეთოდოლოგია და პოპულაცია",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ჩატარდა ორი პარალელური, გამოსავლების შემფასებლისთვის ბრმა კვლევა, 155 ცენტრში. ჩართული იყვნენ ≥70%-იანი უსიმპტომო სტენოზის მქონე პაციენტები. სტენტირების კვლევაში რანდომიზდა 1 245, ენდარტერექტომიის კვლევაში — 1 240 პაციენტი; ორივე კვლევაში არსებობდა საკუთარი მედიკამენტური საკონტროლო ჯგუფი.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ძირითადი შედეგები",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ოთხწლიანი ძირითადი კომბინირებული გამოსავალი CAS-ის კვლევაში იყო 6.0% მხოლოდ მედიკამენტური მართვისას და 2.8% სტენტირების დამატებისას, p=0.02. CEA-ის კვლევაში შესაბამისი მაჩვენებლები იყო 5.3% და 3.7%, p=0.24. გამოსავალი აერთიანებდა პირველ 44 დღეში ინსულტს ან სიკვდილს და შემდგომ იმავე მხარეს განვითარებულ იშემიურ ინსულტს.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ავტორების დასკვნა",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ავტორები სტენტირების დამატებით სტატისტიკურად მნიშვნელოვან სარგებელს აღწერენ, ხოლო CEA-ის დამატებისთვის მნიშვნელოვანი განსხვავება არ გამოვლინდა. ეს ფორმულირება არ უდრის დასკვნას, რომ ენდარტერექტომიას სარგებელი საერთოდ არ აქვს ნებისმიერი უსიმპტომო პაციენტისთვის.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "რედაქტორის განმარტება",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "კვლევა უშუალოდ CAS-სა და CEA-ს ერთმანეთს არ ადარებს. ერთი შედარების სტატისტიკური მნიშვნელობა და მეორის არამნიშვნელოვანი შედეგი თავისთავად ამ ორ ჩარევას შორის უპირატესობას ვერ ამტკიცებს. ანალოგიურად, ამ მონაცემების TCAR-ზე პირდაპირ გადატანა ცალკე მტკიცებულებას საჭიროებს. განხილვისას აუცილებელია ინტენსიური მედიკამენტური მართვის შინაარსიც მკაფიოდ განისაზღვროს.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "შეზღუდვები",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ამ მიმოხილვაში გამოყენებულია აბსტრაქტი და გამოცემის ისტორია; ყველა ქვეჯგუფი და დამატებითი ანალიზი არ შეფასებულა. გაერთიანებული გამოსავლის პროცედურული და მოგვიანებითი კომპონენტები სხვადასხვა კლინიკურ მოვლენას ასახავს, ამიტომ მხოლოდ საბოლოო პროცენტის მოხსენიება რისკისა და სარგებლის სრულ სურათს ვერ აჩვენებს.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "მთავარი დასკვნა ქირურგისთვის",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "პაციენტის შერჩევისას გადაწყვეტილება დაუკავშირეთ კონკრეტულ კლინიკურ შეკითხვას და შესაბამის შედარებას. ეს კვლევის შედეგია; ამ ცნობაში ახალი ოფიციალური გაიდლაინის რეკომენდაცია არ ფორმულირდება. უკვე მოქმედი რეკომენდაციის შეცვლა მხოლოდ ამ სათაურის საფუძველზე არ უნდა მოხდეს.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "წყაროს ხელმისაწვდომობა",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "გადამოწმებულია NEJM-ის აბსტრაქტი, გამოცემის ისტორია და PubMed. სრული სტატიის ყველა ცხრილი და დამატებითი დანართი არ შეფასებულა.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "შემოწმება: 29.10.2026.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ოფიციალური ბმულები",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "detail": 0,
+                    "format": 0,
+                    "mode": "normal",
+                    "style": "",
+                    "text": "https://www.nejm.org/doi/full/10.1056/NEJMoa2508800?query=featured_home",
+                    "type": "text",
+                    "version": 1
+                  }
+                ],
+                "direction": null,
+                "fields": {
+                  "doc": null,
+                  "linkType": "custom",
+                  "newTab": true,
+                  "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2508800?query=featured_home"
+                },
+                "format": "",
+                "indent": 0,
+                "type": "link",
+                "version": 2
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "detail": 0,
+                    "format": 0,
+                    "mode": "normal",
+                    "style": "",
+                    "text": "https://pubmed.ncbi.nlm.nih.gov/41269206/",
+                    "type": "text",
+                    "version": 1
+                  }
+                ],
+                "direction": null,
+                "fields": {
+                  "doc": null,
+                  "linkType": "custom",
+                  "newTab": true,
+                  "url": "https://pubmed.ncbi.nlm.nih.gov/41269206/"
+                },
+                "format": "",
+                "indent": 0,
+                "type": "link",
+                "version": 2
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          }
+        ],
+        "direction": null,
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "meta": {
+      "title": "CREST-2: რევასკულარიზაცია უსიმპტომო კაროტიდული სტენოზისას | VascHub",
+      "description": "CREST-2-ის შედეგები: ინტენსიური მედიკამენტური მართვა, CAS და CEA უსიმპტომო მძიმე კაროტიდული სტენოზისას; ორი დამოუკიდებელი კვლევის განმარტება."
+    }
+  },
+  {
+    "title": "BASIL-3: რომელი ენდოვასკულური სტრატეგია CLTI-ისას?",
+    "slug": "basil-3-endovascular-strategies-clti",
+    "_status": "draft",
+    "categories": [],
+    "content": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "BASIL-3-ში ერთმანეთს სამი ენდოვასკულური სტრატეგია შეადარეს: ჩვეულებრივი ბალონი, წამლით დაფარული ბალონი და წამლის გამომყოფი სტენტი. ძირითადი კითხვა იყო ამპუტაციის გარეშე გადარჩენა. მიმოხილვა განმარტავს, რატომ არ უდრის რიცხვითი განსხვავება დადასტურებულ კლინიკურ უპირატესობას და რატომ ვერ პასუხობს ეს კვლევა პირდაპირ შუნტირებასა და ენდოვასკულურ ჩარევას შორის არჩევანის საკითხს.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "პუბლიკაცია",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "Plain versus drug balloon and stenting in severe ischaemia of the leg (BASIL-3): open label, three arm, randomised, multicentre, phase 3 trial",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "Andrew W Bradbury; Jack A Hall; Matthew A Popplewell; et al.; BASIL-3 Investigators. BMJ. 2025;388:e080881. ონლაინ: 2025-02-24.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "DOI: 10.1136/bmj-2024-080881; PMID: 39993822. ვერსია: BMJ-ის ძირითადი 2025 წლის პუბლიკაცია; Health Technology Assessment-ის 2026 წლის ანგარიში ცალკე გაფართოებული გამოცემაა",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "კვლევის მიზანი",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "BASIL-3-ის მიზანი იყო დაედგინა, რომელი ენდოვასკულური მიდგომა იძლევა უკეთეს კლინიკურ შედეგს CLTI-ისას, როცა ფემოროპოპლიტეური, საჭიროებისამებრ ინფრაპოპლიტეური რევასკულარიზაცია იგეგმება. აქ არჩევანი ენდოვასკულურ მოწყობილობებს შორის ხდებოდა; ღია შუნტირება შესადარებელ ჯგუფს არ წარმოადგენდა.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "მეთოდოლოგია",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "დიდი ბრიტანეთის 35 სისხლძარღვოვან ცენტრში ჩატარდა პრაგმატული, ღია, სამჯგუფიანი რანდომიზებული კვლევა. სტრატეგიები იყო ჩვეულებრივი ბალონი, საჭიროებისას დაუფარავი მეტალის სტენტით; წამლით დაფარული ბალონი, საჭიროებისას იმავე ტიპის სტენტით; და პირველადი წამლის გამომყოფი სტენტირება.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "პოპულაცია და გამოსავალი",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "რანდომიზდა 481 მონაწილე; წერილობითი ინფორმირებული თანხმობის გარეშე რანდომიზებული ერთი პაციენტის გამორიცხვის შემდეგ ანალიზში შევიდა 480. ძირითადი გამოსავალი იყო პირველი დიდი ამპუტაციის ან ნებისმიერი მიზეზით სიკვდილის დრო — ამპუტაციის გარეშე გადარჩენა. მისი ცალკეული კომპონენტები ერთმანეთისგან გასამიჯნია.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ძირითადი შედეგები",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "დიდი ამპუტაცია ან სიკვდილი აღინიშნა ჩვეულებრივი ბალონის ჯგუფში 106/160 შემთხვევაში, წამლით დაფარული ბალონის ჯგუფში — 97/161, წამლის გამომყოფი სტენტის ჯგუფში — 93/159. შესაბამისი შედარებებისთვის p-მნიშვნელობები იყო 0.22 და 0.20; მნიშვნელოვანი კლინიკური უპირატესობა ვერ დადასტურდა.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ავტორების დასკვნა",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ავტორები მიუთითებენ, რომ ამ CLTI პოპულაციაში წამლით დაფარულმა ბალონმა ან წამლის გამომყოფმა სტენტმა ჩვეულებრივ ბალონთან შედარებით მნიშვნელოვანი კლინიკური სარგებელი არ აჩვენა. ეს დასკვნა არ ნიშნავს, რომ მოწყობილობები ყველა ტექნიკური ან ანატომიური გამოსავლით იდენტურია.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "რედაქტორის განმარტება",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "მოწყობილობის არჩევანის განხილვისას ჯერ უნდა დასახელდეს პაციენტისთვის სასურველი შედეგი. ტექნიკური წარმატების ან კონკრეტული სეგმენტის გამავლობის გაუმჯობესება ავტომატურად ამპუტაციის გარეშე გადარჩენის გაუმჯობესებას არ ნიშნავს. კვლევისგან პასუხს უნდა ველოდოთ სწორედ იმ შეკითხვაზე, რომლისთვისაც იგი შეიქმნა.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "შეზღუდვები და მთავარი დასკვნა",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ღია დიზაინი და შესწავლილი პოპულაციის შერჩევა განზოგადებისას გასათვალისწინებელია. ეს არ არის შუნტირებისა და ენდოვასკულური მკურნალობის პირდაპირი შედარება და არც ყველა თანამედროვე ტექნოლოგიის შეფასება. წარმოდგენილია კვლევის შედეგი; ოფიციალური გაიდლაინის ახალი რეკომენდაცია ამ მიმოხილვით არ ფორმულირდება.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "წყაროს ხელმისაწვდომობა",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "გადამოწმებულია BMJ-ის ოფიციალურად ხელმისაწვდომი აბსტრაქტი, მეთოდებისა და შედეგების მონაკვეთები, ასევე PubMed-ის ბიბლიოგრაფიული ჩანაწერი. დანართები სრულად არ შეფასებულა.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "შემოწმება: 29.10.2026.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ოფიციალური ბმულები",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "detail": 0,
+                    "format": 0,
+                    "mode": "normal",
+                    "style": "",
+                    "text": "https://www.bmj.com/content/388/bmj-2024-080881",
+                    "type": "text",
+                    "version": 1
+                  }
+                ],
+                "direction": null,
+                "fields": {
+                  "doc": null,
+                  "linkType": "custom",
+                  "newTab": true,
+                  "url": "https://www.bmj.com/content/388/bmj-2024-080881"
+                },
+                "format": "",
+                "indent": 0,
+                "type": "link",
+                "version": 2
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "detail": 0,
+                    "format": 0,
+                    "mode": "normal",
+                    "style": "",
+                    "text": "https://pubmed.ncbi.nlm.nih.gov/39993822/",
+                    "type": "text",
+                    "version": 1
+                  }
+                ],
+                "direction": null,
+                "fields": {
+                  "doc": null,
+                  "linkType": "custom",
+                  "newTab": true,
+                  "url": "https://pubmed.ncbi.nlm.nih.gov/39993822/"
+                },
+                "format": "",
+                "indent": 0,
+                "type": "link",
+                "version": 2
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          }
+        ],
+        "direction": null,
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "meta": {
+      "title": "BASIL-3: რომელი ენდოვასკულური სტრატეგია CLTI-ისას? | VascHub",
+      "description": "BASIL-3 ადარებს ჩვეულებრივ ბალონს, წამლით დაფარულ ბალონსა და წამლის გამომყოფ სტენტს CLTI-ისას; განხილულია ამპუტაციის გარეშე გადარჩენა."
+    }
+  },
+  {
+    "title": "LINC 2027: ენდოვასკულური პრაქტიკა და ცოცხალი შემთხვევები",
+    "slug": "linc-2027-leipzig",
+    "_status": "draft",
+    "categories": [],
+    "content": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "LINC 2027 ლაიფციგში 26–28 იანვარს ჩატარდება. ღონისძიება ენდოვასკულურ გადაწყვეტილებებსა და პრაქტიკულ ტექნოლოგიებზეა ორიენტირებული. საქართველოს მონაწილეებისთვის ახლო ვადაა ადრეული რეგისტრაციის დასრულება — 30 ოქტომბერი, 23:59 CET. აბსტრაქტების მიღება უკვე დახურულია; მიღებული აბსტრაქტის ავტორმა სპეციალური რეგისტრაციის პირობები ცალკე უნდა გადაამოწმოს.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ორგანიზატორი: HMP Global / HMP Europe; Provascular GmbH",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ადგილი: ლაიფციგი, გერმანია",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "დაწყება: 2027-01-26",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "დასრულება: 2027-01-28",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "მიმართულებები: პერიფერიული ინტერვენციები, აორტა, ცოცხალი შემთხვევები, ენდოვასკულური ტექნოლოგიები",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "აუდიტორია: სისხლძარღვთა ქირურგები, ინტერვენციული რადიოლოგები, კარდიოლოგები, ანგიოლოგები და რეზიდენტები",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "რეგისტრაცია: რეგისტრაცია ხელმისაწვდომი იყო შემოწმებისას",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "აბსტრაქტის ვადა: 2026-10-02",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "აბსტრაქტის მდგომარეობა: დახურულია",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ადრეული რეგისტრაციის ვადა: 2026-10-30",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ორგანიზატორის ოფიციალური LinkedIn არხი ადასტურებს 18 სექტემბრიდან 2 ოქტომბრამდე გაგრძელებას; ოფიციალური ვებგვერდი ადასტურებს მიღების დახურვას.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "23:59 CET; თბილისის დროით 31 ოქტომბერი, 02:59. დადასტურებულია Rates გვერდზე.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ინფორმაცია გადამოწმებულია: 29.10.2026. ადგილები და ვადები შეიძლება შეიცვალოს.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ოფიციალური ინფორმაცია",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "detail": 0,
+                    "format": 0,
+                    "mode": "normal",
+                    "style": "",
+                    "text": "https://www.hmpglobalevents.com/linc/agenda-0",
+                    "type": "text",
+                    "version": 1
+                  }
+                ],
+                "direction": null,
+                "fields": {
+                  "doc": null,
+                  "linkType": "custom",
+                  "newTab": true,
+                  "url": "https://www.hmpglobalevents.com/linc/agenda-0"
+                },
+                "format": "",
+                "indent": 0,
+                "type": "link",
+                "version": 2
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "detail": 0,
+                    "format": 0,
+                    "mode": "normal",
+                    "style": "",
+                    "text": "https://www.hmpglobalevents.com/linc/rates",
+                    "type": "text",
+                    "version": 1
+                  }
+                ],
+                "direction": null,
+                "fields": {
+                  "doc": null,
+                  "linkType": "custom",
+                  "newTab": true,
+                  "url": "https://www.hmpglobalevents.com/linc/rates"
+                },
+                "format": "",
+                "indent": 0,
+                "type": "link",
+                "version": 2
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "detail": 0,
+                    "format": 0,
+                    "mode": "normal",
+                    "style": "",
+                    "text": "https://www.hmpglobalevents.com/linc/abstracts",
+                    "type": "text",
+                    "version": 1
+                  }
+                ],
+                "direction": null,
+                "fields": {
+                  "doc": null,
+                  "linkType": "custom",
+                  "newTab": true,
+                  "url": "https://www.hmpglobalevents.com/linc/abstracts"
+                },
+                "format": "",
+                "indent": 0,
+                "type": "link",
+                "version": 2
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          }
+        ],
+        "direction": null,
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "meta": {
+      "title": "LINC 2027: ენდოვასკულური პრაქტიკა და ცოცხალი შემთხვევები | VascHub",
+      "description": "LINC 2027 ლაიფციგში, 26–28 იანვარი: ენდოვასკულური კურსი, ოფიციალური რეგისტრაცია, ადრეული ვადა და აბსტრაქტების დახურული მიღება."
+    }
+  },
+  {
+    "title": "CLTI-ის ონლაინ Masterclass — 10 ნოემბერი",
+    "slug": "esvs-clti-masterclass-november-2026",
+    "_status": "draft",
+    "categories": [],
+    "content": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "10 ნოემბრის ონლაინ მასტერკლასი CLTI-ის მართვასა და პრაქტიკული შემთხვევების განხილვას ეძღვნება. დროა 17:00–18:30 CET, ანუ 20:00–21:30 თბილისში. ESVS-ის წევრებისთვის მონაწილეობა უფასოა და ორგანიზატორის მიხედვით ცალკე რეგისტრაცია არ სჭირდებათ; არაწევრებისთვის ოფიციალურ გვერდზე ფასიანი ბილეთებია წარმოდგენილი.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ორგანიზატორი: ESVS",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ადგილი: ონლაინ, ონლაინ",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "დაწყება: 2026-11-10",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "დასრულება: 2026-11-10",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "მიმართულებები: CLTI, საუკეთესო მედიკამენტური მკურნალობა, ESVS/SVS რეკომენდაციების გამოყენება, რთული შემთხვევები",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "აუდიტორია: სისხლძარღვთა ქირურგები და რეზიდენტები სხვადასხვა გამოცდილებით",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "რეგისტრაცია: წევრებს რეგისტრაცია არ სჭირდებათ; არაწევრებს ბილეთი სჭირდებათ",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "აბსტრაქტის ვადა: არ არის გამოცხადებული / ვერ დადასტურდა",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "აბსტრაქტის მდგომარეობა: მიღება არ არის გამოცხადებული / ვერ დადასტურდა",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ადრეული რეგისტრაციის ვადა: არ არის გამოცხადებული",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ინფორმაცია გადამოწმებულია: 29.10.2026. ადგილები და ვადები შეიძლება შეიცვალოს.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ოფიციალური ინფორმაცია",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "detail": 0,
+                    "format": 0,
+                    "mode": "normal",
+                    "style": "",
+                    "text": "https://esvs.org/event/esvs-8th-masterclss-episode-3-updates-and-trends-in-the-treatment-of-critical-limb-threatening-ischaemia/",
+                    "type": "text",
+                    "version": 1
+                  }
+                ],
+                "direction": null,
+                "fields": {
+                  "doc": null,
+                  "linkType": "custom",
+                  "newTab": true,
+                  "url": "https://esvs.org/event/esvs-8th-masterclss-episode-3-updates-and-trends-in-the-treatment-of-critical-limb-threatening-ischaemia/"
+                },
+                "format": "",
+                "indent": 0,
+                "type": "link",
+                "version": 2
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          }
+        ],
+        "direction": null,
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "meta": {
+      "title": "CLTI-ის ონლაინ Masterclass — 10 ნოემბერი | VascHub",
+      "description": "ESVS-ის CLTI ონლაინ მასტერკლასი 10 ნოემბერს, თბილისის დროით 20:00–21:30: წევრებისთვის უფასო მონაწილეობა და არაწევრების რეგისტრაცია."
+    }
+  },
+  {
+    "title": "ESVS Educational Travel Grant — 2026 წლის მიღება",
+    "slug": "esvs-educational-travel-grant-2026",
+    "_status": "draft",
+    "categories": [],
+    "content": {
+      "root": {
+        "children": [
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ESVS-ის Educational Travel Grant სპეციალიზებულ ცენტრში მიზნობრივი სასწავლო ან კვლევითი ვიზიტის მხარდაჭერის გზაა. 2026 წლის ფორმაზე განაცხადის ბოლო ვადად 31 ოქტომბერია მითითებული. საჭიროა მოქმედი წევრობა, მასპინძელი ცენტრის მოწვევა, ხელმძღვანელის რეკომენდაცია და დასაბუთებული ბიუჯეტი. ეს გრანტია და არა გარანტირებული კლინიკური სამუშაო ადგილი; თანხა და ვიზიტის პირობები შერჩევისა და მასპინძლის გადაწყვეტილებაზეა დამოკიდებული.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "სტატუსი: აქტიური გამოქვეყნებული მიღება",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "დაწესებულება: European Society for Vascular Surgery; მასპინძელი ცენტრი შეირჩევა ცალკე",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ქვეყანა / ქალაქი: ევროპის შესაბამისი მასპინძელი ქვეყანა / მასპინძელი ცენტრის მიხედვით",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ხანგრძლივობა: მოკლევადიანი ვიზიტი; ზუსტი ხანგრძლივობა განაცხადსა და მასპინძელთან შეთანხმებაზეა დამოკიდებული",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "საერთაშორისო კანდიდატები: მოთხოვნილია ESVS-ის მოქმედი წევრობა; ქვეყნის მიხედვით ავტომატური დაშვება არ არის დაპირებული. განაცხადში ითხოვენ სამუშაო ქვეყანას.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "დაფინანსება: გრანტის შესაძლებლობა ოფიციალურად დადასტურებულია; ETG 2026 ფორმაზე კონკრეტული თანხა არ არის დასახელებული. საერთო პირობებით ანაზღაურება ვიზიტის დასრულებისა და ანგარიშის შემდეგ ხდება.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ვადა: 2026-10-31",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ვადის განმარტება: ზუსტი საათი და დროის სარტყელი ფორმაში არ არის მითითებული. ფიქსირდება ETG 2026 ფორმა და 31 ოქტომბრის ვადა; განაცხადი ამ სამუშაოს ფარგლებში არ გაგზავნილა.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "კლინიკური მონაწილეობა: გრანტი მასპინძელ ადგილზე დამოუკიდებელი ოპერირების უფლებას არ იძლევა; მონაწილეობის ფარგლები ცალკე შეთანხმების საგანია.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "მოთხოვნები",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "• ESVS-ის მოქმედი წევრობა",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "• განყოფილების ხელმძღვანელის სარეკომენდაციო წერილი",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "• მასპინძელი ცენტრის მოწვევა",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "• ვიზიტის სასწავლო მიზნები და პროგრამა",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "• CV და აკადემიური გამოცდილება",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "• დასაბუთებული ბიუჯეტი და თანადაფინანსების ინფორმაცია",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ინფორმაცია გადამოწმებულია: 29.10.2026. მიღება და დაშვება ხელახლა გადაამოწმეთ.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "ოფიციალური განაცხადი / კონტაქტი",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "heading",
+            "version": 1,
+            "tag": "h2"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "detail": 0,
+                    "format": 0,
+                    "mode": "normal",
+                    "style": "",
+                    "text": "https://esvs.org/educational-travel-grants/",
+                    "type": "text",
+                    "version": 1
+                  }
+                ],
+                "direction": null,
+                "fields": {
+                  "doc": null,
+                  "linkType": "custom",
+                  "newTab": true,
+                  "url": "https://esvs.org/educational-travel-grants/"
+                },
+                "format": "",
+                "indent": 0,
+                "type": "link",
+                "version": 2
+              }
+            ],
+            "direction": null,
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1,
+            "textFormat": 0,
+            "textStyle": ""
+          }
+        ],
+        "direction": null,
+        "format": "",
+        "indent": 0,
+        "type": "root",
+        "version": 1
+      }
+    },
+    "meta": {
+      "title": "ESVS Educational Travel Grant — 2026 წლის მიღება | VascHub",
+      "description": "ESVS-ის 2026 წლის Educational Travel Grant: 31 ოქტომბრის ვადა, წევრობა, მასპინძლის მოწვევა, რეკომენდაცია და სასწავლო ვიზიტის ბიუჯეტი."
+    }
+  }
+]

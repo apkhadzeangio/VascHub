@@ -1,0 +1,57 @@
+{
+  "verified_on": "2026-10-29",
+  "timezone": "Asia/Tbilisi",
+  "method": "read_only_browser_navigation_to_existing_public_rest_endpoints",
+  "authentication_used": false,
+  "requests": [
+    {
+      "url": "https://vasc.lithos.ge/api/categories?limit=100&depth=0",
+      "collection": "categories",
+      "response": {
+        "docs": [],
+        "hasNextPage": false,
+        "hasPrevPage": false,
+        "limit": 100,
+        "nextPage": null,
+        "page": 1,
+        "pagingCounter": 1,
+        "prevPage": null,
+        "totalDocs": 0,
+        "totalPages": 1
+      }
+    },
+    {
+      "url": "https://vasc.lithos.ge/api/posts?limit=1&depth=0",
+      "collection": "posts",
+      "response": {
+        "docs": [],
+        "hasNextPage": false,
+        "hasPrevPage": false,
+        "limit": 1,
+        "nextPage": null,
+        "page": 1,
+        "pagingCounter": 1,
+        "prevPage": null,
+        "totalDocs": 0,
+        "totalPages": 1
+      }
+    }
+  ],
+  "category_id_resolution": "unresolved_public_endpoint_returned_zero_categories",
+  "limitations": [
+    "Public Posts access returns published documents; this does not inventory private drafts or users.",
+    "Observed public API state is not a direct PostgreSQL inventory.",
+    "No Pages, Users, Media, or Clinical Library records were changed."
+  ],
+  "schema_observations": {
+    "repository_commit": "01bf7cd20d9352fc2d665bcf46feb224cac140c7",
+    "posts_autosave_interval_ms": 100,
+    "posts_categories_required": false,
+    "posts_authors_required": false,
+    "homepage_news_max_rows": 2,
+    "homepage_events_max_rows": 2
+  },
+  "production_writes": 0,
+  "forms_filled_or_submitted": 0,
+  "cms_preview_performed": false
+}
