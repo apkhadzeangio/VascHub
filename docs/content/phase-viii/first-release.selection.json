@@ -325,5 +325,8 @@
       ],
       "application_status_ge": "აქტიური გამოქვეყნებული მიღება"
     }
-  ]
+  ],
+  "category_resolution_evidence": "../cms/public-readonly-audit.json",
+  "field_transfer_sheets": "CMS_Transfer_Sheets_GE.md",
+  "production_autosave_write_risk_documented": true
 }

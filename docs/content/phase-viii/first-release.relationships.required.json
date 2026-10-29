@@ -8,7 +8,9 @@
       "scientific-news"
     ],
     "author_user_ids": null,
-    "release_hold": false
+    "release_hold": false,
+    "category_ids": null,
+    "category_id_resolution": "public_api_returned_zero_categories"
   },
   {
     "record_id": "N02",
@@ -18,7 +20,9 @@
       "scientific-news"
     ],
     "author_user_ids": null,
-    "release_hold": false
+    "release_hold": false,
+    "category_ids": null,
+    "category_id_resolution": "public_api_returned_zero_categories"
   },
   {
     "record_id": "N05",
@@ -28,7 +32,9 @@
       "scientific-news"
     ],
     "author_user_ids": null,
-    "release_hold": false
+    "release_hold": false,
+    "category_ids": null,
+    "category_id_resolution": "public_api_returned_zero_categories"
   },
   {
     "record_id": "E01",
@@ -36,7 +42,9 @@
     "category_slugs": [
       "international-events"
     ],
-    "author_user_ids": null
+    "author_user_ids": null,
+    "category_ids": null,
+    "category_id_resolution": "public_api_returned_zero_categories"
   },
   {
     "record_id": "E13",
@@ -44,7 +52,9 @@
     "category_slugs": [
       "international-events"
     ],
-    "author_user_ids": null
+    "author_user_ids": null,
+    "category_ids": null,
+    "category_id_resolution": "public_api_returned_zero_categories"
   },
   {
     "record_id": "F01",
@@ -52,6 +62,8 @@
     "category_slugs": [
       "professional-development"
     ],
-    "author_user_ids": null
+    "author_user_ids": null,
+    "category_ids": null,
+    "category_id_resolution": "public_api_returned_zero_categories"
   }
 ]

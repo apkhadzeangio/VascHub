@@ -34,5 +34,23 @@
   ],
   "live_cms_import": "not_performed",
   "application_code_changed": false,
-  "base_commit": "01bf7cd20d9352fc2d665bcf46feb224cac140c7"
+  "base_commit": "01bf7cd20d9352fc2d665bcf46feb224cac140c7",
+  "release_version": "1.2",
+  "public_categories_total_docs": 0,
+  "public_posts_total_docs": 0,
+  "private_drafts_inventory_performed": false,
+  "production_forms_filled": 0,
+  "cms_preview_performed": false,
+  "autosave_interval_ms_documented": 100,
+  "categories_and_authors_schema_optional": true,
+  "transfer_sheet_ids": [
+    "E01",
+    "F01",
+    "N02",
+    "N01",
+    "N05",
+    "E13"
+  ],
+  "homepage_proposal_is_not_api_body": true,
+  "transfer_sheets_preserve_every_lexical_block": true
 }
