@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-29",
+  "agent": "B",
+  "base_sha": "01bf7cd20d9352fc2d665bcf46feb224cac140c7",
+  "branch": "fix/site-cms-v1",
+  "local_database": {
+    "name": "vaschub_cms_test",
+    "host": "loopback",
+    "engine": "PostgreSQL 18.3 WASM / PGlite 0.5.8",
+    "socket_package": "0.2.11",
+    "native_postgresql_16_verified_locally": false
+  },
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "git_diff_check": "passed",
+    "frozen_lockfile_install": "passed",
+    "baseline_regression": {
+      "failed": 20,
+      "passed": 16
+    },
+    "fixed_targeted_tests": 37,
+    "combined_local_tests": {
+      "files": 6,
+      "passed": 51,
+      "failed": 0,
+      "skipped": 0
+    },
+    "existing_migrations_on_test_database": "passed",
+    "http_preview_and_cache": "not_run; integration stage",
+    "native_postgresql_16_ci": "pending_at_report_creation; inspect PR checks"
+  },
+  "constraints": {
+    "production_requests": 0,
+    "production_mutations": 0,
+    "ui_files_changed": false,
+    "schema_fields_changed": false,
+    "migrations_changed": false,
+    "dependency_manifests_changed": false,
+    "clinical_library_code_or_production_data_changed": false,
+    "main_changed_by_this_work": false,
+    "pr_merged": false,
+    "deployed": false
+  },
+  "interface_changes": false,
+  "integration_requests": [
+    "PostgreSQL numeric redirect references and ID-versus-slug lookup",
+    "SEO plugin and OpenGraph document paths",
+    "Real Next HTTP preview/cache lifecycle",
+    "Email delivery adapter remains unconfigured"
+  ]
+}

@@ -12,6 +12,9 @@ async function getDocument(collection: Collection, slug: string, depth = 0) {
   const page = await payload.find({
     collection,
     depth,
+    overrideAccess: false,
+    draft: false,
+    limit: 1,
     where: {
       slug: {
         equals: slug,
