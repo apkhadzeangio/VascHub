@@ -19,16 +19,16 @@
       "failed": 20,
       "passed": 16
     },
-    "fixed_targeted_tests": 37,
+    "fixed_targeted_tests": 38,
     "combined_local_tests": {
       "files": 6,
-      "passed": 51,
+      "passed": 52,
       "failed": 0,
       "skipped": 0
     },
     "existing_migrations_on_test_database": "passed",
     "http_preview_and_cache": "not_run; integration stage",
-    "native_postgresql_16_ci": "pending_at_report_creation; inspect PR checks"
+    "native_postgresql_16_ci": "predecessor 5bb4610 passed migrations/typecheck/lint/integration/build/E2E; inspect final PR-head checks"
   },
   "constraints": {
     "production_requests": 0,

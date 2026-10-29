@@ -69,6 +69,7 @@ describe('Public CMS links after URL normalization', () => {
     '/',
     '/library?q=PAD',
     '/posts/example#sources',
+    '/posts/clinical%20notes',
     '/administration-guide',
     '/%E1%83%97%E1%83%94%E1%83%9B%E1%83%90',
     'https://esvs.org/education/',

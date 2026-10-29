@@ -30,7 +30,7 @@ export function publicHref(value?: string | null): string | undefined {
       if (
         url.origin !== origin ||
         normalized.origin !== origin ||
-        /[\u0000-\u0020\\]/.test(pathname) ||
+        /[\u0000-\u001f\u007f\\]/.test(pathname) ||
         /^\/(?:admin|api|next)(?:\/|$)/.test(normalized.pathname)
       )
         return undefined
