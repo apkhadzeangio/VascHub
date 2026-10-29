@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { Menu, UserRound } from 'lucide-react'
 import type { Header } from '@/payload-types'
@@ -38,7 +38,11 @@ export function HeaderClient({ data }: { data: Header }) {
     isOpen,
   } = useSiteDialog()
   const pathname = usePathname()
-  useEffect(() => closeMenu(), [pathname, closeMenu])
+  const previousPathname = useRef(pathname)
+  useEffect(() => {
+    if (previousPathname.current && previousPathname.current !== pathname) closeMenu()
+    previousPathname.current = pathname
+  }, [pathname, closeMenu])
   useEffect(() => {
     const desktop = window.matchMedia('(min-width: 1024px)')
     const closeOnDesktop = () => {

@@ -4,47 +4,60 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Modal } from '@/components/Modal'
 
-// Each open site dialog owns a lock, so closing a nested notice cannot unlock its menu.
-const scrollLocks = new Set<symbol>()
-let previousOverflow = ''
-function lockScroll(key: symbol) {
-  if (scrollLocks.has(key)) return
-  if (!scrollLocks.size) previousOverflow = document.body.style.overflow
-  scrollLocks.add(key)
-  document.body.style.overflow = 'hidden'
+// The document owns the lock so separate client entry points share the same state.
+type ScrollLockBody = HTMLBodyElement & {
+  __vaschubDialogScroll?: {
+    owners: Set<HTMLDialogElement>
+    previousOverflow: string
+  }
 }
-function unlockScroll(key: symbol) {
-  if (scrollLocks.delete(key) && !scrollLocks.size) document.body.style.overflow = previousOverflow
+function lockScroll(dialog: HTMLDialogElement) {
+  const body = document.body as ScrollLockBody
+  const state = body.__vaschubDialogScroll ??= {
+    owners: new Set(),
+    previousOverflow: body.style.overflow,
+  }
+  state.owners.add(dialog)
+  body.style.overflow = 'hidden'
+}
+function unlockScroll(dialog: HTMLDialogElement | null) {
+  if (!dialog) return
+  const body = document.body as ScrollLockBody
+  const state = body.__vaschubDialogScroll
+  if (!state?.owners.delete(dialog)) return
+  body.style.overflow = state.owners.size ? 'hidden' : state.previousOverflow
+  if (!state.owners.size) delete body.__vaschubDialogScroll
 }
 
 export function useSiteDialog() {
   const ref = useRef<HTMLDialogElement>(null)
   const returnFocus = useRef<HTMLElement | null>(null)
-  const lockKey = useRef(Symbol('site-dialog'))
   const [isOpen, setIsOpen] = useState(false)
   const open = useCallback(() => {
     if (!ref.current || ref.current.open) return
     returnFocus.current =
       document.activeElement instanceof HTMLElement ? document.activeElement : null
     ref.current.showModal()
-    lockScroll(lockKey.current)
+    lockScroll(ref.current)
     setIsOpen(true)
   }, [])
   const close = useCallback(() => {
     // Native close events arrive asynchronously; release the lock immediately.
     ref.current?.close()
-    unlockScroll(lockKey.current)
+    unlockScroll(ref.current)
     setIsOpen(false)
   }, [])
   const onClose = useCallback(() => {
-    unlockScroll(lockKey.current)
+    // A native close event may arrive after the same dialog has already reopened.
+    if (ref.current?.open) return
+    unlockScroll(ref.current)
     setIsOpen(false)
     const target = returnFocus.current
     if (target?.isConnected && target.getClientRects().length) target.focus({ preventScroll: true })
   }, [])
   useEffect(() => {
-    const key = lockKey.current
-    return () => unlockScroll(key)
+    const dialog = ref.current
+    return () => unlockScroll(dialog)
   }, [])
   return { ref, open, close, onClose, isOpen }
 }

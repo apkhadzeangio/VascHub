@@ -67,3 +67,7 @@ Exports and props are retained. Main, merge, deploy, production CMS and infrastr
 ## CI correction
 
 The first PostgreSQL 16 CI run passed typecheck, lint, integration checks, build, the existing browser suite and the three new viewport/focus checks. It stopped on the new archive navigation test, which incorrectly assumed the existing `/posts` page contains a `main` element. The test now verifies the actual heading and published article content in `#main-content`. The archive's English labels and missing page landmark are recorded as a separate integration request rather than changing an out-of-scope file.
+
+## Independent-run scroll regression
+
+On the next candidate, the PR-triggered workflow passed all browser tests, but the push-triggered workflow reproducibly found a nested-menu scroll-lock failure. That successful run was not treated as sufficient. Scroll ownership now lives on the actual document body rather than module-local state, delayed close events are ignored after reopening, and the Header avoids calling close on its initial pathname effect. The regression repeats the entire nested open/close sequence three times and verifies the parent menu is still visible while the body stays locked. The final head requires both independent CI runs to pass.
