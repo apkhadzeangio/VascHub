@@ -24,10 +24,12 @@ services:
       DATABASE_URL: postgresql://${POSTGRES_USER:-vaschub}:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-vaschub}
       PAYLOAD_SECRET: ${PAYLOAD_SECRET:?Set PAYLOAD_SECRET in .env}
       MEDIA_DIR: /app/public/media
+      LIBRARY_FILES_DIR: /app/private/library-files
     ports:
       - "127.0.0.1:3000:3000"
     volumes:
       - media_data:/app/public/media
+      - library_files:/app/private/library-files
     depends_on:
       db:
         condition: service_healthy
@@ -37,3 +39,4 @@ services:
 volumes:
   postgres_data:
   media_data:
+  library_files:

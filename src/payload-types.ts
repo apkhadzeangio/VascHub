@@ -72,6 +72,8 @@ export interface Config {
     media: Media;
     categories: Category;
     users: User;
+    'library-files': LibraryFile;
+    'library-resources': LibraryResource;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -94,6 +96,8 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    'library-files': LibraryFilesSelect<false> | LibraryFilesSelect<true>;
+    'library-resources': LibraryResourcesSelect<false> | LibraryResourcesSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -815,6 +819,71 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "library-files".
+ */
+export interface LibraryFile {
+  id: number;
+  title: string;
+  /**
+   * უფლების გაუქმებისას მოხსენით მონიშვნა: საჯარო ჩამოტვირთვა დაუყოვნებლივ შეწყდება.
+   */
+  rightsConfirmed: boolean;
+  /**
+   * მიუთითეთ ღია ლიცენზია ან უფლებამოსილი პირის ნებართვა. ეს ჩანაწერი საჯარო არ არის.
+   */
+  rightsNote: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+}
+/**
+ * დაამატეთ მხოლოდ გადამოწმებული წყაროები. PDF ატვირთეთ მხოლოდ განთავსების უფლებით.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "library-resources".
+ */
+export interface LibraryResource {
+  id: number;
+  title: string;
+  description: string;
+  resourceType: 'guideline' | 'publication' | 'georgian' | 'education' | 'presentation';
+  authors: string;
+  year: number;
+  version?: string | null;
+  resourceUpdatedAt?: string | null;
+  language: 'ka' | 'en' | 'ru' | 'other';
+  categories: (number | Category)[];
+  /**
+   * გამოყავით მძიმეებით. ძიება ამ ველსაც მოიცავს.
+   */
+  keywords?: string | null;
+  doi?: string | null;
+  sourceUrl?: string | null;
+  /**
+   * ფაილი საჯაროდ ხელმისაწვდომია მხოლოდ გამოქვეყნებული რესურსიდან.
+   */
+  pdf?: (number | null) | LibraryFile;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+  };
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1022,6 +1091,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'users';
         value: number | User;
+      } | null)
+    | ({
+        relationTo: 'library-files';
+        value: number | LibraryFile;
+      } | null)
+    | ({
+        relationTo: 'library-resources';
+        value: number | LibraryResource;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -1420,6 +1497,54 @@ export interface UsersSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "library-files_select".
+ */
+export interface LibraryFilesSelect<T extends boolean = true> {
+  title?: T;
+  rightsConfirmed?: T;
+  rightsNote?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "library-resources_select".
+ */
+export interface LibraryResourcesSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  resourceType?: T;
+  authors?: T;
+  year?: T;
+  version?: T;
+  resourceUpdatedAt?: T;
+  language?: T;
+  categories?: T;
+  keywords?: T;
+  doi?: T;
+  sourceUrl?: T;
+  pdf?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

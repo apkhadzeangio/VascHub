@@ -6,7 +6,7 @@ import type { Header } from '@/payload-types'
 import { AvailabilityButton } from '@/components/Modal'
 import { publicHref } from '@/Homepage/defaults'
 const defaults = [
-  { label: 'კლინიკური ბიბლიოთეკა', href: '/#resources' },
+  { label: 'კლინიკური ბიბლიოთეკა', href: '/library' },
   { label: 'აკადემია', href: '/#academy' },
   { label: 'ღონისძიებები', href: '/#events' },
   { label: 'პროფესიული ქსელი', href: undefined },
@@ -26,7 +26,7 @@ export function navigationItems(data: Header) {
             ? '/'
             : `/${encodeURIComponent(slug)}`
         : link.type === 'custom'
-          ? publicHref(link.url)
+          ? publicHref(link.url === '/#resources' ? '/library' : link.url)
           : undefined
     return { label: link.label, href, newTab: link.newTab }
   })

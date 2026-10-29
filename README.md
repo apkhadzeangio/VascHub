@@ -4,6 +4,8 @@
 ოფიციალური **Payload Website Template** მორგებულია **Next.js + PostgreSQL**-ზე.
 ამ ეტაპზე დამატებულია Figma დიზაინზე დაფუძნებული ქართული მთავარი გვერდი,
 რედაქტირებადი სექციები და გამოქვეყნებული სტატიების რეალური ძიება.
+კლინიკური ბიბლიოთეკა `/library`-ზე აერთიანებს გაიდლაინებს, პუბლიკაციებსა და
+სასწავლო რესურსებს. მართვა, დაცული PDF-ები და გაშვების ნაბიჯები: [LIBRARY.md](docs/LIBRARY.md).
 მოქმედებს CMS, ადმინისტრირება, გვერდები, სტატიები და მედიის მართვა.
 აკადემია, ღონისძიებები, ცნობარი და საჯარო წევრობა ჯერ არ არის განხორციელებული.
 
@@ -130,6 +132,7 @@ GitHub Actions-ის სამუშაო პროცესი აღწე�
 - კოდი, სქემები, მიგრაციები და ინსტრუქციები — GitHub-ში.
 - PostgreSQL — `postgres_data` named volume, `/var/lib/postgresql/data`.
 - ატვირთული ფაილები — `media_data` named volume, `/app/public/media`.
+- ბიბლიოთეკის დაცული PDF-ები — `library_files` volume, `/app/private/library-files`.
 - ლოკალური ატვირთვები — `public/media/`, ან `MEDIA_DIR`-ით მითითებული დირექტორია.
 - `docker compose down` მონაცემებს ინარჩუნებს; `down -v` წაშლის მათ.
 
@@ -139,6 +142,7 @@ GitHub Actions-ის სამუშაო პროცესი აღწე�
 mkdir -p backups
 docker compose exec -T db sh -c 'pg_dump -U "$POSTGRES_USER" -d "$POSTGRES_DB" -Fc' > backups/database.dump
 docker compose exec -T app tar -C /app/public/media -czf - . > backups/media.tar.gz
+docker compose exec -T app tar -C /app/private/library-files -czf - . > backups/library-files.tar.gz
 ```
 
 აღდგენა შეასრულეთ ცარიელ ბაზაში, შეჩერებული აპით, შესაბამისი კოდის ვერსიით:
@@ -147,6 +151,7 @@ docker compose exec -T app tar -C /app/public/media -czf - . > backups/media.tar
 docker compose stop app
 docker compose exec -T db sh -c 'pg_restore -U "$POSTGRES_USER" -d "$POSTGRES_DB" --no-owner' < backups/database.dump
 docker compose run --rm --no-deps -T app tar -C /app/public/media -xzf - < backups/media.tar.gz
+docker compose run --rm --no-deps -T app tar -C /app/private/library-files -xzf - < backups/library-files.tar.gz
 docker compose up -d app
 ```
 
@@ -159,6 +164,7 @@ docker compose up -d app
 - ქართული მთავარი გვერდი, მობილური მენიუ, Noto Sans Georgian და Figma-ის ვიზუალური სისტემა.
 - მთავარი გვერდის კონტენტი იმართება Pages-ის `home` ჩანაწერის „მთავარი გვერდი“ ტაბიდან.
 - ძიება მუშაობს გამოქვეყნებულ სტატიებზე; წევრობა/პირადი კაბინეტი ჯერ მიუწვდომელია.
+- `/library` — კლინიკური რესურსები, ქართული ძიება/ფილტრები, უსაფრთხო PDF ჩამოტვირთვა და CMS-ით მართვა.
 - არსებული CMS-ის ავტორიზებული მომხმარებლები ადმინისტრაციული თანამშრომლები არიან;
   საჯარო პროფესიული წევრობა ჯერ არ არის დამატებული.
 - დემო seeding endpoint გამორთულია; დემო სამედიცინო მასალა არ არის დამატებული.

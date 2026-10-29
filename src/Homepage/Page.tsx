@@ -10,6 +10,7 @@ import { draftMode } from 'next/headers'
 import { homepageDefaults, publicHref } from './defaults'
 import { upcomingEvents } from './events'
 import { getHomepageData, getHomepagePage } from './data'
+import { LibraryCard } from '@/Library/Card'
 import { dateLabel, postURL, ResourceCard } from './ResourceCard'
 
 function SectionHeading({
@@ -53,7 +54,7 @@ export function EmptyState({ children }: { children: React.ReactNode }) {
 }
 
 export async function HomePage() {
-  const { home, resources, news, academyPost } = await getHomepageData()
+  const { home, resources, news, academyPost, libraryResources } = await getHomepageData()
   const { isEnabled: draft } = await draftMode()
   const topics = home?.topics?.length ? home.topics : homepageDefaults.topics
   const events = upcomingEvents(home?.events ?? [])
@@ -76,7 +77,7 @@ export async function HomePage() {
             <ul className="vh-topic-grid">
               {topics.map((topic, index) => (
                 <li key={index}>
-                  <Link href={`/search?q=${encodeURIComponent(topic.searchTerm)}`}>
+                  <Link href={`/library?q=${encodeURIComponent(topic.searchTerm)}`}>
                     <GitFork size={25} aria-hidden="true" />
                     <span>{topic.label}</span>
                   </Link>
@@ -84,6 +85,19 @@ export async function HomePage() {
               ))}
             </ul>
           </div>
+        </section>
+        <section aria-label="კლინიკური ბიბლიოთეკა">
+          <SectionHeading title="კლინიკური ბიბლიოთეკა" href="/library" />
+          <p className="vh-section-caption">გაიდლაინები, პუბლიკაციები და სასწავლო რესურსები</p>
+          {libraryResources.length ? (
+            <div className="vh-resource-grid">
+              {libraryResources.map((resource) => (
+                <LibraryCard key={resource.id} resource={resource} />
+              ))}
+            </div>
+          ) : (
+            <EmptyState>ბიბლიოთეკის რესურსები გამოქვეყნების შემდეგ გამოჩნდება.</EmptyState>
+          )}
         </section>
         <section id="resources" className="vh-resources" aria-label="კლინიკური რესურსები">
           <SectionHeading

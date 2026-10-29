@@ -4,6 +4,7 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import type { Post } from '@/payload-types'
 import type { ResourcePost } from './ResourceCard'
+import { queryLibrary, parseLibraryFilters } from '@/Library/queries'
 import { queryPublishedPosts } from '@/search/queryPublishedPosts'
 
 export const getHomepagePage = cache(async () => {
@@ -34,7 +35,8 @@ export async function getHomepageData() {
   const newsIDs = home?.newsPosts?.map(postID).filter((id): id is number => id !== undefined) ?? []
   const academyID = postID(home?.academy?.post)
   const selectedIDs = [...new Set([...resourcesIDs, ...newsIDs, ...(academyID ? [academyID] : [])])]
-  const [latest, selected] = await Promise.all([
+  const [library, latest, selected] = await Promise.all([
+    queryLibrary(payload, parseLibraryFilters({}), 3),
     queryPublishedPosts(payload, { limit: 3 }),
     selectedIDs.length ? queryPublishedPosts(payload, { ids: selectedIDs, limit: 6 }) : null,
   ])
@@ -44,6 +46,7 @@ export async function getHomepageData() {
   return {
     page,
     home,
+    libraryResources: library.docs,
     resources: resourcesIDs.length ? inOrder(resourcesIDs) : latest.docs,
     news: inOrder(newsIDs),
     academyPost: posts.find((p) => p.id === academyID),
