@@ -21,3 +21,9 @@ Reason: the local environment disconnected before full screenshot inspection and
 Requested action: inspect the new suite's 390/768/1440 captures in the existing `browser-previews` CI artifact, then copy accepted PNGs into this folder if the environment is restored. Do not infer visual approval from the test count. Production mobile capture also remains to be completed in a browser with working certificate trust.
 
 No other agent's implementation files were changed. Integrate this branch and Agent B's changes only after combined regression checks on the final base.
+
+## Posts archive semantics and Georgian labels
+
+File: `src/app/(frontend)/posts/page.tsx` and its existing archive presentation components.
+Reason: while verifying the real `/posts` transition, the new navigation test found that the archive uses a wrapper `div`, with an English "Posts" heading and starter archive text.
+Requested change: replace the page wrapper with a semantic `main` and translate the archive labels through the existing UI. This is outside Agent A's file allowlist and was not changed. The navigation test now checks the real heading and article content inside the existing `#main-content` container.

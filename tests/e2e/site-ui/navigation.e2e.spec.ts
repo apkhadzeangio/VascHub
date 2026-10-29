@@ -154,7 +154,8 @@ test.describe.serial('Isolated VascHub site UI', () => {
     await page.goto('/')
     await page.locator('.vh-desktop-nav').getByRole('link', { name: 'სტატიები და სიახლეები' }).click()
     await expect(page).toHaveURL(/\/posts$/)
-    await expect(page.locator('main')).toBeVisible()
+    await expect(page.locator('#main-content').getByRole('heading', { level: 1 })).toBeVisible()
+    await expect(page.locator('#main-content')).toContainText(fixture!.posts[0].title)
   })
 
   test('disables unavailable footer destinations and keeps external link semantics', async ({ page }) => {

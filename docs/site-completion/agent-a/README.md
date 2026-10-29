@@ -63,3 +63,7 @@ Added:
 - this report and integration requests.
 
 Exports and props are retained. Main, merge, deploy, production CMS and infrastructure are outside this change.
+
+## CI correction
+
+The first PostgreSQL 16 CI run passed typecheck, lint, integration checks, build, the existing browser suite and the three new viewport/focus checks. It stopped on the new archive navigation test, which incorrectly assumed the existing `/posts` page contains a `main` element. The test now verifies the actual heading and published article content in `#main-content`. The archive's English labels and missing page landmark are recorded as a separate integration request rather than changing an out-of-scope file.
