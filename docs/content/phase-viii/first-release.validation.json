@@ -1,0 +1,38 @@
+{
+  "as_of": "2026-10-29",
+  "selected_record_ids": [
+    "N01",
+    "N02",
+    "N05",
+    "E01",
+    "E13",
+    "F01"
+  ],
+  "records": 6,
+  "scientific": 3,
+  "events": 2,
+  "professional_development": 1,
+  "all_draft": true,
+  "all_categories_unresolved_by_design": true,
+  "unique_slugs": true,
+  "news_word_counts": [
+    {
+      "id": "N01",
+      "teaser": 43,
+      "review": 233
+    },
+    {
+      "id": "N02",
+      "teaser": 45,
+      "review": 243
+    },
+    {
+      "id": "N05",
+      "teaser": 45,
+      "review": 230
+    }
+  ],
+  "live_cms_import": "not_performed",
+  "application_code_changed": false,
+  "base_commit": "01bf7cd20d9352fc2d665bcf46feb224cac140c7"
+}

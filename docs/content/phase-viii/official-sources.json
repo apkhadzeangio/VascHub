@@ -1,0 +1,748 @@
+[
+  {
+    "source_id": "S001",
+    "url": "https://esvs.org/esvs-vgei-guidelines/",
+    "record_ids": [
+      "N01"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S002",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42448560/",
+    "record_ids": [
+      "N01"
+    ],
+    "roles": [
+      "pubmed_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S003",
+    "url": "https://www.sciencedirect.com/science/article/pii/S1078588426005149",
+    "record_ids": [
+      "N01"
+    ],
+    "roles": [
+      "publisher_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S004",
+    "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2508800?query=featured_home",
+    "record_ids": [
+      "N02"
+    ],
+    "roles": [
+      "official_url",
+      "publisher_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S005",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41269206/",
+    "record_ids": [
+      "N02"
+    ],
+    "roles": [
+      "pubmed_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S006",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0140673625015855",
+    "record_ids": [
+      "N03"
+    ],
+    "roles": [
+      "official_url",
+      "publisher_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S007",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40902617/",
+    "record_ids": [
+      "N03"
+    ],
+    "roles": [
+      "pubmed_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S008",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0140673625015843",
+    "record_ids": [
+      "N04"
+    ],
+    "roles": [
+      "official_url",
+      "publisher_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S009",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40902614/",
+    "record_ids": [
+      "N04"
+    ],
+    "roles": [
+      "pubmed_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S010",
+    "url": "https://www.bmj.com/content/388/bmj-2024-080881",
+    "record_ids": [
+      "N05"
+    ],
+    "roles": [
+      "official_url",
+      "publisher_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S011",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39993822/",
+    "record_ids": [
+      "N05"
+    ],
+    "roles": [
+      "pubmed_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S012",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11848676/",
+    "record_ids": [
+      "N05"
+    ],
+    "roles": [
+      "additional_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S013",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41177276/",
+    "record_ids": [
+      "N06"
+    ],
+    "roles": [
+      "official_url",
+      "pubmed_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S014",
+    "url": "https://www.jvascsurg.org/article/S0741-5214%2825%2901878-6/pdf",
+    "record_ids": [
+      "N06"
+    ],
+    "roles": [
+      "publisher_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S015",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41046100/",
+    "record_ids": [
+      "N07"
+    ],
+    "roles": [
+      "official_url",
+      "pubmed_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S016",
+    "url": "https://doi.org/10.1016/j.avsg.2025.09.044",
+    "record_ids": [
+      "N07"
+    ],
+    "roles": [
+      "publisher_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S017",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42409215/",
+    "record_ids": [
+      "N08"
+    ],
+    "roles": [
+      "official_url",
+      "pubmed_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S018",
+    "url": "https://www.sciencedirect.com/science/article/pii/S1078588426006775",
+    "record_ids": [
+      "N08"
+    ],
+    "roles": [
+      "publisher_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S019",
+    "url": "https://www.nejm.org/doi/10.1056/NEJMoa2519001",
+    "record_ids": [
+      "N09"
+    ],
+    "roles": [
+      "official_url",
+      "publisher_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S020",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41972998/",
+    "record_ids": [
+      "N09"
+    ],
+    "roles": [
+      "pubmed_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S021",
+    "url": "https://link.springer.com/article/10.1186/s42155-026-00746-z",
+    "record_ids": [
+      "N10"
+    ],
+    "roles": [
+      "official_url",
+      "publisher_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S022",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42616238/",
+    "record_ids": [
+      "N10"
+    ],
+    "roles": [
+      "pubmed_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S023",
+    "url": "https://esvs.org/guideline/vascular-trauma-2/",
+    "record_ids": [
+      "N11"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S024",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39809666/",
+    "record_ids": [
+      "N11"
+    ],
+    "roles": [
+      "pubmed_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S025",
+    "url": "https://esvs.org/wp-content/uploads/2025/01/2025-Vascular-Trauma-Guidelines.pdf",
+    "record_ids": [
+      "N11"
+    ],
+    "roles": [
+      "publisher_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S026",
+    "url": "https://www.sciencedirect.com/science/article/pii/S1078588425005167",
+    "record_ids": [
+      "N12"
+    ],
+    "roles": [
+      "official_url",
+      "publisher_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S027",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40513642/",
+    "record_ids": [
+      "N12"
+    ],
+    "roles": [
+      "pubmed_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S028",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41448425/",
+    "record_ids": [
+      "N13"
+    ],
+    "roles": [
+      "official_url",
+      "pubmed_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S029",
+    "url": "https://esvs.org/wp-content/uploads/2022/10/ESVS-2026-DTA-GL_compressed.pdf",
+    "record_ids": [
+      "N13"
+    ],
+    "roles": [
+      "publisher_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S030",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41277872/",
+    "record_ids": [
+      "N14"
+    ],
+    "roles": [
+      "official_url",
+      "pubmed_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S031",
+    "url": "https://doi.org/10.1002/ana.78104",
+    "record_ids": [
+      "N14"
+    ],
+    "roles": [
+      "publisher_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S032",
+    "url": "https://www.hmpglobalevents.com/linc/agenda-0",
+    "record_ids": [
+      "E01"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S033",
+    "url": "https://www.hmpglobalevents.com/linc/rates",
+    "record_ids": [
+      "E01"
+    ],
+    "roles": [
+      "registration_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S034",
+    "url": "https://www.hmpglobalevents.com/linc/abstracts",
+    "record_ids": [
+      "E01"
+    ],
+    "roles": [
+      "abstract_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S035",
+    "url": "https://www.linkedin.com/showcase/leipzig-interventional-course-linc/?viewAsMember=true",
+    "record_ids": [
+      "E01"
+    ],
+    "roles": [
+      "organizer_announcement_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S036",
+    "url": "https://veithsymposium.org/",
+    "record_ids": [
+      "E02"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S037",
+    "url": "https://www.veithsymposium.org/register.php",
+    "record_ids": [
+      "E02"
+    ],
+    "roles": [
+      "registration_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S038",
+    "url": "https://esvs.org/event/thoracic-endovascular-aortic-repair-tevar-workshop-2026/",
+    "record_ids": [
+      "E03"
+    ],
+    "roles": [
+      "official_url",
+      "registration_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S039",
+    "url": "https://esvs.org/event/esvs-deep-venous-intervention-in-acute-dvt-post-thrombotic-and-non-thrombotic-iliac-vein-lesions-2026/",
+    "record_ids": [
+      "E04"
+    ],
+    "roles": [
+      "official_url",
+      "registration_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S040",
+    "url": "https://www.vascular-course.com/",
+    "record_ids": [
+      "E05"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S041",
+    "url": "https://www.vascular-course.com/registration",
+    "record_ids": [
+      "E05"
+    ],
+    "roles": [
+      "registration_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S042",
+    "url": "https://www.cxsymposium.com/",
+    "record_ids": [
+      "E06"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S043",
+    "url": "https://www.cxsymposium.com/2026-register/",
+    "record_ids": [
+      "E06"
+    ],
+    "roles": [
+      "registration_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S044",
+    "url": "https://www.cxsymposium.com/submissions/",
+    "record_ids": [
+      "E06"
+    ],
+    "roles": [
+      "abstract_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S045",
+    "url": "https://vascular.org/vascular-specialists/education-and-meetings/meetings/2027-vascular-annual-meeting",
+    "record_ids": [
+      "E07"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S046",
+    "url": "https://vam.vascular.org/present-at-vam/",
+    "record_ids": [
+      "E07"
+    ],
+    "roles": [
+      "abstract_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S047",
+    "url": "https://esvs.org/events/category/the-esvs-annual-meeting/",
+    "record_ids": [
+      "E08"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S048",
+    "url": "https://esvs.org/event/esvs-advanced-vascular-ultrasound-course-copenhagen-2026/",
+    "record_ids": [
+      "E09"
+    ],
+    "roles": [
+      "official_url",
+      "registration_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S049",
+    "url": "https://esvs.org/event/esvs-pause-percutaneous-access-and-ultrasound-skills-experience-workshop-2026-1st-edition/",
+    "record_ids": [
+      "E10"
+    ],
+    "roles": [
+      "official_url",
+      "registration_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S050",
+    "url": "https://esvs.org/event/esvs-basic-vascular-ultrasound-course-in-copenhagen-2027/",
+    "record_ids": [
+      "E11"
+    ],
+    "roles": [
+      "official_url",
+      "registration_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S051",
+    "url": "https://esvs.org/event/enhance-evar-2027/",
+    "record_ids": [
+      "E12",
+      "F08"
+    ],
+    "roles": [
+      "official_url",
+      "registration_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S052",
+    "url": "https://esvs.org/event/esvs-8th-masterclss-episode-3-updates-and-trends-in-the-treatment-of-critical-limb-threatening-ischaemia/",
+    "record_ids": [
+      "E13"
+    ],
+    "roles": [
+      "official_url",
+      "registration_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S053",
+    "url": "https://esvs.org/educational-travel-grants/",
+    "record_ids": [
+      "F01"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S054",
+    "url": "https://esvs.org/grants/",
+    "record_ids": [
+      "F01"
+    ],
+    "roles": [
+      "additional_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S055",
+    "url": "https://www.guysandstthomasevents.co.uk/vpp/programmes/vascular-surgery/",
+    "record_ids": [
+      "F02"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S056",
+    "url": "https://www.uzleuven.be/nl/vacature/2627",
+    "record_ids": [
+      "F03"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S057",
+    "url": "https://www.uke.de/english/general/career/international-guests/observership-%E2%80%9Chands-off%E2%80%9D-for-doctors-from-non-eu-countries.html",
+    "record_ids": [
+      "F04"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S058",
+    "url": "https://esvs.org/trainee-initiatives/",
+    "record_ids": [
+      "F05"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S059",
+    "url": "https://esvs.org/benefits/",
+    "record_ids": [
+      "F05"
+    ],
+    "roles": [
+      "additional_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S060",
+    "url": "https://esvs.org/fellowship/",
+    "record_ids": [
+      "F06"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S061",
+    "url": "https://www.unisr.it/en/offerta-formativa/corsi-formazione/residential-aortic-course",
+    "record_ids": [
+      "F07"
+    ],
+    "roles": [
+      "official_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S062",
+    "url": "https://www.unisr.it/offerta-formativa/corsi-formazione/residential-aortic-course",
+    "record_ids": [
+      "F07"
+    ],
+    "roles": [
+      "additional_url"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S063",
+    "url": "https://payloadcms.com/docs/plugins/import-export",
+    "record_ids": [
+      "CMS"
+    ],
+    "roles": [
+      "official_documentation"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S064",
+    "url": "https://payloadcms.com/docs/rest-api/overview",
+    "record_ids": [
+      "CMS"
+    ],
+    "roles": [
+      "official_documentation"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S065",
+    "url": "https://payloadcms.com/docs/versions/drafts",
+    "record_ids": [
+      "CMS"
+    ],
+    "roles": [
+      "official_documentation"
+    ],
+    "verified_at": "2026-10-29"
+  },
+  {
+    "source_id": "S066",
+    "url": "https://payloadcms.com/docs/rich-text/migration",
+    "record_ids": [
+      "CMS"
+    ],
+    "roles": [
+      "official_documentation"
+    ],
+    "verified_at": "2026-10-29"
+  }
+]
