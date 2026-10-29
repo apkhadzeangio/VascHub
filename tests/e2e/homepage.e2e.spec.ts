@@ -8,6 +8,7 @@ import {
   cleanupHomepageFixture,
 } from '../helpers/homepageFixture'
 import { login } from '../helpers/login'
+import { publishDocument } from '../helpers/publish'
 
 let payload: Payload
 let fixture: Awaited<ReturnType<typeof seedHomepageFixture>> | undefined
@@ -107,7 +108,7 @@ test.describe.serial('VascHub homepage', () => {
     await page.keyboard.press('Escape')
     await expect(dialog).not.toBeVisible()
     await expect(opener).toBeFocused()
-    expect(await page.evaluate(() => document.body.style.overflow)).not.toBe('hidden')
+    await expect.poll(() => page.evaluate(() => document.body.style.overflow)).not.toBe('hidden')
     await opener.click()
     await dialog.getByRole('link', { name: 'აკადემია', exact: true }).click()
     await expect(dialog).not.toBeVisible()
@@ -185,8 +186,17 @@ test.describe.serial('VascHub homepage', () => {
     await login({ page, user: editor })
     await page.goto(`/admin/collections/pages/${fixture!.home.id}`)
     const title = page.getByRole('textbox', { name: 'მთავარი სათაური', exact: true })
+    const autosave = page.waitForResponse((response) => {
+      const url = new URL(response.url())
+      return (
+        url.pathname === `/api/pages/${fixture!.home.id}` &&
+        response.request().method() === 'PATCH' &&
+        url.searchParams.get('autosave') === 'true'
+      )
+    })
     await title.fill('სატესტოდ განახლებული ქართული სათაური')
-    await page.getByRole('button', { name: /^Publish( changes)?$/ }).click()
+    expect((await autosave).status()).toBe(200)
+    await publishDocument(page, 'pages', fixture!.home.id)
     const publicPage = await browser.newPage()
     await expect
       .poll(async () => {

@@ -3,6 +3,7 @@
 ქართული კლინიკური ბიბლიოთეკა არსებული VascHub-ის ფარგლებში. სამუშაო ბრენჩი:
 `feat/clinical-library-v0.1`; საწყისი `main`: `8030f63` (გაერთიანებული PR #3).
 Production-ის მისამართია https://vasc.lithos.ge; ეს ფუნქცია ჯერ არ არის განთავსებული.
+განხილვა მიმდინარეობს [Draft PR #4](https://github.com/apkhadzeangio/VascHub/pull/4)-ში.
 
 ## Phase VI-ის შემოწმება — 2026-10-29
 
@@ -220,7 +221,8 @@ Railway-ში არსებული ორი 500 MB volume, ორი servi
 
 შედეგები დეტალურად მოცემულია [LIBRARY-VALIDATION.md](LIBRARY-VALIDATION.md)-ში.
 სატესტო კორპუსი ცალსახად არის მონიშნული; ახალი ტესტები ითხოვს `_test` ბაზას.
-CI ინარჩუნებს integration, Playwright და Docker build/startup შემოწმებებს.
+CI ინარჩუნებს integration, Playwright და Docker build/startup შემოწმებებს,
+მათ შორის დაცული PDF-ის restart-ის შემდეგ შენარჩუნებასა და უფლებების გაუქმებას.
 ბრაუზერის/მობილურის ვიზუალური QA და CI წარმატება დასრულებულად არ არის გამოცხადებული.
 
 v0.2-ის რეკომენდაციები: რედაქტორის review queue/განახლების შეხსენება, PostgreSQL

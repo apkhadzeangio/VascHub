@@ -4,7 +4,7 @@
 ბაზა: `main` / `8030f63`. სამუშაო ბრენჩი: `feat/clinical-library-v0.1`.
 განხორციელება და კონტენტის წყაროები: [CLINICAL-LIBRARY.md](CLINICAL-LIBRARY.md).
 
-## რეალური შედეგები
+## ლოკალური შემოწმების შედეგები
 
 გარემო: Node 24.22.1, pnpm 11.25.0, Next.js 16.3.3, Payload 3.92.1,
 PostgreSQL 16.15, ცალკე UTF-8 `vaschub_library_v01_test` ბაზა.
@@ -24,7 +24,7 @@ PostgreSQL 16.15, ცალკე UTF-8 `vaschub_library_v01_test` ბაზა.
 | Playwright-ის ბიბლიოთეკის HTTP ნაწილი production server-ზე | **6/6** წარმატებულია |
 | სრული Playwright | **7 passed / 4 failed / 15 not run**; ოთხივე failure — browser launch-ის გარემოს შეზღუდვა |
 | Docker build/startup | ადგილობრივად ვერ შესრულდა — Docker executable/daemon არ არის |
-| GitHub CI | არ გაშვებულა: branch-ის ატვირთვის write უფლება არ არის |
+| GitHub CI | გაშვებულია [PR #4](https://github.com/apkhadzeangio/VascHub/pull/4)-ზე; მიმდინარე შედეგი — Checks-ში |
 
 ## დაფარული ქცევა
 
@@ -101,14 +101,24 @@ E2E_SERVER_COMMAND='pnpm start --hostname 127.0.0.1' pnpm test:e2e tests/e2e/lib
 
 საბოლოო CI, browser QA და reviewer-ის შემოწმება უნდა დასრულდეს merge-მდე.
 
-## GitHub-ის საბოლოო სტატუსი
+## GitHub-ზე გამოქვეყნება და წვდომის ისტორია
 
-დაკავშირებული ანგარიშია `ramchik`, repository permissions: `pull:true`, `push:false`.
-საბოლოო branch-ის შექმნის რეალურმა მცდელობამ დააბრუნა **403 Resource not accessible
-by integration**. Git push-ს shell-ში write ავტორიზაცია არ ჰქონდა (`could not read
-Username`). ამიტომ დისტანციური branch, Pull Request და ამ ცვლილების GitHub CI
-არ შექმნილა/არ გაშვებულა. საჭირო მოქმედებაა write წვდომის მქონე ანგარიშის
-დაკავშირება ან repository write უფლების მინიჭება; main/production არ შეცვლილა.
+საწყის ეტაპზე `ramchik` ანგარიშს ჰქონდა `pull:true`, `push:false`; API-მ branch-ის
+შექმნა 403-ით უარყო. 2026-10-29-ის განმეორებით შემოწმებაზე დადასტურდა **push:true**.
+ბრენჩი აიტვირთა და გაიხსნა [Draft PR #4](https://github.com/apkhadzeangio/VascHub/pull/4).
+`main` და production არ შეცვლილა.
+
+CLI-ს credential არ ჰქონდა, ამიტომ ატვირთვა შესრულდა GitHub connector-ით.
+სამივე commit-ის tree SHA ზუსტად ემთხვევა ლოკალურად შემოწმებულ ვარიანტს;
+ატვირთულ ვერსიას აქვს head `082c9073d95a503f4a52760b4e032b54344ef304` და tree
+`cb8af85c8b11deaa5e043297c985428bf54e8258`. Commit SHA-ები შეიცვალა ავტორის/თარიღის
+მეტამონაცემებით; ფაილები უცვლელია. ამ ვერსიაზე გაიშვა
+[GitHub CI 40817589625](https://github.com/apkhadzeangio/VascHub/actions/runs/40817589625).
+
+Docker workflow-ს დამატებულია `tests/http/library-persistence.mjs`: ცალკე
+`vaschub_docker_test` ბაზაში ქმნის საკუთარ ცარიელ PDF-ს, restart-მდე/შემდეგ
+ამოწმებს SHA-256 იდენტურობას, დაცული URL-ების ACL-ს, უფლების გაუქმებისთანავე 404-ს
+და საკუთარ სატესტო ჩანაწერებს ასუფთავებს. Production ბაზაზე გაშვებას guard კეტავს.
 
 გადასატანი git bundle-იდან, არსებულ clone-ში:
 
@@ -118,5 +128,15 @@ git switch feat/clinical-library-v0.1
 git push -u origin feat/clinical-library-v0.1
 ```
 
-PR-ის სათაური/აღწერა არის [LIBRARY-PR.md](LIBRARY-PR.md)-ში. გახსენით draft PR,
-გაიარეთ CI/browser/Docker შემოწმებები და განხილვა merge-მდე.
+PR-ის სათაური/აღწერა არის [LIBRARY-PR.md](LIBRARY-PR.md)-ში. PR უკვე draft-ად გახსნილია;
+CI/browser/Docker შემოწმებები და განხილვა უნდა დასრულდეს merge-მდე.
+
+### პირველი GitHub browser გაშვების შედეგი
+
+`40817589625`: integration **24/24**, build და მიგრაციები წარმატებულია; Playwright:
+**21 passed / 2 failed / 3 flaky**. Trace-ებით დადასტურდა, რომ homepage-ის 100ms
+autosave-ს manual publish ტესტი უსწრებდა; Library-ის required სათაურის accessible
+label ვარსკვლავს მოიცავდა; streaming fallback-ის დამალვამდე DOM გაზომვაში ორი
+`main` იპოვებოდა. შემდგომი ცვლილება ელოდება autosave-სა და publish-ის ნამდვილ
+HTTP პასუხს, required label-ს prefix-ით პოულობს, scroll-ის async აღდგენას ელოდება
+და loading fallback-ს status `div`-ად იყენებს. დარჩენილია ახალი head-ის CI.

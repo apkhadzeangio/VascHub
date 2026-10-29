@@ -9,6 +9,7 @@ import {
   libraryEditor,
 } from '../helpers/libraryFixture'
 import { login } from '../helpers/login'
+import { publishDocument } from '../helpers/publish'
 
 let payload: Payload
 let fixture: Awaited<ReturnType<typeof seedLibraryFixture>>
@@ -187,6 +188,8 @@ test.describe.serial('Clinical library HTTP and browser workflows', () => {
         ['detail', `/library/${fixture.resources[0].slug}`],
       ]) {
         await page.goto(url)
+        await expect(page.locator('.vh-library-loading')).toBeHidden()
+        await expect(page.locator('main')).toBeVisible()
         await page.evaluate(() => document.fonts.ready)
         expect(
           await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
@@ -203,10 +206,10 @@ test.describe.serial('Clinical library HTTP and browser workflows', () => {
   test('edits and publishes a draft in the existing admin UI', async ({ page }) => {
     await login({ page, user: libraryEditor })
     await page.goto(`/admin/collections/library-resources/${fixture.draft.id}`)
-    await page
-      .getByRole('textbox', { name: 'ქართული სათაური', exact: true })
-      .fill('ადმინისტრატორის მიერ გამოქვეყნებული სატესტო მასალა')
-    await page.getByRole('button', { name: /^Publish( changes)?$/ }).click()
+    const title = page.getByRole('textbox', { name: /^ქართული სათაური/ })
+    await expect(title).toHaveValue(fixture.draft.title)
+    await title.fill('ადმინისტრატორის მიერ გამოქვეყნებული სატესტო მასალა')
+    await publishDocument(page, 'library-resources', fixture.draft.id)
     await expect
       .poll(async () => {
         await page.goto(`/library/${fixture.draft.slug}`)
