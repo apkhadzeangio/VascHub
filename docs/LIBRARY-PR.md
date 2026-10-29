@@ -22,12 +22,15 @@ VascHub-ს ემატება CMS-დან მართვადი ქა�
 
 ## Validation
 
-- Typecheck, lint და production build — passed.
-- Integration — **24/24**; ბიბლიოთეკის production HTTP — **6/6**.
-- ცარიელ test DB-ზე migrations, rollback/reapply და schema drift check — passed.
-- სრული Playwright: **7 passed, 4 failed, 15 not run**. ოთხივე failure გამოწვეულია
-  cloud გარემოში Chromium-ის აკრძალული AF_UNIX socket-ით. Browser/mobile/admin UI
-  QA და Docker startup ადგილობრივად ვერ დასტურდება; CI-ში მათი გაშვება აუცილებელია.
+- Typecheck, lint, production build და integration **24/24** — წარმატებულია.
+- ცარიელ test DB-ზე migrations და rollback/reapply — წარმატებულია.
+- Chromium-ში დასრულდა **26 E2E სცენარი**, მათ შორის ქართული ძიება, ფილტრები,
+  keyboard/focus, 390/768/1440px განლაგება და რეალური CMS UI რედაქტირება/გამოქვეყნება.
+- Docker build/startup/restart, login, CMS publishing და Media upload/download — წარმატებულია.
+- სპეციალური test PDF restart-მდე/შემდეგ იდენტურია SHA-256-ით; პირდაპირი ფაილის
+  URL დახურულია, უფლების გაუქმება დაუყოვნებლივ აბრუნებს 404-ს.
+- CI: [PR Checks](https://github.com/apkhadzeangio/VascHub/pull/4/checks).
+  დეტალური შედეგები, fixture isolation და screenshots: `docs/LIBRARY-VALIDATION.md`.
 
 ## Deployment review
 

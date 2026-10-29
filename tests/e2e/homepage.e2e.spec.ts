@@ -22,7 +22,7 @@ const captures = 'test-results/homepage'
 test.describe.serial('VascHub homepage', () => {
   test.beforeAll(async () => {
     assertTestDatabase()
-    payload = await getPayload({ config })
+    payload = await getPayload({ config, key: 'e2e-homepage' })
     await mkdir(captures, { recursive: true })
   })
   test.afterAll(async () => {

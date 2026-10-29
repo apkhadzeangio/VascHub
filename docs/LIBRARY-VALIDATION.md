@@ -4,6 +4,34 @@
 ბაზა: `main` / `8030f63`. სამუშაო ბრენჩი: `feat/clinical-library-v0.1`.
 განხორციელება და კონტენტის წყაროები: [CLINICAL-LIBRARY.md](CLINICAL-LIBRARY.md).
 
+## GitHub CI — დადასტურებული შედეგები
+
+[წარმატებული გაშვება 40818720601](https://github.com/apkhadzeangio/VascHub/actions/runs/40818720601)
+შემოწმდა runtime ვერსიაზე `9ea34ca9e08e1e78eb2203ad02ac1bffe5064e4f`.
+
+| შემოწმება | შედეგი |
+| --- | --- |
+| Typecheck / Lint | წარმატებულია |
+| Integration | **24/24** |
+| მიგრაციები და rollback/reapply | წარმატებულია |
+| Production build | წარმატებულია |
+| Chromium E2E | **26 სცენარი დასრულდა წარმატებით** — 25 პირდაპირ, 1 fixture retry-ის შემდეგ |
+| 390 / 768 / 1440 px | გვერდისა და ტექსტის გადაცდენა არ გამოვლინდა; შენახულია screenshots |
+| CMS UI | მთავარი გვერდისა და ბიბლიოთეკის რეალური რედაქტირება/გამოქვეყნება დადასტურებულია |
+| Docker build/startup/restart | წარმატებულია |
+| დაცული PDF | restart-ის შემდეგ იგივე SHA-256; პირდაპირი URL-ები დახურულია; უფლების გაუქმებისას 404 |
+
+[Browser previews — 10 PNG](https://github.com/apkhadzeangio/VascHub/actions/runs/40818720601/artifacts/12873697324):
+`library/index-390.png`, `index-768.png`, `index-1440.png`, `detail-390.png`,
+`detail-768.png`, `detail-1440.png` და არსებული homepage-ის ოთხი screenshot.
+ეს არის რეალური სატესტო აპი, არა mockup. ყველა ჩანაწერი სატესტოდ არის მონიშნული.
+
+ერთი retry შეეხო `beforeAll`-ს. Payload-ის `destroy()` ხურავს pool-ს, მაგრამ
+`getPayload()`-ის default cache key-ში ძველი instance რჩება. სხვადასხვა E2E
+ფაილს ახლა საკუთარი cache key აქვს (`e2e-homepage`, `e2e-library`), რათა
+წინა ფაილის დახურული instance აღარ გამოიყენოს. მიმდინარე head-ის საბოლოო სტატუსი
+მოცემულია [PR #4 Checks-ში](https://github.com/apkhadzeangio/VascHub/pull/4/checks).
+
 ## ლოკალური შემოწმების შედეგები
 
 გარემო: Node 24.22.1, pnpm 11.25.0, Next.js 16.3.3, Payload 3.92.1,
@@ -56,15 +84,16 @@ Playwright HTTP სცენარები იყენებს რეალ�
 HTTP 200). Loading გადავიდა მხოლოდ `(catalog)` route group-ში. გამოსწორების
 შემდეგ სრული suite-ის HTTP ტესტი და მისი ცალკე განმეორება რეალურ 404-ს ადასტურებს.
 
-## დაუდასტურებელი ნაწილები
+## ლოკალური გარემოსა და Production-ის შეზღუდვები
 
 Chrome 156 ვერ გაეშვა: `socket() failed: Operation not permitted` (AF_UNIX).
-შესაბამისად keyboard UI, admin UI-ის publish, 390/768/1440px screenshots და
-ვიზუალური WCAG/mobile QA ამ გარემოში არ არის დადასტურებული. ტესტები არ გამორთულა;
-ისინი CI-ში გაშვებისთვის რჩება. HTTP ტესტები browser-rendered QA-ს არ ანაცვლებს.
+ამ ლოკალურ გარემოში browser QA ვერ შესრულდა. იგი შემდგომ შესრულდა GitHub CI-ის
+Chromium-ში: keyboard/focus, admin publish, responsive screenshots და არსებული
+კონტრასტის სცენარები წარმატებულია. Safari/Firefox, ფიზიკური ტელეფონი და screen
+reader ცალკე არ შემოწმებულა. სრული WCAG აუდიტი ამ შედეგით არ ივარაუდება.
 
-Docker-ისა და Railway volume-ზე PDF-ის restart-ის შემდეგ შენარჩუნების რეალური
-შემოწმება დარჩენილია deployment review-ზე. Railway-ის start command და volume
+Docker-ის restart-ზე დაცული PDF-ის შენარჩუნება დადასტურდა CI-ში.
+Railway Production volume-ზე შემოწმება დარჩენილია deployment review-ზე. Railway-ის start command და volume
 mount შემოწმებულია read-only connector-ით; გარემოს ცვლადების მნიშვნელობები OAuth-მა
 დამალა. Production DB-ზე არც seed, არც schema push და არც დამანგრეველი ტესტი არ შესრულებულა.
 
@@ -139,4 +168,4 @@ autosave-ს manual publish ტესტი უსწრებდა; Library-�
 label ვარსკვლავს მოიცავდა; streaming fallback-ის დამალვამდე DOM გაზომვაში ორი
 `main` იპოვებოდა. შემდგომი ცვლილება ელოდება autosave-სა და publish-ის ნამდვილ
 HTTP პასუხს, required label-ს prefix-ით პოულობს, scroll-ის async აღდგენას ელოდება
-და loading fallback-ს status `div`-ად იყენებს. დარჩენილია ახალი head-ის CI.
+და loading fallback-ს status `div`-ად იყენებს. ეს სცენარები შემდგომი წარმატებული CI გაშვებით გადამოწმდა.

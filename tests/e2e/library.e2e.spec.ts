@@ -16,7 +16,7 @@ let fixture: Awaited<ReturnType<typeof seedLibraryFixture>>
 
 test.describe.serial('Clinical library HTTP and browser workflows', () => {
   test.beforeAll(async () => {
-    payload = await getPayload({ config })
+    payload = await getPayload({ config, key: 'e2e-library' })
     fixture = await seedLibraryFixture(payload)
   })
   test.afterAll(async () => {
