@@ -1,10 +1,4 @@
-export const resourceTypes = [
-  { value: 'guideline', label: 'კლინიკური გაიდლაინი' },
-  { value: 'publication', label: 'სამეცნიერო პუბლიკაცია' },
-  { value: 'georgian', label: 'ქართული პროფესიული მასალა' },
-  { value: 'education', label: 'სასწავლო დოკუმენტი' },
-  { value: 'presentation', label: 'პრეზენტაცია' },
-]
+export const approvedLicenses = ['open-license', 'permission-granted', 'owned']
 
 export const resourceLanguages = [
   { value: 'ka', label: 'ქართული' },

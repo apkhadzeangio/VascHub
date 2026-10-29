@@ -2,7 +2,12 @@ import { expect, test } from '@playwright/test'
 import { getPayload, type Payload } from 'payload'
 import config from '@/payload.config'
 import { mkdir } from 'node:fs/promises'
-import { cleanupLibraryFixture, seedLibraryFixture, libraryEditor } from '../helpers/libraryFixture'
+import {
+  fixturePDF,
+  cleanupLibraryFixture,
+  seedLibraryFixture,
+  libraryEditor,
+} from '../helpers/libraryFixture'
 import { login } from '../helpers/login'
 
 let payload: Payload
@@ -20,12 +25,20 @@ test.describe.serial('Clinical library HTTP and browser workflows', () => {
 
   test('serves real filters and pagination without publishing drafts', async ({ request }) => {
     const result = await request.get(
-      `/library?q=ბიბლიოთეკისძიება&category=${fixture.category.slug}&type=guideline&year=2025&language=en`,
+      `/library?q=ბიბლიოთეკისძიება&topic=${fixture.topic.slug}&type=${fixture.guideline.slug}&year=2025&language=en`,
     )
     expect(result.status()).toBe(200)
     const html = await result.text()
     expect(html).toContain(fixture.resources[0].title)
     expect(html).not.toContain(fixture.draft.title)
+    const paginated = await request.get(`/library?q=ბიბლიოთეკისძიება&topic=${fixture.topic.slug}`)
+    const pageHTML = await paginated.text()
+    const nextHref = pageHTML.match(/href="([^"]*page=2[^"]*)"/)?.[1]
+    expect(nextHref).toBeTruthy()
+    const nextURL = new URL(nextHref!.replaceAll('&amp;', '&'), 'http://localhost:3000')
+    expect(nextURL.searchParams.get('q')).toBe('ბიბლიოთეკისძიება')
+    expect(nextURL.searchParams.get('topic')).toBe(fixture.topic.slug)
+    expect(nextURL.searchParams.get('page')).toBe('2')
     const page2 = await request.get('/library?q=ბიბლიოთეკისძიება&page=2')
     expect(page2.status()).toBe(200)
     expect(await page2.text()).toContain('გვერდი')
@@ -46,6 +59,13 @@ test.describe.serial('Clinical library HTTP and browser workflows', () => {
     expect((await request.get(`/private/library-files/${fixture.file.filename}`)).status()).toBe(
       404,
     )
+    for (const filename of [
+      `library-private/${fixture.file.filename}`,
+      `library-private%2F${fixture.file.filename}`,
+    ]) {
+      expect([403, 404]).toContain((await request.get(`/api/media/file/${filename}`)).status())
+    }
+    expect((await request.get('/library/missing-resource-slug-404')).status()).toBe(404)
     const sitemap = await request.get('/library-sitemap.xml')
     expect(await sitemap.text()).toContain(`/library/${fixture.resources[0].slug}`)
     expect(await sitemap.text()).not.toContain(fixture.draft.slug)
@@ -87,7 +107,11 @@ test.describe.serial('Clinical library HTTP and browser workflows', () => {
         data: {
           ...fixture.base,
           title: 'HTTP სატესტო ჩანაწერი',
-          pdf: fixture.file.id,
+          attachment: fixture.file.id,
+          attachmentType: 'pdf',
+          accessType: 'hosted',
+          licenseStatus: 'owned',
+          rightsEvidence: 'Test-only generated PDF',
           _status: 'draft',
         },
       })
@@ -121,11 +145,27 @@ test.describe.serial('Clinical library HTTP and browser workflows', () => {
       if (id) await payload.delete({ collection: 'library-resources', id })
     }
   })
+  test('continues serving registered public Media after private-file isolation', async ({
+    request,
+  }) => {
+    const media = await payload.create({
+      collection: 'media',
+      data: { alt: 'Test-only public document' },
+      file: fixturePDF(),
+    })
+    try {
+      const response = await request.get(media.url!)
+      expect(response.status()).toBe(200)
+      expect((await response.body()).subarray(0, 5).toString()).toBe('%PDF-')
+    } finally {
+      await payload.delete({ collection: 'media', id: media.id })
+    }
+  })
   test('searches and combines filters with keyboard controls', async ({ page }) => {
     await page.goto('/library')
     await page.getByRole('searchbox', { name: 'საძიებო სიტყვა' }).fill('ბიბლიოთეკისძიება')
-    await page.getByLabel('კლინიკური თემა', { exact: true }).selectOption(fixture.category.slug!)
-    await page.getByLabel('მასალის ტიპი').selectOption('guideline')
+    await page.getByLabel('კლინიკური თემა', { exact: true }).selectOption(fixture.topic.slug!)
+    await page.getByLabel('მასალის ტიპი').selectOption(fixture.guideline.slug!)
     await page.getByLabel('ენა', { exact: true }).selectOption('en')
     await page.getByLabel('გამოცემის წელი', { exact: true }).fill('2025')
     await page.getByRole('searchbox').press('Enter')
@@ -164,7 +204,7 @@ test.describe.serial('Clinical library HTTP and browser workflows', () => {
     await login({ page, user: libraryEditor })
     await page.goto(`/admin/collections/library-resources/${fixture.draft.id}`)
     await page
-      .getByRole('textbox', { name: 'სათაური', exact: true })
+      .getByRole('textbox', { name: 'ქართული სათაური', exact: true })
       .fill('ადმინისტრატორის მიერ გამოქვეყნებული სატესტო მასალა')
     await page.getByRole('button', { name: /^Publish( changes)?$/ }).click()
     await expect

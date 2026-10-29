@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto'
 import { APIError, type CollectionConfig } from 'payload'
 import { authenticated } from '@/access/authenticated'
 import { libraryFilesDir, MAX_PDF_BYTES } from '@/Library/files'
@@ -73,6 +74,7 @@ export const LibraryFiles: CollectionConfig = {
             throw new APIError('დაშვებულია მხოლოდ ნამდვილი PDF ფაილი (.pdf).', 400)
           }
         }
+        if (req.file) req.file.name = `${randomUUID()}.pdf`
         return args
       },
     ],

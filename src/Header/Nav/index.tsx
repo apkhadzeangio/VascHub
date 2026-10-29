@@ -15,7 +15,7 @@ const defaults = [
 ]
 export function navigationItems(data: Header) {
   if (!data.navItems?.length) return defaults
-  return data.navItems.map(({ link }) => {
+  const items = data.navItems.map(({ link }) => {
     const reference = link.reference?.value
     const slug = reference && typeof reference === 'object' ? reference.slug : undefined
     const href =
@@ -30,6 +30,9 @@ export function navigationItems(data: Header) {
           : undefined
     return { label: link.label, href, newTab: link.newTab }
   })
+  return items.some((item) => item.href === '/library')
+    ? items
+    : [{ label: 'კლინიკური ბიბლიოთეკა', href: '/library' }, ...items]
 }
 export function HeaderNav({
   data,

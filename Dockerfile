@@ -21,7 +21,7 @@ RUN PAYLOAD_SECRET=build-only-not-a-runtime-secret pnpm build
 FROM base AS runner
 ENV NODE_ENV=production
 COPY --from=builder --chown=node:node /app ./
-RUN mkdir -p /app/public/media /app/private/library-files && chown -R node:node /app/public/media /app/private
+RUN mkdir -p /app/public/media /app/media-data/library-private && chown -R node:node /app/public/media /app/media-data
 USER node
 EXPOSE 3000
 CMD ["pnpm", "start", "--hostname", "0.0.0.0"]

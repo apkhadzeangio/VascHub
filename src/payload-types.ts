@@ -72,6 +72,9 @@ export interface Config {
     media: Media;
     categories: Category;
     users: User;
+    'library-topics': LibraryTopic;
+    'library-document-types': LibraryDocumentType;
+    'library-organizations': LibraryOrganization;
     'library-files': LibraryFile;
     'library-resources': LibraryResource;
     redirects: Redirect;
@@ -96,6 +99,9 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    'library-topics': LibraryTopicsSelect<false> | LibraryTopicsSelect<true>;
+    'library-document-types': LibraryDocumentTypesSelect<false> | LibraryDocumentTypesSelect<true>;
+    'library-organizations': LibraryOrganizationsSelect<false> | LibraryOrganizationsSelect<true>;
     'library-files': LibraryFilesSelect<false> | LibraryFilesSelect<true>;
     'library-resources': LibraryResourcesSelect<false> | LibraryResourcesSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
@@ -819,6 +825,57 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "library-topics".
+ */
+export interface LibraryTopic {
+  id: number;
+  title: string;
+  abbreviation?: string | null;
+  officialUrl?: string | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "library-document-types".
+ */
+export interface LibraryDocumentType {
+  id: number;
+  title: string;
+  abbreviation?: string | null;
+  officialUrl?: string | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "library-organizations".
+ */
+export interface LibraryOrganization {
+  id: number;
+  title: string;
+  abbreviation?: string | null;
+  officialUrl?: string | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "library-files".
  */
 export interface LibraryFile {
@@ -843,7 +900,7 @@ export interface LibraryFile {
   height?: number | null;
 }
 /**
- * დაამატეთ მხოლოდ გადამოწმებული წყაროები. PDF ატვირთეთ მხოლოდ განთავსების უფლებით.
+ * გამოაქვეყნეთ მხოლოდ გადამოწმებული წყაროები. ხელმისაწვდომი PDF ავტომატურად არ ნიშნავს გავრცელების უფლებას.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "library-resources".
@@ -851,24 +908,40 @@ export interface LibraryFile {
 export interface LibraryResource {
   id: number;
   title: string;
-  description: string;
-  resourceType: 'guideline' | 'publication' | 'georgian' | 'education' | 'presentation';
-  authors: string;
-  year: number;
-  version?: string | null;
-  resourceUpdatedAt?: string | null;
+  originalTitle?: string | null;
+  summary: string;
+  description?: string | null;
+  documentType: number | LibraryDocumentType;
+  clinicalTopics: (number | LibraryTopic)[];
+  publisherOrganization: number | LibraryOrganization;
   language: 'ka' | 'en' | 'ru' | 'other';
-  categories: (number | Category)[];
-  /**
-   * გამოყავით მძიმეებით. ძიება ამ ველსაც მოიცავს.
-   */
-  keywords?: string | null;
+  publicationYear: number;
+  publicationDate?: string | null;
+  officialSourceUrl?: string | null;
   doi?: string | null;
-  sourceUrl?: string | null;
+  pmid?: string | null;
+  authors?: string | null;
+  journal?: string | null;
+  citationText?: string | null;
+  versionLabel?: string | null;
+  editionStatus: 'not-assessed' | 'original' | 'updated' | 'superseded';
+  supersededBy?: (number | null) | LibraryResource;
+  updateEvidenceUrl?: string | null;
+  lastReviewedAt?: string | null;
+  attachment?: (number | null) | LibraryFile;
+  attachmentType?: ('none' | 'pdf') | null;
+  accessType: 'external' | 'hosted';
+  licenseStatus: 'external-only' | 'unverified' | 'open-license' | 'permission-granted' | 'owned';
+  rightsEvidence?: string | null;
+  copyrightNotice?: string | null;
+  visibility: 'public' | 'internal';
+  featured?: boolean | null;
+  searchKeywords?: string | null;
+  relatedResources?: (number | LibraryResource)[] | null;
   /**
-   * ფაილი საჯაროდ ხელმისაწვდომია მხოლოდ გამოქვეყნებული რესურსიდან.
+   * იმპორტის სტაბილური იდენტიფიკატორი; არ შეცვალოთ.
    */
-  pdf?: (number | null) | LibraryFile;
+  importKey?: string | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -1091,6 +1164,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'users';
         value: number | User;
+      } | null)
+    | ({
+        relationTo: 'library-topics';
+        value: number | LibraryTopic;
+      } | null)
+    | ({
+        relationTo: 'library-document-types';
+        value: number | LibraryDocumentType;
+      } | null)
+    | ({
+        relationTo: 'library-organizations';
+        value: number | LibraryOrganization;
       } | null)
     | ({
         relationTo: 'library-files';
@@ -1500,6 +1585,45 @@ export interface UsersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "library-topics_select".
+ */
+export interface LibraryTopicsSelect<T extends boolean = true> {
+  title?: T;
+  abbreviation?: T;
+  officialUrl?: T;
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "library-document-types_select".
+ */
+export interface LibraryDocumentTypesSelect<T extends boolean = true> {
+  title?: T;
+  abbreviation?: T;
+  officialUrl?: T;
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "library-organizations_select".
+ */
+export interface LibraryOrganizationsSelect<T extends boolean = true> {
+  title?: T;
+  abbreviation?: T;
+  officialUrl?: T;
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "library-files_select".
  */
 export interface LibraryFilesSelect<T extends boolean = true> {
@@ -1522,18 +1646,37 @@ export interface LibraryFilesSelect<T extends boolean = true> {
  */
 export interface LibraryResourcesSelect<T extends boolean = true> {
   title?: T;
+  originalTitle?: T;
+  summary?: T;
   description?: T;
-  resourceType?: T;
-  authors?: T;
-  year?: T;
-  version?: T;
-  resourceUpdatedAt?: T;
+  documentType?: T;
+  clinicalTopics?: T;
+  publisherOrganization?: T;
   language?: T;
-  categories?: T;
-  keywords?: T;
+  publicationYear?: T;
+  publicationDate?: T;
+  officialSourceUrl?: T;
   doi?: T;
-  sourceUrl?: T;
-  pdf?: T;
+  pmid?: T;
+  authors?: T;
+  journal?: T;
+  citationText?: T;
+  versionLabel?: T;
+  editionStatus?: T;
+  supersededBy?: T;
+  updateEvidenceUrl?: T;
+  lastReviewedAt?: T;
+  attachment?: T;
+  attachmentType?: T;
+  accessType?: T;
+  licenseStatus?: T;
+  rightsEvidence?: T;
+  copyrightNotice?: T;
+  visibility?: T;
+  featured?: T;
+  searchKeywords?: T;
+  relatedResources?: T;
+  importKey?: T;
   meta?:
     | T
     | {

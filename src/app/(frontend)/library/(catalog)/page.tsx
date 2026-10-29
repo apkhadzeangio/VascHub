@@ -15,10 +15,24 @@ export default async function LibraryPage({
 }) {
   const filters = parseLibraryFilters(await searchParams)
   const payload = await getPayload({ config })
-  const [resources, categories] = await Promise.all([
+  const [resources, topics, types, organizations] = await Promise.all([
     queryLibrary(payload, filters),
     payload.find({
-      collection: 'categories',
+      collection: 'library-topics',
+      overrideAccess: false,
+      depth: 0,
+      limit: 500,
+      sort: 'title',
+    }),
+    payload.find({
+      collection: 'library-document-types',
+      overrideAccess: false,
+      depth: 0,
+      limit: 500,
+      sort: 'title',
+    }),
+    payload.find({
+      collection: 'library-organizations',
       overrideAccess: false,
       depth: 0,
       limit: 500,
@@ -38,19 +52,35 @@ export default async function LibraryPage({
           <h1>კლინიკური ბიბლიოთეკა</h1>
           <p>გაიდლაინები, სამეცნიერო პუბლიკაციები და პროფესიული სასწავლო მასალები.</p>
         </header>
-        <LibraryFilterForm filters={filters} categories={categories.docs} />
+        <LibraryFilterForm
+          filters={filters}
+          topics={topics.docs}
+          types={types.docs}
+          organizations={organizations.docs}
+        />
+        <nav aria-label="რესურსის ტიპების სწრაფი არჩევანი" className="vh-library-topics">
+          {types.docs.map((t) => (
+            <Link
+              key={t.id}
+              href={libraryURL({ ...filters, type: t.slug || '', page: 1 })}
+              aria-current={filters.type === t.slug ? 'page' : undefined}
+            >
+              {t.title}
+            </Link>
+          ))}
+        </nav>
         <nav aria-label="კლინიკური თემები" className="vh-library-topics">
           <Link
-            href={libraryURL({ ...filters, category: '', page: 1 })}
-            aria-current={!filters.category ? 'page' : undefined}
+            href={libraryURL({ ...filters, topic: '', page: 1 })}
+            aria-current={!filters.topic ? 'page' : undefined}
           >
             ყველა თემა
           </Link>
-          {categories.docs.map((c) => (
+          {topics.docs.map((c) => (
             <Link
               key={c.id}
-              href={libraryURL({ ...filters, category: c.slug ?? '', page: 1 })}
-              aria-current={filters.category === c.slug ? 'page' : undefined}
+              href={libraryURL({ ...filters, topic: c.slug ?? '', page: 1 })}
+              aria-current={filters.topic === c.slug ? 'page' : undefined}
             >
               {c.title}
             </Link>
@@ -72,8 +102,9 @@ export default async function LibraryPage({
           ) : (
             <EmptyState>
               {filters.q ||
-              filters.category ||
+              filters.topic ||
               filters.type ||
+              filters.organization ||
               filters.language ||
               filters.year ||
               filters.page > 1

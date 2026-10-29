@@ -1,6 +1,6 @@
 import * as migration_20261028_175604_initial from './20261028_175604_initial'
 import * as migration_20261028_201729_homepage from './20261028_201729_homepage'
-import * as migration_20261028_212007_clinical_library from './20261028_212007_clinical_library'
+import * as migration_20261028_221853_clinical_library_v01 from './20261028_221853_clinical_library_v01'
 
 export const migrations = [
   {
@@ -14,8 +14,8 @@ export const migrations = [
     name: '20261028_201729_homepage',
   },
   {
-    up: migration_20261028_212007_clinical_library.up,
-    down: migration_20261028_212007_clinical_library.down,
-    name: '20261028_212007_clinical_library',
+    up: migration_20261028_221853_clinical_library_v01.up,
+    down: migration_20261028_221853_clinical_library_v01.down,
+    name: '20261028_221853_clinical_library_v01',
   },
 ]

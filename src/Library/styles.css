@@ -42,7 +42,7 @@
 }
 .vh-library-filter-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1.4fr 1fr 0.8fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   margin-top: 20px;
 }
@@ -208,4 +208,16 @@
     flex-wrap: wrap;
     gap: 16px;
   }
+}
+
+.vh-library {
+  overflow-wrap: anywhere;
+}
+.vh-library :focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+.vh-library-loading {
+  min-height: 40vh;
+  padding: 48px;
 }

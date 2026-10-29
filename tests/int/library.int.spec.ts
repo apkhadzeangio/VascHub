@@ -2,6 +2,9 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { getPayload, type Payload } from 'payload'
 import config from '@/payload.config'
 import { queryLibrary, findPublicResource, parseLibraryFilters } from '@/Library/queries'
+import { importLibrary } from '@/Library/seed/import'
+import resources from '@/Library/seed/resources.json'
+import { assertTestDatabase } from '../helpers/homepageFixture'
 import { MAX_PDF_BYTES } from '@/Library/files'
 import { cleanupLibraryFixture, fixturePDF, seedLibraryFixture } from '../helpers/libraryFixture'
 
@@ -11,6 +14,7 @@ const filters = (params = {}) => parseLibraryFilters({ q: 'ბიბლიოთ
 
 describe('Clinical library on PostgreSQL', () => {
   beforeAll(async () => {
+    assertTestDatabase()
     payload = await getPayload({ config })
     fixture = await seedLibraryFixture(payload)
   })
@@ -88,26 +92,32 @@ describe('Clinical library on PostgreSQL', () => {
       payload.findVersions({ collection: 'library-resources', overrideAccess: false }),
     ).rejects.toMatchObject({ status: 403 })
   })
-  it('searches Georgian keywords, authors and related category titles', async () => {
-    for (const q of ['ბიბლიოთეკისძიება', 'სატესტოგამომცემელი', fixture.category.title]) {
+  it('searches Georgian searchKeywords, authors and related topic titles', async () => {
+    for (const q of [
+      'ბიბლიოთეკისძიება',
+      'სატესტოგამომცემელი',
+      fixture.topic.title,
+      'clti',
+      'esvs-test',
+      'ᲑᲘᲑᲚᲘᲝᲗᲔᲙᲘᲡᲫᲘᲔᲑᲐ',
+    ]) {
       expect((await queryLibrary(payload, filters({ q }))).totalDocs).toBe(13)
     }
     expect((await queryLibrary(payload, filters({ q: 'არარსებული123' }))).totalDocs).toBe(0)
   })
-  it('combines category, type, year and language filters against real rows', async () => {
+  it('combines topic, type, publicationYear and language filters against real rows', async () => {
     const result = await queryLibrary(
       payload,
       filters({
-        category: fixture.category.slug!,
-        type: 'guideline',
+        organization: fixture.organization.slug!,
+        topic: fixture.topic.slug!,
+        type: fixture.guideline.slug,
         year: '2025',
         language: 'en',
       }),
     )
     expect(result.docs.map((r) => r.id)).toEqual([fixture.resources[0].id])
-    expect((await queryLibrary(payload, filters({ category: 'unknown-category' }))).totalDocs).toBe(
-      0,
-    )
+    expect((await queryLibrary(payload, filters({ topic: 'unknown-topic' }))).totalDocs).toBe(0)
   })
   it('paginates deterministically with filters preserved', async () => {
     const first = await queryLibrary(payload, filters())
@@ -171,9 +181,9 @@ describe('Clinical library on PostgreSQL', () => {
   })
   it('rejects a publication without a source and rejects unsafe URLs and DOI formats', async () => {
     for (const data of [
-      { sourceUrl: null },
-      { sourceUrl: 'javascript:alert(1)' },
-      { sourceUrl: null, doi: 'not-a-doi' },
+      { officialSourceUrl: null },
+      { officialSourceUrl: 'javascript:alert(1)' },
+      { officialSourceUrl: null, doi: 'not-a-doi' },
     ]) {
       await expect(
         payload.create({
@@ -222,5 +232,120 @@ describe('Clinical library on PostgreSQL', () => {
         file: { ...fixturePDF(), name: 'test.html' },
       }),
     ).rejects.toBeDefined()
+  })
+  it('hides internal publications and private rights evidence from all public queries', async () => {
+    const r = await payload.create({
+      collection: 'library-resources',
+      data: {
+        ...fixture.base,
+        title: 'Internal test',
+        slug: `internal-${Date.now()}`,
+        _status: 'published',
+        visibility: 'internal',
+        rightsEvidence: 'Private legal evidence',
+      },
+    })
+    try {
+      expect(await findPublicResource(payload, r.slug)).toBeNull()
+      expect((await queryLibrary(payload, filters())).docs.some((d) => d.id === r.id)).toBe(false)
+      const publicDoc = await payload.findByID({
+        collection: 'library-resources',
+        id: fixture.resources[0].id,
+        overrideAccess: false,
+      })
+      expect(publicDoc.rightsEvidence).toBeUndefined()
+    } finally {
+      await payload.delete({ collection: 'library-resources', id: r.id })
+    }
+  })
+  it('requires resource-level license evidence and confirmed update provenance before publishing', async () => {
+    for (const extra of [
+      { attachment: fixture.file.id },
+      {
+        attachment: fixture.file.id,
+        accessType: 'hosted' as const,
+        attachmentType: 'pdf' as const,
+        licenseStatus: 'owned' as const,
+      },
+      { editionStatus: 'updated' as const },
+      { lastReviewedAt: null },
+    ])
+      await expect(
+        payload.create({
+          collection: 'library-resources',
+          data: {
+            ...fixture.base,
+            ...extra,
+            title: 'Unsafe metadata test',
+            slug: `unsafe-${Date.now()}`,
+            _status: 'published',
+          },
+        }),
+      ).rejects.toMatchObject({ status: 400 })
+  })
+  it('imports eight verified resources idempotently and preserves an editor revision and draft status', async () => {
+    const first = await importLibrary(payload)
+    try {
+      expect(first).toEqual({ created: 8, skipped: 0 })
+      const resource = (
+        await payload.find({
+          collection: 'library-resources',
+          draft: true,
+          where: { importKey: { equals: resources[0].importKey } },
+          limit: 1,
+        })
+      ).docs[0]
+      expect(await findPublicResource(payload, resource.slug)).toBeNull()
+      await payload.update({
+        collection: 'library-resources',
+        id: resource.id,
+        draft: true,
+        data: { title: 'ადმინისტრატორის შენარჩუნებული სათაური', _status: 'draft' },
+      })
+      expect(await importLibrary(payload, true)).toEqual({ created: 0, skipped: 8 })
+      const preserved = await payload.findByID({
+        collection: 'library-resources',
+        id: resource.id,
+        draft: true,
+      })
+      expect(preserved.title).toBe('ადმინისტრატორის შენარჩუნებული სათაური')
+      expect(preserved._status).toBe('draft')
+    } finally {
+      const imported = await payload.find({
+        collection: 'library-resources',
+        draft: true,
+        limit: 100,
+        where: { importKey: { in: resources.map((r) => r.importKey) } },
+      })
+      for (const r of imported.docs)
+        await payload.delete({ collection: 'library-resources', id: r.id })
+    }
+  })
+  it('prevents deletion of taxonomies still referenced by published or draft resources', async () => {
+    for (const [collection, id] of [
+      ['library-topics', fixture.topic.id],
+      ['library-organizations', fixture.organization.id],
+      ['library-document-types', fixture.education.id],
+    ] as const)
+      await expect(payload.delete({ collection, id })).rejects.toMatchObject({ status: 400 })
+  })
+  it('publishes verified seed entries only when explicitly requested', async () => {
+    try {
+      expect(await importLibrary(payload, true)).toEqual({ created: 8, skipped: 0 })
+      for (const resource of resources)
+        expect(await findPublicResource(payload, resource.slug)).toMatchObject({
+          doi: resource.doi,
+          pmid: resource.pmid,
+        })
+    } finally {
+      const imported = await payload.find({
+        collection: 'library-resources',
+        draft: true,
+        limit: 100,
+        where: { importKey: { in: resources.map((r) => r.importKey) } },
+      })
+      for (const r of imported.docs)
+        await payload.delete({ collection: 'library-resources', id: r.id })
+    }
   })
 })

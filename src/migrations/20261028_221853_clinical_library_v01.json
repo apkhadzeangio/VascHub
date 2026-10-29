@@ -5624,6 +5624,381 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
+    "public.library_topics": {
+      "name": "library_topics",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "abbreviation": {
+          "name": "abbreviation",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "official_url": {
+          "name": "official_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "generate_slug": {
+          "name": "generate_slug",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp(3) with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp(3) with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "library_topics_abbreviation_idx": {
+          "name": "library_topics_abbreviation_idx",
+          "columns": [
+            {
+              "expression": "abbreviation",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_topics_slug_idx": {
+          "name": "library_topics_slug_idx",
+          "columns": [
+            {
+              "expression": "slug",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_topics_updated_at_idx": {
+          "name": "library_topics_updated_at_idx",
+          "columns": [
+            {
+              "expression": "updated_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_topics_created_at_idx": {
+          "name": "library_topics_created_at_idx",
+          "columns": [
+            {
+              "expression": "created_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.library_document_types": {
+      "name": "library_document_types",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "abbreviation": {
+          "name": "abbreviation",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "official_url": {
+          "name": "official_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "generate_slug": {
+          "name": "generate_slug",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp(3) with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp(3) with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "library_document_types_abbreviation_idx": {
+          "name": "library_document_types_abbreviation_idx",
+          "columns": [
+            {
+              "expression": "abbreviation",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_document_types_slug_idx": {
+          "name": "library_document_types_slug_idx",
+          "columns": [
+            {
+              "expression": "slug",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_document_types_updated_at_idx": {
+          "name": "library_document_types_updated_at_idx",
+          "columns": [
+            {
+              "expression": "updated_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_document_types_created_at_idx": {
+          "name": "library_document_types_created_at_idx",
+          "columns": [
+            {
+              "expression": "created_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.library_organizations": {
+      "name": "library_organizations",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "abbreviation": {
+          "name": "abbreviation",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "official_url": {
+          "name": "official_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "generate_slug": {
+          "name": "generate_slug",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp(3) with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp(3) with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "library_organizations_abbreviation_idx": {
+          "name": "library_organizations_abbreviation_idx",
+          "columns": [
+            {
+              "expression": "abbreviation",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_organizations_slug_idx": {
+          "name": "library_organizations_slug_idx",
+          "columns": [
+            {
+              "expression": "slug",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_organizations_updated_at_idx": {
+          "name": "library_organizations_updated_at_idx",
+          "columns": [
+            {
+              "expression": "updated_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_organizations_created_at_idx": {
+          "name": "library_organizations_created_at_idx",
+          "columns": [
+            {
+              "expression": "created_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
     "public.library_files": {
       "name": "library_files",
       "schema": "",
@@ -5780,40 +6155,33 @@
           "primaryKey": false,
           "notNull": false
         },
+        "original_title": {
+          "name": "original_title",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "summary": {
+          "name": "summary",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
         "description": {
           "name": "description",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
-        "resource_type": {
-          "name": "resource_type",
-          "type": "enum_library_resources_resource_type",
-          "typeSchema": "public",
+        "document_type_id": {
+          "name": "document_type_id",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
-        "authors": {
-          "name": "authors",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "year": {
-          "name": "year",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "version": {
-          "name": "version",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "resource_updated_at": {
-          "name": "resource_updated_at",
-          "type": "timestamp(3) with time zone",
+        "publisher_organization_id": {
+          "name": "publisher_organization_id",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
@@ -5825,8 +6193,20 @@
           "notNull": false,
           "default": "'en'"
         },
-        "keywords": {
-          "name": "keywords",
+        "publication_year": {
+          "name": "publication_year",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "publication_date": {
+          "name": "publication_date",
+          "type": "timestamp(3) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "official_source_url": {
+          "name": "official_source_url",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
@@ -5837,15 +6217,128 @@
           "primaryKey": false,
           "notNull": false
         },
-        "source_url": {
-          "name": "source_url",
+        "pmid": {
+          "name": "pmid",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
-        "pdf_id": {
-          "name": "pdf_id",
+        "authors": {
+          "name": "authors",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "journal": {
+          "name": "journal",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "citation_text": {
+          "name": "citation_text",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_label": {
+          "name": "version_label",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "edition_status": {
+          "name": "edition_status",
+          "type": "enum_library_resources_edition_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'not-assessed'"
+        },
+        "superseded_by_id": {
+          "name": "superseded_by_id",
           "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "update_evidence_url": {
+          "name": "update_evidence_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_reviewed_at": {
+          "name": "last_reviewed_at",
+          "type": "timestamp(3) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "attachment_id": {
+          "name": "attachment_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "attachment_type": {
+          "name": "attachment_type",
+          "type": "enum_library_resources_attachment_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'none'"
+        },
+        "access_type": {
+          "name": "access_type",
+          "type": "enum_library_resources_access_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'external'"
+        },
+        "license_status": {
+          "name": "license_status",
+          "type": "enum_library_resources_license_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'external-only'"
+        },
+        "rights_evidence": {
+          "name": "rights_evidence",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "copyright_notice": {
+          "name": "copyright_notice",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "visibility": {
+          "name": "visibility",
+          "type": "enum_library_resources_visibility",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'public'"
+        },
+        "featured": {
+          "name": "featured",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "search_keywords": {
+          "name": "search_keywords",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "import_key": {
+          "name": "import_key",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
@@ -5898,11 +6391,11 @@
         }
       },
       "indexes": {
-        "library_resources_resource_type_idx": {
-          "name": "library_resources_resource_type_idx",
+        "library_resources_title_idx": {
+          "name": "library_resources_title_idx",
           "columns": [
             {
-              "expression": "resource_type",
+              "expression": "title",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -5913,11 +6406,41 @@
           "method": "btree",
           "with": {}
         },
-        "library_resources_year_idx": {
-          "name": "library_resources_year_idx",
+        "library_resources_original_title_idx": {
+          "name": "library_resources_original_title_idx",
           "columns": [
             {
-              "expression": "year",
+              "expression": "original_title",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_resources_document_type_idx": {
+          "name": "library_resources_document_type_idx",
+          "columns": [
+            {
+              "expression": "document_type_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_resources_publisher_organization_idx": {
+          "name": "library_resources_publisher_organization_idx",
+          "columns": [
+            {
+              "expression": "publisher_organization_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -5943,17 +6466,92 @@
           "method": "btree",
           "with": {}
         },
-        "library_resources_pdf_idx": {
-          "name": "library_resources_pdf_idx",
+        "library_resources_publication_year_idx": {
+          "name": "library_resources_publication_year_idx",
           "columns": [
             {
-              "expression": "pdf_id",
+              "expression": "publication_year",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
             }
           ],
           "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_resources_superseded_by_idx": {
+          "name": "library_resources_superseded_by_idx",
+          "columns": [
+            {
+              "expression": "superseded_by_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_resources_attachment_idx": {
+          "name": "library_resources_attachment_idx",
+          "columns": [
+            {
+              "expression": "attachment_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_resources_visibility_idx": {
+          "name": "library_resources_visibility_idx",
+          "columns": [
+            {
+              "expression": "visibility",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_resources_featured_idx": {
+          "name": "library_resources_featured_idx",
+          "columns": [
+            {
+              "expression": "featured",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_resources_import_key_idx": {
+          "name": "library_resources_import_key_idx",
+          "columns": [
+            {
+              "expression": "import_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
           "concurrently": false,
           "method": "btree",
           "with": {}
@@ -6020,12 +6618,51 @@
         }
       },
       "foreignKeys": {
-        "library_resources_pdf_id_library_files_id_fk": {
-          "name": "library_resources_pdf_id_library_files_id_fk",
+        "library_resources_document_type_id_library_document_types_id_fk": {
+          "name": "library_resources_document_type_id_library_document_types_id_fk",
+          "tableFrom": "library_resources",
+          "tableTo": "library_document_types",
+          "columnsFrom": [
+            "document_type_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "library_resources_publisher_organization_id_library_organizations_id_fk": {
+          "name": "library_resources_publisher_organization_id_library_organizations_id_fk",
+          "tableFrom": "library_resources",
+          "tableTo": "library_organizations",
+          "columnsFrom": [
+            "publisher_organization_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "library_resources_superseded_by_id_library_resources_id_fk": {
+          "name": "library_resources_superseded_by_id_library_resources_id_fk",
+          "tableFrom": "library_resources",
+          "tableTo": "library_resources",
+          "columnsFrom": [
+            "superseded_by_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "library_resources_attachment_id_library_files_id_fk": {
+          "name": "library_resources_attachment_id_library_files_id_fk",
           "tableFrom": "library_resources",
           "tableTo": "library_files",
           "columnsFrom": [
-            "pdf_id"
+            "attachment_id"
           ],
           "columnsTo": [
             "id"
@@ -6068,8 +6705,14 @@
           "primaryKey": false,
           "notNull": true
         },
-        "categories_id": {
-          "name": "categories_id",
+        "library_topics_id": {
+          "name": "library_topics_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "library_resources_id": {
+          "name": "library_resources_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
@@ -6121,11 +6764,26 @@
           "method": "btree",
           "with": {}
         },
-        "library_resources_rels_categories_id_idx": {
-          "name": "library_resources_rels_categories_id_idx",
+        "library_resources_rels_library_topics_id_idx": {
+          "name": "library_resources_rels_library_topics_id_idx",
           "columns": [
             {
-              "expression": "categories_id",
+              "expression": "library_topics_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "library_resources_rels_library_resources_id_idx": {
+          "name": "library_resources_rels_library_resources_id_idx",
+          "columns": [
+            {
+              "expression": "library_resources_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -6151,12 +6809,25 @@
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
-        "library_resources_rels_categories_fk": {
-          "name": "library_resources_rels_categories_fk",
+        "library_resources_rels_library_topics_fk": {
+          "name": "library_resources_rels_library_topics_fk",
           "tableFrom": "library_resources_rels",
-          "tableTo": "categories",
+          "tableTo": "library_topics",
           "columnsFrom": [
-            "categories_id"
+            "library_topics_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "library_resources_rels_library_resources_fk": {
+          "name": "library_resources_rels_library_resources_fk",
+          "tableFrom": "library_resources_rels",
+          "tableTo": "library_resources",
+          "columnsFrom": [
+            "library_resources_id"
           ],
           "columnsTo": [
             "id"
@@ -6193,40 +6864,33 @@
           "primaryKey": false,
           "notNull": false
         },
+        "version_original_title": {
+          "name": "version_original_title",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_summary": {
+          "name": "version_summary",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
         "version_description": {
           "name": "version_description",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
-        "version_resource_type": {
-          "name": "version_resource_type",
-          "type": "enum__library_resources_v_version_resource_type",
-          "typeSchema": "public",
+        "version_document_type_id": {
+          "name": "version_document_type_id",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
-        "version_authors": {
-          "name": "version_authors",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "version_year": {
-          "name": "version_year",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "version_version": {
-          "name": "version_version",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "version_resource_updated_at": {
-          "name": "version_resource_updated_at",
-          "type": "timestamp(3) with time zone",
+        "version_publisher_organization_id": {
+          "name": "version_publisher_organization_id",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
@@ -6238,8 +6902,20 @@
           "notNull": false,
           "default": "'en'"
         },
-        "version_keywords": {
-          "name": "version_keywords",
+        "version_publication_year": {
+          "name": "version_publication_year",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_publication_date": {
+          "name": "version_publication_date",
+          "type": "timestamp(3) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_official_source_url": {
+          "name": "version_official_source_url",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
@@ -6250,15 +6926,128 @@
           "primaryKey": false,
           "notNull": false
         },
-        "version_source_url": {
-          "name": "version_source_url",
+        "version_pmid": {
+          "name": "version_pmid",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
-        "version_pdf_id": {
-          "name": "version_pdf_id",
+        "version_authors": {
+          "name": "version_authors",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_journal": {
+          "name": "version_journal",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_citation_text": {
+          "name": "version_citation_text",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_version_label": {
+          "name": "version_version_label",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_edition_status": {
+          "name": "version_edition_status",
+          "type": "enum__library_resources_v_version_edition_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'not-assessed'"
+        },
+        "version_superseded_by_id": {
+          "name": "version_superseded_by_id",
           "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_update_evidence_url": {
+          "name": "version_update_evidence_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_last_reviewed_at": {
+          "name": "version_last_reviewed_at",
+          "type": "timestamp(3) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_attachment_id": {
+          "name": "version_attachment_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_attachment_type": {
+          "name": "version_attachment_type",
+          "type": "enum__library_resources_v_version_attachment_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'none'"
+        },
+        "version_access_type": {
+          "name": "version_access_type",
+          "type": "enum__library_resources_v_version_access_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'external'"
+        },
+        "version_license_status": {
+          "name": "version_license_status",
+          "type": "enum__library_resources_v_version_license_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'external-only'"
+        },
+        "version_rights_evidence": {
+          "name": "version_rights_evidence",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_copyright_notice": {
+          "name": "version_copyright_notice",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_visibility": {
+          "name": "version_visibility",
+          "type": "enum__library_resources_v_version_visibility",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'public'"
+        },
+        "version_featured": {
+          "name": "version_featured",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "version_search_keywords": {
+          "name": "version_search_keywords",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_import_key": {
+          "name": "version_import_key",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
@@ -6344,11 +7133,11 @@
           "method": "btree",
           "with": {}
         },
-        "_library_resources_v_version_version_resource_type_idx": {
-          "name": "_library_resources_v_version_version_resource_type_idx",
+        "_library_resources_v_version_version_title_idx": {
+          "name": "_library_resources_v_version_version_title_idx",
           "columns": [
             {
-              "expression": "version_resource_type",
+              "expression": "version_title",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -6359,11 +7148,41 @@
           "method": "btree",
           "with": {}
         },
-        "_library_resources_v_version_version_year_idx": {
-          "name": "_library_resources_v_version_version_year_idx",
+        "_library_resources_v_version_version_original_title_idx": {
+          "name": "_library_resources_v_version_version_original_title_idx",
           "columns": [
             {
-              "expression": "version_year",
+              "expression": "version_original_title",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "_library_resources_v_version_version_document_type_idx": {
+          "name": "_library_resources_v_version_version_document_type_idx",
+          "columns": [
+            {
+              "expression": "version_document_type_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "_library_resources_v_version_version_publisher_organizat_idx": {
+          "name": "_library_resources_v_version_version_publisher_organizat_idx",
+          "columns": [
+            {
+              "expression": "version_publisher_organization_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -6389,11 +7208,86 @@
           "method": "btree",
           "with": {}
         },
-        "_library_resources_v_version_version_pdf_idx": {
-          "name": "_library_resources_v_version_version_pdf_idx",
+        "_library_resources_v_version_version_publication_year_idx": {
+          "name": "_library_resources_v_version_version_publication_year_idx",
           "columns": [
             {
-              "expression": "version_pdf_id",
+              "expression": "version_publication_year",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "_library_resources_v_version_version_superseded_by_idx": {
+          "name": "_library_resources_v_version_version_superseded_by_idx",
+          "columns": [
+            {
+              "expression": "version_superseded_by_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "_library_resources_v_version_version_attachment_idx": {
+          "name": "_library_resources_v_version_version_attachment_idx",
+          "columns": [
+            {
+              "expression": "version_attachment_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "_library_resources_v_version_version_visibility_idx": {
+          "name": "_library_resources_v_version_version_visibility_idx",
+          "columns": [
+            {
+              "expression": "version_visibility",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "_library_resources_v_version_version_featured_idx": {
+          "name": "_library_resources_v_version_version_featured_idx",
+          "columns": [
+            {
+              "expression": "version_featured",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "_library_resources_v_version_version_import_key_idx": {
+          "name": "_library_resources_v_version_version_import_key_idx",
+          "columns": [
+            {
+              "expression": "version_import_key",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -6524,12 +7418,51 @@
           "onDelete": "set null",
           "onUpdate": "no action"
         },
-        "_library_resources_v_version_pdf_id_library_files_id_fk": {
-          "name": "_library_resources_v_version_pdf_id_library_files_id_fk",
+        "_library_resources_v_version_document_type_id_library_document_types_id_fk": {
+          "name": "_library_resources_v_version_document_type_id_library_document_types_id_fk",
+          "tableFrom": "_library_resources_v",
+          "tableTo": "library_document_types",
+          "columnsFrom": [
+            "version_document_type_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "_library_resources_v_version_publisher_organization_id_library_organizations_id_fk": {
+          "name": "_library_resources_v_version_publisher_organization_id_library_organizations_id_fk",
+          "tableFrom": "_library_resources_v",
+          "tableTo": "library_organizations",
+          "columnsFrom": [
+            "version_publisher_organization_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "_library_resources_v_version_superseded_by_id_library_resources_id_fk": {
+          "name": "_library_resources_v_version_superseded_by_id_library_resources_id_fk",
+          "tableFrom": "_library_resources_v",
+          "tableTo": "library_resources",
+          "columnsFrom": [
+            "version_superseded_by_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "_library_resources_v_version_attachment_id_library_files_id_fk": {
+          "name": "_library_resources_v_version_attachment_id_library_files_id_fk",
           "tableFrom": "_library_resources_v",
           "tableTo": "library_files",
           "columnsFrom": [
-            "version_pdf_id"
+            "version_attachment_id"
           ],
           "columnsTo": [
             "id"
@@ -6572,8 +7505,14 @@
           "primaryKey": false,
           "notNull": true
         },
-        "categories_id": {
-          "name": "categories_id",
+        "library_topics_id": {
+          "name": "library_topics_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "library_resources_id": {
+          "name": "library_resources_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
@@ -6625,11 +7564,26 @@
           "method": "btree",
           "with": {}
         },
-        "_library_resources_v_rels_categories_id_idx": {
-          "name": "_library_resources_v_rels_categories_id_idx",
+        "_library_resources_v_rels_library_topics_id_idx": {
+          "name": "_library_resources_v_rels_library_topics_id_idx",
           "columns": [
             {
-              "expression": "categories_id",
+              "expression": "library_topics_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "_library_resources_v_rels_library_resources_id_idx": {
+          "name": "_library_resources_v_rels_library_resources_id_idx",
+          "columns": [
+            {
+              "expression": "library_resources_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -6655,12 +7609,25 @@
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
-        "_library_resources_v_rels_categories_fk": {
-          "name": "_library_resources_v_rels_categories_fk",
+        "_library_resources_v_rels_library_topics_fk": {
+          "name": "_library_resources_v_rels_library_topics_fk",
           "tableFrom": "_library_resources_v_rels",
-          "tableTo": "categories",
+          "tableTo": "library_topics",
           "columnsFrom": [
-            "categories_id"
+            "library_topics_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "_library_resources_v_rels_library_resources_fk": {
+          "name": "_library_resources_v_rels_library_resources_fk",
+          "tableFrom": "_library_resources_v_rels",
+          "tableTo": "library_resources",
+          "columnsFrom": [
+            "library_resources_id"
           ],
           "columnsTo": [
             "id"
@@ -9706,6 +10673,24 @@
           "primaryKey": false,
           "notNull": false
         },
+        "library_topics_id": {
+          "name": "library_topics_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "library_document_types_id": {
+          "name": "library_document_types_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "library_organizations_id": {
+          "name": "library_organizations_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
         "library_files_id": {
           "name": "library_files_id",
           "type": "integer",
@@ -9860,6 +10845,51 @@
           "columns": [
             {
               "expression": "users_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "payload_locked_documents_rels_library_topics_id_idx": {
+          "name": "payload_locked_documents_rels_library_topics_id_idx",
+          "columns": [
+            {
+              "expression": "library_topics_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "payload_locked_documents_rels_library_document_types_id_idx": {
+          "name": "payload_locked_documents_rels_library_document_types_id_idx",
+          "columns": [
+            {
+              "expression": "library_document_types_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "payload_locked_documents_rels_library_organizations_id_idx": {
+          "name": "payload_locked_documents_rels_library_organizations_id_idx",
+          "columns": [
+            {
+              "expression": "library_organizations_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -10048,6 +11078,45 @@
           "tableTo": "users",
           "columnsFrom": [
             "users_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "payload_locked_documents_rels_library_topics_fk": {
+          "name": "payload_locked_documents_rels_library_topics_fk",
+          "tableFrom": "payload_locked_documents_rels",
+          "tableTo": "library_topics",
+          "columnsFrom": [
+            "library_topics_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "payload_locked_documents_rels_library_document_types_fk": {
+          "name": "payload_locked_documents_rels_library_document_types_fk",
+          "tableFrom": "payload_locked_documents_rels",
+          "tableTo": "library_document_types",
+          "columnsFrom": [
+            "library_document_types_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "payload_locked_documents_rels_library_organizations_fk": {
+          "name": "payload_locked_documents_rels_library_organizations_fk",
+          "tableFrom": "payload_locked_documents_rels",
+          "tableTo": "library_organizations",
+          "columnsFrom": [
+            "library_organizations_id"
           ],
           "columnsTo": [
             "id"
@@ -11247,17 +12316,6 @@
         "published"
       ]
     },
-    "public.enum_library_resources_resource_type": {
-      "name": "enum_library_resources_resource_type",
-      "schema": "public",
-      "values": [
-        "guideline",
-        "publication",
-        "georgian",
-        "education",
-        "presentation"
-      ]
-    },
     "public.enum_library_resources_language": {
       "name": "enum_library_resources_language",
       "schema": "public",
@@ -11268,23 +12326,57 @@
         "other"
       ]
     },
+    "public.enum_library_resources_edition_status": {
+      "name": "enum_library_resources_edition_status",
+      "schema": "public",
+      "values": [
+        "not-assessed",
+        "original",
+        "updated",
+        "superseded"
+      ]
+    },
+    "public.enum_library_resources_attachment_type": {
+      "name": "enum_library_resources_attachment_type",
+      "schema": "public",
+      "values": [
+        "none",
+        "pdf"
+      ]
+    },
+    "public.enum_library_resources_access_type": {
+      "name": "enum_library_resources_access_type",
+      "schema": "public",
+      "values": [
+        "external",
+        "hosted"
+      ]
+    },
+    "public.enum_library_resources_license_status": {
+      "name": "enum_library_resources_license_status",
+      "schema": "public",
+      "values": [
+        "external-only",
+        "unverified",
+        "open-license",
+        "permission-granted",
+        "owned"
+      ]
+    },
+    "public.enum_library_resources_visibility": {
+      "name": "enum_library_resources_visibility",
+      "schema": "public",
+      "values": [
+        "public",
+        "internal"
+      ]
+    },
     "public.enum_library_resources_status": {
       "name": "enum_library_resources_status",
       "schema": "public",
       "values": [
         "draft",
         "published"
-      ]
-    },
-    "public.enum__library_resources_v_version_resource_type": {
-      "name": "enum__library_resources_v_version_resource_type",
-      "schema": "public",
-      "values": [
-        "guideline",
-        "publication",
-        "georgian",
-        "education",
-        "presentation"
       ]
     },
     "public.enum__library_resources_v_version_language": {
@@ -11295,6 +12387,51 @@
         "en",
         "ru",
         "other"
+      ]
+    },
+    "public.enum__library_resources_v_version_edition_status": {
+      "name": "enum__library_resources_v_version_edition_status",
+      "schema": "public",
+      "values": [
+        "not-assessed",
+        "original",
+        "updated",
+        "superseded"
+      ]
+    },
+    "public.enum__library_resources_v_version_attachment_type": {
+      "name": "enum__library_resources_v_version_attachment_type",
+      "schema": "public",
+      "values": [
+        "none",
+        "pdf"
+      ]
+    },
+    "public.enum__library_resources_v_version_access_type": {
+      "name": "enum__library_resources_v_version_access_type",
+      "schema": "public",
+      "values": [
+        "external",
+        "hosted"
+      ]
+    },
+    "public.enum__library_resources_v_version_license_status": {
+      "name": "enum__library_resources_v_version_license_status",
+      "schema": "public",
+      "values": [
+        "external-only",
+        "unverified",
+        "open-license",
+        "permission-granted",
+        "owned"
+      ]
+    },
+    "public.enum__library_resources_v_version_visibility": {
+      "name": "enum__library_resources_v_version_visibility",
+      "schema": "public",
+      "values": [
+        "public",
+        "internal"
       ]
     },
     "public.enum__library_resources_v_version_status": {
@@ -11379,6 +12516,6 @@
     "tables": {},
     "columns": {}
   },
-  "id": "455f1569-e398-4672-9583-832cdeb4267f",
+  "id": "8f53c5c3-b7e1-4fdc-b2c9-b825f0a14ed0",
   "prevId": "00000000-0000-0000-0000-000000000000"
 }

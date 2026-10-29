@@ -1,10 +1,11 @@
 import type { Payload, Where } from 'payload'
-import { resourceLanguages, resourceTypes } from './options'
+import { resourceLanguages } from './options'
 
 export type LibraryFilters = {
   q: string
-  category: string
+  topic: string
   type: string
+  organization: string
   language: string
   year: string
   sort: string
@@ -17,14 +18,15 @@ export function parseLibraryFilters(params: Params): LibraryFilters {
   const year = scalar(params.year)
   const page = scalar(params.page)
   return {
-    q: scalar(params.q).trim().slice(0, 160),
-    category: scalar(params.category).slice(0, 160),
-    type: resourceTypes.some((t) => t.value === scalar(params.type)) ? scalar(params.type) : '',
+    q: scalar(params.q).normalize('NFC').toLowerCase().trim().slice(0, 160),
+    topic: scalar(params.topic).slice(0, 160),
+    type: scalar(params.type).slice(0, 160),
+    organization: scalar(params.organization).slice(0, 160),
     language: resourceLanguages.some((l) => l.value === scalar(params.language))
       ? scalar(params.language)
       : '',
     year: /^(19|20)\d{2}$|^2100$/.test(year) ? year : '',
-    sort: ['year', 'title'].includes(scalar(params.sort)) ? scalar(params.sort) : 'updated',
+    sort: ['year', 'title'].includes(scalar(params.sort)) ? scalar(params.sort) : 'added',
     page: /^\d+$/.test(page) ? Math.max(1, Math.min(10000, Number(page))) : 1,
   }
 }
@@ -38,17 +40,27 @@ export function libraryURL(filters: Partial<LibraryFilters> = {}) {
 }
 
 export async function queryLibrary(payload: Payload, filters: LibraryFilters, limit = 12) {
-  const and: Where[] = [{ _status: { equals: 'published' } }]
-  if (filters.type) and.push({ resourceType: { equals: filters.type } })
+  const and: Where[] = [{ _status: { equals: 'published' } }, { visibility: { equals: 'public' } }]
+  if (filters.type) and.push({ 'documentType.slug': { equals: filters.type } })
+  if (filters.organization)
+    and.push({ 'publisherOrganization.slug': { equals: filters.organization } })
   if (filters.language) and.push({ language: { equals: filters.language } })
-  if (filters.year) and.push({ year: { equals: Number(filters.year) } })
-  if (filters.category) and.push({ 'categories.slug': { equals: filters.category } })
+  if (filters.year) and.push({ publicationYear: { equals: Number(filters.year) } })
+  if (filters.topic) and.push({ 'clinicalTopics.slug': { equals: filters.topic } })
   if (filters.q) {
     and.push({
       or: [
-        ...['title', 'description', 'authors', 'keywords', 'doi', 'categories.title'].map(
-          (field) => ({ [field]: { like: filters.q } }),
-        ),
+        ...[
+          'title',
+          'originalTitle',
+          'summary',
+          'authors',
+          'searchKeywords',
+          'doi',
+          'clinicalTopics.title',
+          'publisherOrganization.title',
+          'publisherOrganization.abbreviation',
+        ].map((field) => ({ [field]: { like: filters.q } })),
       ],
     })
   }
@@ -61,20 +73,20 @@ export async function queryLibrary(payload: Payload, filters: LibraryFilters, li
     page: filters.page,
     sort:
       filters.sort === 'year'
-        ? ['-year', 'id']
+        ? ['-publicationYear', 'id']
         : filters.sort === 'title'
           ? ['title', 'id']
-          : ['-updatedAt', 'id'],
+          : ['-createdAt', 'id'],
     where: { and },
     select: {
       title: true,
       slug: true,
-      description: true,
-      resourceType: true,
-      authors: true,
-      year: true,
+      summary: true,
+      documentType: true,
+      publisherOrganization: true,
+      publicationYear: true,
       language: true,
-      categories: true,
+      clinicalTopics: true,
       updatedAt: true,
     },
   })

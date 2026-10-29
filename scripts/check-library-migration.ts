@@ -1,6 +1,6 @@
 import { getPayload, createLocalReq } from 'payload'
 import config from '../src/payload.config'
-import { down, up } from '../src/migrations/20261028_212007_clinical_library'
+import { down, up } from '../src/migrations/20261028_221853_clinical_library_v01'
 import { assertTestDatabase, demoContent, fixtureContext } from '../tests/helpers/homepageFixture'
 
 // Run only on the disposable test database, after integration fixtures are cleaned up.

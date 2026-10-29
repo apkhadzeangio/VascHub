@@ -1,14 +1,22 @@
 import path from 'node:path'
 import type { Payload } from 'payload'
 import type { LibraryResource } from '@/payload-types'
+import { approvedLicenses } from './options'
 import { MAX_PDF_BYTES } from './files'
 
 /** Call with the result of findPublicResource; file metadata never leaves the server. */
 export async function availablePDF(payload: Payload, resource: LibraryResource) {
-  if (resource._status !== 'published' || !resource.pdf) return null
+  if (
+    resource._status !== 'published' ||
+    resource.visibility !== 'public' ||
+    resource.accessType !== 'hosted' ||
+    !approvedLicenses.includes(resource.licenseStatus) ||
+    !resource.attachment
+  )
+    return null
   const file = await payload.findByID({
     collection: 'library-files',
-    id: typeof resource.pdf === 'object' ? resource.pdf.id : resource.pdf,
+    id: typeof resource.attachment === 'object' ? resource.attachment.id : resource.attachment,
     overrideAccess: true,
     disableErrors: true,
     depth: 0,

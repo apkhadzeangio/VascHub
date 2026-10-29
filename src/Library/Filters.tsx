@@ -3,17 +3,31 @@ import { SearchIcon, ArrowRight } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
-import type { Category } from '@/payload-types'
-import { resourceTypes, resourceLanguages } from './options'
+import { resourceLanguages } from './options'
 import type { LibraryFilters } from './queries'
 
+type Option = { id: number; title: string; slug?: string | null }
 export function LibraryFilterForm({
   filters,
-  categories,
+  topics,
+  types,
+  organizations,
 }: {
   filters: LibraryFilters
-  categories: Category[]
+  topics: Option[]
+  types: Option[]
+  organizations: Option[]
 }) {
+  const selects = [
+    { name: 'topic', label: 'კლინიკური თემა', all: 'ყველა თემა', options: topics },
+    { name: 'type', label: 'მასალის ტიპი', all: 'ყველა ტიპი', options: types },
+    {
+      name: 'organization',
+      label: 'ორგანიზაცია',
+      all: 'ყველა ორგანიზაცია',
+      options: organizations,
+    },
+  ] as const
   return (
     <form
       action="/library"
@@ -33,7 +47,7 @@ export function LibraryFilterForm({
           type="search"
           defaultValue={filters.q}
           maxLength={160}
-          placeholder="მოძებნე რესურსი, ავტორი ან თემა"
+          placeholder="მოძებნე სათაური, აბრევიატურა ან თემა"
           className="vh-search-input"
         />
         <Button type="submit" size="lg" className="vh-search-submit" aria-label="ძიება">
@@ -42,31 +56,22 @@ export function LibraryFilterForm({
         </Button>
       </div>
       <div className="vh-library-filter-grid">
-        <div>
-          <Label htmlFor="library-category">კლინიკური თემა</Label>
-          <select id="library-category" name="category" defaultValue={filters.category}>
-            <option value="">ყველა თემა</option>
-            {categories.map((c) => (
-              <option key={c.id} value={c.slug ?? ''}>
-                {c.title}
-              </option>
-            ))}
-            {filters.category && !categories.some((c) => c.slug === filters.category) && (
-              <option value={filters.category}>უცნობი თემა</option>
-            )}
-          </select>
-        </div>
-        <div>
-          <Label htmlFor="library-type">მასალის ტიპი</Label>
-          <select id="library-type" name="type" defaultValue={filters.type}>
-            <option value="">ყველა ტიპი</option>
-            {resourceTypes.map((t) => (
-              <option key={t.value} value={t.value}>
-                {t.label}
-              </option>
-            ))}
-          </select>
-        </div>
+        {selects.map((s) => (
+          <div key={s.name}>
+            <Label htmlFor={`library-${s.name}`}>{s.label}</Label>
+            <select id={`library-${s.name}`} name={s.name} defaultValue={filters[s.name]}>
+              <option value="">{s.all}</option>
+              {s.options.map((o) => (
+                <option key={o.id} value={o.slug || ''}>
+                  {o.title}
+                </option>
+              ))}
+              {filters[s.name] && !s.options.some((o) => o.slug === filters[s.name]) && (
+                <option value={filters[s.name]}>უცნობი მნიშვნელობა</option>
+              )}
+            </select>
+          </div>
+        ))}
         <div>
           <Label htmlFor="library-language">ენა</Label>
           <select id="library-language" name="language" defaultValue={filters.language}>
@@ -93,9 +98,9 @@ export function LibraryFilterForm({
         <div>
           <Label htmlFor="library-sort">დალაგება</Label>
           <select id="library-sort" name="sort" defaultValue={filters.sort}>
-            <option value="updated">ბოლო განახლება</option>
-            <option value="year">გამოცემის წელი</option>
-            <option value="title">სათაური</option>
+            <option value="added">ბოლოს დამატებული</option>
+            <option value="year">უახლესი გამოცემა</option>
+            <option value="title">ანბანურად</option>
           </select>
         </div>
       </div>
