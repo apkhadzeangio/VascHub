@@ -1,15 +1,15 @@
 {
-  "scientific-news": null,
-  "international-events": null,
-  "professional-development": null,
-  "pad-clti": null,
+  "scientific-news": 1,
+  "international-events": 2,
+  "professional-development": 3,
+  "pad-clti": 7,
   "acute-limb-ischaemia": null,
-  "carotid-cerebrovascular": null,
+  "carotid-cerebrovascular": 6,
   "aortic-disease": null,
-  "vascular-infection": null,
+  "vascular-infection": 4,
   "venous-disease": null,
   "haemodialysis-access": null,
   "vascular-trauma": null,
   "mesenteric-renal": null,
-  "guidelines-consensus": null
+  "guidelines-consensus": 5
 }

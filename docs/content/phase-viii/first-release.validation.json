@@ -13,7 +13,7 @@
   "events": 2,
   "professional_development": 1,
   "all_draft": true,
-  "all_categories_unresolved_by_design": true,
+  "all_categories_unresolved_by_design": false,
   "unique_slugs": true,
   "news_word_counts": [
     {
@@ -32,15 +32,13 @@
       "review": 230
     }
   ],
-  "live_cms_import": "not_performed",
+  "live_cms_import": "performed_via_existing_payload_admin",
   "application_code_changed": false,
   "base_commit": "01bf7cd20d9352fc2d665bcf46feb224cac140c7",
-  "release_version": "1.2",
-  "public_categories_total_docs": 0,
-  "public_posts_total_docs": 0,
-  "private_drafts_inventory_performed": false,
-  "production_forms_filled": 0,
-  "cms_preview_performed": false,
+  "release_version": "1.3",
+  "private_drafts_inventory_performed": true,
+  "production_forms_filled": true,
+  "cms_preview_performed": true,
   "autosave_interval_ms_documented": 100,
   "categories_and_authors_schema_optional": true,
   "transfer_sheet_ids": [
@@ -52,5 +50,39 @@
     "E13"
   ],
   "homepage_proposal_is_not_api_body": true,
-  "transfer_sheets_preserve_every_lexical_block": true
+  "transfer_sheets_preserve_every_lexical_block": true,
+  "api_readback_verified": true,
+  "created_post_ids": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "created_category_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "all_imported_posts_draft": true,
+  "published_posts": 0,
+  "all_6_texts_and_metadata_match": true,
+  "preview_mode_exited": true,
+  "unpublished_route_returns_404": true,
+  "pre_import_public_readonly_snapshot": {
+    "as_of": "2026-10-29",
+    "public_categories_total_docs": 0,
+    "public_posts_total_docs": 0,
+    "private_drafts_inventory_performed": false,
+    "production_forms_filled": 0
+  },
+  "production_records_created": {
+    "posts": 6,
+    "categories": 7
+  }
 }
