@@ -4,6 +4,7 @@ import type { Media, Page, Post, Config } from '../payload-types'
 
 import { mergeOpenGraph } from './mergeOpenGraph'
 import { getServerSideURL } from './getURL'
+import { documentPath } from './documentPath'
 
 const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
   const serverUrl = getServerSideURL()
@@ -21,16 +22,17 @@ const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
 
 export const generateMeta = async (args: {
   doc: Partial<Page> | Partial<Post> | null
+  collection?: 'pages' | 'posts'
 }): Promise<Metadata> => {
-  const { doc } = args
+  const { doc, collection = 'pages' } = args
+  const path = documentPath(collection, doc?.slug)
 
   const ogImage = getImageURL(doc?.meta?.image)
 
-  const title = doc?.meta?.title
-    ? doc?.meta?.title + ' | VascHub'
-    : 'VascHub'
+  const title = doc?.meta?.title ? doc?.meta?.title + ' | VascHub' : 'VascHub'
 
   return {
+    ...(path ? { alternates: { canonical: path } } : {}),
     description: doc?.meta?.description,
     openGraph: mergeOpenGraph({
       description: doc?.meta?.description || '',
@@ -42,7 +44,7 @@ export const generateMeta = async (args: {
           ]
         : undefined,
       title,
-      url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : '/',
+      url: path || '/',
     }),
     title,
   }

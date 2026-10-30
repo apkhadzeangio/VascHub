@@ -3,10 +3,10 @@ import { mkdir, copyFile } from 'node:fs/promises'
 import path from 'node:path'
 import { getPayload, type Payload } from 'payload'
 import config from '@/payload.config'
+import { sql } from '@payloadcms/db-postgres'
 import type { Header, Footer } from '@/payload-types'
 import {
   assertTestDatabase,
-  fixtureContext,
   seedHomepageFixture,
   cleanupHomepageFixture,
 } from '../../helpers/homepageFixture'
@@ -23,9 +23,12 @@ let editorID: number | undefined
 let token: string
 
 async function saveCapture(page: Page, name: string) {
+  // Full-page capture should start at the top, rather than project offscreen fixed
+  // elements into the header after the keyboard skip-link has scrolled the page.
+  await page.evaluate(() => window.scrollTo(0, 0))
   await page.evaluate(() => document.fonts.ready)
   const file = path.join(captures, name)
-  await page.screenshot({ path: file, fullPage: true })
+  await page.screenshot({ path: file, fullPage: true, animations: 'disabled' })
   await copyFile(file, path.join(archive, name))
 }
 async function expectScrollUnlocked(page: Page) {
@@ -72,14 +75,19 @@ test.describe.serial('Isolated VascHub site UI', () => {
       { link: { type: 'custom', label: 'ღონისძიებები', url: '/#events' } },
       { link: { type: 'custom', label: longLabel, url: '/#resources' } },
       { link: { type: 'custom', label: 'სტატიები და სიახლეები', url: '/posts' } },
-      { link: { type: 'custom', label: 'მიუწვდომელი მიმართულება', url: '/admin' } },
+      { link: { type: 'custom', label: 'მიუწვდომელი მიმართულება', url: '/legacy-admin-placeholder' } },
     ])
     await updateNavigation(request, 'footer', [
       { link: { type: 'custom', label: longLabel, url: '/#resources' } },
-      { link: { type: 'custom', label: 'საკონტაქტო ინფორმაცია', url: '/api/users' } },
-      { link: { type: 'custom', label: 'არასწორი ბმული', url: 'javascript:alert(1)' } },
+      { link: { type: 'custom', label: 'საკონტაქტო ინფორმაცია', url: '/legacy-contact-placeholder' } },
+      { link: { type: 'custom', label: 'არასწორი ბმული', url: '/legacy-invalid-placeholder' } },
       { link: { type: 'custom', label: 'გარე რესურსი', url: 'https://example.org/', newTab: true } },
     ])
+    // Reproduce pre-validation legacy rows only in this guarded disposable database.
+    // New API writes reject these values; no runtime validation bypass exists.
+    await payload.db.drizzle.execute(sql`UPDATE header_nav_items SET link_url = '/admin' WHERE link_url = '/legacy-admin-placeholder'`)
+    await payload.db.drizzle.execute(sql`UPDATE footer_nav_items SET link_url = '/api/users' WHERE link_url = '/legacy-contact-placeholder'`)
+    await payload.db.drizzle.execute(sql`UPDATE footer_nav_items SET link_url = 'javascript:alert(1)' WHERE link_url = '/legacy-invalid-placeholder'`)
     // "max" cache invalidation can serve one stale response before refreshing.
     await expect.poll(async () => {
       const html = await (await request.get('/')).text()
@@ -134,6 +142,7 @@ test.describe.serial('Isolated VascHub site UI', () => {
       await expect(page.getByRole('link', { name: 'კონტენტზე გადასვლა' })).toBeFocused()
       await page.keyboard.press('Enter')
       await expect(page.locator('#main-content')).toBeFocused()
+      await expect(page.getByRole('link', { name: 'კონტენტზე გადასვლა' })).not.toBeInViewport()
       await saveCapture(page, `homepage-${width}.png`)
       await page.locator('.vh-resource-link').first().click()
       await expect(page.locator('h1')).toHaveText(fixture!.posts[0].title)

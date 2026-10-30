@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-30",
+  "base_sha": "01bf7cd20d9352fc2d665bcf46feb224cac140c7",
+  "source_a": {
+    "pr": 6,
+    "sha": "715f18786b535d40a2563c4250c8226d394dde91"
+  },
+  "source_b": {
+    "pr": 7,
+    "sha": "1f314eddbd9e331c118409f2a1bf3081e4beffd3"
+  },
+  "source_file_overlap": [],
+  "merge_conflicts": 0,
+  "local": {
+    "database": "vaschub_integration_test",
+    "engine": "PostgreSQL 18.3 / PGlite 0.5.8",
+    "app_port": 3103,
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed",
+    "targeted_tests": {
+      "files": 8,
+      "passed": 68,
+      "failed": 0
+    },
+    "browser_install": "blocked: downloaded Chromium archive was invalid"
+  },
+  "ci": "pending_on_integrated_commit",
+  "visual_review": "Agent A predecessor desktop/mobile reviewed; final integrated captures pending",
+  "production_readonly": {
+    "paths": [
+      "/",
+      "/posts",
+      "/library",
+      "/admin"
+    ],
+    "status": 403,
+    "accepted": false
+  },
+  "production_writes": 0,
+  "schema_changes": false,
+  "dependency_changes": false,
+  "library_implementation_changed": false,
+  "main_changed": false,
+  "merged_to_main": false,
+  "deployed": false,
+  "known_limitations": [
+    "No configured email delivery adapter",
+    "Production read-only checks return HTTP 403 from this executor; acceptance not established"
+  ]
+}

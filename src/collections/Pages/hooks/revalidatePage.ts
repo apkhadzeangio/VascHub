@@ -16,16 +16,27 @@ export const revalidatePage: CollectionAfterChangeHook<Page> = ({
       payload.logger.info(`Revalidating page at path: ${path}`)
 
       revalidatePath(path)
+      revalidateTag(`pages_${doc.slug}`, { expire: 0 })
       revalidateTag('pages-sitemap', 'max')
     }
 
+    if (doc._status === 'published' || previousDoc?._status === 'published') {
+      // Navigation globals cache populated Page references, including their slugs.
+      revalidateTag('global_header', { expire: 0 })
+      revalidateTag('global_footer', { expire: 0 })
+    }
+
     // If the page was previously published, we need to revalidate the old path
-    if (previousDoc?._status === 'published' && doc._status !== 'published') {
+    if (
+      previousDoc?._status === 'published' &&
+      (doc._status !== 'published' || previousDoc.slug !== doc.slug)
+    ) {
       const oldPath = previousDoc.slug === 'home' ? '/' : `/${previousDoc.slug}`
 
       payload.logger.info(`Revalidating old page at path: ${oldPath}`)
 
       revalidatePath(oldPath)
+      revalidateTag(`pages_${previousDoc.slug}`, { expire: 0 })
       revalidateTag('pages-sitemap', 'max')
     }
   }
@@ -36,7 +47,10 @@ export const revalidateDelete: CollectionAfterDeleteHook<Page> = ({ doc, req: { 
   if (!context.disableRevalidate) {
     const path = doc?.slug === 'home' ? '/' : `/${doc?.slug}`
     revalidatePath(path)
+    revalidateTag(`pages_${doc.slug}`, { expire: 0 })
     revalidateTag('pages-sitemap', 'max')
+    revalidateTag('global_header', { expire: 0 })
+    revalidateTag('global_footer', { expire: 0 })
   }
 
   return doc

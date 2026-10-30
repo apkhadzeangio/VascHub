@@ -12,6 +12,7 @@ import { upcomingEvents } from './events'
 import { getHomepageData, getHomepagePage } from './data'
 import { LibraryCard } from '@/Library/Card'
 import { dateLabel, postURL, ResourceCard } from './ResourceCard'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 
 function SectionHeading({
   title,
@@ -207,8 +208,12 @@ export async function HomePage() {
 
 export async function generateHomepageMetadata(): Promise<Metadata> {
   const page = await getHomepagePage()
+  const title = page?.meta?.title || 'VascHub — სისხლძარღვთა ქირურგიის პროფესიული პლატფორმა'
+  const description = page?.meta?.description || page?.homepage?.intro || homepageDefaults.intro
   return {
-    title: page?.meta?.title || 'VascHub — სისხლძარღვთა ქირურგიის პროფესიული პლატფორმა',
-    description: page?.meta?.description || page?.homepage?.intro || homepageDefaults.intro,
+    title,
+    description,
+    alternates: { canonical: '/' },
+    openGraph: mergeOpenGraph({ title, description, url: '/' }),
   }
 }

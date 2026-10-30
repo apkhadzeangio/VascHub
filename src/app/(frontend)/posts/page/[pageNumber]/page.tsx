@@ -23,7 +23,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   const sanitizedPageNumber = Number(pageNumber)
 
-  if (!Number.isInteger(sanitizedPageNumber)) notFound()
+  if (!Number.isInteger(sanitizedPageNumber) || sanitizedPageNumber < 1) notFound()
 
   const posts = await payload.find({
     collection: 'posts',
@@ -33,12 +33,14 @@ export default async function Page({ params: paramsPromise }: Args) {
     overrideAccess: false,
   })
 
+  if (sanitizedPageNumber > Math.max(1, posts.totalPages)) notFound()
+
   return (
-    <div className="pt-24 pb-24">
+    <main className="pt-24 pb-24">
       <PageClient />
       <div className="container mb-16">
         <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
+          <h1>სტატიები და სიახლეები</h1>
         </div>
       </div>
 
@@ -58,14 +60,13 @@ export default async function Page({ params: paramsPromise }: Args) {
           <Pagination page={posts.page} totalPages={posts.totalPages} />
         )}
       </div>
-    </div>
+    </main>
   )
 }
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
   const { pageNumber } = await paramsPromise
   return {
-    title: `VascHub Posts Page ${pageNumber || ''}`,
+    title: `სტატიები და სიახლეები — გვერდი ${pageNumber} | VascHub`,
   }
 }
-
