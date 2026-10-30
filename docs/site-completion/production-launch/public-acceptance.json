@@ -1,0 +1,159 @@
+{
+  "checked_at_utc": "2026-10-30T20:12:00.663898+00:00",
+  "phase": "after successful release deployment",
+  "deployment_id": "b3ccc7e4-bc2e-4074-b82f-f10376795b0e",
+  "source_sha": "8fc2607780899b3c3530cd6cd10232be23b2fc21",
+  "mutating_requests": 0,
+  "rows": [
+    {
+      "path": "/",
+      "expected_status": 200,
+      "status": 200,
+      "final_url": "https://vasc.lithos.ge/",
+      "status_matches": true,
+      "title": "VascHub — სისხლძარღვთა ქირურგიის პროფესიული პლატფორმა",
+      "canonical": "https://vasc.lithos.ge",
+      "h1": "ცოდნა ყოველდღიური პრაქტიკისთვის."
+    },
+    {
+      "path": "/posts",
+      "expected_status": 200,
+      "status": 200,
+      "final_url": "https://vasc.lithos.ge/posts",
+      "status_matches": true,
+      "title": "სტატიები და სიახლეები | VascHub",
+      "canonical": null,
+      "h1": "სტატიები და სიახლეები"
+    },
+    {
+      "path": "/search",
+      "expected_status": 200,
+      "status": 200,
+      "final_url": "https://vasc.lithos.ge/search",
+      "status_matches": true,
+      "title": "სტატიების ძიება | VascHub",
+      "canonical": null,
+      "h1": "სტატიების ძიება"
+    },
+    {
+      "path": "/search?q=CREST",
+      "expected_status": 200,
+      "status": 200,
+      "final_url": "https://vasc.lithos.ge/search?q=CREST",
+      "status_matches": true,
+      "title": "სტატიების ძიება | VascHub",
+      "canonical": null,
+      "h1": "ძიების შედეგები"
+    },
+    {
+      "path": "/library",
+      "expected_status": 200,
+      "status": 200,
+      "final_url": "https://vasc.lithos.ge/library",
+      "status_matches": true,
+      "title": "კლინიკური ბიბლიოთეკა | VascHub",
+      "canonical": "https://vasc.lithos.ge/library",
+      "h1": "კლინიკური ბიბლიოთეკა"
+    },
+    {
+      "path": "/admin/login",
+      "expected_status": 200,
+      "status": 200,
+      "final_url": "https://vasc.lithos.ge/admin/login",
+      "status_matches": true,
+      "title": "Login - Payload",
+      "canonical": null,
+      "h1": null
+    },
+    {
+      "path": "/posts/page/0",
+      "expected_status": 404,
+      "status": 404,
+      "final_url": "https://vasc.lithos.ge/posts/page/0",
+      "status_matches": true
+    },
+    {
+      "path": "/api/posts?depth=0&limit=1",
+      "expected_status": 200,
+      "status": 200,
+      "final_url": "https://vasc.lithos.ge/api/posts?depth=0&limit=1",
+      "status_matches": true,
+      "total_docs": 0,
+      "returned_docs": 0,
+      "returned_statuses": [],
+      "privacy_matches": true
+    },
+    {
+      "path": "/api/posts?draft=true&depth=0&limit=1",
+      "expected_status": 200,
+      "status": 200,
+      "final_url": "https://vasc.lithos.ge/api/posts?draft=true&depth=0&limit=1",
+      "status_matches": true,
+      "total_docs": 0,
+      "returned_docs": 0,
+      "returned_statuses": [],
+      "privacy_matches": true
+    },
+    {
+      "path": "/api/users/me",
+      "expected_status": 200,
+      "status": 200,
+      "final_url": "https://vasc.lithos.ge/api/users/me",
+      "status_matches": true,
+      "anonymous": true
+    },
+    {
+      "path": "/next/preview?path=/posts/crest-2-asymptomatic-carotid-stenosis",
+      "expected_status": 403,
+      "status": 403,
+      "final_url": "https://vasc.lithos.ge/next/preview?path=/posts/crest-2-asymptomatic-carotid-stenosis",
+      "status_matches": true,
+      "response_excerpt": "You are not allowed to preview this page",
+      "application_auth_verified": true
+    },
+    {
+      "path": "/posts/esvs-vgei-guidelines-2026",
+      "expected_status": 404,
+      "status": 404,
+      "final_url": "https://vasc.lithos.ge/posts/esvs-vgei-guidelines-2026",
+      "status_matches": true
+    },
+    {
+      "path": "/posts/crest-2-asymptomatic-carotid-stenosis",
+      "expected_status": 404,
+      "status": 404,
+      "final_url": "https://vasc.lithos.ge/posts/crest-2-asymptomatic-carotid-stenosis",
+      "status_matches": true
+    },
+    {
+      "path": "/posts/basil-3-endovascular-strategies-clti",
+      "expected_status": 404,
+      "status": 404,
+      "final_url": "https://vasc.lithos.ge/posts/basil-3-endovascular-strategies-clti",
+      "status_matches": true
+    },
+    {
+      "path": "/posts/linc-2027-leipzig",
+      "expected_status": 404,
+      "status": 404,
+      "final_url": "https://vasc.lithos.ge/posts/linc-2027-leipzig",
+      "status_matches": true
+    },
+    {
+      "path": "/posts/esvs-clti-masterclass-november-2026",
+      "expected_status": 404,
+      "status": 404,
+      "final_url": "https://vasc.lithos.ge/posts/esvs-clti-masterclass-november-2026",
+      "status_matches": true
+    },
+    {
+      "path": "/posts/esvs-educational-travel-grant-2026",
+      "expected_status": 404,
+      "status": 404,
+      "final_url": "https://vasc.lithos.ge/posts/esvs-educational-travel-grant-2026",
+      "status_matches": true
+    }
+  ],
+  "all_expected_statuses": true,
+  "guest_posts_privacy": true
+}

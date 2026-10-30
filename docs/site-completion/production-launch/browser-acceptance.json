@@ -1,0 +1,37 @@
+{
+  "checked_at_utc": "2026-10-30T20:14:38.984Z",
+  "base": "https://vasc.lithos.ge/",
+  "observations": [
+    {
+      "action": "Open homepage",
+      "result": "New search guidance and accessible contextual link names visible"
+    },
+    {
+      "action": "Open professional-network placeholder dialog",
+      "result": "Dialog opened; focus moved to Close button"
+    },
+    {
+      "action": "Press Escape",
+      "result": "Dialog closed; focus returned to professional-network trigger"
+    },
+    {
+      "action": "Submit search input with leading/trailing spaces around CREST",
+      "result": "Navigated to https://vasc.lithos.ge/search?q=CREST; 0 published results"
+    },
+    {
+      "action": "Follow Posts navigation link",
+      "result": "Navigated to https://vasc.lithos.ge/posts; Georgian title and h1; honest empty state"
+    },
+    {
+      "action": "Inspect error console",
+      "result": "Captured errors originated only in the browser extension metadata sender; no application-origin error observed"
+    },
+    {
+      "action": "Open /admin using existing browser session",
+      "result": "Redirected to /admin/login; no credentials entered or login attempted"
+    }
+  ],
+  "authenticated_live_preview_verified": false,
+  "live_mobile_viewport_verified": false,
+  "synthetic_data_written": false
+}

@@ -1,10 +1,10 @@
 {
-  "recorded_at_utc": "2026-10-30T20:02:20.466Z",
+  "recorded_at_utc": "2026-10-30T20:14:38.984Z",
   "integration_pr": 8,
   "merge_sha": "8fc2607780899b3c3530cd6cd10232be23b2fc21",
   "merge_tree": "b5afc7dc82acd2cd708edf6003b8cb5b9cb290ca",
   "matches_tested_head_tree": true,
-  "release_deployed": false,
+  "release_deployed": true,
   "deployment_attempt": {
     "tool": "railway_accept_deploy",
     "result": "cancelled",
@@ -13,8 +13,8 @@
     "user_confirmation_received": true,
     "attempted_at_utc": "2026-10-30T20:02:20.466Z"
   },
-  "current_live_deployment": "56c6d8e8-e544-44e9-818d-5f73b90ec9aa",
-  "current_live_sha": "01bf7cd20d9352fc2d665bcf46feb224cac140c7",
+  "current_live_deployment": "b3ccc7e4-bc2e-4074-b82f-f10376795b0e",
+  "current_live_sha": "8fc2607780899b3c3530cd6cd10232be23b2fc21",
   "rollback_performed": false,
   "environment_variables_changed": false,
   "domain_changed": false,
@@ -32,10 +32,8 @@
     "observed": "Homepage loads; CREST search returns 0 published results; no authenticated actions performed."
   },
   "remaining_steps": [
-    "Resolve the tool approval cancellation or approve the exact existing deployment action in its approval surface; user chat consent has already been received",
-    "Deploy the reviewed existing VascHub-Web main branch patch without unrelated changes",
-    "Observe terminal SUCCESS with source SHA 8fc2607780899b3c3530cd6cd10232be23b2fc21",
-    "Complete release-specific public and browser acceptance without content changes"
+    "Configure an approved email delivery provider before claiming password-reset mail works",
+    "Authenticated live Preview and live mobile viewport acceptance may be completed in an authenticated reviewer session"
   ],
   "public_baseline": {
     "pages_http200": [
@@ -71,5 +69,33 @@
       "user_confirmation_received": true,
       "attempted_at_utc": "2026-10-30T20:02:20.466Z"
     }
-  ]
+  ],
+  "deployment_status": "SUCCESS",
+  "current_blocker": null,
+  "pending_railway_changes": 0,
+  "rollback_target": {
+    "deployment_id": "56c6d8e8-e544-44e9-818d-5f73b90ec9aa",
+    "source_sha": "01bf7cd20d9352fc2d665bcf46feb224cac140c7",
+    "can_rollback": true
+  },
+  "deployment_observation": {
+    "created_at_utc": "2026-10-30T20:05:52.142Z",
+    "success_at_utc": "2026-10-30T20:09:44.470Z",
+    "observed_existing_success": true,
+    "additional_deploy_triggered": false,
+    "source_matches_approved_merge": true
+  },
+  "release_acceptance": {
+    "public_checks": 17,
+    "all_expected_statuses": true,
+    "guest_posts_privacy": true,
+    "all_six_draft_urls": 404,
+    "guest_preview_application_rejection": 403,
+    "browser_desktop": "passed home/search/Posts/dialog keyboard checks",
+    "authenticated_preview": "not repeated live: browser redirected to login",
+    "mobile_browser": "covered by pinned CI; live mobile viewport not available",
+    "application_console_errors_observed": 0,
+    "browser_extension_metadata_errors_observed": true
+  },
+  "release_completion": "deployment and public acceptance verified; no additional rollout needed"
 }
