@@ -199,7 +199,8 @@ test.describe.serial('Combined UI and CMS lifecycle on an isolated Next server',
       await expect(previewPage.getByRole('heading', { level: 1 })).toHaveText(
         'პირადი სატესტო წინასახედი',
       )
-      await previewPage.goto('/next/exit-preview')
+      expect((await admin.request.get('/next/exit-preview')).ok()).toBeTruthy()
+      await previewPage.goto('/')
       await expect(previewPage.getByRole('heading', { level: 1 })).toHaveText(
         'სატესტო მთავარი გვერდი',
       )
