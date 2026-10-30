@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-10-30T19:58:59.542Z",
+  "recorded_at_utc": "2026-10-30T20:02:20.466Z",
   "integration_pr": 8,
   "merge_sha": "8fc2607780899b3c3530cd6cd10232be23b2fc21",
   "merge_tree": "b5afc7dc82acd2cd708edf6003b8cb5b9cb290ca",
@@ -9,7 +9,9 @@
     "tool": "railway_accept_deploy",
     "result": "cancelled",
     "message": "Cancelled — the user did not approve this action. No changes were made.",
-    "error_code": "INVALID_ARGUMENT"
+    "error_code": "INVALID_ARGUMENT",
+    "user_confirmation_received": true,
+    "attempted_at_utc": "2026-10-30T20:02:20.466Z"
   },
   "current_live_deployment": "56c6d8e8-e544-44e9-818d-5f73b90ec9aa",
   "current_live_sha": "01bf7cd20d9352fc2d665bcf46feb224cac140c7",
@@ -30,9 +32,10 @@
     "observed": "Homepage loads; CREST search returns 0 published results; no authenticated actions performed."
   },
   "remaining_steps": [
-    "Approve the exact reviewed existing branch-selection patch and deployment of VascHub-Web production",
-    "Observe terminal deployment SUCCESS and matching merge source SHA",
-    "Run release-specific public/browser/authenticated preview acceptance without content changes"
+    "Resolve the tool approval cancellation or approve the exact existing deployment action in its approval surface; user chat consent has already been received",
+    "Deploy the reviewed existing VascHub-Web main branch patch without unrelated changes",
+    "Observe terminal SUCCESS with source SHA 8fc2607780899b3c3530cd6cd10232be23b2fc21",
+    "Complete release-specific public and browser acceptance without content changes"
   ],
   "public_baseline": {
     "pages_http200": [
@@ -50,5 +53,23 @@
       "body": "error code: 1010",
       "application_authorization_verified": false
     }
-  }
+  },
+  "user_confirmation_received": true,
+  "deployment_attempt_history": [
+    {
+      "tool": "railway_accept_deploy",
+      "result": "cancelled",
+      "message": "Cancelled — the user did not approve this action. No changes were made.",
+      "error_code": "INVALID_ARGUMENT",
+      "user_confirmation_received": false
+    },
+    {
+      "tool": "railway_accept_deploy",
+      "result": "cancelled",
+      "message": "Cancelled — the user did not approve this action. No changes were made.",
+      "error_code": "INVALID_ARGUMENT",
+      "user_confirmation_received": true,
+      "attempted_at_utc": "2026-10-30T20:02:20.466Z"
+    }
+  ]
 }
