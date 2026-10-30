@@ -59,7 +59,11 @@ Production ბაზასა და გარემოს ცვლადებ
   შემოწმებამ: ის ითხოვს ბაზას `vaschub_cms_test` (CI-ში `vaschub_test`) და ჩემი `vaschub_events_test`-ზე არ
   მუშაობს. ამიტომ `pnpm test:int`-ის საერთო ბრძანება ამ გარემოში **exit 1**-ით სრულდება; ეს განაპირობა
   ბაზის სახელის დაცვამ და არა რომელიმე დარღვეულმა assertion-მა. სხვა ბაზა არ შემიქმნია.
-- **CI-ის დანარჩენი ნაბიჯები** (`check-library-migration`, Docker build/compose, `tests/http/*`) არ გაშვებულა.
+- **CI-ის დანარჩენი ნაბიჯები** (`check-library-migration`, Docker build/compose, `tests/http/*`) ჩემს
+  ლოკალურ გარემოში **არ გაშვებულა**. GitHub Actions-ში (`verify`, საბოლოო `bc71258`) ისინი გაშვებულია და
+  გავიდა, ისევე როგორც `typecheck`, `lint`, სრული `test:int` (მათ შორის `payload-readers`), `build` და სრული
+  `test:e2e` — იგივე პორტ 3000-ზე, ამიტომ ორი „localhost:3000“-ზე მიბმული ტესტიც გავიდა. `tests/http/*`
+  CI-ში Docker-ის ნაბიჯშია.
 - **Production მონაცემები** არ შემოწმებულა: კატეგორიების slug-ები მხოლოდ ტესტურ ბაზაში დადასტურდა.
 - ტესტირება მხოლოდ **Production build**-ზე და **Chromium**-ში მოხდა (dev რეჟიმში, Firefox/WebKit-ში, რეალურ
   მობილურ მოწყობილობაზე და ეკრანის წამკითხველით — არა). ხელმისაწვდომობა შემოწმებულია სტრუქტურით,
