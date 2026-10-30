@@ -1,0 +1,49 @@
+{
+  "source_code_sha": "552a9b67f58a56a6fc9c3160b35cdae1b8282fb3",
+  "ci_run": 41112464720,
+  "artifact_id": 13002459982,
+  "manual_visual_review": "accepted",
+  "synthetic_test_content_only": true,
+  "files": [
+    {
+      "file": "lifecycle-home-390.png",
+      "bytes": 224279,
+      "sha256": "68e525a46cb60397456e583ddee5fcf5c31797b7204441ab41c09877f56360c4"
+    },
+    {
+      "file": "empty-390.png",
+      "bytes": 225496,
+      "sha256": "bf2916a5b8822cac57d5bd6b3ba4c21b6f72f22d1bc082c479cb0ab3eb6b34ed"
+    },
+    {
+      "file": "homepage-1440.png",
+      "bytes": 410775,
+      "sha256": "7bd587f92e6e8be6d2b82fb55b9f70805b225fe3ab94dc15ac854b6403439a3e"
+    },
+    {
+      "file": "homepage-390.png",
+      "bytes": 372820,
+      "sha256": "c9db03bce747dc7dbadb16cff4e06d7f5031d51672813a80808936445fddc4c5"
+    },
+    {
+      "file": "homepage-768.png",
+      "bytes": 413907,
+      "sha256": "516be5cad01c9e181768a8ccf2de4a15fa60a2a2ed2df7feccf2b746c965ba68"
+    },
+    {
+      "file": "menu-768.png",
+      "bytes": 437391,
+      "sha256": "7f243c5243aee13e02c8c081e7e0b79ea25803d4f47a7418c18b5fc1f4d8f6c2"
+    },
+    {
+      "file": "search-empty-390.png",
+      "bytes": 85183,
+      "sha256": "e5d4ad4cbbe1c4177943177d29c3c88c3e33448ee3b9b00bbfc59a22b7baa04b"
+    },
+    {
+      "file": "search-results-390.png",
+      "bytes": 98074,
+      "sha256": "6ba050343cacd9aaaee673af4d447429105203f65ca3d98b861da6252340b568"
+    }
+  ]
+}

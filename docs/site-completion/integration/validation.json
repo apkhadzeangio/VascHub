@@ -25,8 +25,27 @@
     },
     "browser_install": "blocked: downloaded Chromium archive was invalid"
   },
-  "ci": "pending_on_integrated_commit",
-  "visual_review": "Agent A predecessor desktop/mobile reviewed; final integrated captures pending",
+  "ci": {
+    "code_sha": "552a9b67f58a56a6fc9c3160b35cdae1b8282fb3",
+    "push_run": 41112464720,
+    "pr_run": 41112473875,
+    "conclusion": "success",
+    "database": "PostgreSQL 16.15",
+    "integration_tests": 83,
+    "browser_tests": 40,
+    "build": "passed",
+    "docker_startup_restart_media_pdf_checks": "passed"
+  },
+  "visual_review": {
+    "accepted": true,
+    "screenshots": 8,
+    "artifact_id": 13002459982,
+    "sizes": [
+      390,
+      768,
+      1440
+    ]
+  },
   "production_readonly": {
     "paths": [
       "/",
@@ -35,7 +54,8 @@
       "/admin"
     ],
     "status": 403,
-    "accepted": false
+    "accepted": false,
+    "response_excerpt": "error code: 1010"
   },
   "production_writes": 0,
   "schema_changes": false,
@@ -47,5 +67,6 @@
   "known_limitations": [
     "No configured email delivery adapter",
     "Production read-only checks return HTTP 403 from this executor; acceptance not established"
-  ]
+  ],
+  "release_readiness": "integration code verified; Production acceptance and email delivery remain conditional"
 }

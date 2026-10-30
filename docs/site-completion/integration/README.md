@@ -37,7 +37,7 @@ Clinical Library-ის კოდი, collections, access/PDF ლოგიკა
 არ შეცვლილა. მის ინსტრუქციაში მხოლოდ ნავიგაციის მოძველებული წინადადება გასწორდა.
 ახალი Collections, მიგრაციები, dependency-ები ან ინფრასტრუქტურა არ დამატებულა.
 
-## შემოწმებები ამ ანგარიშის პირველ ვერსიაზე
+## შესრულებული შემოწმებები
 
 | შემოწმება | შედეგი |
 | --- | --- |
@@ -47,22 +47,29 @@ Clinical Library-ის კოდი, collections, access/PDF ლოგიკა
 | Backend-ის მიზნობრივი გაერთიანებული გაშვება | 8 ფაილი, 68 ტესტი წარმატებული |
 | Production build | წარმატებული; ლოკალური მისამართი `localhost:3103` |
 | ადგილობრივი Chromium | არქივის ჩამოტვირთვა დაზიანდა; წარმატებად არ ჩაითვალა |
-| PostgreSQL 16 / სრული browser + Docker CI | ინტეგრაციის კომიტზე გასაშვებია |
-| საბოლოო screenshots-ის ვიზუალური განხილვა | CI-ის შემდეგ შესასრულებელია |
+| PostgreSQL 16.15 / სრული CI | 83 integration + 40 browser ტესტი; build/Docker/persistence წარმატებული |
+| Screenshots-ის ვიზუალური განხილვა | 8 მიღებული PNG; 390/768/1440, menu, search, lifecycle |
 
 ლოკალური SQL ძრავაა PostgreSQL 18.3 / PGlite 0.5.8. Native PG16 დადასტურება ცალკე
 CI შედეგით უნდა შეფასდეს. ახალ HTTP suite-ში ემატება რეალური Next lifecycle:
 redirect, canonical, Slug rename, cache-იანი ნავიგაცია, unpublish, Draft privacy,
 ანონიმური Preview-ის აკრძალვა და ავტორიზებული Preview enable/exit.
 
-საბოლოო შედეგები იკითხება ინტეგრაციის PR-ის Checks-ში და
+კოდის დამოწმებული SHA: `552a9b67f58a56a6fc9c3160b35cdae1b8282fb3`.
+[Push CI](https://github.com/apkhadzeangio/VascHub/actions/runs/41112464720) და
+[PR CI](https://github.com/apkhadzeangio/VascHub/actions/runs/41112473875) დასრულდა წარმატებით.
+გადამოწმებულია რეალური Next HTTP lifecycle, Preview cookies და admin/media smoke.
+[ვიზუალურად მიღებული screenshots](screenshots/README.md) იმავე კოდის CI artifact-იდანაა.
+ამის შემდგომი ცვლილება მხოლოდ დოკუმენტაცია და მიღებული PNG-ებია; საბოლოო PR head-ის
+მიმდინარე Checks გადაამოწმეთ PR-ში. შედეგები ასევე იკითხება
 [validation.json](validation.json)-ში. [ფუნქციების ცხრილი](QA_MATRIX_GE.md) განასხვავებს
 მოქმედ ფუნქციას, ცარიელ სექციასა და ჯერ განუხორციელებელ მოდულს.
 
 ## Production და დარჩენილი შეზღუდვები
 
 ამ ეტაპზე Production-ზე მხოლოდ GET შემოწმება იყო ნებადართული. `/`, `/posts`,
-`/library` და `/admin` ამ შემსრულებლის გარემოდან 403-ით დაბრუნდა. ამიტომ რეალური
+`/library` და `/admin` ამ შემსრულებლის გარემოდან 403-ით დაბრუნდა (პასუხის ტექსტი:
+`error code: 1010`). ამიტომ რეალური
 Production მიღება არ დადასტურდა; მხოლოდ ამ შედეგით აპლიკაციის ხარვეზს ან გათიშვას
 არ ვაცხადებთ. Production-ის კონტენტი, ექვსი Draft და გარემოს ცვლადები ხელუხლებელია.
 
