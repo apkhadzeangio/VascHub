@@ -28,11 +28,11 @@ export default async function Page() {
   })
 
   return (
-    <div className="pt-24 pb-24">
+    <main className="pt-24 pb-24">
       <PageClient />
       <div className="container mb-16">
         <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
+          <h1>სტატიები და სიახლეები</h1>
         </div>
       </div>
 
@@ -52,12 +52,12 @@ export default async function Page() {
           <Pagination page={posts.page} totalPages={posts.totalPages} />
         )}
       </div>
-    </div>
+    </main>
   )
 }
 
 export function generateMetadata(): Metadata {
   return {
-    title: `VascHub Posts`,
+    title: 'სტატიები და სიახლეები | VascHub',
   }
 }

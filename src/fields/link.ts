@@ -1,6 +1,8 @@
-import type { Field, GroupField } from 'payload'
+import type { Field, GroupField, PayloadRequest } from 'payload'
 
 import deepMerge from '@/utilities/deepMerge'
+import { publicHref } from '@/Homepage/defaults'
+import { getPublicReference } from '@/utilities/getPublicReference'
 
 export type LinkAppearances = 'default' | 'outline'
 
@@ -18,10 +20,16 @@ export const appearanceOptions: Record<LinkAppearances, { label: string; value: 
 type LinkType = (options?: {
   appearances?: LinkAppearances[] | false
   disableLabel?: boolean
+  publicOnly?: boolean
   overrides?: Partial<GroupField>
 }) => Field
 
-export const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = {}) => {
+export const link: LinkType = ({
+  appearances,
+  disableLabel = false,
+  publicOnly = false,
+  overrides = {},
+} = {}) => {
   const linkResult: GroupField = {
     name: 'link',
     type: 'group',
@@ -77,6 +85,26 @@ export const link: LinkType = ({ appearances, disableLabel = false, overrides = 
       label: 'Document to link to',
       relationTo: ['pages', 'posts'],
       required: true,
+      ...(publicOnly
+        ? {
+            filterOptions: { _status: { equals: 'published' } },
+            validate: async (
+              value: unknown,
+              { siblingData, req }: { siblingData?: { type?: string }; req: PayloadRequest },
+            ) => {
+              if (siblingData?.type !== 'reference') return true
+              return (
+                Boolean(
+                  await getPublicReference(
+                    req.payload,
+                    value as { relationTo?: string; value?: unknown },
+                    req,
+                  ),
+                ) || 'აირჩიეთ არსებული გამოქვეყნებული გვერდი ან სტატია.'
+              )
+            },
+          }
+        : {}),
     },
     {
       name: 'url',
@@ -86,6 +114,14 @@ export const link: LinkType = ({ appearances, disableLabel = false, overrides = 
       },
       label: 'Custom URL',
       required: true,
+      ...(publicOnly
+        ? {
+            validate: (value: unknown, { siblingData }: { siblingData?: { type?: string } }) =>
+              siblingData?.type !== 'custom' ||
+              (typeof value === 'string' && Boolean(publicHref(value))) ||
+              'მიუთითეთ საჯარო ლოკალური მისამართი ან http(s) ბმული.',
+          }
+        : {}),
     },
   ]
 

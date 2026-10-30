@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-30",
+  "base_sha": "01bf7cd20d9352fc2d665bcf46feb224cac140c7",
+  "source_a": {
+    "pr": 6,
+    "sha": "715f18786b535d40a2563c4250c8226d394dde91"
+  },
+  "source_b": {
+    "pr": 7,
+    "sha": "1f314eddbd9e331c118409f2a1bf3081e4beffd3"
+  },
+  "source_file_overlap": [],
+  "merge_conflicts": 0,
+  "local": {
+    "database": "vaschub_integration_test",
+    "engine": "PostgreSQL 18.3 / PGlite 0.5.8",
+    "app_port": 3103,
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed",
+    "targeted_tests": {
+      "files": 8,
+      "passed": 68,
+      "failed": 0
+    },
+    "browser_install": "blocked: downloaded Chromium archive was invalid"
+  },
+  "ci": {
+    "code_sha": "552a9b67f58a56a6fc9c3160b35cdae1b8282fb3",
+    "push_run": 41112464720,
+    "pr_run": 41112473875,
+    "conclusion": "success",
+    "database": "PostgreSQL 16.15",
+    "integration_tests": 83,
+    "browser_tests": 40,
+    "build": "passed",
+    "docker_startup_restart_media_pdf_checks": "passed"
+  },
+  "visual_review": {
+    "accepted": true,
+    "screenshots": 8,
+    "artifact_id": 13002459982,
+    "sizes": [
+      390,
+      768,
+      1440
+    ]
+  },
+  "production_readonly": {
+    "paths": [
+      "/",
+      "/posts",
+      "/library",
+      "/admin"
+    ],
+    "status": 403,
+    "accepted": false,
+    "response_excerpt": "error code: 1010"
+  },
+  "production_writes": 0,
+  "schema_changes": false,
+  "dependency_changes": false,
+  "library_implementation_changed": false,
+  "main_changed": false,
+  "merged_to_main": false,
+  "deployed": false,
+  "known_limitations": [
+    "No configured email delivery adapter",
+    "Production read-only checks return HTTP 403 from this executor; acceptance not established"
+  ],
+  "release_readiness": "integration code verified; Production acceptance and email delivery remain conditional"
+}

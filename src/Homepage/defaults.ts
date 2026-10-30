@@ -18,9 +18,24 @@ export const homepageDefaults = {
 
 /** Public links may be local paths or HTTP(S); never executable URLs or admin actions. */
 export function publicHref(value?: string | null): string | undefined {
-  if (!value || /[\u0000-\u0020\\]/.test(value)) return undefined
-  if (/^\/(?!\/|(?:admin|api|next)(?:[/?#]|$))/.test(value)) return value
+  if (!value || value.startsWith('//') || /[\u0000-\u0020\\]/.test(value)) return undefined
   try {
+    if (value.startsWith('/')) {
+      const origin = 'https://vaschub.invalid'
+      const url = new URL(value, origin)
+      const pathname = decodeURIComponent(url.pathname)
+      // Check the browser-normalized, decoded path as well as the original URL.
+      // Dot segments and escaped route names must not bypass the public-route rule.
+      const normalized = new URL(pathname, origin)
+      if (
+        url.origin !== origin ||
+        normalized.origin !== origin ||
+        /[\u0000-\u001f\u007f\\]/.test(pathname) ||
+        /^\/(?:admin|api|next)(?:\/|$)/.test(normalized.pathname)
+      )
+        return undefined
+      return value
+    }
     const url = new URL(value)
     if ((url.protocol === 'https:' || url.protocol === 'http:') && !url.username && !url.password)
       return url.href

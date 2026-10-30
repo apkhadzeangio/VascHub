@@ -1,0 +1,79 @@
+# VascHub — ორი აგენტის შედეგების ინტეგრაცია
+
+თარიღი: 30.10.2026, Asia/Tbilisi. ბრენჩი: `fix/site-integration-v1`.
+საწყისი main: `01bf7cd20d9352fc2d665bcf46feb224cac140c7`.
+
+| წყარო | დამოწმებული საბოლოო SHA |
+| --- | --- |
+| [აგენტ A / PR #6](https://github.com/apkhadzeangio/VascHub/pull/6) | `715f18786b535d40a2563c4250c8226d394dde91` |
+| [აგენტ B / PR #7](https://github.com/apkhadzeangio/VascHub/pull/7) | `1f314eddbd9e331c118409f2a1bf3081e4beffd3` |
+
+წყაროების შეცვლილ ფაილებს გადაკვეთა არ ჰქონდათ. ისინი ცალკე სამუშაო ასლში
+გაერთიანდა კონფლიქტის გარეშე. main არ შეცვლილა; წყარო PR-ები არ დახურულა.
+
+## ინტეგრაციის შესწორებები
+
+- Redirect reference ხელახლა იკითხება რეალური ID-ით, საჯარო წვდომით და published
+  ფილტრით. მხარდაჭერილია numeric/numeric-string ID და პოპულატებული ობიექტი.
+  დაკარგული ან Draft სამიზნე არ ქმნის `/undefined`-ს ან ცარიელ გადამისამართებას.
+  მოქმედებს შერჩეული reference/custom ტიპი; თვითგადამისამართება და არასაჯარო URL უარყოფილია.
+- SEO editor-ის URL, canonical და OpenGraph URL იყენებს კოლექციის სწორ გზას:
+  home `/`, Page `/<slug>`, Post `/posts/<slug>`. ქართული Slug კოდირდება.
+- Header/Footer-ის რედაქტორი ვალიდაციას უკეთებს საჯარო custom ბმულებსა და
+  გამოქვეყნებულ reference-ებს. მონაცემთა ველები და მათი ტიპები არ დამატებულა.
+  საერთო link factory-ის სხვა მომხმარებლებისთვის წინა ქცევა შენარჩუნებულია.
+- სტატიების სიას აქვს `main` landmark, ქართული სათაური, რაოდენობის/გვერდების
+  წარწერები და არასწორი გვერდის ნომრების 404. PageRange-ის საწყისი ინდექსიც გასწორდა.
+- Playwright-ს აქვს დაცული loopback `E2E_BASE_URL`; ლოკალური პორტია 3103.
+  ადმინისტრირების ტესტებში ამოღებულია ფიქსირებული 3000 მისამართები.
+- აგენტი A-ს ძველი არასაჯარო nav მონაცემების rendering ტესტი შენარჩუნებულია:
+  legacy SQL rows იქმნება მხოლოდ loopback სატესტო ბაზაში. Production ვალიდაციის
+  გვერდის ავლის გზა არ დამატებულა. ახალი authoring უარყოფა ცალკე ტესტირდება.
+- full-page captures გადადის გვერდის დასაწყისში, რათა skip-link-ის შემდეგ
+  viewport-ის ზემოთ დამალული fixed ელემენტი screenshot-ის header-ში არ მოხვდეს.
+  მის მიუწვდომლობას viewport-ში და კლავიატურის სწორ ფოკუსს ტესტი ცალკე ადასტურებს.
+
+Clinical Library-ის კოდი, collections, access/PDF ლოგიკა და რეალური მონაცემები
+არ შეცვლილა. მის ინსტრუქციაში მხოლოდ ნავიგაციის მოძველებული წინადადება გასწორდა.
+ახალი Collections, მიგრაციები, dependency-ები ან ინფრასტრუქტურა არ დამატებულა.
+
+## შესრულებული შემოწმებები
+
+| შემოწმება | შედეგი |
+| --- | --- |
+| Frozen lockfile install | წარმატებული |
+| Typecheck / lint / diff check | წარმატებული |
+| არსებული მიგრაციები ცალკე `vaschub_integration_test` ბაზაზე | წარმატებული |
+| Backend-ის მიზნობრივი გაერთიანებული გაშვება | 8 ფაილი, 68 ტესტი წარმატებული |
+| Production build | წარმატებული; ლოკალური მისამართი `localhost:3103` |
+| ადგილობრივი Chromium | არქივის ჩამოტვირთვა დაზიანდა; წარმატებად არ ჩაითვალა |
+| PostgreSQL 16.15 / სრული CI | 83 integration + 40 browser ტესტი; build/Docker/persistence წარმატებული |
+| Screenshots-ის ვიზუალური განხილვა | 8 მიღებული PNG; 390/768/1440, menu, search, lifecycle |
+
+ლოკალური SQL ძრავაა PostgreSQL 18.3 / PGlite 0.5.8. Native PG16 დადასტურება ცალკე
+CI შედეგით უნდა შეფასდეს. ახალ HTTP suite-ში ემატება რეალური Next lifecycle:
+redirect, canonical, Slug rename, cache-იანი ნავიგაცია, unpublish, Draft privacy,
+ანონიმური Preview-ის აკრძალვა და ავტორიზებული Preview enable/exit.
+
+კოდის დამოწმებული SHA: `552a9b67f58a56a6fc9c3160b35cdae1b8282fb3`.
+[Push CI](https://github.com/apkhadzeangio/VascHub/actions/runs/41112464720) და
+[PR CI](https://github.com/apkhadzeangio/VascHub/actions/runs/41112473875) დასრულდა წარმატებით.
+გადამოწმებულია რეალური Next HTTP lifecycle, Preview cookies და admin/media smoke.
+[ვიზუალურად მიღებული screenshots](screenshots/README.md) იმავე კოდის CI artifact-იდანაა.
+ამის შემდგომი ცვლილება მხოლოდ დოკუმენტაცია და მიღებული PNG-ებია; საბოლოო PR head-ის
+მიმდინარე Checks გადაამოწმეთ PR-ში. შედეგები ასევე იკითხება
+[validation.json](validation.json)-ში. [ფუნქციების ცხრილი](QA_MATRIX_GE.md) განასხვავებს
+მოქმედ ფუნქციას, ცარიელ სექციასა და ჯერ განუხორციელებელ მოდულს.
+
+## Production და დარჩენილი შეზღუდვები
+
+ამ ეტაპზე Production-ზე მხოლოდ GET შემოწმება იყო ნებადართული. `/`, `/posts`,
+`/library` და `/admin` ამ შემსრულებლის გარემოდან 403-ით დაბრუნდა (პასუხის ტექსტი:
+`error code: 1010`). ამიტომ რეალური
+Production მიღება არ დადასტურდა; მხოლოდ ამ შედეგით აპლიკაციის ხარვეზს ან გათიშვას
+არ ვაცხადებთ. Production-ის კონტენტი, ექვსი Draft და გარემოს ცვლადები ხელუხლებელია.
+
+Email adapter კვლავ არ არის კონფიგურირებული. Password reset წერილების რეალურ
+მიწოდებას მოქმედ ფუნქციად არ ვთვლით. პროვაიდერი არ შექმნილა და წერილი არ გაგზავნილა.
+
+გაშვების მომდევნო ნაბიჯები: [RELEASE_GE.md](RELEASE_GE.md).

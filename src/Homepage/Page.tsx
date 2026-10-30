@@ -12,6 +12,7 @@ import { upcomingEvents } from './events'
 import { getHomepageData, getHomepagePage } from './data'
 import { LibraryCard } from '@/Library/Card'
 import { dateLabel, postURL, ResourceCard } from './ResourceCard'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 
 function SectionHeading({
   title,
@@ -36,7 +37,7 @@ function SectionHeading({
       </h2>
       {href && (
         <Button variant="ghost" size="lg" asChild>
-          <Link href={href}>
+          <Link href={href} aria-label={`${title} — ყველას ნახვა`}>
             ყველას ნახვა
             <ArrowRight size={18} aria-hidden="true" />
           </Link>
@@ -207,8 +208,12 @@ export async function HomePage() {
 
 export async function generateHomepageMetadata(): Promise<Metadata> {
   const page = await getHomepagePage()
+  const title = page?.meta?.title || 'VascHub — სისხლძარღვთა ქირურგიის პროფესიული პლატფორმა'
+  const description = page?.meta?.description || page?.homepage?.intro || homepageDefaults.intro
   return {
-    title: page?.meta?.title || 'VascHub — სისხლძარღვთა ქირურგიის პროფესიული პლატფორმა',
-    description: page?.meta?.description || page?.homepage?.intro || homepageDefaults.intro,
+    title,
+    description,
+    alternates: { canonical: '/' },
+    openGraph: mergeOpenGraph({ title, description, url: '/' }),
   }
 }

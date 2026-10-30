@@ -1,9 +1,9 @@
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import Link from 'next/link'
 import React from 'react'
-import { CMSLink } from '@/components/Link'
+import { navigationHref } from '@/components/site-ui/NavigationLink'
 import { Logo } from '@/components/Logo/Logo'
-import { AvailabilityButton } from '@/components/Modal'
+import { SiteAvailabilityButton as AvailabilityButton } from '@/components/site-ui/Dialog'
 export async function Footer() {
   const data = await getCachedGlobal('footer', 1)()
   return (
@@ -19,9 +19,29 @@ export async function Footer() {
         <div className="vh-footer-side">
           <nav aria-label="დამატებითი ინფორმაცია">
             {data.navItems?.length ? (
-              data.navItems.map(({ link }, i) => (
-                <CMSLink key={i} {...link} className="vh-footer-link" />
-              ))
+              data.navItems.map(({ link }, i) => {
+                const href = navigationHref(link)
+                return href ? (
+                  <Link
+                    key={i}
+                    href={href}
+                    className="vh-footer-link"
+                    {...(link.newTab ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <AvailabilityButton
+                    key={i}
+                    title={link.label}
+                    message="ეს ინფორმაცია ამ ეტაპზე ხელმისაწვდომი არ არის."
+                    className="vh-footer-link"
+                  >
+                    {link.label}
+                    <span className="vh-soon">მალე</span>
+                  </AvailabilityButton>
+                )
+              })
             ) : (
               <>
                 <Link href="/#about">ჩვენ შესახებ</Link>
