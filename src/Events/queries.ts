@@ -25,7 +25,13 @@ const postCanonical = (slug: string) => `/posts/${encodeURIComponent(slug)}`
  * `user`, so access rules apply exactly as for an anonymous visitor: an admin session or a
  * preview cookie can never surface a draft here. Nothing in this module reads `draftMode()`.
  */
-export async function loadEventItems(payload: Payload, now = new Date()): Promise<EventItem[]> {
+export async function loadEventItems(
+  payload: Payload,
+  now = new Date(),
+  // The homepage is always the page with slug `home`. Only integration tests pass another slug, so
+  // they never have to own (or collide with) the single shared `home` row of the test database.
+  { homeSlug = 'home' }: { homeSlug?: string } = {},
+): Promise<EventItem[]> {
   const slugs = eventTypes.map((t) => t.categorySlug)
 
   // Categories are resolved by slug, never by a hard-coded database id.
@@ -68,7 +74,7 @@ export async function loadEventItems(payload: Payload, now = new Date()): Promis
       depth: 0,
       limit: 1,
       pagination: false,
-      where: { and: [{ slug: { equals: 'home' } }, { _status: { equals: 'published' } }] },
+      where: { and: [{ slug: { equals: homeSlug } }, { _status: { equals: 'published' } }] },
       select: { homepage: { events: true } },
     }),
   ])

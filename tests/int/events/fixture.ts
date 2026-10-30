@@ -56,7 +56,15 @@ async function deleteCreated(payload: Payload, created: Created) {
  */
 export async function seedEventsFixture(
   payload: Payload,
-  options: { extraDevelopment?: number } = {},
+  options: {
+    extraDevelopment?: number
+    /**
+     * Slug of the seeded homepage. The browser tests keep the real `home` (the page they render
+     * needs it). Integration tests pass a private slug: other suites (e.g. site-cms/payload-readers)
+     * create `home` in the same database, and test files run in parallel, so sharing it collides.
+     */
+    homeSlug?: string
+  } = {},
 ) {
   assertTestDatabase()
   const created: Created = []
@@ -120,7 +128,7 @@ export async function seedEventsFixture(
       context: fixtureContext,
       data: {
         title: 'Events fixture home',
-        slug: 'home',
+        slug: options.homeSlug ?? 'home',
         hero: { type: 'none' },
         layout: [{ blockType: 'content', columns: [{ size: 'full' }] }],
         _status: 'published',

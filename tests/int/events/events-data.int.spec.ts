@@ -17,8 +17,12 @@ let payload: Payload
 let fixture: EventsFixture
 const slugOf = (post: { slug?: string | null }) => `/posts/${post.slug}`
 
+// Private slug: `site-cms/payload-readers` creates the real `home` page in the same database while
+// test files run in parallel, so these tests must never own (or read) the shared `home` row.
+const HOME_SLUG = `events-int-home-${Date.now()}`
+
 async function load() {
-  return loadEventItems(payload, NOW)
+  return loadEventItems(payload, NOW, { homeSlug: HOME_SLUG })
 }
 const titles = (items: Awaited<ReturnType<typeof load>>) => items.map((i) => i.title).sort()
 
@@ -26,7 +30,7 @@ describe('Events & Training data layer (isolated *_test database)', () => {
   beforeAll(async () => {
     assertTestDatabase()
     payload = await getPayload({ config, key: 'events-int' })
-    fixture = await seedEventsFixture(payload)
+    fixture = await seedEventsFixture(payload, { homeSlug: HOME_SLUG })
   })
   afterAll(async () => {
     if (fixture) await cleanupEventsFixture(payload, fixture)
