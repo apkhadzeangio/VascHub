@@ -1,0 +1,52 @@
+# VascHub — Production გაშვების მდგომარეობა
+
+PR [#8](https://github.com/apkhadzeangio/VascHub/pull/8) Ready for review მდგომარეობაში გადავიდა და გაერთიანდა `main`-ში. **ახალი ვერსია Production-ზე ჯერ არ გაშვებულა.**
+
+## კოდი და შემოწმებები
+
+- BASE_SHA: `01bf7cd20d9352fc2d665bcf46feb224cac140c7`.
+- შემოწმებული PR HEAD: `2a8cd81b23681bf5939d6579291ef3606c29a97d`.
+- Merge SHA: `8fc2607780899b3c3530cd6cd10232be23b2fc21`.
+- Merge-ის tree ზუსტად ემთხვევა PR HEAD-ს: `b5afc7dc82acd2cd708edf6003b8cb5b9cb290ca`.
+- ორივე საწყისი აგენტის საბოლოო კომიტი ისტორიაში შენარჩუნებულია; main-ის სხვა ცვლილება არ გადაწერილა.
+- საბოლოო PR HEAD-ზე [Push CI](https://github.com/apkhadzeangio/VascHub/actions/runs/41114155789) და [PR CI](https://github.com/apkhadzeangio/VascHub/actions/runs/41114162905) წარმატებულია: 83 integration და 40 browser ტესტი, typecheck, lint, build და Docker შემოწმებები.
+- Merge-ის შემდეგ ავტომატურად დაიწყო [main CI](https://github.com/apkhadzeangio/VascHub/actions/runs/41118849852). მის მიმდინარე მდგომარეობას ასახავს `status.json`.
+- ამ გაშვების სამუშაოში აპლიკაციის კოდი, სქემა და მიგრაციები არ შეცვლილა.
+
+## ზუსტი Railway სამიზნე
+
+| პარამეტრი | მნიშვნელობა |
+|---|---|
+| Project | VascHub — `35ccedcb-b9fe-4ed9-a84e-2c4d6c0d58d4` |
+| Environment | production — `d91e14ca-0a43-4668-8216-ae1435625da6` |
+| Service | VascHub-Web — `e413932a-45fd-4ad2-9e5b-8d9069d8e37d` |
+| დომენი | `vasc.lithos.ge` |
+| მიმდინარე LIVE | `56c6d8e8-e544-44e9-818d-5f73b90ec9aa` — SUCCESS |
+| მიმდინარე LIVE source | `01bf7cd20d9352fc2d665bcf46feb224cac140c7` |
+| დაბრუნების შესაძლებლობა | Railway ადასტურებს `canRollback: true` |
+
+Railway-ის ორივე ხელმისაწვდომი კავშირი იმავე ანგარიშსა და იმავე პროექტს ეკუთვნის. გამოყენებულია `Railway` სახელის მქონე კავშირი. საიდუმლო მნიშვნელობები არ წაკითხულა.
+
+## Deploy-ის შემაფერხებელი მიზეზი
+
+გარემოში უკვე არსებობდა 2026-10-29-ს მომზადებული patch `0c8ac45b-2af8-44d2-a209-b3a11afadcd5`. გადამოწმდა სრული patch: ერთადერთი ცვლილებაა არსებული Web სერვისის წყაროს `branch: main` მნიშვნელობის მითითება. რესურსის წაშლა, ბაზის/volume-ის ცვლილება, ცვლადები, დომენი ან ქსელის ცვლილება არ შედის.
+
+Merge-ის შემდეგ ახალი ავტომატური deployment არ გამოჩენილა. არსებული სერვისის გასაშვებად `accept-deploy` მოთხოვნა გაიგზავნა, მაგრამ დამტკიცების მექანიზმმა დააბრუნა: **“Cancelled — the user did not approve this action. No changes were made.”** (`INVALID_ARGUMENT`). ოპერაცია სხვა ხელსაწყოთი არ გამეორებულა. Patch კვლავ staged მდგომარეობაშია; წინა LIVE deployment უცვლელია. ხელახლა გასაშვებად საჭიროა ამ კონკრეტული მოქმედების დამტკიცება.
+
+## საჯარო შემოწმებები
+
+ადრინდელი 403/1010 დაბრკოლება ამ სესიაში აღარ განმეორდა. `connectivity-baseline.json` ადასტურებს HTTP 200-ს ორივე მოქმედ დომენზე: `/`, `/posts`, `/search`, `/library`, `/admin/login`. ბრაუზერში მთავარი გვერდი ჩაიტვირთა, `CREST` ძიებამ 0 გამოქვეყნებული შედეგი აჩვენა. ეს არის **წინა LIVE ვერსიის მდგომარეობა**, არა ახალი release-ის მიღების ტესტი.
+
+დამატებითი guest API და ექვსი Draft URL-ის შედეგები ინახება `public-baseline.json`-ში: საჯარო Posts API აბრუნებს 0 ჩანაწერს, guest `users/me` — `user: null`, ექვსივე Draft URL — 404. Production-ში სატესტო ჩანაწერი არ შექმნილა. ამ ანგარიშით Draft-ების შიდა სტატუსების დამოუკიდებელ ავთენტიფიცირებულ შემოწმებას არ ვაცხადებთ.
+
+ცალკე `/next/preview` guest GET დაბრუნდა 403-ით და `error code: 1010` ტექსტით (`guest-preview.json`). ამ პასუხით აპლიკაციის Preview ავტორიზაციის წარმატებულ live ტესტს არ ვაცხადებთ; იგი edge/access დაბრკოლებად რჩება. შემოწმებული PR-ის CI-ში Preview-ის უარყოფა/enable/exit რეალურ Next სერვერზე წარმატებით დადასტურდა.
+
+## გაგრძელება დამტკიცების შემდეგ
+
+1. ხელახლა წაიკითხეთ main/PR HEAD, Railway LIVE ისტორია და სრული staged patch. თუ სხვა ცვლილება დაემატა, ბრმად არ გამოიყენოთ `accept-deploy`.
+2. მხოლოდ ზემოთ აღწერილი patch-ის არსებობისას გაუშვით არსებული VascHub-Web სერვისი. არ შექმნათ სხვა სერვისი და არ დაარედეპლოიოთ ძველი build ახალი კოდის ნაცვლად.
+3. დაელოდეთ საბოლოო `SUCCESS`-ს და გადაამოწმეთ deployment-ის `commitHash = 8fc2607780899b3c3530cd6cd10232be23b2fc21`.
+4. შეამოწმეთ runtime/build ლოგები, საჯარო გვერდები, ძიება, desktop/mobile მენიუ, Draft privacy და არსებული ავტორიზებული Preview; არ შეცვალოთ რეალური კონტენტი.
+5. მხოლოდ ახალი რეგრესიის შემთხვევაში დააბრუნეთ ზემოთ დაფიქსირებული წინა LIVE build. მონაცემთა ბაზის rollback არ არის საჭირო — release მიგრაციებს არ ამატებს.
+
+SMTP/email adapter კვლავ არ არის კონფიგურირებული; reset წერილის რეალურ გაგზავნას მოქმედად არ ვაცხადებთ. Clinical Library-ის კოდი/მონაცემები, ექვსი მონახაზი, სხვა აგენტების ბრენჩები, Railway ცვლადები, დომენი და ინფრასტრუქტურა არ შეცვლილა.

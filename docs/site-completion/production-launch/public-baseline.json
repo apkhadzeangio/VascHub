@@ -1,0 +1,43 @@
+{
+  "checked_at_utc": "2026-10-30T19:55:22.715281+00:00",
+  "phase": "current production baseline; release deployment not yet approved",
+  "mutating_requests": 0,
+  "rows": [
+    {
+      "path": "/api/posts?depth=0&limit=1",
+      "status": 200,
+      "total_docs": 0,
+      "returned_docs": 0,
+      "returned_statuses": []
+    },
+    {
+      "path": "/api/users/me",
+      "status": 200,
+      "anonymous": true
+    },
+    {
+      "path": "/posts/esvs-vgei-guidelines-2026",
+      "status": 404
+    },
+    {
+      "path": "/posts/crest-2-asymptomatic-carotid-stenosis",
+      "status": 404
+    },
+    {
+      "path": "/posts/basil-3-endovascular-strategies-clti",
+      "status": 404
+    },
+    {
+      "path": "/posts/linc-2027-leipzig",
+      "status": 404
+    },
+    {
+      "path": "/posts/esvs-clti-masterclass-november-2026",
+      "status": 404
+    },
+    {
+      "path": "/posts/esvs-educational-travel-grant-2026",
+      "status": 404
+    }
+  ]
+}

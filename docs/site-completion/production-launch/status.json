@@ -1,0 +1,54 @@
+{
+  "recorded_at_utc": "2026-10-30T19:58:11.665Z",
+  "integration_pr": 8,
+  "merge_sha": "8fc2607780899b3c3530cd6cd10232be23b2fc21",
+  "merge_tree": "b5afc7dc82acd2cd708edf6003b8cb5b9cb290ca",
+  "matches_tested_head_tree": true,
+  "release_deployed": false,
+  "deployment_attempt": {
+    "tool": "railway_accept_deploy",
+    "result": "cancelled",
+    "message": "Cancelled — the user did not approve this action. No changes were made.",
+    "error_code": "INVALID_ARGUMENT"
+  },
+  "current_live_deployment": "56c6d8e8-e544-44e9-818d-5f73b90ec9aa",
+  "current_live_sha": "01bf7cd20d9352fc2d665bcf46feb224cac140c7",
+  "rollback_performed": false,
+  "environment_variables_changed": false,
+  "domain_changed": false,
+  "database_or_cms_writes": 0,
+  "parallel_branches_changed": false,
+  "email_delivery": "not configured",
+  "post_merge_ci": {
+    "run_id": 41118849852,
+    "status": "in_progress",
+    "conclusion": null,
+    "url": "https://github.com/apkhadzeangio/VascHub/actions/runs/41118849852"
+  },
+  "visual_baseline": {
+    "url": "https://vasc.lithos.ge/search?q=CREST",
+    "observed": "Homepage loads; CREST search returns 0 published results; no authenticated actions performed."
+  },
+  "remaining_steps": [
+    "Approve the exact reviewed existing branch-selection patch and deployment of VascHub-Web production",
+    "Observe terminal deployment SUCCESS and matching merge source SHA",
+    "Run release-specific public/browser/authenticated preview acceptance without content changes"
+  ],
+  "public_baseline": {
+    "pages_http200": [
+      "/",
+      "/posts",
+      "/search",
+      "/library",
+      "/admin/login"
+    ],
+    "public_posts_count": 0,
+    "guest_user": null,
+    "six_draft_urls_status": 404,
+    "guest_preview": {
+      "status": 403,
+      "body": "error code: 1010",
+      "application_authorization_verified": false
+    }
+  }
+}

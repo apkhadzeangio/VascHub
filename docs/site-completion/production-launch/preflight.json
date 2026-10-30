@@ -1,0 +1,57 @@
+{
+  "recorded_at_utc": "2026-10-30T19:52:49.203Z",
+  "scope": "Existing VascHub-Web production release of PR #8 only",
+  "base_sha": "01bf7cd20d9352fc2d665bcf46feb224cac140c7",
+  "approved_pr_head": "2a8cd81b23681bf5939d6579291ef3606c29a97d",
+  "pr_url": "https://github.com/apkhadzeangio/VascHub/pull/8",
+  "source_a": "715f18786b535d40a2563c4250c8226d394dde91",
+  "source_b": "1f314eddbd9e331c118409f2a1bf3081e4beffd3",
+  "checks": [
+    {
+      "id": 41114155789,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 41114162905,
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "tests": {
+    "integration": 83,
+    "browser": 40
+  },
+  "target": {
+    "project_id": "35ccedcb-b9fe-4ed9-a84e-2c4d6c0d58d4",
+    "environment_id": "d91e14ca-0a43-4668-8216-ae1435625da6",
+    "service_id": "e413932a-45fd-4ad2-9e5b-8d9069d8e37d",
+    "service_name": "VascHub-Web",
+    "environment": "production",
+    "domain": "vasc.lithos.ge"
+  },
+  "previous_live": {
+    "deployment_id": "56c6d8e8-e544-44e9-818d-5f73b90ec9aa",
+    "source_sha": "01bf7cd20d9352fc2d665bcf46feb224cac140c7",
+    "status": "SUCCESS",
+    "can_rollback": true
+  },
+  "pending_patch": {
+    "id": "0c8ac45b-2af8-44d2-a209-b3a11afadcd5",
+    "changes": [
+      {
+        "path": "services.e413932a-45fd-4ad2-9e5b-8d9069d8e37d.source.branch",
+        "displayName": "Branch",
+        "type": "added",
+        "from": "",
+        "to": "main",
+        "destructive": false
+      }
+    ],
+    "destructive": false
+  },
+  "schema_changes": false,
+  "migration_file_changes": false,
+  "production_cms_writes": 0,
+  "secret_values_read": false
+}
