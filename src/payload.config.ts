@@ -12,6 +12,8 @@ import { Users } from './collections/Users'
 import { LibraryResources } from './collections/LibraryResources'
 import { LibraryTopics, LibraryDocumentTypes, LibraryOrganizations } from './collections/LibraryTaxonomies'
 import { LibraryFiles } from './collections/LibraryFiles'
+import { Centres } from './collections/Directory/Centres'
+import { Specialists } from './collections/Directory/Specialists'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { plugins } from './plugins'
@@ -65,7 +67,7 @@ export default buildConfig({
     push: false,
     migrationDir: path.resolve(dirname, 'migrations'),
   }),
-  collections: [Pages, Posts, Media, Categories, Users, LibraryTopics, LibraryDocumentTypes, LibraryOrganizations, LibraryFiles, LibraryResources],
+  collections: [Pages, Posts, Media, Categories, Users, LibraryTopics, LibraryDocumentTypes, LibraryOrganizations, LibraryFiles, LibraryResources, Centres, Specialists],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins,
