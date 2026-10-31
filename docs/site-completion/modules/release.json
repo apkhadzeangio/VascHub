@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-10-31T04:48:51.849Z",
+  "recorded_at_utc": "2026-10-31T05:06:48.334Z",
   "pr": 11,
   "base_sha": "8fc2607780899b3c3530cd6cd10232be23b2fc21",
   "tested_head": "026f6f7dcd195c7a3db96d36dd8279725a5c1835",
@@ -24,17 +24,76 @@
     "docker_library_persistence": "passed"
   },
   "deployment": {
-    "id": "3adb42cc-d8b2-4271-add1-6edb1a6ee8e3",
+    "id": "4a9039af-5544-4620-acf2-d1441f2b2a9d",
     "status": "QUEUED",
     "source_sha": "6592343b473345882c6d58cb446cc0807959e1dc",
-    "terminal_success_observed": false
+    "terminal_success_observed": false,
+    "initialization_started": false,
+    "build_logs_available": false
   },
   "previous_live": {
     "id": "b3ccc7e4-bc2e-4074-b82f-f10376795b0e",
     "source_sha": "8fc2607780899b3c3530cd6cd10232be23b2fc21"
   },
-  "public_acceptance": "pending successful deployment",
+  "public_acceptance": "not performed on new release: new deployment has not initialized",
   "production_content_writes": 0,
   "production_test_data_created": false,
-  "email_delivery_configured": false
+  "email_delivery_configured": false,
+  "deployment_history": [
+    {
+      "id": "3adb42cc-d8b2-4271-add1-6edb1a6ee8e3",
+      "status": "REMOVED",
+      "reason": "Cancelled only the stuck queued request after inspecting its unstarted stages; previous LIVE remained online"
+    },
+    {
+      "id": "4a9039af-5544-4620-acf2-d1441f2b2a9d",
+      "status": "QUEUED",
+      "reason": "One bounded retry from the same main branch on the same service"
+    }
+  ],
+  "current_live": {
+    "id": "b3ccc7e4-bc2e-4074-b82f-f10376795b0e",
+    "source_sha": "8fc2607780899b3c3530cd6cd10232be23b2fc21"
+  },
+  "release_deployed": false,
+  "blocker": {
+    "observed_ui": "Source settings: Could not load branches; one Retry did not resolve it",
+    "deployment_ui": "Queued; Initialization/Build/Deploy/Post-deploy all Not started",
+    "approval_button_present": false,
+    "browser_authenticated": true,
+    "root_cause": "Railway source/deployment initialization is blocked; exact server-side cause not exposed",
+    "additional_permissions_or_paid_resources_created": false,
+    "public_readonly_probes": "HTTP 403 from this executor; not evidence of application outage"
+  },
+  "public_probe_current_actor": {
+    "checked_at_utc": "2026-10-31T05:06:00.830171+00:00",
+    "release_acceptance_completed": false,
+    "phase": "Railway deployment remains queued; previous live version",
+    "rows": [
+      {
+        "path": "/",
+        "status": 403
+      },
+      {
+        "path": "/posts",
+        "status": 403
+      },
+      {
+        "path": "/library",
+        "status": 403
+      },
+      {
+        "path": "/events",
+        "status": 403
+      },
+      {
+        "path": "/specialists",
+        "status": 403
+      },
+      {
+        "path": "/centres",
+        "status": 403
+      }
+    ]
+  }
 }

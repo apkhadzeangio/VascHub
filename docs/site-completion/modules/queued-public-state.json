@@ -1,0 +1,31 @@
+{
+  "checked_at_utc": "2026-10-31T05:06:00.830171+00:00",
+  "release_acceptance_completed": false,
+  "phase": "Railway deployment remains queued; previous live version",
+  "rows": [
+    {
+      "path": "/",
+      "status": 403
+    },
+    {
+      "path": "/posts",
+      "status": 403
+    },
+    {
+      "path": "/library",
+      "status": 403
+    },
+    {
+      "path": "/events",
+      "status": 403
+    },
+    {
+      "path": "/specialists",
+      "status": 403
+    },
+    {
+      "path": "/centres",
+      "status": 403
+    }
+  ]
+}
