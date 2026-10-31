@@ -1,0 +1,130 @@
+{
+  "base_sha": "01bf7cd20d9352fc2d665bcf46feb224cac140c7",
+  "branch": "feat/specialists-centres-v1",
+  "observed_main_sha": "8fc2607780899b3c3530cd6cd10232be23b2fc21",
+  "database": {
+    "name": "vaschub_directory_test",
+    "host": "127.0.0.1",
+    "port": 5545,
+    "engine": "native PostgreSQL 16.15"
+  },
+  "app_port": 3105,
+  "typecheck": "passed",
+  "lint": "passed",
+  "production_build": "passed",
+  "targeted_tests": {
+    "integration_and_states": {
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0
+    },
+    "production_chromium": {
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "compatibility_check": {
+    "shared_vitest_directory_db_tests": "12 explicitly skipped without DIRECTORY_TESTS=1; not counted as passed"
+  },
+  "migration": {
+    "existing_tables_preserved": 78,
+    "checks": [
+      "existing columns unchanged except two allowed lock relationship columns",
+      "row counts and content digests unchanged except migration ledger",
+      "pre-existing Category and Media preserved",
+      "isolated rollback",
+      "reapply",
+      "migration-ledger idempotency"
+    ]
+  },
+  "screenshots": [
+    {
+      "file": "centre-1440.png",
+      "width": 1440,
+      "height": 3493,
+      "sha256": "5efa8f0f31f1dda78d597f8df0250ade5e44bbee6522a64405ae62a2cc8843d6"
+    },
+    {
+      "file": "centre-390.png",
+      "width": 390,
+      "height": 7171,
+      "sha256": "cb99182276532dcbc3d7df51b30f348d2a3c6b24664046f38ad3ebe0d0fda43c"
+    },
+    {
+      "file": "centre-768.png",
+      "width": 768,
+      "height": 4514,
+      "sha256": "16bfc322a0a4c9374f7dae49242430e571e516b883e87fd266f5f9ce4e0cdf7e"
+    },
+    {
+      "file": "centres-1440.png",
+      "width": 1440,
+      "height": 1532,
+      "sha256": "ed90f3f05751706772b47cebfe281da0b6c9bb1e7d21648d6b6facc0e2fe3519"
+    },
+    {
+      "file": "centres-390.png",
+      "width": 390,
+      "height": 2089,
+      "sha256": "4a4b6b0be5274ed1c1df54b33f1c6214069b8fc50b3bf00e229640d5a53069e7"
+    },
+    {
+      "file": "centres-768.png",
+      "width": 768,
+      "height": 1564,
+      "sha256": "66d20c90b4aeaff9a8e637628f38617dfb6fc231c57f518d84431037409f35b3"
+    },
+    {
+      "file": "centres-empty-390.png",
+      "width": 390,
+      "height": 1417,
+      "sha256": "3be368f8be12c7e582e010a4752d3cf4b07a605c7d9112c4b2aac5fd159a95ac"
+    },
+    {
+      "file": "specialist-1440.png",
+      "width": 1440,
+      "height": 1304,
+      "sha256": "55ca8c6ab175ddb7381c6e884a616f5559a1785121ae4311ff26fb515783b74d"
+    },
+    {
+      "file": "specialist-390.png",
+      "width": 390,
+      "height": 1856,
+      "sha256": "7bc1807f7e562f96cba8e602d2b338341d76fe2fbe21c814589bd8b70b9dac07"
+    },
+    {
+      "file": "specialist-768.png",
+      "width": 768,
+      "height": 1405,
+      "sha256": "24ef112a9bfc016e044ff1309c004a853aa270883ad35ff1c4ecc2a58fce2059"
+    },
+    {
+      "file": "specialists-1440.png",
+      "width": 1440,
+      "height": 3075,
+      "sha256": "ba7dda75eff6f590e965c6590d75845574f644d8a03c750a9aa3cb9bfb54ef8e"
+    },
+    {
+      "file": "specialists-390.png",
+      "width": 390,
+      "height": 7090,
+      "sha256": "c022dd122e48ba0e4466f27ae141ab837280a9391c50f622c02030513e29289e"
+    },
+    {
+      "file": "specialists-768.png",
+      "width": 768,
+      "height": 4160,
+      "sha256": "5e1bdd889fb710abfdd694147af5696f9734e03bd8591df6016477829b441377"
+    },
+    {
+      "file": "specialists-empty-390.png",
+      "width": 390,
+      "height": 1628,
+      "sha256": "3ecbf8b62a391473fc0d1f298951b36fab4607d4a7d189e9ae49c0d2c40d0abf"
+    }
+  ],
+  "production_mutations": false,
+  "merged": false,
+  "deployed": false
+}

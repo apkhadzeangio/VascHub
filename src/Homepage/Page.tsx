@@ -151,7 +151,13 @@ export async function HomePage() {
         </section>
         <div className="vh-updates">
           <section id="events" aria-labelledby="events-heading">
-            <h2 id="events-heading">უახლოესი ღონისძიებები</h2>
+            <div className="vh-section-heading">
+              <h2 id="events-heading">უახლოესი ღონისძიებები</h2>
+              <Link href="/events">
+                ყველა ღონისძიება
+                <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+            </div>
             {events.length ? (
               <div className="vh-event-list">
                 {events.map((event, index) => {

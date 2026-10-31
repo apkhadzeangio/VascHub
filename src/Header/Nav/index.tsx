@@ -8,8 +8,8 @@ import { navigationHref } from '@/components/site-ui/NavigationLink'
 const defaults = [
   { label: 'კლინიკური ბიბლიოთეკა', href: '/library' },
   { label: 'აკადემია', href: '/#academy' },
-  { label: 'ღონისძიებები', href: '/#events' },
-  { label: 'პროფესიული ქსელი', href: undefined },
+  { label: 'ღონისძიებები', href: '/events' },
+  { label: 'პროფესიული ქსელი', href: '/specialists' },
   { label: 'სტატიები და სიახლეები', href: '/posts' },
   { label: 'ჩვენ შესახებ / წევრობა', href: '/#about' },
 ]
@@ -17,11 +17,22 @@ export function navigationItems(data: Header) {
   if (!data.navItems?.length) return defaults
   const items = data.navItems.map(({ link }) => {
     const href = navigationHref(link)
-    return { label: link.label, href, newTab: link.newTab }
+    return {
+      label: link.label,
+      href:
+        link.label === 'ღონისძიებები' && href === '/#events'
+          ? '/events'
+          : link.label === 'პროფესიული ქსელი' && !href
+            ? '/specialists'
+            : href,
+      newTab: link.newTab,
+    }
   })
-  return items.some((item) => item.href === '/library')
-    ? items
-    : [{ label: 'კლინიკური ბიბლიოთეკა', href: '/library' }, ...items]
+  for (const entry of [defaults[0], defaults[2], defaults[3]]) {
+    if (!items.some((item) => item.href === entry.href || item.label === entry.label))
+      items.push({ ...entry, newTab: false })
+  }
+  return items
 }
 export function HeaderNav({
   data,

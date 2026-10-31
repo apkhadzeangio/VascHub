@@ -77,6 +77,8 @@ export interface Config {
     'library-organizations': LibraryOrganization;
     'library-files': LibraryFile;
     'library-resources': LibraryResource;
+    centres: Centre;
+    specialists: Specialist;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -104,6 +106,8 @@ export interface Config {
     'library-organizations': LibraryOrganizationsSelect<false> | LibraryOrganizationsSelect<true>;
     'library-files': LibraryFilesSelect<false> | LibraryFilesSelect<true>;
     'library-resources': LibraryResourcesSelect<false> | LibraryResourcesSelect<true>;
+    centres: CentresSelect<false> | CentresSelect<true>;
+    specialists: SpecialistsSelect<false> | SpecialistsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -956,6 +960,63 @@ export interface LibraryResource {
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * მხოლოდ საჯარო პროფესიული ინფორმაცია. გამოქვეყნება ცენტრის აკრედიტაციას არ ადასტურებს.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "centres".
+ */
+export interface Centre {
+  id: number;
+  name: string;
+  /**
+   * ცარიელი Slug შექმნისას ავტომატურად შეივსება. გამოქვეყნების შემდეგ შეცვლა შეცვლის პროფილის ბმულს.
+   */
+  slug: string;
+  city: string;
+  summary: string;
+  address?: string | null;
+  directions?: string[] | null;
+  website?: string | null;
+  email?: string | null;
+  phone?: string | null;
+  image?: (number | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * შეავსეთ მხოლოდ დადასტურებული საჯარო პროფესიული ინფორმაცია. ეს პროფილი Users-ის ანგარიშს არ ქმნის.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "specialists".
+ */
+export interface Specialist {
+  id: number;
+  name: string;
+  /**
+   * ცარიელი Slug შექმნისას ავტომატურად შეივსება. გამოქვეყნების შემდეგ შეცვლა შეცვლის პროფილის ბმულს.
+   */
+  slug: string;
+  city: string;
+  summary: string;
+  specializations: string[];
+  centres?: (number | Centre)[] | null;
+  photo?: (number | null) | Media;
+  website?: string | null;
+  email?: string | null;
+  phone?: string | null;
+  professionalLinks?:
+    | {
+        label: string;
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
@@ -1184,6 +1245,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'library-resources';
         value: number | LibraryResource;
+      } | null)
+    | ({
+        relationTo: 'centres';
+        value: number | Centre;
+      } | null)
+    | ({
+        relationTo: 'specialists';
+        value: number | Specialist;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -1685,6 +1754,51 @@ export interface LibraryResourcesSelect<T extends boolean = true> {
       };
   generateSlug?: T;
   slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "centres_select".
+ */
+export interface CentresSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  city?: T;
+  summary?: T;
+  address?: T;
+  directions?: T;
+  website?: T;
+  email?: T;
+  phone?: T;
+  image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "specialists_select".
+ */
+export interface SpecialistsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  city?: T;
+  summary?: T;
+  specializations?: T;
+  centres?: T;
+  photo?: T;
+  website?: T;
+  email?: T;
+  phone?: T;
+  professionalLinks?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
