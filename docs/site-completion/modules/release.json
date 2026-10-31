@@ -1,0 +1,40 @@
+{
+  "recorded_at_utc": "2026-10-31T04:48:51.849Z",
+  "pr": 11,
+  "base_sha": "8fc2607780899b3c3530cd6cd10232be23b2fc21",
+  "tested_head": "026f6f7dcd195c7a3db96d36dd8279725a5c1835",
+  "merge_sha": "6592343b473345882c6d58cb446cc0807959e1dc",
+  "tree": "7a469e1e94e235ad575bd30fd69c7b1663f4acf0",
+  "sources": {
+    "events": "ff73d9245f7bae452472c31806c7b428db7e5c58",
+    "directory": "542a934eb4d5a1d6c7c83c997477600bcbc38501"
+  },
+  "ci": {
+    "pr_run": 41169236554,
+    "push_run": 41169234359,
+    "main_run": 41169683651,
+    "conclusion": "success",
+    "shared_integration_passed": 121,
+    "shared_directory_db_tests_skipped": 12,
+    "dedicated_directory_integration_passed": 14,
+    "shared_browser_passed": 57,
+    "dedicated_directory_browser_passed": 15,
+    "migration_existing_tables_preserved": 78,
+    "migration_rollback_reapply": "passed",
+    "docker_library_persistence": "passed"
+  },
+  "deployment": {
+    "id": "3adb42cc-d8b2-4271-add1-6edb1a6ee8e3",
+    "status": "QUEUED",
+    "source_sha": "6592343b473345882c6d58cb446cc0807959e1dc",
+    "terminal_success_observed": false
+  },
+  "previous_live": {
+    "id": "b3ccc7e4-bc2e-4074-b82f-f10376795b0e",
+    "source_sha": "8fc2607780899b3c3530cd6cd10232be23b2fc21"
+  },
+  "public_acceptance": "pending successful deployment",
+  "production_content_writes": 0,
+  "production_test_data_created": false,
+  "email_delivery_configured": false
+}
